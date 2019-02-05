@@ -52,3 +52,87 @@ body {
     font-size: 5em;
     font-weight: bold;
 }
+
+/* Mapa Section*/
+
+#mapa{
+
+}
+
+#imgMapa{
+	position: absolute;
+	margin-left: 60vw;
+	margin-top: 10vh;
+
+}
+
+#imgPeca1{
+	position: absolute;
+	margin-top: 20vh;
+	margin-left: 20vw;
+
+}
+
+#imgPeca2{
+	position: absolute;
+	margin-top: 40vh;
+	margin-left: 40vw;
+
+}
+
+#imgPeca3{
+	position: absolute;
+	margin-top: 33vh;
+	margin-left: 30vw;
+
+}
+
+
+
+#imgPeca1x{
+	position: absolute;
+	margin-left: 70.25vw;
+	margin-top: 55.42vh;
+	visibility:hidden ;
+
+}
+
+#imgPeca2x{
+	position: absolute;
+	margin-left: 61.27vw;
+	margin-top: 26.55vh;
+	visibility:hidden ;	
+}
+
+#imgPeca3x{
+	position: absolute;
+	margin-left: 60vw;
+	margin-top: 10.1vh;
+	visibility:hidden;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
