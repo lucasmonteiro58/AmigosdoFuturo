@@ -13,15 +13,16 @@ $(document).ready(function() {
     $("#imgPeca1x").droppable({
     	accept: "#imgPeca1",
         drop: function( event, ui ) {
-          //alert('aaaaaa');
+          alert('aaaaaa');
           $( "#imgPeca1x" ).draggable( "disable" );
           }
-      })
+      })  
+    
 
      $("#imgPeca2x").droppable({
     	accept: "#imgPeca2",
         drop: function( event, ui ) {
-          //alert('aaaaaa');
+          alert('aaaaaa');
           $( "#imgPeca2x" ).draggable( "disable" );
           }
       })
@@ -29,7 +30,7 @@ $(document).ready(function() {
       $("#imgPeca3x").droppable({
     	accept: "#imgPeca3",
         drop: function( event, ui ) {
-          //alert('aaaaaa');
+          alert('aaaaaa');
           $( "#imgPeca3x" ).draggable( "disable" );
           }
       })
