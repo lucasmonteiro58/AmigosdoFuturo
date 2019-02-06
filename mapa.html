@@ -6,6 +6,10 @@
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap-grid.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap-reboot.min.css">
+	<script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	
 	<!-- Jquery UI CSS -->
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.structure.min.css">
@@ -16,11 +20,14 @@
 </head>
 <body>
 
+
 	<section id="mapa">
 		<img id="imgMapa" src="img/mapa.png">
-		<img id="imgPeca1" src="img/peca1.png">
-		<img id="imgPeca2" src="img/peca2.png">
-		<img id="imgPeca3" src="img/peca3.png">
+		<img id="imgPeca1" data-toggle="popover" data-trigger="hover" data-placement="right" title="Região tal" data-content="Informacao sobre a regiao tal"  src="img/peca1.png">
+		<img id="imgPeca2" data-toggle="popover" data-trigger="hover" data-placement="right" title="Região tal" data-content="Informacao sobre a regiao tal" src="img/peca2.png">
+		<img id="imgPeca3" data-toggle="popover" data-trigger="hover" data-placement="right" title="Região tal" data-content="Informacao sobre a regiao tal" src="img/peca3.png">
+		
+		
 
 		<img id="imgPeca1x" src="img/peca1.png">
 		<img id="imgPeca2x" src="img/peca2.png">
@@ -30,7 +37,11 @@
 	</section>
 
 </body>
-<script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
+
+
+
+
+
 <script src="vendor/jquery_ui/jquery-ui.min.js"type="text/javascript"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </html>
