@@ -1,5 +1,27 @@
 $(document).ready(function() {
 
+// Modal fulscreen -----------------------
+$('#myModal').modal('show')
+
+$("#openFullscreen").click(function () {
+  openFullscreen()
+  $('#myModal').modal('hide')
+})
+
+function openFullscreen() {
+  var elem = document.documentElement;
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.mozRequestFullScreen) {
+    elem.mozRequestFullScreen();
+  } else if (elem.webkitRequestFullscreen) { 
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) {
+    elem.msRequestFullscreen();
+  }
+}
+
+// Mapa ----------------------------
 $(function () {
   $('[data-toggle="popover"]').popover()
 })

@@ -1,0 +1,64 @@
+#form {
+	background-color: blue;
+   position: relative;
+   width: 100%;
+   padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+.robot-comment {
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 40%;
+	background-color: #fff;
+	text-align: center;
+}
+.robot-comment .content {
+	width: 70%;
+}
+.robot-comment .content p {
+	font-size: 1.5vw;
+	text-align: left;
+}
+.robot-comment .content #text {
+	padding: 5%;
+	background-color: #ddd;
+	color: #555;
+}
+.robot-comment .content img {
+	width: 100%;
+}
+
+.robot-comment .content li {
+	margin-bottom: 10%;
+}
+
+.form-question {
+	position: absolute;
+	right: 0;
+	top: 0;
+	height: 100%;
+	width: 60%;
+	text-align: center;
+	color: #fff
+}
+
+.form-question .content {
+	width: 90%;
+}
+.form-question .content h4 {
+	font-size: 3vw;
+	font-weight: 600;
+}
+.form-question .content li {
+	margin-bottom: 5%;
+}
+.form-question .content form input {
+	font-size: 2vw;
+    height: 5vw;
+    text-align: center;
+}
+.form-question .progress-div {
+	width: 90%;
+    bottom: 0;
+}

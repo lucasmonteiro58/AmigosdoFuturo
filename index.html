@@ -4,34 +4,46 @@
 	<title>Amigos do Futuro</title>
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap-grid.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap-reboot.min.css">
 	<!-- Jquery UI CSS -->
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.theme.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.theme.min.css"> 
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 
 </head>
 <body>
+	<section id="menu"> 
+	  <div class="ceara2050-btn"><button class="action">Ceará 2050</button></div>
+	  <div class="sound-btn"><button class="action">Som</button></div>
+	  <ul class="centered menu-content">
+		<li><img src="img/placeholder.png" class="menu-img" alt="Amigos do futuro logo" title="Amigos do Futuro"></li>
 
-	<section id="menu">
-		<div class="ceara2050-btn"><button class="btn btn-warning">Ceará 2050</button></div>
-		
-		<div class="sound-btn"><button class="btn btn-warning">Ligar/Desligar som</button></div>
-		
-		<ul class="menu-center">
-			<li><img src="img/placeholder.png" class="menu-img" alt="Amigos do futuro logo" title="Amigos do Futuro"></li>
+		<li><button class="play-btn action">Play</button></li>
 
-			<li><button class="play-btn btn btn-warning btn-lg">Play</button></li>
-
-			<li><div id="counter">97876</div></li>
+		<li><div id="counter">97876</div></li>
 		</ul>
 	</section>
 
+	<!-- Fullscreen Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Iniciar modo tela cheia?</h4>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+	        <button id="openFullscreen" type="button" class="btn btn-primary">sim</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 </body>
 <script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
-<script src="vendor/jquery_ui/jquery-ui.min.js"type="text/javascript"></script>
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/jquery_ui/jquery-ui.min.js"type="text/javascript"></script>
 <script type="text/javascript" src="js/main.js"></script>
 </html>
+
