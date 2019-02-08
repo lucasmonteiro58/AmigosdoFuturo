@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Test</title>
+  <style type="text/css">
+    body {
+  background-color: #1abc9c;
+  font-family: 'Roboto', sans-serif;
+}
+
+.center-div {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 350px;
+  height: 250px;
+  border-radius: 3px;
+}
+
+.container {
+  width: 300px;
+}
+
+.line {
+  width: 100%;
+  border-bottom: 5px dotted #ddd;
+  position: relative;
+  overflow: visible;
+  margin-bottom: 55px;
+}
+
+.line .circle-step {
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  background: #ddd;
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(.5);
+}
+
+.line .circle-step.first-dot {
+  background: #E8E8E8;
+}
+
+.container.initial-active-area .circle-step.first-dot {
+  background: #E8E8E8;
+  border: 10px solid #16a085;
+}
+
+.line .circle-step.second-dot {
+  left: 50%;
+  background: #E8E8E8;
+}
+
+.line .circle-step.third-dot {
+  left: 100%;
+  background: #E8E8E8;
+}
+
+.steps-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.question-submission {
+  width: 970px;
+  transition: .3s all ease;
+}
+
+.submission {
+  float: left;
+  width: 300px;
+  text-align: center;
+}
+
+.submission [type="text"] {
+  width: 62%;
+  margin-right: 14%;
+  margin-left: 14%;
+  padding: 15px 20px;
+  background: #e8e8e8;
+  border: 1px solid transparent;
+  color: #777;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  font-size: 1em;
+  position: relative;
+}
+
+.submission [type="text"]:focus {
+  background: #fcfcfc;
+  border: 1px solid #ddd;
+}
+
+.submission button {
+  display: inline-block;
+  text-decoration: none;
+  background: #16a085;
+  border: none;
+  color: white;
+  padding: 10px 25px;
+  font-size: 1em;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 300;
+  position: relative;
+}
+
+.submission button:hover {
+  background-color: #0E8267;
+}
+
+.third-step h5 {
+  color: #fff;
+  font-size: 1.3em;
+  margin-top: 0px;
+}
+
+.container.second-dot .line .circle-step-move {
+  left: 50%;
+}
+
+.container.second-dot .line .circle-step.second-dot {
+  background: #E8E8E8;
+  border: 10px solid #16a085;
+}
+
+.container.second-dot .question-submission {
+  transform: translate(-300px);
+}
+
+.container.third-dot .line .circle-step-move {
+  left: 100%;
+}
+
+.container.third-dot .line .circle-step.third-dot {
+  background: #E8E8E8;
+  border: 10px solid #16a085;
+}
+
+.container.third-dot .question-submission {
+  transform: translate(-600px);
+}
+
+#q-emoji-1 {
+  width: 80px;
+  height: 80px;
+  padding: 20px;
+}
+
+#q-emoji-2 {
+  width: 80px;
+  height: 80px;
+  padding: 18px;
+}
+
+#q-emoji-3 {
+  width: 70px;
+  height: 70px;
+  padding: 25px;
+}
+.attribution {
+  color:#fff;
+}
+.attribution a{
+  color:#fff;
+}
+  </style>
+</head>
+<body>
+ 
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
+<div class="center-div">
+  <div id="questionsdiv">
+    <div class="container initial-active-area">
+      <div class="line">
+        <div class="circle-step first-dot"> <img alt="" id="q-emoji-1" src="http://emojione.com/wp-content/uploads/assets/emojis/1f4ac.svg" /></div>
+        <div class="circle-step second-dot"> <img alt="" id="q-emoji-2" src="http://emojione.com/wp-content/uploads/assets/emojis/1f516.svg" /></div>
+        <div class="circle-step third-dot"> <img alt="" id="q-emoji-3" src="http://emojione.com/wp-content/uploads/assets/emojis/2611.svg" /></div>
+      </div>
+
+      <div class="steps-wrapper">
+        <div class="question-submission">
+          <form class="submission first-step">
+            <label class="input">
+                        <input type="text" class="question" id="questioninput" placeholder="What's your question?">
+                    </label>
+            <button class="first next">Continue</button>
+          </form>
+
+          <form class="submission second-step">
+            <label class="input">
+                        <input type="text" class="tags" placeholder="Add some tags!">
+                    </label>
+            <button class="second next">Continue</button>
+          </form>
+
+          <div class="submission third-step">
+            <h5>Your Question: <span class="yourquestion"></span></h5>
+            <h5>Your tags: <span class="yourtags"></span></h5>
+            <button class="third next" onclick="">Submit!</button>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="attribution">
+  <p>Emojis provided free by<a href="http://emojione.com" target="_blank"> http://emojione.com</a></p>
+  </div>
+</div>
+<script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="vendor/jquery_ui/jquery-ui.min.js"></script>
+ 
+<script type="text/javascript">
+  var $question = $(".question");
+  var $questionval;
+  var $tags = $(".tags");
+  var tagsval;
+  var $yourquestion = $(".yourquestion");
+  var $yourtags = $(".yourtags");
+
+  // The first button will be clicked after the user enters a question
+  $(".first").click(function (event) {
+      $questionval = $question.val();
+      if ($questionval == "") {
+          $yourquestion.html("No Question.");
+      } else {
+          $yourquestion.html($questionval);
+      }
+          
+          $(".container").removeClass("third-dot initial-active-area");
+          $(".container").addClass("second-dot second-active-area");
+      
+      // Stop the button from performing it's default task
+      event.preventDefault();
+  });
+
+  // The second button will be clicked after the user enters some tags (not required)
+  $(".second").click(function (event) {
+      $(".container").removeClass("second-dot second-active-area initial-active-area");
+      $(".container").addClass("third-dot third-active-area");
+      $tagsval = $tags.val();
+      // Check if the value of tags field is empty
+      if ($tagsval == "") {
+          $yourtags.html("No tags.");
+      } else {
+          $yourtags.html($tagsval);
+      }
+      // Stop the button from performing it's default task
+      event.preventDefault();
+  });
+
+  // The third button will be clicked when the user is ready to submit their question
+  $(".third").click(function (event) {
+      $(".container").addClass("first-dot initial-active-area")
+      $(".container").removeClass("third-dot third-active-area");
+      // Stop the button from performing it's default task
+      event.preventDefault();
+  });
+</script> 
+</body>
+</html>
