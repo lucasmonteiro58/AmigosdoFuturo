@@ -1,3 +1,14 @@
+/*Fonts ----------------------------------------------------------*/
+@font-face {
+   font-family: bungee;
+   src: url(../fonts/Bungee-Regular.otf);
+}
+
+@font-face {
+   font-family: exo2;
+   src: url(../fonts/Exo2-Regular.otf);
+}
+
 /*General ----------------------------------------------------------*/
 body {
 	margin: 0px;
@@ -22,46 +33,54 @@ body {
 
 /*Buttons ----------------------------------------------------------*/
 button {
-  margin: 5px;
   border: 0px solid #fff !important;
-  width: 5em;
-  height: 3em;
+  padding: 1em 2em;
   background: url(1x1.gif) center/contain no-repeat;
-  font-family: Quicksand-Bold, sans-serif;
-  font-size: 1.3vw;
+  font-family: bungee, sans-serif;
+  font-size: 1.7vw;
   color: #fff;
   text-align: center;
   outline: 0;
-  padding-bottom: 15px;
+  padding-bottom: -5px;
+  transition: 0.1s;
 }
 button:active:not(:disabled) {
   border: 0px solid #fff !important;
   cursor: pointer;
-  padding-bottom: 0px;
 }
 button:hover:not(:disabled) {
   box-shadow: 0px 0px 0px #fff;
+  transform: scale(1.1);
   cursor: pointer;
 }
 button.action {
-  background-image: url(../img/buttons/button_action.png);
-  font-size: 1.3vw;
+  background-image: url(../img/buttons/action.png);
 }
 button.action:hover{
-  background-image: url(../img/buttons/button_action_hover.png);
+  background-image: url(../img/buttons/action-hover.png);
 }
 button.action:active{
-  background-image: url(../img/buttons/button_action_active.png);
+  background-image: url(../img/buttons/action-active.png);
 }
 button.toggle {
-  background-image: url(../img/buttons/button_toggle.png);
+  background-image: url(../img/buttons/toggle.png);
+  padding: 2em 2em;
   font-size: 1.3vw;
 }
 button.toggle:hover{
-  background-image: url(../img/buttons/button_toggle_hover.png);
+  background-image: url(../img/buttons/toggle-hover.png);
 }
 button.toggle:active{
-  background-image: url(../img/buttons/button_toggle_active.png);
+  background-image: url(../img/buttons/toggle-active.png);
+}
+button.toggle:disabled{
+  filter: opacity(0.5);
+}
+button.toggle.off{
+  background-image: url(../img/buttons/toggle-off.png);
+}
+button.toggle.prev {
+  margin-right: 5%;
 }
 
 
@@ -85,13 +104,13 @@ button.toggle:active{
 }
 .ceara2050-btn {
 	position: absolute;
-	top: 5%;
-	left: 5%;
+	top: 3%;
+	left: 3%;
 }
 .sound-btn {
 	position: absolute;
-	top: 5%;
-	right: 5%;
+	top: 3%;
+	right: 3%;
 }
 .play-btn {
 	margin-bottom: 5%;
