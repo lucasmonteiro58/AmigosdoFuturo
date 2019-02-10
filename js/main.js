@@ -61,11 +61,12 @@ function createQuestion(question,button_id,button_text) {
     autocompleteCities()
   }
   if (button_id=="questions-submit") {
-    submitButtonClick()
-    console.log("submit")
+
+    $("#questions-submit").click(function () { submitButtonClick() })
+    enterKeydown(true)
   } else {
-    doneButtonClick()
-    console.log("next")
+    $("#questions-next").click(function () { doneButtonClick() })
+    enterKeydown(false)
   }
   prevNextDisable()
   $("input").val(getFromStorage(question["input_name"]))
@@ -75,14 +76,26 @@ function autocompleteCities() {
     source: available_cities
   });
 }
+
+function enterKeydown(end) {
+  $('form').on('keyup keypress', function(e) {
+    var keyCode = e.keyCode || e.which;
+    if (keyCode === 13) { 
+      if(end) {
+        submitButtonClick()
+      } else {
+        doneButtonClick()
+      }
+      e.preventDefault()
+      return false;
+    }
+  });
+}
 function doneButtonClick() {
-  $("#questions-next").click(function () {
     saveInputInStorage()
     nextQuestion()
-  })
 }
 function submitButtonClick() {
-  $("#questions-submit").click(function () {
     saveInputInStorage()
 
     var data = {}
@@ -93,7 +106,6 @@ function submitButtonClick() {
     }
 
     submitAJAX(data)
-  })
 }
 function saveInputInStorage() {
   var inputName = $("input").attr("name")
