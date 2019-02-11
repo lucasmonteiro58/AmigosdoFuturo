@@ -190,48 +190,48 @@ button.toggle.prev {
 	height: 100%;
 	background-image: url("../img/cenario-lixo.jpg");
 	background-repeat: no-repeat;
-  background-size: cover;
+	background-size: cover;
 
 }
 
 
 #lixometal{
-background-color: yellow;
-width: 10%;
-height: 25%;
-position: absolute;
-margin-top: 75vh;
-margin-left: 15%;	
+	background-color: yellow;
+	width: 10%;
+	height: 25%;
+	position: absolute;
+	margin-top: 75vh;
+	margin-left: 15%;	
 
 }
 
 #lixopapel{
-background-color: #0099ff;
-width: 10%;
-height: 25%;
-position: absolute;
-margin-top: 75vh;
-margin-left: 30%;	
+	background-color: #0099ff;
+	width: 10%;
+	height: 25%;
+	position: absolute;
+	margin-top: 75vh;
+	margin-left: 30%;	
 }
 
 #lixoplastico{
-background-color: #ff3333;
-width: 10%;
-height: 25%;	
-position: absolute;	
-margin-top: 75vh;
-margin-left: 45%;
+	background-color: #ff3333;
+	width: 10%;
+	height: 25%;	
+	position: absolute;	
+	margin-top: 75vh;
+	margin-left: 45%;
 }
 	
 
 
 #lixovidro{
-background-color: #33cc33;
-width: 10%;
-height: 25%;	
-position: absolute;	
-margin-top: 75vh;
-margin-left: 60%;
+	background-color: #33cc33;
+	width: 10%;
+	height: 25%;	
+	position: absolute;	
+	margin-top: 75vh;
+	margin-left: 60%;
 }
 	
 
@@ -285,10 +285,82 @@ margin-left: 75%;
 
 }
 
+/*Desafio Plantar Section ----------------------------------------------------------*/
 
+#desafioplantar{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	background-image: url("../img/cenario-lixo.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
 
+}
 
+#buraco1{
+	position: absolute;
+	width: 10%;
+	margin-top: 60vh;
+	margin-left: 20%;
+	
 
+}
+
+#buraco2{
+	position: absolute;
+	width: 10%;
+	margin-top: 60vh;
+	margin-left: 40%;
+	
+}
+
+#buraco3{
+	position: absolute;
+	width: 10%;
+	margin-top: 60vh;
+	margin-left: 60%;
+	
+	
+}
+
+#buraco4{
+	position: absolute;
+	width: 10%;
+	margin-top: 75vh;
+	margin-left: 20%;
+	
+	
+}
+
+#buraco5{
+	position: absolute;
+	width: 10%;
+	margin-top: 75vh;
+	margin-left: 40%;
+	
+	
+}
+
+#buraco6{
+	position: absolute;
+	width: 10%;
+	margin-top: 75vh;
+	margin-left: 60%;
+	
+	
+}
+
+.brc1, .brc2, .brc3, .brc4, .brc5, .brc6{
+	cursor: url('../img/saquinho.png'), default;
+}
+
+.brcp1, .brcp2, .brcp3, .brcp4, .brcp5, .brcp6{
+	cursor: url('../img/pa.png'), default;
+}
+
+.bc1, .bc2, .bc3, .bc4, .bc5, .bc6{
+	cursor: url('../img/regador.png'), default;
+}
 
 
 

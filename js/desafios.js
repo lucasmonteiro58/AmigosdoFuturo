@@ -112,6 +112,113 @@ $("#lixoorganico").droppable({
           }
       });
 
+// Desafio Plantar -----------------------------------------------------------------
+
+$('.brc1').click(function(){
+  if($('#buraco1').hasClass('bc1')){
+    $("#buraco1").attr('src',"img/plantinha.png");
+    $("#buraco1").css("margin-top", "50vh"); 
+    $("#buraco1").removeClass('bc1');
+     $("#buraco4").addClass('brcp1');
+
+  } else {
+
+    $("#buraco1").attr('src',"img/plantinha0.png");
+    $("#buraco1").css("margin-top", "50vh");
+    $("#buraco1").removeClass('brc1');
+    $("#buraco1").addClass('bc1');
+  }
+});
+
+
+$('.brc2').click(function(){
+    if($('#buraco2').hasClass('bc2')){
+    $("#buraco2").attr('src',"img/plantinha.png");
+    $("#buraco2").css("margin-top", "50vh");
+    $("#buraco1").removeClass('bc2'); 
+    $("#buraco4").addClass('brcp2');
+       
+  } else {
+
+    $("#buraco2").attr('src',"img/plantinha0.png");
+    $("#buraco2").css("margin-top", "50vh");
+    $("#buraco2").removeClass('brc2');
+    $("#buraco2").addClass('bc2');
+  }
+});
+
+$('.brc3').click(function(){
+    if($('#buraco3').hasClass('bc3')){
+    $("#buraco3").attr('src',"img/plantinha.png");
+    $("#buraco3").css("margin-top", "50vh"); 
+    $("#buraco1").removeClass('bc3');
+     $("#buraco4").addClass('brcp3');
+       
+  } else {
+
+    $("#buraco3").attr('src',"img/plantinha0.png");
+    $("#buraco3").css("margin-top", "50vh");
+    $("#buraco3").removeClass('brc3');
+    $("#buraco3").addClass('bc3');
+  }
+});
+
+$('.brc4').click(function(){
+    if($('#buraco4').hasClass('bc4')){
+    $("#buraco4").attr('src',"img/plantinha.png");
+    $("#buraco4").css("margin-top", "65vh"); 
+    $("#buraco1").removeClass('bc4');
+    $("#buraco4").addClass('brcp4');
+       
+  } else {
+
+    $("#buraco4").attr('src',"img/plantinha0.png");
+    $("#buraco4").css("margin-top", "65vh");
+    $("#buraco4").removeClass('brc4');
+    $("#buraco4").addClass('bc4');
+  }
+});
+
+$('.brc5').click(function(){
+    if($('#buraco5').hasClass('bc5')){
+    $("#buraco5").attr('src',"img/plantinha.png");
+    $("#buraco5").css("margin-top", "65vh");
+    $("#buraco1").removeClass('bc5');
+     $("#buraco4").addClass('brcp5'); 
+       
+  } else {
+
+    $("#buraco5").attr('src',"img/plantinha0.png");
+    $("#buraco5").css("margin-top", "65vh");
+    $("#buraco5").removeClass('brc5');
+    $("#buraco5").addClass('bc5');
+  }
+});
+
+$('.brc6').click(function(){
+    if($('#buraco6').hasClass('bc6')){
+    $("#buraco6").attr('src',"img/plantinha.png");
+    $("#buraco6").css("margin-top", "65vh"); 
+    $("#buraco1").removeClass('bc6');
+    $("#buraco4").addClass('brcp6');
+       
+  } else {
+
+    $("#buraco6").attr('src',"img/plantinha0.png");
+    $("#buraco6").css("margin-top", "65vh");
+    $("#buraco6").removeClass('brc6');
+    $("#buraco6").addClass('bc6');
+  }
+});
+
+
+
+
+
+
+
+
+
 // ---------------------------------------------------------------------------------
 });
 
