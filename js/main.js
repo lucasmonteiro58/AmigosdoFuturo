@@ -1,7 +1,8 @@
 $(document).ready(function() {
 // General  -----------------------
 $(".sound").click(function () {
-  $(this).toggleClass("off")
+  $(this).toggleClass("sound")
+  $(this).toggleClass("mute")
   console.log("Inserir logica de mutar o som, aqui!")
 })
 
@@ -28,13 +29,20 @@ function openFullscreen() {
 
 // Form  ----------------------------
 var question_number = 0 //first question
-createQuestion(questions_texts[question_number],"questions-next","Pronto")
+createQuestion(questions_texts[question_number],"questions-next")
 prevNextDisable()
 
 function nextQuestion() {
-  if ($("input").val() == "") {
-    alert("Preencha todos os campos para continuar.")
-    return
+  if (questions_texts[question_number]["type"] == "options") {
+    if (!$("input:checked").val()) {
+        alert("Preencha todos os campos para continuar.")
+        return false
+    }
+  } else {
+    if ($("input").val() == "") {
+      alert("Preencha todos os campos para continuar.")
+      return false
+    }
   }
   question_number = question_number+1
   goToQuestion(question_number)
@@ -46,33 +54,54 @@ function previousQuestion() {
 
 function goToQuestion(number) {
   if (number == questions_texts.length-1) {
-    createQuestion(questions_texts[number],"questions-submit","Enviar")
+    createQuestion(questions_texts[number],"questions-submit")
   } else {
-    createQuestion(questions_texts[number],"questions-next","Pronto")
+    createQuestion(questions_texts[number],"questions-next")
   }
 }
-function createQuestion(question,button_id,button_text) {
+function createQuestion(question,button_id) {
   //Form reusable div
-  $(".form-question .content").html("<li><h4>"+question["title"]+"</h4></li>"+
-  "<li><form><input id='"+question["input_id"]+"' type='"+question["input_type"]+"' name='"+question["input_name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
-  "<li><button id='"+button_id+"' class='play-btn action'>"+button_text+"</button></li>")
+  var questionHTML = ""
+  if (question["type"] == "options") {
+    var optionsHTML = ""
+    for (var o in question["options"]){
+      optionsHTML += "<input id='"+question["name"]+o+"' type='radio' name='"+question["name"]+"' value='"+question["options"][o]+"' class='action orange'>"+
+      "<label for='"+question["name"]+o+"' class='action orange'>"+question["options"][o]+"</label></input>"
+    }
+    questionHTML = "<li><h4 class='title'>"+question["title"]+"</h4></li>"+
+    "<li><form>"+optionsHTML+"</form></li>"+
+    "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
+  } else {
+    questionHTML = "<li><h4 class='title'>"+question["title"]+"</h4></li>"+
+    "<li><form><input type='"+question["type"]+"' name='"+question["name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
+    "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
+  }
+  $(".form-question .content").html(questionHTML)
 
-  if (question["input_id"]=="city-name") {
+  if (question["name"]=="city") {
     autocompleteCities()
   }
-  if (button_id=="questions-submit") {
-
+  if (button_id == "questions-submit") {
     $("#questions-submit").click(function () { submitButtonClick() })
     enterKeydown(true)
   } else {
     $("#questions-next").click(function () { doneButtonClick() })
     enterKeydown(false)
   }
+
+  //Able and Disable prev and next arrow buttons 
   prevNextDisable()
-  $("input").val(getFromStorage(question["input_name"]))
+
+  //Fill with saved data
+  if (question["type"] == "options") {
+    $("input[value='"+getFromStorage(question["name"])+"']").prop("checked", true);
+  } else {
+    $("input").val(getFromStorage(question["name"]))
+  }
+  
 }
 function autocompleteCities() {
-  $("#city-name").autocomplete({
+  $("input").autocomplete({
     source: available_cities
   });
 }
@@ -92,15 +121,19 @@ function enterKeydown(end) {
   });
 }
 function doneButtonClick() {
+  // if (question["type"] == ""options) {
+  //   saveInputInStorage("input.selected")
+  // } else {
     saveInputInStorage()
-    nextQuestion()
+  // }
+  nextQuestion()
 }
 function submitButtonClick() {
     saveInputInStorage()
 
     var data = {}
     for (var q in questions_texts) {
-      var question_input_name = questions_texts[q]["input_name"]
+      var question_input_name = questions_texts[q]["name"]
       var value = getFromStorage(question_input_name)
       data[question_input_name] = value;
     }
@@ -109,7 +142,11 @@ function submitButtonClick() {
 }
 function saveInputInStorage() {
   var inputName = $("input").attr("name")
-  var value = $("input").val()
+  if (questions_texts[question_number]["type"] == "options"){
+    var value = $("input[name='"+inputName+"']:checked").val()
+  } else {
+    var value = $("input").val()
+  }
   saveInStorage(inputName,value)
 }
 function submitAJAX(form_data) {

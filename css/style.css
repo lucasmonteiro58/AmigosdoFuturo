@@ -32,7 +32,7 @@ body {
 }
 
 /*Buttons ----------------------------------------------------------*/
-button {
+button, input[type="button"], input[type="radio"] {
   border: 0px solid #fff !important;
   padding: 1em 2em;
   background: url(1x1.gif) center/contain no-repeat;
@@ -44,44 +44,76 @@ button {
   padding-bottom: -5px;
   transition: 0.1s;
 }
-button:active:not(:disabled) {
+button:active:not(:disabled), input[type="button"]:not(:disabled) {
   border: 0px solid #fff !important;
   cursor: pointer;
 }
-button:hover:not(:disabled) {
+button:hover:not(:disabled), input[type="button"]:not(:disabled) {
   box-shadow: 0px 0px 0px #fff;
-  transform: scale(1.1);
+  transform: scale(1.05);
   cursor: pointer;
 }
-button.action {
-  background-image: url(../img/buttons/action.png);
-}
-button.action:hover{
-  background-image: url(../img/buttons/action-hover.png);
-}
-button.action:active{
-  background-image: url(../img/buttons/action-active.png);
-}
+.action.blue {background-image: url(../img/buttons/action-blue.png);}
+.action.blue:hover{background-image: url(../img/buttons/action-hover-blue.png);}
+.action.blue:active{background-image: url(../img/buttons/action-active-blue.png);}
+.action.orange {background-image: url(../img/buttons/action-orange.png);}
+.action.orange:hover{background-image: url(../img/buttons/action-hover-orange.png);}
+.action.orange:active{background-image: url(../img/buttons/action-active-orange.png);}
+
 button.toggle {
-  background-image: url(../img/buttons/toggle.png);
   padding: 2em 2em;
   font-size: 1.3vw;
 }
-button.toggle:hover{
-  background-image: url(../img/buttons/toggle-hover.png);
-}
-button.toggle:active{
-  background-image: url(../img/buttons/toggle-active.png);
-}
+button.toggle.close {background-image: url(../img/buttons/toggle-close.png);}
+button.toggle.close:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
+button.toggle.close:active{background-image: url(../img/buttons/toggle-close-active.png);}
+
+button.toggle.home {background-image: url(../img/buttons/toggle-home.png);}
+button.toggle.home:hover{background-image: url(../img/buttons/toggle-home-hover.png);}
+button.toggle.home:active{background-image: url(../img/buttons/toggle-home-active.png);}
+
+button.toggle.info {background-image: url(../img/buttons/toggle-info.png);}
+button.toggle.info:hover{background-image: url(../img/buttons/toggle-info-hover.png);}
+button.toggle.info:active{background-image: url(../img/buttons/toggle-info-active.png);}
+
+button.toggle.mute {background-image: url(../img/buttons/toggle-mute.png);}
+button.toggle.mute:hover{background-image: url(../img/buttons/toggle-mute-hover.png);}
+button.toggle.mute:active{background-image: url(../img/buttons/toggle-mute-active.png);}
+
+button.toggle.ok {background-image: url(../img/buttons/toggle-ok.png);}
+button.toggle.ok:hover{background-image: url(../img/buttons/toggle-ok-hover.png);}
+button.toggle.ok:active{background-image: url(../img/buttons/toggle-ok-active.png);}
+
+button.toggle.pause {background-image: url(../img/buttons/toggle-pause.png);}
+button.toggle.pause:hover{background-image: url(../img/buttons/toggle-pause-hover.png);}
+button.toggle.pause:active{background-image: url(../img/buttons/toggle-pause-active.png);}
+
+button.toggle.play {background-image: url(../img/buttons/toggle-play.png);}
+button.toggle.play:hover{background-image: url(../img/buttons/toggle-play-hover.png);}
+button.toggle.play:active{background-image: url(../img/buttons/toggle-play-active.png);}
+
+button.toggle.repeat {background-image: url(../img/buttons/toggle-repeat.png);}
+button.toggle.repeat:hover{background-image: url(../img/buttons/toggle-repeat-hover.png);}
+button.toggle.repeat:active{background-image: url(../img/buttons/toggle-repeat-active.png);}
+
+button.toggle.arrow {background-image: url(../img/buttons/toggle-arrow.png);}
+/*button.toggle.arrow:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}*/
+button.toggle.arrow:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
+
+button.toggle.sound {background-image: url(../img/buttons/toggle-sound.png);}
+button.toggle.sound:hover{background-image: url(../img/buttons/toggle-sound-hover.png);}
+button.toggle.sound:active{background-image: url(../img/buttons/toggle-sound-active.png);}
+
+
 button.toggle:disabled{
   filter: opacity(0.5);
-}
-button.toggle.off{
-  background-image: url(../img/buttons/toggle-off.png);
+  cursor: not-allowed;
 }
 button.toggle.prev {
   margin-right: 5%;
+  transform: scaleX(-1);
 }
+
 
 
 /*Menu Section ----------------------------------------------------------*/
