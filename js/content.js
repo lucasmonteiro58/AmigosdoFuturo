@@ -1,5 +1,10 @@
 // Form ----------------------------	
 var questions_texts = [
+  {"title": "Me diga, você é menino ou menina?",
+    "type": "options",
+    "name": "gender",
+    "options": ["Menina", "Menino"],
+    "button_text": "Próximo"},
   {"title": "E como posso te chamar?",
     "type": "text",
     "name": "name",
@@ -22,8 +27,4 @@ var available_cities = ["Abaiara","Acarapé","Acaraú","Acopiara","Aiuaba","Alc�
 
 // Mapa ----------------------------
 
-  // {"title": "Me diga, você é menino ou menina?",
-  //   "type": "options",
-  //   "name": "gender",
-  //   "options": ["Menina", "Menino"],
-  //   "button_text": "Próximo"},
+

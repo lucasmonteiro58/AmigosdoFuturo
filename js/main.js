@@ -33,22 +33,19 @@ createQuestion(questions_texts[question_number],"questions-next")
 prevNextDisable()
 
 function nextQuestion() {
-  // if (question["type"] == "options") {
-  //   if (!$("input:checked").val()) {
-  //      alert('Nothing is checked!');
-  //       return false
-  //   }
-  //   else {
-  //     alert('One of the radio buttons is checked!');
-  //   }
-  // } else {
+  if (questions_texts[question_number]["type"] == "options") {
+    if (!$("input:checked").val()) {
+        alert("Preencha todos os campos para continuar.")
+        return false
+    }
+  } else {
     if ($("input").val() == "") {
       alert("Preencha todos os campos para continuar.")
       return false
     }
-  // }
+  }
   question_number = question_number+1
-  goToQuestion(question_number-1)
+  goToQuestion(question_number)
 }
 function previousQuestion() {
   question_number = question_number-1
@@ -68,8 +65,8 @@ function createQuestion(question,button_id) {
   if (question["type"] == "options") {
     var optionsHTML = ""
     for (var o in question["options"]){
-      optionsHTML += '<input id="'+question["name"]+o+'" type="radio" name="'+question["name"]+'" value="'+question["options"][o]+'" class="action orange">'+
-      '<label for="'+question["name"]+o+'" class="action orange">'+question["options"][o]+'</label></input>'
+      optionsHTML += "<input id='"+question["name"]+o+"' type='radio' name='"+question["name"]+"' value='"+question["options"][o]+"' class='action orange'>"+
+      "<label for='"+question["name"]+o+"' class='action orange'>"+question["options"][o]+"</label></input>"
     }
     questionHTML = "<li><h4 class='title'>"+question["title"]+"</h4></li>"+
     "<li><form>"+optionsHTML+"</form></li>"+
@@ -96,12 +93,11 @@ function createQuestion(question,button_id) {
   prevNextDisable()
 
   //Fill with saved data
-  //if (question["type"] == "options") {
-    // alert(getFromStorage(question["name"]))
-    // $("input[value='"+getFromStorage(question["name"])+"']").toggleClass("selected")
-  //} else {
+  if (question["type"] == "options") {
+    $("input[value='"+getFromStorage(question["name"])+"']").prop("checked", true);
+  } else {
     $("input").val(getFromStorage(question["name"]))
-  //}
+  }
   
 }
 function autocompleteCities() {
@@ -146,7 +142,11 @@ function submitButtonClick() {
 }
 function saveInputInStorage() {
   var inputName = $("input").attr("name")
-  var value = $("input").val()
+  if (questions_texts[question_number]["type"] == "options"){
+    var value = $("input[name='"+inputName+"']:checked").val()
+  } else {
+    var value = $("input").val()
+  }
   saveInStorage(inputName,value)
 }
 function submitAJAX(form_data) {
