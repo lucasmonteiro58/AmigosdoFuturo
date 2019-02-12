@@ -60,10 +60,6 @@ button:hover:not(:disabled), input[type="button"]:not(:disabled) {
 .action.orange:hover{background-image: url(../img/buttons/action-hover-orange.png);}
 .action.orange:active{background-image: url(../img/buttons/action-active-orange.png);}
 
-button.toggle {
-  padding: 2em 2em;
-  font-size: 1.3vw;
-}
 button.toggle.close {background-image: url(../img/buttons/toggle-close.png);}
 button.toggle.close:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
 button.toggle.close:active{background-image: url(../img/buttons/toggle-close-active.png);}
@@ -104,7 +100,10 @@ button.toggle.sound {background-image: url(../img/buttons/toggle-sound.png);}
 button.toggle.sound:hover{background-image: url(../img/buttons/toggle-sound-hover.png);}
 button.toggle.sound:active{background-image: url(../img/buttons/toggle-sound-active.png);}
 
-
+button.toggle {
+  padding: 2em 2em;
+  font-size: 1.3vw;
+}
 button.toggle:disabled{
   filter: opacity(0.5);
   cursor: not-allowed;
@@ -118,7 +117,7 @@ button.toggle.prev {
 
 /*Menu Section ----------------------------------------------------------*/
 #menu {
-   background-color: #44b6ec;
+   background-color: #305882;
    position: relative;
    width: 100%;
    padding-top: 56.25%; /* 16:9 Aspect Ratio */
@@ -132,7 +131,7 @@ button.toggle.prev {
 
 .menu-content img {
 	margin-bottom: 5%;
-	width: 70%;
+	width: 40%;
 }
 .ceara2050-btn {
 	position: absolute;
@@ -143,6 +142,7 @@ button.toggle.prev {
 	position: absolute;
 	top: 3%;
 	right: 3%;
+	z-index: 999;
 }
 .play-btn {
 	margin-bottom: 5%;
@@ -160,6 +160,266 @@ button.toggle.prev {
     font-size: 6vw;
     font-weight: bold;
 }
+
+
+/*Form Section ----------------------------------------------------------*/
+input[type="text"], input[type="number"] {
+    background:rgba(0,0,0,0);
+    border:0px solid #fff;
+    color:#000;
+    background-image: url(../img/input-box.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+#form {
+  background-color: #305882;
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+.robot-comment {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  background-color: #fff;
+  text-align: center;
+}
+.robot-comment .content {
+  width: 70%;
+}
+.robot-comment .content img {
+  width: 100%;
+}
+.robot-comment .content li {
+  margin-bottom: 10%;
+}
+.form-question {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  text-align: center;
+}
+.form-question .content {
+  width: 90%;
+}
+.form-question .content li {
+  margin-bottom: 5%;
+}
+.form-question .content li .title {
+  font-size: 2vw;
+  font-weight: 600;
+  font-family: bungee;
+  width: 100%;
+  height: 11vw;
+  padding-left: 5%;
+  color: #305882;
+  background-image: url(../img/robot-balloon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.form-question .content form input[type="text"],
+.form-question .content form input[type="number"] {
+    font-size: 2.3vw;
+    width: 90%;
+    height: 7vw;
+    text-align: center;
+    border-radius: 50px;
+    font-family: exo2;
+}
+.form-question .content form input:focus {
+    box-shadow: 0 0 0 0;
+    border: 0 none;
+    outline: 0;
+}
+
+/*Custom jquery autocomplete*/
+.ui-menu .ui-menu-item{
+  font-size: 2vw;
+  font-family: exo2;
+}
+.form-question .progress-div {
+  width: 90%;
+  bottom: 0;
+}
+
+.form-question label {
+  border: 0px solid #fff !important;
+  padding: 1em 2em;
+  background: url(1x1.gif) center/contain no-repeat;
+  font-family: bungee, sans-serif;
+  font-size: 1.7vw;
+  color: #fff;
+  text-align: center;
+  outline: 0;
+  padding-bottom: -5px;
+  transition: 0.1s;
+}
+.form-question label:active {
+  border: 0px solid #fff !important;
+  cursor: pointer;
+}
+.form-question label:hover {
+  box-shadow: 0px 0px 0px #fff;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+
+input[type="radio"]:checked + label{
+  filter: opacity(0.5);
+  color: rgba(255,255,255,0.5);
+}
+
+input[type="radio"] {
+    visibility:hidden;
+}
+
+/*Quiz Section ----------------------------------------------------------*/
+
+#quiz {
+  background-color: #305882;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+.badges-about {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 40%;
+  background-color: #fff;
+  text-align: center;
+}
+.badges-about .content {
+  width: 90%;
+}
+.badges-about .content .all-badges {
+	height: 40%;
+    width: 90%;
+   	padding-top: 5%;
+    background-image: url(../img/quiz/box-all-badges.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.badges-about .content .all-badges li {
+	display: inline;
+}
+.badges-about .content .all-badges li img {
+	width: 18%;
+    margin: 1%;
+}
+.badges-about .content .all-badges li img:hover {
+	transform: scale(1.05);
+    cursor: pointer;
+}
+
+.badges-about .content .single-badge {
+	height: 55%;
+    width: 90%;
+   	padding: 5%;
+   	bottom: 0;
+    background-image: url(../img/quiz/box-single-badge.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+.badges-about .content .single-badge li {
+    margin-bottom: 5%;
+} 
+.badges-about .content .single-badge .arrow {
+	background-image: url(../img/quiz/up-arrow.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center top;
+    width: 10%;
+    height: 10%;
+} 
+.badges-about .content .single-badge img {
+    width: 30%;
+} 
+.quiz-question {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 60%;
+  text-align: center;
+}
+.quiz-question #prev-next img {
+  width: 40%;
+}
+.quiz-question #prev-next{
+  margin-bottom: 2%;
+}
+.quiz-question #prev-next li {
+  display: inline;
+}
+.quiz-question .content{
+  width: 90%;
+}
+.quiz-question .content li {
+  margin-bottom: 2%;
+}
+.quiz-question .content li .title {
+  font-size: 2vw;
+  font-weight: 600;
+  font-family: bungee;
+  width: 100%;
+  height: 12vw;
+  padding: 2% 5% 0px;
+  color: #305882;
+  background-image: url(../img/quiz/robot-balloon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.quiz-question label {
+  border: 0px solid #fff !important;
+  padding: 1em 3em;
+  background: url(1x1.gif) center/contain no-repeat;
+  font-family: bungee, sans-serif;
+  font-size: 1.7vw;
+  color: #fff;
+  text-align: center;
+  outline: 0;
+  padding-bottom: -5px;
+  transition: 0.1s;
+}
+.quiz-question label:active {
+  border: 0px solid #fff !important;
+  cursor: pointer;
+}
+.quiz-question label:hover {
+  box-shadow: 0px 0px 0px #fff;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+#question-content .center-title{ 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  display: table; 
+}
+
+#question-content .center-title h4{
+  display: table-cell; 
+  vertical-align: middle; 
+  text-align: center; 
+}
+
 
 /*Mapa Section ----------------------------------------------------------*/
 #mapa{
