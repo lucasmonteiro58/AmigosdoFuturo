@@ -29,11 +29,21 @@ function openFullscreen() {
 
 // Form  ----------------------------
 var question_number = 0 //first question
-createQuestion(questions_texts[question_number],"questions-next")
+var questions_array = [] //actual array of questions
+
+// Check if it's in form section or in quiz section.
+// It choose the correct array of questions
+if($("#form").length) {
+  questions_array = questions_texts
+} else if ($("#quiz").length) {
+  questions_array = quiz_texts
+}
+
+createQuestion(questions_array[question_number],"questions-next")
 prevNextDisable()
 
 function nextQuestion() {
-  if (questions_texts[question_number]["type"] == "options") {
+  if (questions_array[question_number]["type"] == "options") {
     if (!$("input:checked").val()) {
         alert("Preencha todos os campos para continuar.")
         return false
@@ -53,10 +63,10 @@ function previousQuestion() {
 }
 
 function goToQuestion(number) {
-  if (number == questions_texts.length-1) {
-    createQuestion(questions_texts[number],"questions-submit")
+  if (number == questions_array.length-1) {
+    createQuestion(questions_array[number],"questions-submit")
   } else {
-    createQuestion(questions_texts[number],"questions-next")
+    createQuestion(questions_array[number],"questions-next")
   }
 }
 function createQuestion(question,button_id) {
@@ -68,7 +78,7 @@ function createQuestion(question,button_id) {
       optionsHTML += "<input id='"+question["name"]+o+"' type='radio' name='"+question["name"]+"' value='"+question["options"][o]+"' class='action orange'>"+
       "<label for='"+question["name"]+o+"' class='action orange'>"+question["options"][o]+"</label></input>"
     }
-    questionHTML = "<li><h4 class='title'>"+question["title"]+"</h4></li>"+
+    questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
     "<li><form>"+optionsHTML+"</form></li>"+
     "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
   } else {
@@ -76,7 +86,7 @@ function createQuestion(question,button_id) {
     "<li><form><input type='"+question["type"]+"' name='"+question["name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
     "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
   }
-  $(".form-question .content").html(questionHTML)
+  $("#question-content").html(questionHTML)
 
   if (question["name"]=="city") {
     autocompleteCities()
@@ -132,8 +142,8 @@ function submitButtonClick() {
     saveInputInStorage()
 
     var data = {}
-    for (var q in questions_texts) {
-      var question_input_name = questions_texts[q]["name"]
+    for (var q in questions_array) {
+      var question_input_name = questions_array[q]["name"]
       var value = getFromStorage(question_input_name)
       data[question_input_name] = value;
     }
@@ -142,7 +152,7 @@ function submitButtonClick() {
 }
 function saveInputInStorage() {
   var inputName = $("input").attr("name")
-  if (questions_texts[question_number]["type"] == "options"){
+  if (questions_array[question_number]["type"] == "options"){
     var value = $("input[name='"+inputName+"']:checked").val()
   } else {
     var value = $("input").val()
@@ -182,7 +192,7 @@ function getFromStorage(name) {
 function prevNextDisable() {
   if (question_number<=0) {
     $(".prev").prop('disabled', true);
-  } else if (question_number>=questions_texts.length-1){
+  } else if (question_number>=questions_array.length-1){
     $(".next").prop('disabled', true);
   } else {
     $(".prev").prop('disabled', false);
