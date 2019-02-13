@@ -479,9 +479,10 @@ input[type="radio"] {
 /*Desafio Lixos Section ----------------------------------------------------------*/
 
 #desafiolixos{
-	position: absolute;
 	width: 100%;
 	height: 100%;
+  position: relative;
+  padding-top: 56.25%;
 	background-image: url("../img/Cen1 - Sujo.png");
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -493,127 +494,133 @@ input[type="radio"] {
 
 	width: 12%;	
 	position: absolute;
-	margin-top: 83vh;
-	margin-left: 12%;	
+	top: 80%;
+	left: 12%;	
 
 }
 
 #lixopapel{
 	width: 12%;  
   position: absolute;
-  margin-top: 83vh;
-	margin-left: 27%;	
+  top: 80%;
+	left: 27%;	
 }
 
 #lixoplastico{
 	width: 12%;  
   position: absolute;
-  margin-top: 83vh;
-	margin-left: 42%;
+  top: 80%;
+	left: 42%;
 }
 	
 
 
 #lixovidro{
-width: 12%; 
+  width: 12%; 
   position: absolute;
-  margin-top: 83vh;
-	margin-left: 57%;
+  top: 80%;
+	left: 57%;
 }
 	
 
 #lixoorganico{
-width: 12%; 
+  width: 12%; 
   position: absolute;
-  margin-top: 83vh;
-margin-left: 72%;
+  top: 80%;
+  left: 72%;
 
 }
 
 #papel1{
+  width: 10%;
 	position: absolute;
-  margin-top: 60vh;
-  margin-left: 9%;
+  top: 56%;
+  left: 9%;
 
 }
 
 #papel2{
   position: absolute;
-  margin-top: 60vh;
-  margin-left: 60%;
+  top: 60%;
+  left: 60%;
   width: 8%;
 
 }
 
 #vidro1{
 	position: absolute;
-  margin-top: 65vh;
-  margin-left: 50%;
+  top: 60%;
+  left: 50%;
   transform: rotate(65deg);
   width: 3%;
 	
 }
 
 #vidro2{
+  width: 4%;
   position: absolute;
-  margin-top: 55vh;
-  margin-left: 30%;
+  top: 55%;
+  left: 28%;
   
 }
 
 #metal1{
 	position: absolute;
-  margin-top: 70vh;
-  margin-left: 90%;
+  top: 70%;
+  left: 90%;
+  width: 4%;
   transform: rotate(65deg);
 
 }
 
 #metal2{
   position: absolute;
-  margin-top: 55vh;
-  margin-left: 90%;
+  top: 55%;
+  left: 88%;
+  width: 5%;
   transform: rotate(65deg);
   
 }
 
 #plastico1{
 	position: absolute;
-  margin-top: 65vh;
-  margin-left: 35%;
+  top: 60%;
+  left: 35%;
   width: 5%;
 
 }
 
 #plastico2{
   position: absolute;
-  margin-top: 65vh;
-  margin-left: 78%;
+  top: 55%;
+  left: 78%;
+  width: 8%;
 
 }
 
 #organico1{
 	position: absolute;
-  margin-top: 52vh;
-  margin-left: 50%;
+  top: 52%;
+  left: 50%;
   width: 2.5%;
 
 }
 
 #organico2{
   position: absolute;
-   margin-top: 77vh;
-  margin-left: 3%;
+  top: 77%;
+  left: 3%;
+  width: 4%;
 
 }
 
 /*Desafio Plantar Section ----------------------------------------------------------*/
 
 #desafioplantar{
-	position: absolute;
+	position: relative;
 	width: 100%;
-	height: 100%;
-	background-image: url("../img/cenario-lixo.jpg");
+	padding-top: 56.25%;
+	background-image: url("../img/Cen2 - Horta.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -621,70 +628,132 @@ margin-left: 72%;
 
 #buraco1{
 	position: absolute;
-	width: 10%;
-	margin-top: 60vh;
-	margin-left: 20%;
+	width: 8.5%;
+	top: 71%;
+	left: 21%;
 	
 
 }
 
 #buraco2{
 	position: absolute;
-	width: 10%;
-	margin-top: 60vh;
-	margin-left: 40%;
+	width: 8.5%;
+	top: 77%;
+	left: 28%;
 	
 }
 
 #buraco3{
 	position: absolute;
-	width: 10%;
-	margin-top: 60vh;
-	margin-left: 60%;
+	width: 8.5%;
+	top: 71%;
+	left: 39%;
 	
 	
 }
 
 #buraco4{
 	position: absolute;
-	width: 10%;
-	margin-top: 75vh;
-	margin-left: 20%;
+	width: 8.5%;
+	top: 77%;
+	left: 48%;
 	
 	
 }
 
 #buraco5{
 	position: absolute;
-	width: 10%;
-	margin-top: 75vh;
-	margin-left: 40%;
+	width: 8.5%;
+	top: 71%;
+	left: 60%;
 	
 	
 }
 
 #buraco6{
 	position: absolute;
-	width: 10%;
-	margin-top: 75vh;
-	margin-left: 60%;
+	width: 8.5%;
+	top: 77%;
+	margin-left: 68%;
 	
 	
 }
 
 .brc1, .brc2, .brc3, .brc4, .brc5, .brc6{
-	cursor: url('../img/saquinho.png'), default;
+	cursor: url('../img/pointer_semente.png'), default;
 }
 
 .brcp1, .brcp2, .brcp3, .brcp4, .brcp5, .brcp6{
-	cursor: url('../img/pa.png'), default;
+	cursor: url('../img/pointer_luva.png'), default;
 }
 
 .bc1, .bc2, .bc3, .bc4, .bc5, .bc6{
-	cursor: url('../img/regador.png'), default;
+	cursor: url('../img/pointer_regador.png'), default;
 }
 
+#cestavazia{
+  position: absolute;
+  width: 17%;
+  bottom: 10%;
+  right: 2%;
 
+}
+
+#cestavazia1{
+  position: absolute;
+  width: 17%;
+  bottom: 10%;
+  right: 2%;
+
+}
+
+#cenouracesta1{
+  position: absolute;
+  bottom: 21%;
+  right: 12%;
+  width: 11%;
+  display: none;
+}
+
+#cenouracesta2{
+  position: absolute;
+  bottom: 23%;
+  right: 11%;
+  width: 11%;
+  display: none;
+}
+
+#tomatecesta1{
+  position: absolute;
+  bottom: 23%;
+  right: 9%;
+  width: 4%;
+  display: none;
+}
+
+#tomatecesta2{
+  position: absolute;
+  bottom: 22%;
+  right: 8%;
+  width: 3.5%;
+  display: none;
+}
+
+#alfacecesta1{
+  position: absolute;
+  bottom: 20%;
+  right: 4%;
+  width: 7%;
+  display: none;
+}
+
+#alfacecesta2{
+  position: absolute;
+  bottom: 18%;
+  right: 3%;
+  width: 6%;
+  display: none;
+}
 
 
 
