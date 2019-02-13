@@ -11,6 +11,8 @@
 
 /*General ----------------------------------------------------------*/
 body {
+  height: 100%;
+  overflow:hidden;
 	margin: 0px;
 	list-style: none;
 }
@@ -480,7 +482,7 @@ input[type="radio"] {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-image: url("../img/cenario-lixo.jpg");
+	background-image: url("../img/Cen1 - Sujo.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -488,92 +490,120 @@ input[type="radio"] {
 
 
 #lixometal{
-	background-color: yellow;
-	width: 10%;
-	height: 25%;
+
+	width: 12%;	
 	position: absolute;
-	margin-top: 75vh;
-	margin-left: 15%;	
+	margin-top: 83vh;
+	margin-left: 12%;	
 
 }
 
 #lixopapel{
-	background-color: #0099ff;
-	width: 10%;
-	height: 25%;
-	position: absolute;
-	margin-top: 75vh;
-	margin-left: 30%;	
+	width: 12%;  
+  position: absolute;
+  margin-top: 83vh;
+	margin-left: 27%;	
 }
 
 #lixoplastico{
-	background-color: #ff3333;
-	width: 10%;
-	height: 25%;	
-	position: absolute;	
-	margin-top: 75vh;
-	margin-left: 45%;
+	width: 12%;  
+  position: absolute;
+  margin-top: 83vh;
+	margin-left: 42%;
 }
 	
 
 
 #lixovidro{
-	background-color: #33cc33;
-	width: 10%;
-	height: 25%;	
-	position: absolute;	
-	margin-top: 75vh;
-	margin-left: 60%;
+width: 12%; 
+  position: absolute;
+  margin-top: 83vh;
+	margin-left: 57%;
 }
 	
 
 #lixoorganico{
-background-color: #996633;
-width: 10%;
-height: 25%;
-position: absolute;	
-margin-top: 75vh;
-margin-left: 75%;
+width: 12%; 
+  position: absolute;
+  margin-top: 83vh;
+margin-left: 72%;
 
 }
 
-#papel{
+#papel1{
 	position: absolute;
-	width: 5%;
-	margin-top: 60vh;
-	margin-left: 15%;
+  margin-top: 60vh;
+  margin-left: 9%;
 
 }
 
-#vidro{
-	position: absolute;
-	width: 5%;
-	margin-top: 60vh;
-	margin-left: 25%;
+#papel2{
+  position: absolute;
+  margin-top: 60vh;
+  margin-left: 60%;
+  width: 8%;
 
 }
 
-#metal{
+#vidro1{
 	position: absolute;
-	width: 5%;
-	margin-top: 60vh;
-	margin-left: 35%;
+  margin-top: 65vh;
+  margin-left: 50%;
+  transform: rotate(65deg);
+  width: 3%;
+	
+}
+
+#vidro2{
+  position: absolute;
+  margin-top: 55vh;
+  margin-left: 30%;
+  
+}
+
+#metal1{
+	position: absolute;
+  margin-top: 70vh;
+  margin-left: 90%;
+  transform: rotate(65deg);
 
 }
 
-#plastico{
+#metal2{
+  position: absolute;
+  margin-top: 55vh;
+  margin-left: 90%;
+  transform: rotate(65deg);
+  
+}
+
+#plastico1{
 	position: absolute;
-	width: 5%;
-	margin-top: 60vh;
-	margin-left: 45%;
+  margin-top: 65vh;
+  margin-left: 35%;
+  width: 5%;
 
 }
 
-#organico{
+#plastico2{
+  position: absolute;
+  margin-top: 65vh;
+  margin-left: 78%;
+
+}
+
+#organico1{
 	position: absolute;
-	width: 5%;
-	margin-top: 60vh;
-	margin-left: 55%;
+  margin-top: 52vh;
+  margin-left: 50%;
+  width: 2.5%;
+
+}
+
+#organico2{
+  position: absolute;
+   margin-top: 77vh;
+  margin-left: 3%;
 
 }
 
