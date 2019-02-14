@@ -61,6 +61,30 @@ var quiz_texts = [
     "options": ["Sim", "Não"],
     "button_text": "Pronto"}
   ]
+
+var badges_texts = [
+    { "id" : "sau",
+      "title": "Amigo da Saúde",
+      "description": "Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável."},
+    { "id" : "laz",
+      "title": "Amigo do Lazer",
+      "description": "É muito divertido e adora conhecer lugares novos."},
+    { "id" : "eco",
+      "title": "Amigo da Economia",
+      "description": "Ama números e sabe bem como vender algo para juntar dinheiro."},
+    { "id" : "mei",
+      "title": "Amigo do Meio Ambiente",
+      "description": "Respeita a natureza e está sempre ajudando outras pessoas."},
+    { "id" : "gov",
+      "title": "Amigo do Governo",
+      "description": "Gosta muito de falar com as pessoas. É responsável e organizado."},
+    { "id" : "edu",
+      "title": "Amigo da Educação",
+      "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."},
+    { "id" : "ino",
+      "title": "Amigo da Inovação",
+      "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."}
+]
 // Mapa ----------------------------
 
 
