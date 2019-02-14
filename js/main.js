@@ -64,12 +64,12 @@ function previousQuestion() {
 
 function goToQuestion(number) {
   if (number == questions_array.length-1) {
-    createQuestion(questions_array[number],"questions-submit")
+    createQuestion(questions_array[number])
   } else {
-    createQuestion(questions_array[number],"questions-next")
+    createQuestion(questions_array[number])
   }
 }
-function createQuestion(question,button_id) {
+function createQuestion(question) {
   //Form reusable div
   var questionHTML = ""
   if (question["type"] == "options") {
@@ -79,37 +79,56 @@ function createQuestion(question,button_id) {
       "<label for='"+question["name"]+o+"' class='action orange'>"+question["options"][o]+"</label></input>"
     }
     questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
-    "<li><form>"+optionsHTML+"</form></li>"+
-    "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
+    "<li><form>"+optionsHTML+"</form></li>"
+    
+    $("#question-content").html(questionHTML)
+    configClickOptions()
   } else {
-    questionHTML = "<li><h4 class='title'>"+question["title"]+"</h4></li>"+
+    questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
     "<li><form><input type='"+question["type"]+"' name='"+question["name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
-    "<li><button id='"+button_id+"' class='action orange'>"+question["button_text"]+"</button></li>"
-  }
-  $("#question-content").html(questionHTML)
-
-  if (question["name"]=="city") {
-    autocompleteCities()
-  }
-  if (button_id == "questions-submit") {
-    $("#questions-submit").click(function () { submitButtonClick() })
-    enterKeydown(true)
-  } else {
-    $("#questions-next").click(function () { doneButtonClick() })
-    enterKeydown(false)
+    "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
+    
+    $("#question-content").html(questionHTML)
+    configClick()
   }
 
-  //Able and Disable prev and next arrow buttons 
-  prevNextDisable()
+  function configClickOptions(){
+    // //Changes the button action if it's the end of the form
+    actionButtonClicked('input[type="radio"]')
 
-  //Fill with saved data
-  if (question["type"] == "options") {
+    //Able and Disable prev and next arrow buttons 
+    prevNextDisable()
+
+    //Fill with saved data
     $("input[value='"+getFromStorage(question["name"])+"']").prop("checked", true);
-  } else {
+  }
+
+  function configClick() {  
+    if (question["name"]=="city") {
+      autocompleteCities()
+    }
+    // //Changes the button action if it's the end of the form
+    actionButtonClicked("#questions-next")
+
+    //Able and Disable prev and next arrow buttons 
+    prevNextDisable()
+
+    //Fill with saved data
     $("input").val(getFromStorage(question["name"]))
   }
-  
 }
+
+function actionButtonClicked(selector) {
+  //Changes the button action if it's the end of the form
+  if (question_number >= questions_array.length-1) {
+    $(selector).click(function () { submitButtonClick() })
+    enterKeydown(true)
+  } else {
+    $(selector).click(function () { doneButtonClick() })
+    enterKeydown(false)
+  }
+} 
+
 function autocompleteCities() {
   $("input").autocomplete({
     source: available_cities
@@ -192,7 +211,7 @@ function getFromStorage(name) {
 function prevNextDisable() {
   if (question_number<=0) {
     $(".prev").prop('disabled', true);
-  } else if (question_number>=questions_array.length-1){
+  } else if (question_number >= questions_array.length-1){
     $(".next").prop('disabled', true);
   } else {
     $(".prev").prop('disabled', false);
@@ -209,8 +228,41 @@ $(".next").click(function () {
   nextQuestion()
 })
 
+// Quiz  ----------------------------
+emptyBadgeDetails()
 
+$(".all-badges img").mouseenter(function () {
+  $(this).toggleClass("active")
 
+  var badge_id = $(this).attr("id")
+  for (b in badges_texts) {
+    if (badges_texts[b]["id"] == badge_id) {
+      var badge = badges_texts[b]
+      createBadgeDetails(badge)
+    }
+  }
+})
 
+$(".all-badges img").mouseleave(function () {
+  emptyBadgeDetails()
+})
 
+function createBadgeDetails(badge) {
+  var badgeHTML = ""
+  badgeHTML = "<li><span class='arrow centeredX'></span></li>"+
+          "<li><img id='"+badge["id"]+"-badge' src='img/quiz/"+badge["id"]+"-badge-2x.png' title='"+badge["title"]+"'></li>"+
+          "<li><h4>"+badge["title"]+"</h4></li>"+
+          "<li><p>"+badge["description"]+"</p></li>"
+
+  $("#single-badge-details").html(badgeHTML)  
+}
+
+function emptyBadgeDetails() {
+  var badgeHTML = ""
+  badgeHTML = "<li><span class='arrow centeredX'></span></li>"+
+          "<li><h4>Conheça<br>os poderes<br>dos amigos<br>do futuro!</h4></li>"+
+          "<li><p>Passe o mouse nas medalhas<br>ali em cima.</p></li>"
+
+  $("#single-badge-details").html(badgeHTML)  
+}
 });
