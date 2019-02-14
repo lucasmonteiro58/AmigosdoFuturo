@@ -10,6 +10,9 @@
 }
 
 /*General ----------------------------------------------------------*/
+html{
+
+}
 body {
   height: 100%;
   overflow:hidden;
@@ -756,7 +759,128 @@ input[type="radio"] {
 }
 
 
+/*Desafio Cozinha Section ----------------------------------------------------------*/
 
+#desafiocozinha{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-image: url("../img/Cen3 - Cozinha.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#cenariocozinha{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#torneira{
+  position: absolute;
+  width: 8.6%;
+  top: 22.5%;
+  left: 45%;
+}
+
+#moverlegumes{
+  position: absolute;
+ //background-color: red;
+ opacity: 0.5;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  height: 55%;
+
+}
+
+#droplegumes{
+  position: absolute;
+ // z-index: 1;
+// background-color: red;
+ opacity: 0.5;
+  width: 28%;
+  top: 35%;
+  left: 34%;
+  height: 20%;
+
+}
+
+#piacozinha{
+  position: absolute;
+  top:45.76%;
+  left: 30%;
+ // opacity: 0.5;
+  width: 34%;
+
+}
+
+#C_cestavazia{
+  position: absolute;
+  width: 15%;
+  top: 24%;
+  left:  12%;
+
+}
+
+#C_cestavazia3{
+  position: absolute;
+  width: 15%;
+  top: 33.5%;
+  left: 12%;
+
+}
+
+#C_cenouracesta1{
+  position: absolute;
+  top: 23%;
+  left: 8%;
+  width: 11%;
+
+ 
+}
+
+#C_cenouracesta2{
+  position: absolute;
+  top: 22%;
+  left: 9%;
+  width: 11%;
+ 
+}
+
+#C_tomatecesta1{
+  position: absolute;
+  top: 28%;
+  left: 17%;
+  width: 4.3%;
+
+}
+
+#C_tomatecesta2{
+  position: absolute;
+  top: 30%;
+  left: 19%;
+  width: 3.5%;
+ 
+}
+
+#C_alfacecesta1{
+   position: absolute;
+  top: 26%;
+  left: 19%;
+  width: 7%;
+ 
+}
+
+#C_alfacecesta2{
+ position: absolute;
+  top: 28%;
+  left: 18%;
+  width: 6%;
+ 
+}
 
 
 

@@ -329,10 +329,50 @@ $('#buraco6').click(function(){
   }
 });
 
+// Desafio Cozinha  -----------------------------------------------------------------
+
+document.getElementById('C_cestavazia3').draggable = false;
+
+
+$( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").draggable({
+      revert: true,
+      revertDuration: 600,
+      cursor: "grabbing",
+      containment: '#moverlegumes',
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+       
+       }
+    });
 
 
 
 
+$("#droplegumes").droppable({
+      
+
+        drop: function( event, ui ) {       
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '"#'+ draggableId+'"';
+         // $(this).css('z-index', '1000'); 
+          // $(ui.draggable).css(' z-index','1'); 
+          
+          if (draggableId=='"#C_tomatecesta2"' || draggableId=='"#C_tomatecesta1"'){ 
+              $(ui.draggable).css('top','42%');
+          }  
+
+           if (draggableId=='"#C_alfacecesta2"' || draggableId=='"#C_alfacecesta1"'){ 
+              $(ui.draggable).css('top','40%');
+          }  
+
+           if (draggableId=='"#C_cenouracesta2"' || draggableId=='"#C_cenouracesta1"'){ 
+              $(ui.draggable).css('top','35%');
+          }    
+
+          $( draggableId ).draggable( "disable" );        
+          }
+      });
 
 
 
