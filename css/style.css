@@ -899,6 +899,163 @@ input[type="radio"] {
 }
 
 
+#C_cenouracesta1B{
+  position: absolute;
+  top: 30%;
+  right: 26%;
+  width: 11%;
+  display: none;
+
+ 
+}
+
+#C_cenouracesta2B{
+  position: absolute;
+  top: 30%;
+  right: 24%;
+  width: 11%;
+  display: none;
+ 
+}
+
+#C_tomatecesta1B{
+  position: absolute;
+  top: 36%;
+  right: 22%;
+  width: 4.3%;
+  display: none;
+
+}
+
+#C_tomatecesta2B{
+  position: absolute;
+  top: 38%;
+  right: 20%;
+  width: 3.5%;
+  display: none;
+ 
+}
+
+#C_alfacecesta1B{
+   position: absolute;
+  top: 33%;
+  right: 19%;
+  width: 7%;
+  display: none;
+ 
+}
+
+#C_alfacecesta2B{
+ position: absolute;
+  top: 35%;
+  right: 15%;
+  width: 5.5%;
+  display: none;
+ 
+}
+
+#baciaCozinha{
+  position: absolute;
+  top: 39%;
+  right: 14%;
+  width: 18%;
+}
+
+#baciaCozinha1{
+  position: absolute;
+  top: 39%;
+  right: 14%;
+  width: 18%;
+}
+
+#peca1{
+  position: absolute;
+  top: 59%;
+  left: 42%;
+  width: 11.545%;
+  transform: rotate(180deg);
+}
+
+#peca2{
+  position: absolute;
+  top: 65.2%;
+  left: 26.65%;
+  width: 7.58%;
+  transform: rotate(90deg);
+}
+
+#peca3{
+  position: absolute;
+  top: 65.2%;
+  left: 34.2%;
+  width: 7.95%;
+  transform: rotate(90deg);
+}
+
+#peca4{
+  position: absolute;
+  top: 65.2%;
+  left: 53.55%;
+  width: 7.95%;
+  transform: rotate(90deg);
+}
+#peca5{
+  position: absolute;
+  top: 65.2%;
+  left: 61.45%;
+  width: 7.58%;
+  transform: rotate(90deg);
+}
+
+#peca6{
+  position: absolute;
+  top: 79.2%;
+  left: 26.65%;
+  width: 7.95%;
+  transform: rotate(90deg);
+}
+
+#peca7{
+  position: absolute;
+  top: 84.6%;
+  left: 34.5%;
+  width: 7.9%;
+  transform: rotate(90deg);
+}
+
+#peca8{
+  position: absolute;
+  top: 84.5%;
+  left: 42.3%;
+  width: 11.545%;
+  transform: rotate(180deg);
+}
+
+#peca9{
+  position: absolute;
+  top: 84.5%;
+  left: 53.6%;
+  width: 7.9%;
+  transform: rotate(90deg);
+}
+
+#peca10{
+  position: absolute;
+  top: 78.95%;
+  left: 61.1%;
+  width: 7.95%;
+  transform: rotate(90deg);
+}
+
+#cobrirCozinha{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 48.5%;
+  background-color: black;
+  opacity: 0.6;
+}
 
 
 
