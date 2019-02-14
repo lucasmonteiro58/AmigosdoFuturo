@@ -347,7 +347,7 @@ $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tom
     });
 
 
-
+var qntLegumesPia = 0;
 
 $("#droplegumes").droppable({
       
@@ -370,10 +370,106 @@ $("#droplegumes").droppable({
               $(ui.draggable).css('top','35%');
           }    
 
-          $( draggableId ).draggable( "disable" );        
+          qntLegumesPia++;
+
+            if (qntLegumesPia==6){
+            
+              $(".legumesCesta").addClass("legumesCestaClick");             
+              $( ".legumesCestaClick").click(function() {
+                 $(this).css('display', 'none');
+                 var legumeaparecer= '#'+this.id +'B';
+                 alert(this.id +"B");
+                 $(legumeaparecer).css('display', 'block');
+
+              });
+
+            }       
+
+          $( draggableId ).draggable( "disable" );
+
+
           }
       });
 
+
+
+
+
+var graus1 =90;
+var graus2 =0;
+var ultClickID = undefined;
+
+$( ".pecasCozinha").click(function() {
+
+  if (this.id == ultClickID){   
+  } else {
+    ultClickID=this.id;
+    graus1 =90;
+    graus2 =0;
+  }
+  
+  if (this.id=="peca1" || this.id=="peca8"){
+      document.getElementById(this.id).style.transform = "rotate("+graus1+"deg)";
+      graus1 = graus1 +90;
+        if (graus1==90){
+          console.log("ta na posicao certa");
+          $(this).toggleClass("canoCerto");
+        } else{
+          $(this).toggleClass("canoCerto", false);
+        }
+  } else {
+    document.getElementById(this.id).style.transform = "rotate("+graus2+"deg)";
+    graus2 = graus2 +90;
+      if (this.id =="peca3" || this.id =="peca4" || this.id =="peca7" || this.id =="peca9"){
+        if (graus2==90 || graus2==270) {
+          console.log("ta na posicao certa");
+          $(this).toggleClass("canoCerto");
+        } else {
+          $(this).toggleClass("canoCerto", false);
+        }
+      }
+
+      if (this.id =="peca2" || this.id =="peca5" || this.id =="peca6" || this.id =="peca10"){
+        if (graus2==90) {
+          console.log("ta na posicao certa");
+          $(this).toggleClass("canoCerto");
+        } else {
+          $(this).toggleClass("canoCerto", false);
+        }
+      }
+
+
+  }
+
+  if (graus1==360){
+    graus1=0;
+  }
+
+  if (graus2==360){
+    graus2=0;
+  }
+
+  var totalCanos = $(".pecasCozinha.canoCerto").length;
+
+  if (totalCanos==10){
+
+    //alert("AEEEeEEEeEEEeeEeeeEe");
+    $('#cobrirCozinha').css('display', 'none');
+  } else {
+    $('#cobrirCozinha').css('display', 'block');
+  }
+
+
+
+  //var idPeca = "";
+  //var graus= 0;
+  //dPeca = "#"+ this.id;
+ 
+  
+  console.log(graus1 , graus2);
+
+
+});
 
 
 
