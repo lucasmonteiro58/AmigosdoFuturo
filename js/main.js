@@ -30,13 +30,16 @@ function openFullscreen() {
 // Form  ----------------------------
 var question_number = 0 //first question
 var questions_array = [] //actual array of questions
+var actual_section = undefined
 
 // Check if it's in form section or in quiz section.
 // It choose the correct array of questions
 if($("#form").length) {
   questions_array = questions_texts
+  actual_section = "form"
 } else if ($("#quiz").length) {
   questions_array = quiz_texts
+  actual_section = "quiz"
 }
 
 createQuestion(questions_array[question_number],"questions-next")
@@ -150,11 +153,10 @@ function enterKeydown(end) {
   });
 }
 function doneButtonClick() {
-  // if (question["type"] == ""options) {
-  //   saveInputInStorage("input.selected")
-  // } else {
-    saveInputInStorage()
-  // }
+ if (actual_section == 'quiz') {
+      calculateInputQuiz()
+  }
+  saveInputInStorage()
   nextQuestion()
 }
 function submitButtonClick() {
@@ -167,8 +169,15 @@ function submitButtonClick() {
       data[question_input_name] = value;
     }
 
-    submitAJAX(data)
+    if (actual_section == 'quiz') {
+      calculateInputQuiz()
+      resultQuiz()
+    } else {
+      submitAJAX(data)
+    }
 }
+
+
 function saveInputInStorage() {
   var inputName = $("input").attr("name")
   if (questions_array[question_number]["type"] == "options"){
@@ -265,4 +274,60 @@ function emptyBadgeDetails() {
 
   $("#single-badge-details").html(badgeHTML)  
 }
+
+//Calculate the value of the answered question
+function calculateInputQuiz() { 
+  var inputName = $("input").attr("name")
+  var answer = $("input[name='"+inputName+"']:checked").val()
+
+  if (answer == "Sim") {
+    // Sum the final_pont array with the correspondent array
+    for (f in final_pont) {
+      final_pont[f]["points"] += matrix_questions_pont[question_number][f]
+    }
+
+  } else if (answer == "Não") {
+    console.log("Marcou não.")
+  }
+}
+
+
+// Result of quiz
+function resultQuiz() {
+  //ver qual [é o maior elemento do array]
+  var max_point = -4
+  var badges_possible = [] 
+  for (f in final_pont) {
+    if (final_pont[f]["points"] > max_point) {
+      max_point = final_pont[f]["points"] 
+      badges_possible = [final_pont[f]["name"]]
+      console.log(badges_possible+" "+max_point)
+    } else if (final_pont[f]["points"] == max_point) { 
+      badges_possible.push(final_pont[f]["name"])
+      console.log(badges_possible+" "+max_point)
+    }
+  }
+  console.log(badges_possible)
+
+  //Print final_pont array
+  var ar = []
+  for (f in final_pont) {
+    ar.push(final_pont[f]["points"])
+  }
+  console.log(ar)
+
+  if (badges_possible.length >= 0) {
+    alert(badges_possible[0])
+  } else {
+    //return a random number between 1 and 10
+    var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
+    alert(badges_possible[random_number])
+  }
+  
+  
+
+
+}
+
+
 });

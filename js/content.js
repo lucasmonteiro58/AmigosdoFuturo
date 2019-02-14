@@ -85,6 +85,30 @@ var badges_texts = [
       "title": "Amigo da Inovação",
       "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."}
 ]
+
+var final_pont = [
+      { "name": "mei",
+        "points": 0 },
+      { "name": "laz",
+        "points": 0 },
+      { "name": "ino",
+        "points": 0 },
+      { "name": "edu",
+        "points": 0 },
+      { "name": "eco",
+        "points": 0 },
+      { "name": "sau",
+        "points": 0 },
+      { "name": "gov",
+        "points": 0 }]
+
+var matrix_questions_pont  = [[3,2,-1,-2,-3,1,0],
+                              [1,3,-2,-1,2,0,-3],
+                              [-3,1,3,2,0,-1,-2],
+                              [-2,0,1,3,-1,-3,2],
+                              [-1,-3,2,0,3,-2,1],
+                              [2,-2,0,-3,1,3,-1],
+                              [0,-1,-3,1,-2,2,3]]
 // Mapa ----------------------------
 
 

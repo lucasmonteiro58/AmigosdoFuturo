@@ -1,5 +1,4 @@
-
-
+# -*- coding: utf-8 -*-
 
 temas = ['mei', 'laz', 'ino', 'edu', 'eco', 'sau', 'gov']
 pont_matrix  = [[3,2,-1,-2,-3,1,0],
@@ -20,23 +19,17 @@ questions = ['Você ficaria um mês numa floresta com seus amigos?',
 			 'Gostaria de colher sua comida no quintal da sua casa?',
 			 'Você gostaria de ser o prefeito da sua cidade?']
 
-yes_indexes = []
-
 for index, question in enumerate(questions):
 	resp = raw_input(question)
 	if resp == 'sim':
 		pont_final = [sum(x) for x in zip(pont_final, pont_matrix[index])]
-		yes_indexes.append(index)
 print pont_final
 
 
-for value in pont_final:
-	if value.index(index):
+print temas[pont_final]
+
+
+#for value in pont_final:
+#	if value.index(index):
 	
-
-
-
-
 #indexMax = pont_final.index(max(pont_final))
-
-
