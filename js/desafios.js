@@ -69,26 +69,40 @@ $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plasti
        }
     });
 
+var contagemLixoDrop=0;
+
+function verificaLixo(){
+  if (contagemLixoDrop==10){
+    alert("Parabéns Otária, agora vamos plantar!");
+    window.location.href = "desafio plantar.html"
+  }
+
+}
+
 $("#lixometal").droppable({
       accept: "#metal1, #metal2",
          over: function( event, ui){
-           $("#lixometal").attr('src',"img/lixeirametal_aberta.png");
-           $("#lixometal").css("top", "70.4%");
+           $("#lixometal").css("visibility", "hidden");
+           $("#lixometalaberto").css("display", "block");
+
 
         },
 
         out: function( event, ui){
-           $("#lixometal").attr('src',"img/lixeirametal_fechada.png");
-           $("#lixometal").css("top", "80%");
+          $("#lixometalaberto").css("display", "none");
+          $("#lixometal").css("visibility", "visible");
 
         },
 
         drop: function( event, ui ) {         
-          $("#lixometal").attr('src',"img/lixeirametal_fechada.png");
-          $("#lixometal").css("top", "80%"); 
+          $("#lixometalaberto").css("display", "none");
+          $("#lixometal").css("visibility", "visible");
           var draggableId = ui.draggable.attr("id");
           draggableId= '#'+ draggableId;    
           $(draggableId).css("display", "none");
+
+          contagemLixoDrop++;
+          verificaLixo();
 
           }
       });
@@ -96,96 +110,112 @@ $("#lixometal").droppable({
 $("#lixopapel").droppable({
       accept: "#papel1, #papel2",
        over: function( event, ui){
-           $("#lixopapel").attr('src',"img/lixeirapapel_aberta.png");
-           $("#lixopapel").css("top", "70.4%");
-
+           $("#lixopapel").css("visibility", "hidden");
+           $("#lixopapelaberto").css("display", "block");
         },
 
         out: function( event, ui){
-           $("#lixopapel").attr('src',"img/lixeirapapel_fechada.png");
-           $("#lixopapel").css("top", "80%");
+          $("#lixopapelaberto").css("display", "none");
+          $("#lixopapel").css("visibility", "visible");
 
         },
 
         drop: function( event, ui ) {        
-          $("#lixopapel").attr('src',"img/lixeirapapel_fechada.png");
-          $("#lixopapel").css("top", "80%");
+          $("#lixopapelaberto").css("display", "none");
+          $("#lixopapel").css("visibility", "visible");
           var draggableId = ui.draggable.attr("id");
           draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none");          
+          $(draggableId).css("display", "none"); 
+
+          contagemLixoDrop++;
+          verificaLixo();         
           }
       });
 
 $("#lixoplastico").droppable({
       accept: "#plastico1, #plastico2",
         over: function( event, ui){
-           $("#lixoplastico").attr('src',"img/lixeiraplastico_aberta.png");
-           $("#lixoplastico").css("top", "70.4%");
+           $("#lixoplastico").css("visibility", "hidden");
+           $("#lixoplasticoaberto").css("display", "block");
 
         },
 
         out: function( event, ui){
-           $("#lixoplastico").attr('src',"img/lixeiraplastico_fechada.png");
-           $("#lixoplastico").css("top", "80%");
+           $("#lixoplasticoaberto").css("display", "none");
+           $("#lixoplastico").css("visibility", "visible");
 
         },
 
         drop: function( event, ui ) {               
-          $("#lixoplastico").attr('src',"img/lixeiraplastico_fechada.png");
-          $("#lixoplastico").css("top", "80%"); 
+          $("#lixoplasticoaberto").css("display", "none");
+          $("#lixoplastico").css("visibility", "visible");
           var draggableId = ui.draggable.attr("id");
           draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none");         
+          $(draggableId).css("display", "none"); 
+
+          contagemLixoDrop++;
+          verificaLixo();        
           }
       });
 
 $("#lixovidro").droppable({
       accept: "#vidro1, #vidro2",
         over: function( event, ui){
-           $("#lixovidro").attr('src',"img/lixeiravidro_aberta.png");
-           $("#lixovidro").css("top", "70.4%");
-
+         $("#lixovidro").css("visibility", "hidden");
+          $("#lixovidroaberto").css("display", "block");
         },
 
         out: function( event, ui){
-           $("#lixovidro").attr('src',"img/lixeiravidro_fechada.png");
-           $("#lixovidro").css("top", "80%");
+          $("#lixovidroaberto").css("display", "none");
+          $("#lixovidro").css("visibility", "visible");
 
         },
 
         drop: function( event, ui ) {         
-          $("#lixovidro").attr('src',"img/lixeiravidro_fechada.png");
-          $("#lixovidro").css("top", "80%"); 
+           $("#lixovidroaberto").css("display", "none");
+           $("#lixovidro").css("visibility", "visible");
           var draggableId = ui.draggable.attr("id");
           draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none");         
+          $(draggableId).css("display", "none"); 
+          contagemLixoDrop++;
+          verificaLixo();        
           }
       });
 
 $("#lixoorganico").droppable({
       accept: "#organico1, #organico2",
          over: function( event, ui){
-           $("#lixoorganico").attr('src',"img/lixeiraorganico_aberta.png");
-           $("#lixoorganico").css("top", "70.4%");
+          $("#lixoorganico").css("visibility", "hidden");
+          $("#lixoorganicoaberto").css("display", "block");
 
         },
 
         out: function( event, ui){
-           $("#lixoorganico").attr('src',"img/lixeiraorganico_fechada.png");
-           $("#lixoorganico").css("top", "80%");
-
+            $("#lixoorganicoaberto").css("display", "none");
+           $("#lixoorganico").css("visibility", "visible");
         },
 
         drop: function( event, ui ) {                    
-          $("#lixoorganico").attr('src',"img/lixeiraorganico_fechada.png");
-          $("#lixoorganico").css("top", "80%"); 
+           $("#lixoorganicoaberto").css("display", "none");
+           $("#lixoorganico").css("visibility", "visible");
           var draggableId = ui.draggable.attr("id");
           draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none");         
+          $(draggableId).css("display", "none"); 
+          contagemLixoDrop++;
+          verificaLixo();        
           }
       });
 
 // Desafio Plantar -----------------------------------------------------------------
+
+var verificaLegumes = 0;
+
+function verificaLegumesOK(){
+  if (verificaLegumes==6){
+    alert("Agora vamos lavar essas coisa, tão chei de terra");
+    window.location.href = "desafio cozinha.html"
+  }
+}
 
 $('#buraco1').click(function(){
   if ($('#buraco1').attr('src')== "img/buraco.png"){
@@ -204,9 +234,12 @@ $('#buraco1').click(function(){
     $("#buraco1").removeClass('bc1');
     $("#buraco1").addClass('brcp1');
   } else if ($('#buraco1').attr('src')== "img/cenoura2.png") {
-    alert("aaaaa");
+    
     $("#buraco1").attr('src',"");
+    $("#buraco1").css('display',"none");
     $('#cenouracesta1').css('display', 'block');
+    verificaLegumes++;
+    verificaLegumesOK();
 
   }  
 
@@ -229,9 +262,13 @@ $('#buraco2').click(function(){
     $("#buraco2").removeClass('bc2');
     $("#buraco2").addClass('brcp2');
   } else if ($('#buraco2').attr('src')== "img/cenoura2.png") {
-    alert("aaaaa");
+    
     $("#buraco2").attr('src',"");
+    $("#buraco2").css('display',"none");
     $('#cenouracesta2').css('display', 'block');
+     verificaLegumes++;
+    verificaLegumesOK();
+
 
   }
    
@@ -253,9 +290,13 @@ $('#buraco3').click(function(){
     $("#buraco3").removeClass('bc3');
     $("#buraco3").addClass('brcp3');
   } else if ($('#buraco3').attr('src')== "img/tomate2.png") {
-    alert("aaaaa");
+   
     $("#buraco3").attr('src',"");
+    $("#buraco3").css('display',"none");
     $('#tomatecesta1').css('display', 'block');
+     verificaLegumes++;
+    verificaLegumesOK();
+
 
   }
 });
@@ -276,9 +317,13 @@ $('#buraco4').click(function(){
     $("#buraco4").removeClass('bc4');
     $("#buraco4").addClass('brcp4');
   } else if ($('#buraco4').attr('src')== "img/tomate2.png") {
-    alert("aaaaa");
+    
     $("#buraco4").attr('src',"");
+    $("#buraco4").css('display',"none");
     $('#tomatecesta2').css('display', 'block');
+     verificaLegumes++;
+    verificaLegumesOK();
+
 
   }
 });
@@ -299,9 +344,13 @@ $('#buraco5').click(function(){
     $("#buraco5").removeClass('bc5');
     $("#buraco5").addClass('brcp5');
   } else if ($('#buraco5').attr('src')== "img/alface2.png") {
-    alert("aaaaa");
+    
     $("#buraco5").attr('src',"");
+    $("#buraco5").css('display',"none");
     $('#alfacecesta1').css('display', 'block');
+     verificaLegumes++;
+    verificaLegumesOK();
+
 
   }
 });
@@ -322,9 +371,13 @@ $('#buraco6').click(function(){
     $("#buraco6").removeClass('bc6');
     $("#buraco6").addClass('brcp6');
   } else if ($('#buraco6').attr('src')== "img/alface2.png") {
-    alert("aaaaa");
+    
     $("#buraco6").attr('src',"");
+    $("#buraco6").css('display',"none");
     $('#alfacecesta2').css('display', 'block');
+     verificaLegumes++;
+    verificaLegumesOK();
+
 
   }
 });
@@ -332,6 +385,16 @@ $('#buraco6').click(function(){
 // Desafio Cozinha  -----------------------------------------------------------------
 
 document.getElementById('C_cestavazia3').draggable = false;
+var verificaCanos = false;
+var verificaLegumesCesta = 0;
+
+function verificaLegumesCestaOK(){
+  if (verificaLegumesCesta==6 && verificaCanos){
+    alert("Terminou Otária! Parabéns!")
+  }
+}
+
+
 
 
 $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").draggable({
@@ -373,13 +436,18 @@ $("#droplegumes").droppable({
           qntLegumesPia++;
 
             if (qntLegumesPia==6){
+              alert("Agora CLICA nos legumes para tirar da pia")
             
               $(".legumesCesta").addClass("legumesCestaClick");             
               $( ".legumesCestaClick").click(function() {
                  $(this).css('display', 'none');
                  var legumeaparecer= '#'+this.id +'B';
-                 alert(this.id +"B");
+                // alert(this.id +"B");
+
                  $(legumeaparecer).css('display', 'block');
+                 verificaLegumesCesta++;
+                 verificaLegumesCestaOK()
+
 
               });
 
@@ -398,6 +466,7 @@ $("#droplegumes").droppable({
 var graus1 =90;
 var graus2 =0;
 var ultClickID = undefined;
+
 
 $( ".pecasCozinha").click(function() {
 
@@ -455,8 +524,13 @@ $( ".pecasCozinha").click(function() {
 
     //alert("AEEEeEEEeEEEeeEeeeEe");
     $('#cobrirCozinha').css('display', 'none');
+    verificaCanos = true;
+     alert("Agora arrasta as coisa pra pia");
+     verificaLegumesCestaOK()
   } else {
     $('#cobrirCozinha').css('display', 'block');
+    verificaCanos = false;
+    verificaLegumesCestaOK()
   }
 
 

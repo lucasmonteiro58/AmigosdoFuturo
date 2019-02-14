@@ -550,6 +550,52 @@ input[type="radio"] {
 
 }
 
+#lixometalaberto{
+
+  width: 12%; 
+  position: absolute;
+  top: 70.4%;
+  left: 12%; 
+  display: none; 
+
+}
+
+#lixopapelaberto{
+  width: 12%;  
+  position: absolute;
+  top: 70.4%;
+  left: 27%;  
+  display: none; 
+}
+
+#lixoplasticoaberto{
+  width: 12%;  
+  position: absolute;
+  top: 70.4%;
+  left: 42%;
+  display: none; 
+}
+  
+
+
+#lixovidroaberto{
+  width: 12%; 
+  position: absolute;
+  top: 70.4%;
+  left: 57%;
+  display: none; 
+}
+  
+
+#lixoorganicoaberto{
+  width: 12%; 
+  position: absolute;
+  top: 70.4%;
+  left: 72%;
+  display: none; 
+
+}
+
 #papel1{
   width: 10%;
 	position: absolute;
