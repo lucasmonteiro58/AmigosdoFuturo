@@ -12,6 +12,10 @@
    font-family: exo-bold;
    src: url(../fonts/Exo2-Bold.otf);
 }
+@font-face {
+   font-family: exo-medium;
+   src: url(../fonts/Exo2-Medium.otf);
+}
 
 /*General ----------------------------------------------------------*/
 html{
@@ -466,7 +470,7 @@ input[type="radio"] {
   background-color: #3E6DAC;
   background-image: linear-gradient(to right, #3E6DAC , #305882); 
 }
-.transparent {
+.transparent-gradient {
   background-color: rgba(0,0,0,0);
 }
 
@@ -510,14 +514,44 @@ input[type="radio"] {
 }
 .robot-comment .content .content-right .action {
   position: absolute;
-  bottom: 20%;
+  bottom: 25%;
   font-size: 2vw;
   right: 25%;
+}
+.robot-comment .content .content-right #about-region {
+  position: absolute;
+  bottom: 13%;
+  display: flex;
+  width: 100%;
+}
+.robot-comment .content .content-right #about-region img {
+  height: 19vw;
+  width: 58%;
+  object-fit: contain;
+}
+.robot-comment .content .content-right #about-region p {
+  width: 43%;
+  height: 8vw;
+  font-size: 1.5vw;
+  margin: auto 0px;
+  margin-right: 2%;
+  font-family: exo-medium;
+  line-height: 1.5vw;
+  padding: 3% 5% 3% 2%;
+  background-image: url(../img/box-regions-left.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.robot-comment .content .content-right #about-region button {
+  right: -10%;
+  bottom: 40%;
+  position: absolute;
 }
 
 .robot-comment .content #text-comment {
   position: absolute;
-  top: 20%;
+  top: 15%;
   height: 19vw;
   width: 100%;
   background-image: url(../img/comment/balloon-comment.png);
@@ -535,6 +569,10 @@ input[type="radio"] {
   right: 3%;
   bottom: 23%;
   position: absolute;
+}
+
+.green-text {
+  color: #43AD82;
 }
 
 
