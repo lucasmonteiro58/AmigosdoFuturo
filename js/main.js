@@ -347,25 +347,22 @@ function resultQuiz() {
 
 
 // Comment  ----------------------------
-createRobotComment(comments_texts[0])
+// createRobotComment(comments_texts[0])
+createRobotCommentRegion(comments_texts[3], map_regions_texts[0])
 
 function createRobotComment(comment) {
+  //Set comment text
   var commentHTML = ""
   commentHTML = "<p>"+comment["text"]+"</p>"+
                 "<button class='toggle repeat'></button>"
   $("#text-comment").html(commentHTML)
 
-  if (comment["type"] == "region") {
-    var region = ""
-    region = ""
-    $("#about-region").html(region)  
+  //Set background color
+  $(".robot-comment").attr('class', 'robot-comment');
+  $(".robot-comment").addClass(comment["color"]+"-gradient")
 
-    commentButtonClicked("#region-btn")
-  } else {
-    commentButtonClicked("#comment-btn")
-  }
-
-
+  // Action for button clicked
+  commentButtonClicked("#comment-btn")
 }
 
 function commentButtonClicked(selector) {
@@ -373,5 +370,30 @@ function commentButtonClicked(selector) {
     console.log("Botao cliclado VAMOS LA") 
   })
 }
+
+function createRobotCommentRegion(comment, region) {
+  //Set comment text
+  var commentHTML = ""
+  commentHTML = "<p>"+comment["text"]+"<span class='green-text'>"+region["name"]+"</span>?</p>"+
+                "<button class='toggle repeat'></button>"
+  $("#text-comment").html(commentHTML)
+
+  //Set background color
+  $(".robot-comment").attr('class', 'robot-comment');
+  $(".robot-comment").addClass(comment["color"]+"-gradient")
+
+  //Put region info
+  var regionHTML = ""
+  regionHTML = "<div id='about-region'>"+
+               "<p>"+region["info"]+"</p>"+
+               "<img src='img/"+region["id"]+".png'>"+
+               "<button id='comment-btn' class='toggle arrow'></button></div>"
+  $(".robot-comment #more").html(regionHTML)
+
+  // Action for button clicked
+  commentButtonClicked("#comment-btn")
+}
+
+
 
 });
