@@ -37,13 +37,14 @@ var actual_section = undefined
 if($("#form").length) {
   questions_array = questions_texts
   actual_section = "form"
+  createQuestion(questions_array[question_number],"questions-next")
+  prevNextDisable()
 } else if ($("#quiz").length) {
   questions_array = quiz_texts
   actual_section = "quiz"
+  createQuestion(questions_array[question_number],"questions-next")
+  prevNextDisable()
 }
-
-createQuestion(questions_array[question_number],"questions-next")
-prevNextDisable()
 
 function nextQuestion() {
   if (questions_array[question_number]["type"] == "options") {
@@ -61,6 +62,18 @@ function nextQuestion() {
   goToQuestion(question_number)
 }
 function previousQuestion() {
+  // Recalculate quiz result values
+  // if (actual_section == 'quiz') {
+  //   var answer = quizYesOrNo()
+  //   if (answer == "Sim") {
+  //     //Saber se a pessoa mudou o que marcou antes
+  //     for (f in final_pont) {
+  //       final_pont[f]["points"] += matrix_questions_pont[question_number][f]
+  //     }
+
+  //   }
+  // }
+
   question_number = question_number-1
   goToQuestion(question_number)  
 }
@@ -98,10 +111,8 @@ function createQuestion(question) {
   function configClickOptions(){
     // //Changes the button action if it's the end of the form
     actionButtonClicked('input[type="radio"]')
-
     //Able and Disable prev and next arrow buttons 
     prevNextDisable()
-
     //Fill with saved data
     $("input[value='"+getFromStorage(question["name"])+"']").prop("checked", true);
   }
@@ -110,13 +121,8 @@ function createQuestion(question) {
     if (question["name"]=="city") {
       autocompleteCities()
     }
-    // //Changes the button action if it's the end of the form
     actionButtonClicked("#questions-next")
-
-    //Able and Disable prev and next arrow buttons 
     prevNextDisable()
-
-    //Fill with saved data
     $("input").val(getFromStorage(question["name"]))
   }
 }
@@ -160,19 +166,21 @@ function doneButtonClick() {
   nextQuestion()
 }
 function submitButtonClick() {
-    saveInputInStorage()
-
-    var data = {}
-    for (var q in questions_array) {
-      var question_input_name = questions_array[q]["name"]
-      var value = getFromStorage(question_input_name)
-      data[question_input_name] = value;
-    }
-
     if (actual_section == 'quiz') {
       calculateInputQuiz()
+
+      saveInputInStorage()
       resultQuiz()
     } else {
+      saveInputInStorage()
+
+      var data = {}
+      for (var q in questions_array) {
+        var question_input_name = questions_array[q]["name"]
+        var value = getFromStorage(question_input_name)
+        data[question_input_name] = value;
+      }
+
       submitAJAX(data)
     }
 }
@@ -275,22 +283,44 @@ function emptyBadgeDetails() {
   $("#single-badge-details").html(badgeHTML)  
 }
 
+function quizYesOrNo() {
+  var inputName = $("input").attr("name")
+  var value = $("input[name='"+inputName+"']:checked").val()
+  return value
+}
+
 //Calculate the value of the answered question
 function calculateInputQuiz() { 
   var inputName = $("input").attr("name")
   var answer = $("input[name='"+inputName+"']:checked").val()
 
-  if (answer == "Sim") {
-    // Sum the final_pont array with the correspondent array
-    for (f in final_pont) {
-      final_pont[f]["points"] += matrix_questions_pont[question_number][f]
+  var beforeAnswer = getFromStorage(inputName)
+  // If already answered before
+  if (beforeAnswer == "Sim") {
+    if (answer == "Não") {
+      // Sum the final_pont array with the correspondent array
+      for (f in final_pont) {
+        final_pont[f]["points"] -= matrix_questions_pont[question_number][f]
+      }
+    }
+  } else if (beforeAnswer == "Não") {
+    if (answer == "Sim") {
+      // Sum the final_pont array with the correspondent array
+      for (f in final_pont) {
+        final_pont[f]["points"] += matrix_questions_pont[question_number][f]
+      }
     }
 
-  } else if (answer == "Não") {
-    console.log("Marcou não.")
+  } else { // First time answering
+    if (answer == "Sim") {
+      // Sum the final_pont array with the correspondent array
+      for (f in final_pont) {
+        final_pont[f]["points"] += matrix_questions_pont[question_number][f]
+      }
+    }
   }
-}
 
+}
 
 // Result of quiz
 function resultQuiz() {
@@ -301,33 +331,47 @@ function resultQuiz() {
     if (final_pont[f]["points"] > max_point) {
       max_point = final_pont[f]["points"] 
       badges_possible = [final_pont[f]["name"]]
-      console.log(badges_possible+" "+max_point)
     } else if (final_pont[f]["points"] == max_point) { 
       badges_possible.push(final_pont[f]["name"])
-      console.log(badges_possible+" "+max_point)
     }
   }
-  console.log(badges_possible)
 
-  //Print final_pont array
-  var ar = []
-  for (f in final_pont) {
-    ar.push(final_pont[f]["points"])
-  }
-  console.log(ar)
-
-  if (badges_possible.length >= 0) {
+  if (badges_possible.length == 0) {
     alert(badges_possible[0])
   } else {
-    //return a random number between 1 and 10
+    //return a random number between 1 and max number of badges_possible
     var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
     alert(badges_possible[random_number])
   }
-  
-  
+}
+
+
+// Comment  ----------------------------
+createRobotComment(comments_texts[0])
+
+function createRobotComment(comment) {
+  var commentHTML = ""
+  commentHTML = "<p>"+comment["text"]+"</p>"+
+                "<button class='toggle repeat'></button>"
+  $("#text-comment").html(commentHTML)
+
+  if (comment["type"] == "region") {
+    var region = ""
+    region = ""
+    $("#about-region").html(region)  
+
+    commentButtonClicked("#region-btn")
+  } else {
+    commentButtonClicked("#comment-btn")
+  }
 
 
 }
 
+function commentButtonClicked(selector) {
+  $(selector).click(function () { 
+    console.log("Botao cliclado VAMOS LA") 
+  })
+}
 
 });
