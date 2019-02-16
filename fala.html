@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Form / Amigos do Futuro</title>
+	<title>Fala / Amigos do Futuro</title>
 	<meta charset="utf-8">
 	<!-- Bootstrap -->
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -15,21 +15,22 @@
 
 </head>
 <body>
-	<section id="form"> 
-		<div class="robot-arrows">
+	<section id="comment"> 
+		<div class="sound-btn"><button class="toggle sound"></button></div>
+
+		<div class="robot-comment orange-gradient">
 			<div class="content centered">
-				<li><img id="img" src="img/robot-placeholder-orange.png" title="Robot"></li>
-				<li>
-					<div id="prev-next">
-						<button class="toggle arrow prev"></button>
-						<button class="toggle arrow next"></button>
-					</div>
-				</li>
+				<div class="content-left">
+					<li><img id="img" src="img/comment/robot-body.png" title="Robot"></li>
+				</div>
+				
+				<div class="content-right">
+					<li><div id="text-comment"></div></li>
+					<li><button id="comment-btn" class="action blue">Vamos lá!</button></li>
+					<li><div id="about-region"></div></li>
+				</div>
+				
 			</div>
-		</div>
-		<div class="form-question">
-			<div class="sound-btn"><button class="toggle sound"></button></div>
-			<div class="content centered" id="question-content"></div>
 		</div>
 	</section>
 

@@ -10,7 +10,7 @@ var questions_texts = [
     "name": "name",
     "placeholder": "Pode escrever aqui",
     "button_text": "Próximo"},
-  {"title": "Oi #Fulano#,  quantos anos você tem?",
+  {"title": "Oi Fulano,  quantos anos você tem?",
     "type": "number",
     "name": "age",
     "placeholder": "Sua idade aqui",
@@ -109,6 +109,15 @@ var matrix_questions_pont  = [[3,2,-1,-2,-3,1,0],
                               [-1,-3,2,0,3,-2,1],
                               [2,-2,0,-3,1,3,-1],
                               [0,-1,-3,1,-2,2,3]]
+
+// Comment ----------------------------
+
+var comments_texts = [
+    { "id" : "startGame",
+      "type" : "simple",
+      "text": "Fulano, você quer me ajudar a construir um futuro legal pra gente?"}
+    ]
+
 // Mapa ----------------------------
 
 
