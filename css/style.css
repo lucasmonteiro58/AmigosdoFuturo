@@ -889,15 +889,15 @@ input[type="radio"] {
 }
 
 .brc1, .brc2, .brc3, .brc4, .brc5, .brc6{
-	cursor: url('../img/pointer_semente.png'), default;
+	cursor: url('../img/pointer_semente.png') 0 45, auto;
 }
 
-.brcp1, .brcp2, .brcp3, .brcp4, .brcp5, .brcp6{
-	cursor: url('../img/pointer_luva.png'), default;
+.brcp1, .brcp2, .brcp3, .brcp4, .brcp5, .brcp6 {
+	cursor: url('../img/pointer_luva.png') 30 40, auto;
 }
 
 .bc1, .bc2, .bc3, .bc4, .bc5, .bc6{
-	cursor: url('../img/pointer_regador.png'), default;
+	cursor: url('../img/pointer_regador.png') 10 80, auto;
 }
 
 #cestavazia{
