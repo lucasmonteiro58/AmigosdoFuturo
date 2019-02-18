@@ -17,7 +17,7 @@ var questions_texts = [
     "placeholder": "Escreva seu nome",
     "button_text": "Próximo"
   },
-  {"title": "Oi Fulano,  quantos anos você tem?",
+  {"title": "Oi #name#, quantos anos você tem?",
     "type": "number",
     "name": "age",
     "placeholder": "Escreva sua idade",
@@ -214,9 +214,25 @@ var map_regions_texts = [
     },
     { "id" : "grande_fortaleza",
       "name": "Grande Fortaleza",
-      "info":  "Centro Sul<br>13 cidades<br>+390.000"
+      "info":  "Grande Fortaleza<br>19 cidade<br>+4.000.000"
     }]
 
-// Mapa ----------------------------
+// Help desafios ----------------------------
 
+var helps_texts = { 
+  "map":{"title": "Descobrindo o Ceará",
+          "text" : "Encaixe as regiões no mapa. Precisamos de todas juntas para a nossa aventura!"
+        },
+  "mei0":{"title": "Hora de limpar!",
+          "text" : "Transforme um espaço da sua cidade. Junte e separe o lixo do terreno abandonado."
+        },
+  "mei1":{"title": "Vamos plantar!",
+          "text" : "Podemos deixar o lugar melhor ainda. Que tal fazer uma <a>horta comunitária</a>?",
+          "tip"  : "Horta comunitária: lugar onde todo mundo pode plantar e colher alimentos."
+        },
+  "mei2":{"title": "Xiii...Sem água!",
+          "text" : "Opa, essa casa não tem <a>saneamento básico</a>. Ligue os canos para chegar água na torneira!",
+          "tip"  : "Saneamento básico: sistema de canos por onde a água chega na nossa casa e por onde sai."
+        }
+}
 
