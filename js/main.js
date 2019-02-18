@@ -1,5 +1,9 @@
 $(document).ready(function() {
 // General  -----------------------
+$(function () {
+  $('[data-toggle="popover"]').popover({html:true})
+})
+
 $(".sound").click(function () {
   $(this).toggleClass("sound")
   $(this).toggleClass("mute")
@@ -425,7 +429,6 @@ function createInvokeHelp(help) {
     $('.robot-help .content p a').attr("data-trigger", "hover")
     $('.robot-help .content p a').attr("data-placement", "right")
     $('.robot-help .content p a').attr("data-content", help["tip"])
-    $('[data-toggle="popover"]').popover()
   }
 
   $('#help').fadeIn(300)
