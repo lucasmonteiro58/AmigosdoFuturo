@@ -100,6 +100,10 @@ function createQuestion(question) {
     $("#question-content").html(questionHTML)
     configClickOptions()
   } else {
+    if (question["name"] == "age") {
+      question["title"] = question["title"].replace("#name#", getFromStorage("name"));
+    }
+
     questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
     "<li><form><input type='"+question["type"]+"' name='"+question["name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
     "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
@@ -211,6 +215,7 @@ function submitAJAX(form_data) {
     // event.preventDefault();
   var obj = JSON.stringify(form_data)
   alert(obj)
+  window.location.href = "quiz.html"
   // alert(form_data)
 }
 
@@ -338,17 +343,19 @@ function resultQuiz() {
 
   if (badges_possible.length == 0) {
     alert(badges_possible[0])
+    window.location.href = "mapa.html"
   } else {
     //return a random number between 1 and max number of badges_possible
     var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
     alert(badges_possible[random_number])
+    window.location.href = "mapa.html"
   }
 }
 
 
 // Comment  ----------------------------
 // createRobotComment(comments_texts[0])
-createRobotCommentRegion(comments_texts[3], map_regions_texts[0])
+// createRobotCommentRegion(comments_texts[3], map_regions_texts[0])
 
 function createRobotComment(comment) {
   //Set comment text
@@ -394,6 +401,44 @@ function createRobotCommentRegion(comment, region) {
   commentButtonClicked("#comment-btn")
 }
 
+// Help  ----------------------------
 
+$(".ceara2050-btn button").click(function () { 
+  createInvokeHelp(helps_texts["mei0"])
+})
+
+function createInvokeHelp(help) {
+  $(".robot-help .content h4").html(help["title"])
+  $(".robot-help .content p").html(help["text"])
+
+  if (help["tip"]) {
+    $('.robot-help .content p a').attr("data-toggle", "popover")
+    $('.robot-help .content p a').attr("data-trigger", "hover")
+    $('.robot-help .content p a').attr("data-placement", "right")
+    $('.robot-help .content p a').attr("data-content", help["tip"])
+    $('[data-toggle="popover"]').popover()
+  }
+
+  $('#help').fadeIn(300)
+  $("#close-btn").click(function () { hideHelp() })
+  $(".backdrop").click(function () { hideHelp() })
+}
+
+function showHelp() {
+  $('#help').width("100%")
+  $('#help #robot-help-mini').hide(300)
+  $('#help .backdrop').fadeIn(300)
+  $('#help .robot-help').show(300)
+  $("#close-btn").click(function () { hideHelp() })
+  $(".backdrop").click(function () { hideHelp() })
+}
+
+function hideHelp() {
+  $('#help .robot-help').hide(300)
+  $('#help .backdrop').fadeOut(300)
+  $('#help #robot-help-mini').show(300)
+  $('#help').width("0%")
+  $("#robot-help-mini img").click(function () { showHelp() })
+}
 
 });
