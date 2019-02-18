@@ -151,7 +151,7 @@ var comments_texts = [
     },
     { "id" : "startChallenge",
       "color" : "blue",
-      "text": "Agora, me ajude a resolver alguns desafios da #badge#."
+      "text": "Agora, me ajude a resolver alguns desafios."// da #badge#."
     },
     { "id" : "aboutRegion",
       "color" : "green",

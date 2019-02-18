@@ -7,7 +7,7 @@ $(".sound").click(function () {
 })
 
 // Modal fulscreen -----------------------
-$('#myModal').modal('show')
+// $('#myModal').modal('show')
 
 $("#openFullscreen").click(function () {
   openFullscreen()
@@ -26,6 +26,11 @@ function openFullscreen() {
     elem.msRequestFullscreen();
   }
 }
+
+// Menu  ----------------------------
+$("#start-game").click(function () {
+  window.location.href = "form.html"
+})
 
 // Form  ----------------------------
 var question_number = 0 //first question
@@ -352,6 +357,9 @@ function resultQuiz() {
   }
 }
 
+createRobotComment(comments_texts[2])
+
+});
 
 // Comment  ----------------------------
 // createRobotComment(comments_texts[0])
@@ -374,7 +382,8 @@ function createRobotComment(comment) {
 
 function commentButtonClicked(selector) {
   $(selector).click(function () { 
-    console.log("Botao cliclado VAMOS LA") 
+    console.log("Botao cliclado VAMOS LA")
+    window.location.href = "desafio%20lixos.html"
   })
 }
 
@@ -403,9 +412,9 @@ function createRobotCommentRegion(comment, region) {
 
 // Help  ----------------------------
 
-$(".ceara2050-btn button").click(function () { 
-  createInvokeHelp(helps_texts["mei0"])
-})
+// $(".ceara2050-btn button").click(function () { 
+//   createInvokeHelp(helps_texts["mei0"])
+// })
 
 function createInvokeHelp(help) {
   $(".robot-help .content h4").html(help["title"])
@@ -440,5 +449,3 @@ function hideHelp() {
   $('#help').width("0%")
   $("#robot-help-mini img").click(function () { showHelp() })
 }
-
-});

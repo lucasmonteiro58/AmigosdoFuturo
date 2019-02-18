@@ -1,6 +1,9 @@
 // Mapa ----------------------------
 $(document).ready(function() {
 
+if($("#mapa").length) {
+  createInvokeHelp(helps_texts["map"])
+
 $(function () {
   $('[data-toggle="popover"]').popover({html:true})
 })
@@ -24,6 +27,7 @@ $(function () {
  function verificaPecaMapa(){
  	if(contagemPecaMapa==7){
  		alert("Você montou todas as peças!");
+    window.location.href = "fala.html"
  	}
  }
 
@@ -131,6 +135,8 @@ $("#pecaMapa7").droppable({
     
 
 // Desafio Lixo -----------------------------------------------------------------
+} else if ($("#desafiolixos").length) {
+  createInvokeHelp(helps_texts["mei0"])
 
 $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
       revert: true,
@@ -285,6 +291,8 @@ $("#lixoorganico").droppable({
       });
 
 // Desafio Plantar -----------------------------------------------------------------
+} else if ($("#desafioplantar").length) {
+  createInvokeHelp(helps_texts["mei1"])
 
 var verificaLegumes = 0;
 
@@ -461,6 +469,8 @@ $('#buraco6').click(function(){
 });
 
 // Desafio Cozinha  -----------------------------------------------------------------
+} else if ($("#desafiocozinha").length) {
+  createInvokeHelp(helps_texts["mei2"])
 
 document.getElementById('C_cestavazia3').draggable = false;
 var verificaCanos = false;
@@ -584,14 +594,11 @@ $( ".pecasCozinha").click(function() {
           $(this).toggleClass("canoCerto", false);
         }
       }
-
-
   }
 
   if (graus1==360){
     graus1=0;
   }
-
   if (graus2==360){
     graus2=0;
   }
@@ -599,8 +606,6 @@ $( ".pecasCozinha").click(function() {
   var totalCanos = $(".pecasCozinha.canoCerto").length;
 
   if (totalCanos==10){
-
-    //alert("AEEEeEEEeEEEeeEeeeEe");
     $('#cobrirCozinha').css('display', 'none');
     verificaCanos = true;
      alert("Arrasta as coisas pra pia");
@@ -610,19 +615,10 @@ $( ".pecasCozinha").click(function() {
     verificaCanos = false;
     verificaLegumesCestaOK()
   }
-
-
-
-  //var idPeca = "";
-  //var graus= 0;
-  //dPeca = "#"+ this.id;
- 
-  
   console.log(graus1 , graus2);
-
-
 });
 
+}
 
 
 // ---------------------------------------------------------------------------------
