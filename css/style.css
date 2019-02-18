@@ -592,10 +592,15 @@ input[type="radio"] {
   height: 100%;
   position: relative;
   padding-top: 56.25%;
-  background-image: url("../img/cenarios/cenario_mapacpeca.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  
 
+}
+
+#backgroundmapa{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
 }
 
 #pecaMapa1{
