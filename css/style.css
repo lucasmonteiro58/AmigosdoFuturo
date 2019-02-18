@@ -687,6 +687,30 @@ input[type="radio"] {
   opacity: 0; 
 }
 
+#pecaMapa12{
+  position: absolute;
+  top: 41.7%;
+  left: 77.5%;
+  width: 10.8%;
+  opacity: 0; 
+}
+
+#pecaMapa13{
+  position: absolute;
+  top: 56%;
+  left: 61.5%;
+  width: 9%;
+  opacity: 0; 
+}
+
+#pecaMapa14{
+  position: absolute;
+  top: 63.5%;
+  left: 69%;
+  width: 12.5%;
+  opacity: 0; 
+}
+
 #pecaMesa1{
   position: absolute;
   top: 12%;
