@@ -588,12 +588,156 @@ input[type="radio"] {
 
 /*Mapa Section ----------------------------------------------------------*/
 #mapa{
-	position: absolute;
 	width: 100%;
-	height: 100%;
-	background-color: #44b6ec;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenario_mapacpeca.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 
 }
+
+#pecaMapa1{
+  position: absolute;
+  top: 74%;
+  left: 64.68%;
+  width: 17%;
+  visibility: hidden;
+}
+
+#pecaMapa2{
+  position: absolute;
+  top: 43.5%;
+  left: 68.94%;
+  width: 13%;
+  visibility: hidden;
+}
+
+#pecaMapa3{
+  position: absolute;
+  top: 33.6%;
+  left: 60.85%;
+  width: 11.2%;
+  visibility: hidden;
+}
+
+#pecaMapa4{
+  position: absolute;
+  top: 23.9%;
+  left: 58%;
+  width: 7.6%;
+  visibility: hidden;
+}
+
+#pecaMapa5{
+  position: absolute;
+  top: 18.3%;
+  left: 69.1%;
+  width: 9%;
+  visibility: hidden;
+}
+
+#pecaMapa6{
+  position: absolute;
+  top: 33.7%;
+  left: 81.8%;
+  width: 10.4%;
+  visibility: hidden;
+}
+
+#pecaMapa7{
+  position: absolute;
+  top: 35.5%;
+  left: 76.3%;
+  width: 6.6%;
+  visibility: hidden;
+}
+
+#pecaMapa8{
+  position: absolute;
+  top: 12%;
+  left: 57.5%;
+  width: 14.3%;
+  opacity: 0;
+ 
+}
+
+#pecaMapa9{
+  position: absolute;
+  top: 20.5%;
+  left: 62%;
+  width: 9.5%;
+  opacity: 0; 
+}
+
+#pecaMapa10{
+  position: absolute;
+  top: 24%;
+  left: 74.5%;
+  width: 9.7%;
+  opacity: 0; 
+}
+
+#pecaMapa11{
+  position: absolute;
+  top: 35%;
+  left: 68%;
+  width: 9.5%;
+  opacity: 0; 
+}
+
+#pecaMesa1{
+  position: absolute;
+  top: 12%;
+  left: 2%;
+  width: 17%;
+  
+}
+
+#pecaMesa2{
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 13%;
+
+}
+
+#pecaMesa3{
+  position: absolute;
+  top: 28%;
+  left: 3%;
+  width: 11.2%;
+}
+
+#pecaMesa4{
+  position: absolute;
+  top: 34%;
+  left: 15%;
+  width: 7.6%;
+}
+
+#pecaMesa5{
+  position: absolute;
+  top: 29%;
+  left: 32%;
+  width: 9%;
+}
+
+#pecaMesa6{
+  position: absolute;
+  top: 47%;
+  left: 25%;
+  width: 10.4%;
+}
+
+#pecaMesa7{
+  position: absolute;
+  top: 57%;
+  left: 17%;
+  width: 6.6%;
+}
+
 #imgMapa{
 	position: absolute;
 	margin-left: 60%;
@@ -641,16 +785,26 @@ input[type="radio"] {
 
 /*Desafio Lixos Section ----------------------------------------------------------*/
 
+
+
 #desafiolixos{
 	width: 100%;
 	height: 100%;
   position: relative;
   padding-top: 56.25%;
-	background-image: url("../img/Cen1 - Sujo.png");
+	background-image: url("../img/cenarios/Cen1 - Sujo.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 
 }
+
+ .popover-title {
+      font-family: exo-bold;
+  }
+  /* Popover Body */
+  .popover-content {
+      font-family: exo;
+  }
 
 
 #lixometal{
@@ -829,7 +983,7 @@ input[type="radio"] {
 	position: relative;
 	width: 100%;
 	padding-top: 56.25%;
-	background-image: url("../img/Cen2 - Horta.png");
+	background-image: url("../img/cenarios/Cen2 - Horta.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 
@@ -889,15 +1043,15 @@ input[type="radio"] {
 }
 
 .brc1, .brc2, .brc3, .brc4, .brc5, .brc6{
-	cursor: url('../img/pointer_semente.png') 0 45, auto;
+	cursor: url('../img/desafios/sustentabilidade/pointer_semente.png') 0 45, auto;
 }
 
 .brcp1, .brcp2, .brcp3, .brcp4, .brcp5, .brcp6 {
-	cursor: url('../img/pointer_luva.png') 30 40, auto;
+	cursor: url('../img/desafios/sustentabilidade/pointer_luva.png') 30 40, auto;
 }
 
 .bc1, .bc2, .bc3, .bc4, .bc5, .bc6{
-	cursor: url('../img/pointer_regador.png') 10 80, auto;
+	cursor: url('../img/desafios/sustentabilidade/pointer_regador.png') 10 80, auto;
 }
 
 #cestavazia{
@@ -971,7 +1125,7 @@ input[type="radio"] {
   position: relative;
   width: 100%;
   padding-top: 56.25%;
-  background-image: url("../img/Cen3 - Cozinha.png");
+  background-image: url("../img/cenarios/Cen3 - Cozinha.png");
   background-repeat: no-repeat;
   background-size: cover;
 

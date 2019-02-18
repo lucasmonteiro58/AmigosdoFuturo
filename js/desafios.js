@@ -4,54 +4,131 @@ $(document).ready(function() {
 $(function () {
   $('[data-toggle="popover"]').popover()
 })
-	
-	$( "#imgPeca1, #imgPeca2, #imgPeca3").draggable({
+
+
+	$( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
+       revert: true,
+      	revertDuration: 600,
        cursor: "grabbing",
 
         //snap: true,
        scroll:false,
        drag: function( event, ui ) {
-        console.log('aaaaaa');
+        $('[data-toggle="popover"]').popover('hide');
+        
        }
     });
 
-    $("#imgPeca1x").droppable({
-    	accept: "#imgPeca1",
-        drop: function( event, ui ) {
-          alert('xxxxxxxx');
-          document.getElementById("imgPeca1").style.left = "0px";
-          document.getElementById("imgPeca1").style.top = "0px";
-          document.getElementById("imgPeca1").style.marginLeft = "70.25%";
-          document.getElementById("imgPeca1").style.marginTop = "55.42%";
-          $( "#imgPeca1" ).draggable( "disable" );
+ var contagemPecaMapa=0;
+
+ function verificaPecaMapa(){
+ 	if(contagemPecaMapa==7){
+ 		alert("Você montou todas as peças!");
+ 	}
+ }
+
+
+$("#pecaMapa1").droppable({
+      accept: "#pecaMesa1",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa1").css("display", "none");
+          $("#pecaMapa1").css("visibility", "visible"); 
+          contagemPecaMapa++;
+          verificaPecaMapa();       
           }
-      })  
+      });
+
+$("#pecaMapa2").droppable({
+      accept: "#pecaMesa2",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa2").css("display", "none");
+          $("#pecaMapa2").css("visibility", "visible");
+          contagemPecaMapa++;
+          verificaPecaMapa();         
+          }
+      });
+
+$("#pecaMapa3").droppable({
+      accept: "#pecaMesa3",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa3").css("display", "none");
+          $("#pecaMapa3").css("visibility", "visible");
+          contagemPecaMapa++;
+          verificaPecaMapa();         
+          }
+      });
+
+$("#pecaMapa4").droppable({
+      accept: "#pecaMesa4",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa4").css("display", "none");
+          $("#pecaMapa4").css("visibility", "visible");
+          contagemPecaMapa++;
+          verificaPecaMapa();         
+          }
+      });
+
+
+$("#pecaMapa5").droppable({
+      accept: "#pecaMesa5",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa5").css("display", "none");
+          $("#pecaMapa5").css("visibility", "visible"); 
+          contagemPecaMapa++;
+          verificaPecaMapa();        
+          }
+      });
+
+$("#pecaMapa6").droppable({
+      accept: "#pecaMesa6",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa6").css("display", "none");
+          $("#pecaMapa6").css("visibility", "visible"); 
+          contagemPecaMapa++;
+          verificaPecaMapa();        
+          }
+      });
+
+
+$("#pecaMapa7").droppable({
+      accept: "#pecaMesa7",
+        over: function( event, ui){     },
+
+        out: function( event, ui){      },
+
+        drop: function( event, ui ) {         
+          $("#pecaMesa7").css("display", "none");
+          $("#pecaMapa7").css("visibility", "visible"); 
+          contagemPecaMapa++;
+          verificaPecaMapa();        
+          }
+      });	
+
     
-
-     $("#imgPeca2x").droppable({
-    	accept: "#imgPeca2",
-        drop: function( event, ui ) {
-          alert('aaaaaa');
-          document.getElementById("imgPeca2").style.left = "0px";
-          document.getElementById("imgPeca2").style.top = "0px";
-          document.getElementById("imgPeca2").style.marginLeft = "61.27%";
-          document.getElementById("imgPeca2").style.marginTop = "26.55%";
-
-          $( "#imgPeca2" ).draggable( "disable" );
-          }
-      })
-
-      $("#imgPeca3x").droppable({
-    	accept: "#imgPeca3",
-        drop: function( event, ui ) {
-          alert('aaaaaa');
-          document.getElementById("imgPeca3").style.left = "0px";
-          document.getElementById("imgPeca3").style.top = "0px";
-          document.getElementById("imgPeca3").style.marginLeft = "60%";
-          document.getElementById("imgPeca3").style.marginTop = "10.1%";
-          $( "#imgPeca3" ).draggable( "disable" );
-          }
-      })
 
 // Desafio Lixo -----------------------------------------------------------------
 
@@ -65,6 +142,7 @@ $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plasti
         //snap: true,
        scroll:false,
        drag: function( event, ui ) {
+       	 $('[data-toggle="popover"]').popover('hide');
         
        }
     });
@@ -73,7 +151,7 @@ var contagemLixoDrop=0;
 
 function verificaLixo(){
   if (contagemLixoDrop==10){
-    alert("Parabéns Otária, agora vamos plantar!");
+    alert("Parabéns, agora vamos plantar!");
     window.location.href = "desafio plantar.html"
   }
 
@@ -212,28 +290,28 @@ var verificaLegumes = 0;
 
 function verificaLegumesOK(){
   if (verificaLegumes==6){
-    alert("Agora vamos lavar essas coisa, tão chei de terra");
+    alert("Você conseguiu!");
     window.location.href = "desafio cozinha.html"
   }
 }
 
 $('#buraco1').click(function(){
-  if ($('#buraco1').attr('src')== "img/buraco.png"){
+  if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
     $("#buraco1").attr('src', "");  
-    $("#buraco1").attr('src',"img/cenoura1.png");
+    $("#buraco1").attr('src',"img/desafios/sustentabilidade/cenoura1.png");
     $("#buraco1").css("top", "66%");
     $("#buraco1").removeClass('bcr1');
     $("#buraco1").addClass('bc1');
 
   }
 
-  else if($('#buraco1').attr('src')== "img/cenoura1.png"){
+  else if($('#buraco1').attr('src')== "img/desafios/sustentabilidade/cenoura1.png"){
     $("#buraco1").attr('src', "");
-    $("#buraco1").attr('src',"img/cenoura2.png");
+    $("#buraco1").attr('src',"img/desafios/sustentabilidade/cenoura2.png");
     $("#buraco1").css("top", "60%");
     $("#buraco1").removeClass('bc1');
     $("#buraco1").addClass('brcp1');
-  } else if ($('#buraco1').attr('src')== "img/cenoura2.png") {
+  } else if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {
     
     $("#buraco1").attr('src',"");
     $("#buraco1").css('display',"none");
@@ -247,21 +325,21 @@ $('#buraco1').click(function(){
 
 
 $('#buraco2').click(function(){
-    if ($('#buraco2').attr('src')== "img/buraco.png"){
+    if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
       $("#buraco2").attr('src', ""); 
-      $("#buraco2").attr('src',"img/cenoura1.png");
+      $("#buraco2").attr('src',"img/desafios/sustentabilidade/cenoura1.png");
       $("#buraco2").css("top", "71%");
       $("#buraco2").removeClass('bcr2');
       $("#buraco2").addClass('bc2');
   }
 
-  else if($('#buraco2').attr('src')== "img/cenoura1.png"){
+  else if($('#buraco2').attr('src')== "img/desafios/sustentabilidade/cenoura1.png"){
     $("#buraco2").attr('src', "");
-    $("#buraco2").attr('src',"img/cenoura2.png");
+    $("#buraco2").attr('src',"img/desafios/sustentabilidade/cenoura2.png");
     $("#buraco2").css("top", "66%");
     $("#buraco2").removeClass('bc2');
     $("#buraco2").addClass('brcp2');
-  } else if ($('#buraco2').attr('src')== "img/cenoura2.png") {
+  } else if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {
     
     $("#buraco2").attr('src',"");
     $("#buraco2").css('display',"none");
@@ -275,21 +353,21 @@ $('#buraco2').click(function(){
 });
 
 $('#buraco3').click(function(){
-    if ($('#buraco3').attr('src')== "img/buraco.png"){
+    if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
       $("#buraco3").attr('src', ""); 
-      $("#buraco3").attr('src',"img/tomate1.png");
+      $("#buraco3").attr('src',"img/desafios/sustentabilidade/tomate1.png");
       $("#buraco3").css("top", "61%");
       $("#buraco3").removeClass('bcr3');
       $("#buraco3").addClass('bc3');
   }
 
-  else if($('#buraco3').attr('src')== "img/tomate1.png"){
+  else if($('#buraco3').attr('src')== "img/desafios/sustentabilidade/tomate1.png"){
     $("#buraco3").attr('src', "");
-    $("#buraco3").attr('src',"img/tomate2.png");
+    $("#buraco3").attr('src',"img/desafios/sustentabilidade/tomate2.png");
     $("#buraco3").css("top", "54%");
     $("#buraco3").removeClass('bc3');
     $("#buraco3").addClass('brcp3');
-  } else if ($('#buraco3').attr('src')== "img/tomate2.png") {
+  } else if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
    
     $("#buraco3").attr('src',"");
     $("#buraco3").css('display',"none");
@@ -302,21 +380,21 @@ $('#buraco3').click(function(){
 });
 
 $('#buraco4').click(function(){
-    if ($('#buraco4').attr('src')== "img/buraco.png"){
+    if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
       $("#buraco4").attr('src', ""); 
-      $("#buraco4").attr('src',"img/tomate1.png");
+      $("#buraco4").attr('src',"img/desafios/sustentabilidade/tomate1.png");
       $("#buraco4").css("top", "68%");
       $("#buraco4").removeClass('bcr4');
       $("#buraco4").addClass('bc4');
   }
 
-  else if($('#buraco4').attr('src')== "img/tomate1.png"){
+  else if($('#buraco4').attr('src')== "img/desafios/sustentabilidade/tomate1.png"){
     $("#buraco4").attr('src', "");
-    $("#buraco4").attr('src',"img/tomate2.png");
+    $("#buraco4").attr('src',"img/desafios/sustentabilidade/tomate2.png");
     $("#buraco4").css("top", "62%");
     $("#buraco4").removeClass('bc4');
     $("#buraco4").addClass('brcp4');
-  } else if ($('#buraco4').attr('src')== "img/tomate2.png") {
+  } else if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
     
     $("#buraco4").attr('src',"");
     $("#buraco4").css('display',"none");
@@ -329,21 +407,21 @@ $('#buraco4').click(function(){
 });
 
 $('#buraco5').click(function(){
-    if ($('#buraco5').attr('src')== "img/buraco.png"){
+    if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
       $("#buraco5").attr('src', ""); 
-      $("#buraco5").attr('src',"img/alface1.png");
+      $("#buraco5").attr('src',"img/desafios/sustentabilidade/alface1.png");
       $("#buraco5").css("top", "67%");
       $("#buraco5").removeClass('bcr5');
       $("#buraco5").addClass('bc5');
   }
 
-  else if($('#buraco5').attr('src')== "img/alface1.png"){
+  else if($('#buraco5').attr('src')== "img/desafios/sustentabilidade/alface1.png"){
     $("#buraco5").attr('src', ""); 
-    $("#buraco5").attr('src',"img/alface2.png");
+    $("#buraco5").attr('src',"img/desafios/sustentabilidade/alface2.png");
     $("#buraco5").css("top", "64%");
     $("#buraco5").removeClass('bc5');
     $("#buraco5").addClass('brcp5');
-  } else if ($('#buraco5').attr('src')== "img/alface2.png") {
+  } else if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
     
     $("#buraco5").attr('src',"");
     $("#buraco5").css('display',"none");
@@ -356,21 +434,21 @@ $('#buraco5').click(function(){
 });
 
 $('#buraco6').click(function(){
-    if ($('#buraco6').attr('src')== "img/buraco.png"){
+    if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
       $("#buraco6").attr('src', ""); 
-      $("#buraco6").attr('src',"img/alface1.png");
+      $("#buraco6").attr('src',"img/desafios/sustentabilidade/alface1.png");
       $("#buraco6").css("top", "73%");
       $("#buraco6").removeClass('bcr6');
       $("#buraco6").addClass('bc6');
   }
 
-  else if($('#buraco6').attr('src')== "img/alface1.png"){
+  else if($('#buraco6').attr('src')== "img/desafios/sustentabilidade/alface1.png"){
     $("#buraco6").attr('src', ""); 
-    $("#buraco6").attr('src',"img/alface2.png"); 
+    $("#buraco6").attr('src',"img/desafios/sustentabilidade/alface2.png"); 
     $("#buraco6").css("top", "70%");
     $("#buraco6").removeClass('bc6');
     $("#buraco6").addClass('brcp6');
-  } else if ($('#buraco6').attr('src')== "img/alface2.png") {
+  } else if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
     
     $("#buraco6").attr('src',"");
     $("#buraco6").css('display',"none");
@@ -390,7 +468,7 @@ var verificaLegumesCesta = 0;
 
 function verificaLegumesCestaOK(){
   if (verificaLegumesCesta==6 && verificaCanos){
-    alert("Terminou Otária! Parabéns!")
+    alert("Terminou! Parabéns!")
   }
 }
 
@@ -525,7 +603,7 @@ $( ".pecasCozinha").click(function() {
     //alert("AEEEeEEEeEEEeeEeeeEe");
     $('#cobrirCozinha').css('display', 'none');
     verificaCanos = true;
-     alert("Agora arrasta as coisa pra pia");
+     alert("Arrasta as coisas pra pia");
      verificaLegumesCestaOK()
   } else {
     $('#cobrirCozinha').css('display', 'block');
