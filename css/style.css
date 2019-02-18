@@ -643,13 +643,13 @@ input[type="radio"] {
 #robot-help-mini {
   position: absolute;
   bottom: 2%;
-  left: 1%;
   height: 10vw;
   width: 10vw;
 }
 #robot-help-mini img {
   height: 100%;
   object-fit: contain;
+  margin-left: 5%;
 }
 #robot-help-mini img:hover {
   cursor: pointer;
