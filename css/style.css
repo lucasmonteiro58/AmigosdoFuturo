@@ -1527,4 +1527,137 @@ input[type="radio"] {
   opacity: 0.6;
 }
 
+/*Desafio Foquete ----------------------------------------------------------*/
+
+#desafiofoguete{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenario_inovacao2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#btn-lancar1{
+  position: absolute;
+  bottom: 4%;
+  right: 2.3%;
+  width: 21%;
+
+}
+
+#btn-lancar2{
+ position: absolute;
+ display: none; 
+ bottom: 4%;
+ right: 2.3%;
+ width: 21%;
+}
+
+#btn-lancar3{
+  position: absolute;
+  display: none; 
+  bottom: 4%;
+  right: 2.3%;
+  width: 21%;
+  
+}
+
+#txt-btn-lancar{
+  position: absolute;
+  bottom: 5%;
+ right: 2.3%;
+ width: 21%;
+ font-family: bungee;
+ font-size: 2.5vw;
+ padding: 1%;
+ line-height: 100%;
+ color: #4573B8;
+ text-align: center;
+}
+
+#bico1{
+  position: absolute;
+  top: 10%;
+  left: 44.1%;
+  width: 12.8%;
+  display: none;
+}
+
+#bico2{
+  position: absolute;
+  top: 17.5%;
+  left: 44.5%;
+  width: 12%;
+  display: none;
+  
+}
+
+#bico3{
+  position: absolute;
+  top: 20.5%;
+  left: 44.3%;
+  width: 12.5%;
+  //display: none;
+}
+
+#meio1{
+  position: absolute;
+  top: 22.9%;
+  left: 40.5%;
+  width: 20%;
+ //display: none;
+}
+
+#meio2{
+  position: absolute;
+  top: 27%;
+  left: 40.7%;
+  width: 19.5%;
+  display: none;
+  
+}
+
+#meio3{
+  position: absolute;
+  top: 28.5%;
+  left: 37.8%;
+  width: 25.4%;
+  display: none;
+}
+
+#rabo1{
+  position: absolute;
+  top: 59.7%;
+  left: 40.5%;
+  width: 20%;
+ display: none;
+
+}
+
+#rabo2{
+  position: absolute;
+  top: 60%;
+  left: 39.2%;
+  width: 23%;
+  display: none;
+  
+}
+
+#rabo3{
+  position: absolute;
+  top: 59.5%;
+  left: 40.5%;
+  width: 20%;
+  //display: none;
+}
+
+#place{
+  position: absolute;
+  top: 12%;
+  left: 37%;
+  width: 26.6%;
+  display: none;
+}
 
