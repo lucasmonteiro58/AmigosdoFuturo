@@ -3,6 +3,10 @@ var kidName = ""
 var kidRegion = ""
 var kidAge = 0
 
+var question_number = 0 //first question
+var questions_array = [] //actual array of questions
+var actual_section = undefined
+
 // Form ----------------------------	
 var questions_texts = [
   {"title": "Me diga, você é menino ou menina?",
@@ -146,7 +150,7 @@ var comments_texts = [
       "text": "Fulano, você quer me ajudar a construir um futuro legal pra gente?"
     },
     { "id" : "startQuiz",
-      "color" : "transparent",
+      "color" : "sunshine",
       "text": "Bom trabalho! Agora, precisamos saber com o que você vai trabalhar. Responda as perguntas!"
     },
     { "id" : "startChallenge",

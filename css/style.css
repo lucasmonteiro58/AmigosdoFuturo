@@ -1,3 +1,7 @@
+/*body:after{
+  position:absolute; z-index:-1;
+  content: url(../img/buttons/action-blue.png) url(../img/buttons/action-hover-blue.png) url(../img/buttons/action-active-blue.png) url(../img/buttons/action-orange.png) url(../img/buttons/action-hover-orange.png) url(../img/buttons/action-active-orange.png) url(../img/buttons/action-white.png) url(../img/buttons/action-hover-white.png) url(../img/buttons/action-active-white.png);
+}*/
 
 /*Fonts ----------------------------------------------------------*/
 @font-face {
@@ -149,7 +153,7 @@ button.toggle:disabled{
   filter: opacity(0.5);
   cursor: not-allowed;
 }
-button.toggle.prev {
+button.toggle#prev {
   margin-right: 5%;
   transform: scaleX(-1);
 }
@@ -510,8 +514,12 @@ input[type="radio"] {
   background-color: #3E6DAC;
   background-image: linear-gradient(to right, #3E6DAC , #305882); 
 }
-.transparent-gradient {
+.sunshine-gradient {
   background-color: rgba(0,0,0,0);
+  background-image: url(../img/sunshine-bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
 
 #comment {
