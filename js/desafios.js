@@ -463,8 +463,6 @@ $('#buraco6').click(function(){
     $('#alfacecesta2').css('display', 'block');
      verificaLegumes++;
     verificaLegumesOK();
-
-
   }
 });
 
@@ -618,17 +616,54 @@ $( ".pecasCozinha").click(function() {
   console.log(graus1 , graus2);
 });
 
+
 // Desafio Foguete ---------------------------------------------------------------------------------
 } else if ($("#desafiofoguete").length) {
 createInvokeHelp(helps_texts["mei2"])
   
+var bico = 0;
+var meio = 0;
+var rabo = 0;
+
+$( ".prev1").click(function() { if (bico==0){bico=2; mudaPeca();} else {bico--;mudaPeca();}});
+$( ".next1").click(function() { if (bico==2){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
+$( ".prev2").click(function() { if (meio==0){meio=2; mudaPeca();} else {meio--;mudaPeca();}});
+$( ".next2").click(function() { if (meio==2){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
+$( ".prev3").click(function() { if (rabo==0){rabo=2; mudaPeca();} else {rabo--;mudaPeca();}});
+$( ".next3").click(function() { if (rabo==2){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
 
+function mudaPeca(){
+  switch (bico){
+    case 0:
+    $('#bico1').css('display', 'block');$('#bico2').css('display', 'none'); $('#bico3').css('display', 'none');break;
+    case 1:
+    $('#bico1').css('display', 'none');$('#bico2').css('display', 'block');$('#bico3').css('display', 'none');break;
+    case 2:
+    $('#bico1').css('display', 'none');$('#bico2').css('display', 'none');$('#bico3').css('display', 'block');break;
+  }
+
+  switch (meio){
+    case 0:
+    $('#meio1').css('display', 'block');$('#meio2').css('display', 'none');$('#meio3').css('display', 'none');break;
+    case 1:
+    $('#meio1').css('display', 'none');$('#meio2').css('display', 'block');$('#meio3').css('display', 'none');break;
+    case 2:
+    $('#meio1').css('display', 'none');$('#meio2').css('display', 'none');$('#meio3').css('display', 'block');break;
+  }
+
+   switch (rabo){
+    case 0:
+    $('#rabo1').css('display', 'block');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'none');break;
+    case 1:
+    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'block');$('#rabo3').css('display', 'none');break;
+    case 2:
+    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'block');break;
+  }
+  }
 }
+
+
 // ---------------------------------------------------------------------------------
 });
-
-
-
-
 
