@@ -1858,9 +1858,9 @@ input[type="radio"] {
 
 #imgVaso{
   position: absolute;
-  top: 7%;
+  top: 3%;
   left: 37%;
-  width: 8%;
+  width: 7%;
 }
 
 #imgBalde{
@@ -1904,5 +1904,116 @@ input[type="radio"] {
 
 .btn-bebedouro-ajuda:hover{
   transform: scale(1.55) !important;
+}
+
+/*Desafio Prato Sections-------------------------------------------------------------------*/
+
+#desafioprato{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenarioalimentacao.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#imgPrato{
+  position: absolute;
+  bottom: 23%;
+  left: 33%;
+  width: 35%;
+}
+
+#P-alface{
+  position: absolute;
+  top: 39%;
+  left: 18%;
+  width: 10%;
+}
+
+#P-arroz{
+  position: absolute;
+  top: 39%;
+  right: 10%;
+  width: 12%;
+}
+
+#P-banana{
+  position: absolute;
+  top: 80%;
+  right: 45%;  
+  width: 11%;
+}
+
+#P-carne{
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  width: 12%;
+}
+
+#P-cenoura{
+  position: absolute;
+  top: 70%;
+  right: 17%;
+  width: 14%;
+}
+
+#P-feijao{
+  position: absolute;
+  top: 55%;
+  right: 10%;  
+  width: 14%;
+}
+
+#P-bombom{
+  position: absolute;
+  top: 38%;
+  right: 55%;  
+  width: 5%;
+}
+
+#P-pirulito{
+  position: absolute;
+  top: 42%;
+  right: 34%;  
+  width: 5%;
+}
+
+#barraSaudavel{
+  position: absolute;
+  top: 6%;
+  left: 32.2%;
+  width: 36%;
+}
+
+#nomeSaudavel{
+  position: absolute;
+  top: 6%;
+  left: 69%;
+  width: 12.2%;
+}
+
+#nomeNaoSaudavel{
+  position: absolute;
+  top: 6%;
+  right: 69%;
+  width: 12.2%;
+}
+
+#btn-enviar-prato{
+  position: absolute;
+  bottom: 5%;
+  right: 2.3%;
+}
+
+#biloto{
+  position: absolute;
+  top: 5.3%;
+  //left: 32.2%;
+  left: 49.4%;
+  width: 1.5%;
 }
 
