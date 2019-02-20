@@ -618,15 +618,13 @@ $( ".pecasCozinha").click(function() {
   console.log(graus1 , graus2);
 });
 
-}
-
-
 // Desafio Foguete ---------------------------------------------------------------------------------
-
+} else if ($("#desafiofoguete").length) {
+createInvokeHelp(helps_texts["mei2"])
   
 
 
-
+}
 // ---------------------------------------------------------------------------------
 });
 

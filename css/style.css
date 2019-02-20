@@ -58,6 +58,7 @@ button, input[type="button"], input[type="radio"] {
   background-color: rgba(0,0,0,0);
   font-family: bungee, sans-serif;
   font-size: 1.7vw;
+  line-height: 1.7vw;
   color: #fff;
   text-align: center;
   outline: 0;
@@ -79,10 +80,17 @@ button:hover:not(:disabled), input[type="button"]:not(:disabled) {
 .action.orange {background-image: url(../img/buttons/action-orange.png);}
 .action.orange:hover{background-image: url(../img/buttons/action-hover-orange.png);}
 .action.orange:active{background-image: url(../img/buttons/action-active-orange.png);}
+.action.white {background-image: url(../img/buttons/action-white.png); color: #4573B8;}
+.action.white:hover{background-image: url(../img/buttons/action-hover-white.png);}
+.action.white:active{background-image: url(../img/buttons/action-active-white.png);}
 
 button.start {background-image: url(../img/menu/start.png); font-size: 6vw;}
 button.start:hover{background-image: url(../img/menu/start-hover.png);}
 button.start:active{background-image: url(../img/menu/start-active.png);}
+
+button.toggle.next {background-image: url(../img/buttons/toggle-next.png);}
+button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
+button.toggle.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
 
 button.toggle.exit {background-image: url(../img/buttons/toggle-close.png);}
 button.toggle.exit:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
@@ -112,7 +120,7 @@ button.toggle.play {background-image: url(../img/buttons/toggle-play.png);}
 button.toggle.play:hover{background-image: url(../img/buttons/toggle-play-hover.png);}
 button.toggle.play:active{background-image: url(../img/buttons/toggle-play-active.png);}
 
-button.toggle.repeat {background-image: url(../img/buttons/toggle-repeat.png);}
+button.toggle.repeat {background-image: url(../img/buttons/toggle-repeat.png);font-size: 1vw;}
 button.toggle.repeat:hover{background-image: url(../img/buttons/toggle-repeat-hover.png);}
 button.toggle.repeat:active{background-image: url(../img/buttons/toggle-repeat-active.png);}
 
@@ -566,10 +574,11 @@ input[type="radio"] {
   background-size: contain;
   background-position: center;
 }
-.robot-comment .content .content-right #about-region button {
-  right: -10%;
+.robot-comment .content .content-right .next {
+  right: -15%;
   bottom: 40%;
   position: absolute;
+  font-size: 2vw;
 }
 
 .robot-comment .content #text-comment {
@@ -600,12 +609,6 @@ input[type="radio"] {
 
 /*Help Section ----------------------------------------------------------*/
 
-/*body {
-  background-image: url(../img/help/map-bg.png);
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-}*/
 .backdrop {
   background-color: rgba(0,0,0,0.4);
   position: absolute;
@@ -682,6 +685,117 @@ input[type="radio"] {
   top: 19%;
   right: -3%;
 }
+
+/*Congrats Section ----------------------------------------------------------*/
+#congrats {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+}
+
+.robot-congrats {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-image: url(../img/congrats/bg.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.robot-congrats .content {
+  width: 85%;
+  height: 90%;
+  background-image: url(../img/comment/box-comment.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+.robot-congrats .content .content-left {
+  width: 30%;
+  position: absolute;
+  left: 12%;
+  height: 90%;
+  top: 5%;
+}
+.robot-congrats .content .content-left img {
+  width: 80%;
+}
+.robot-congrats .content .content-left #text-comment {
+  position: absolute;
+  bottom: 10%;
+  height: 20vw;
+  width: 100%;
+  background-image: url(../img/congrats/box-robot-comment-down.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  padding: 30% 10% 5% 5%;
+  font-size: 2vw;
+  line-height: 2vw;
+  font-family: exo-medium;
+  text-align: center;
+}
+
+.badge-text-format {
+  font-family: bungee;
+  color: #4573B8;
+}
+.robot-congrats .content .content-right {
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  right: 7%;
+  padding-top: 7%;
+}
+
+.robot-congrats .content .content-right .next {
+  right: -20%;
+  bottom: 45%;
+  position: absolute;
+  font-size: 2vw;
+}
+
+.robot-congrats .content .content-right img {
+  width: 60%;
+  text-align: center;
+  object-fit: contain;
+}
+.robot-congrats .content .content-right #stars {
+  width: 50%;
+  display: flex;
+  margin: 0px auto;
+}
+.robot-congrats .content .content-right #stars li {
+  margin: 0px -10%;
+}
+.robot-congrats .content .content-right #stars li:nth-child(2) {
+  margin-top: 10%;
+}
+
+.robot-congrats .content .content-right #about-region p {
+  width: 43%;
+  height: 8vw;
+  font-size: 1.5vw;
+  margin: auto 0px;
+  margin-right: 2%;
+  font-family: exo-medium;
+  line-height: 1.5vw;
+  padding: 3% 5% 3% 2%;
+  background-image: url(../img/box-regions-left.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+}
+
+.robot-congrats .content #text-comment button {
+  right: 4%;
+  bottom: 4%;
+  position: absolute;
+}
+
 
 /*Mapa Section ----------------------------------------------------------*/
 #mapa{
@@ -1539,42 +1653,10 @@ input[type="radio"] {
 
 }
 
-#btn-lancar1{
-  position: absolute;
-  bottom: 4%;
-  right: 2.3%;
-  width: 21%;
-
-}
-
-#btn-lancar2{
- position: absolute;
- display: none; 
- bottom: 4%;
- right: 2.3%;
- width: 21%;
-}
-
-#btn-lancar3{
-  position: absolute;
-  display: none; 
-  bottom: 4%;
-  right: 2.3%;
-  width: 21%;
-  
-}
-
-#txt-btn-lancar{
+#btn-lancar{
   position: absolute;
   bottom: 5%;
  right: 2.3%;
- width: 21%;
- font-family: bungee;
- font-size: 2.5vw;
- padding: 1%;
- line-height: 100%;
- color: #4573B8;
- text-align: center;
 }
 
 #bico1{
