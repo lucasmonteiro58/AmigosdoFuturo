@@ -80,6 +80,22 @@ button:hover:not(:disabled), input[type="button"]:not(:disabled) {
 .action.orange:hover{background-image: url(../img/buttons/action-hover-orange.png);}
 .action.orange:active{background-image: url(../img/buttons/action-active-orange.png);}
 
+button.white {background-image: url(../img/buttons/action-white.png);}
+button.white:hover{background-image: url(../img/buttons/action-hover-white.png);}
+button.white:active{background-image: url(../img/buttons/action-active-white.png);}
+
+button.nextF {background-image: url(../img/buttons/toggle-arrow.png);}
+button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
+button.nextF:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
+
+button.prevF {background-image: url(../img/buttons/toggle-arrow-p.png);}
+button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
+button.prevF:active{background-image: url(../img/buttons/toggle-arrow-active-p.png);}
+
+button.help {background-image: url(../img/buttons/toggle-info.png);}
+button.help:hover{background-image: url(../img/buttons/toggle-info-hover.png);}
+button.help:active{background-image: url(../img/buttons/toggle-info-active.png);}
+
 button.start {background-image: url(../img/menu/start.png); font-size: 6vw;}
 button.start:hover{background-image: url(../img/menu/start-hover.png);}
 button.start:active{background-image: url(../img/menu/start-active.png);}
@@ -1547,42 +1563,28 @@ input[type="radio"] {
 
 }
 
-#btn-lancar2{
- position: absolute;
- display: none; 
- bottom: 4%;
- right: 2.3%;
- width: 21%;
-}
-
-#btn-lancar3{
-  position: absolute;
-  display: none; 
-  bottom: 4%;
-  right: 2.3%;
-  width: 21%;
-  
-}
-
-#txt-btn-lancar{
+.btn-lancar1{
   position: absolute;
   bottom: 5%;
- right: 2.3%;
- width: 21%;
- font-family: bungee;
- font-size: 2.5vw;
- padding: 1%;
- line-height: 100%;
- color: #4573B8;
- text-align: center;
+  right: 1.5%;
+  color: #4573B8;
+  font-family: bungee;
+  text-align: center;
+  width: 22%;
+  font-size: 2.5vw;
+  padding: 1%;
+  line-height: 100%;
+ 
+
 }
+
 
 #bico1{
   position: absolute;
   top: 10%;
   left: 44.1%;
   width: 12.8%;
-  display: none;
+  //display: none;
 }
 
 #bico2{
@@ -1599,7 +1601,7 @@ input[type="radio"] {
   top: 20.5%;
   left: 44.3%;
   width: 12.5%;
-  //display: none;
+  display: none;
 }
 
 #meio1{
@@ -1632,7 +1634,7 @@ input[type="radio"] {
   top: 59.7%;
   left: 40.5%;
   width: 20%;
- display: none;
+ //display: none;
 
 }
 
@@ -1650,7 +1652,7 @@ input[type="radio"] {
   top: 59.5%;
   left: 40.5%;
   width: 20%;
-  //display: none;
+  display: none;
 }
 
 #place{
@@ -1661,3 +1663,83 @@ input[type="radio"] {
   display: none;
 }
 
+.prev1{
+  position: absolute;
+  top: 25%;
+  left: 28%;
+  transform: scale(1.6);
+}
+
+.prev1:hover{
+  transform: scale(1.7) !important;
+}
+
+.prev2{
+ position: absolute;
+  top: 45%;
+  left: 28%;
+  transform: scale(1.6);
+}
+
+.prev2:hover{
+  transform: scale(1.7) !important;
+}
+
+.prev3{
+  position: absolute;
+  top: 65%;
+  left: 28%;
+  transform: scale(1.6);
+}
+
+  .prev3:hover{
+  transform: scale(1.7) !important;
+}
+
+.next1{
+  position: absolute;
+  top: 25%;
+  right: 28%;
+  transform: scale(1.6);
+}
+
+.next1:hover{
+  transform: scale(1.7) !important;
+}
+
+.next2{
+ position: absolute;
+  top: 45%;
+  right: 28%;
+  transform: scale(1.6);
+}
+
+.next2:hover{
+  transform: scale(1.7) !important;
+}
+
+.next3{
+  position: absolute;
+  top: 65%;
+  right: 28%;
+  transform: scale(1.6);
+}
+
+.next3:hover{
+  transform: scale(1.7) !important;
+}
+
+.btn-foguete-ajuda{
+  position: absolute;
+  bottom: 22%;
+  right: 2.5%;
+  transform: scale(1.4);
+
+}
+
+.btn-foguete-ajuda:hover{
+  transform: scale(1.55) !important;
+}
+
+
+ 
