@@ -664,6 +664,68 @@ function mudaPeca(){
 }
 
 
+// Desafio do bebedouro ---------------------------------------------------------------------------------
+
+$( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
+      revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+         $('[data-toggle="popover"]').popover('hide');
+        
+       }
+    });
+
+$("#aceitaBalde").droppable({
+      accept: "#imgBalde",
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){      
+        },
+
+        drop: function( event, ui ) {      
+          $("#imgBalde").css("display", "none");
+          $("#imgBaldeOK").css("display", "block");
+          alert("conseguiu");
+          }
+      });
+
+
+// Desafio do Prato ---------------------------------------------------------------------------------
+
+$( ".alimentosSaudaveis , .alimentosNaoSaudaveis ").draggable({
+      revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+         $('[data-toggle="popover"]').popover('hide');
+        
+       }
+    });
+
+$("#imgPrato").droppable({
+  tolerance: "fit",
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){      
+        },
+
+        drop: function( event, ui ) { 
+
+          $(ui).css("display", "none");
+        alert("aa");    
+          
+         
+          }
+      });
+
+
 // ---------------------------------------------------------------------------------
 });
 

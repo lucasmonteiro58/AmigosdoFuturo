@@ -94,12 +94,16 @@ button.start:hover{background-image: url(../img/menu/start-hover.png);}
 button.start:active{background-image: url(../img/menu/start-active.png);}
 
 button.nextF {background-image: url(../img/buttons/toggle-arrow.png);}
-button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
+//button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
 button.nextF:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
 
 button.prevF {background-image: url(../img/buttons/toggle-arrow-p.png);}
-button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
+//button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
 button.prevF:active{background-image: url(../img/buttons/toggle-arrow-active-p.png);}
+
+button.help {background-image: url(../img/buttons/toggle-info.png);}
+button.help:hover{background-image: url(../img/buttons/toggle-info-hover.png);}
+button.help:active{background-image: url(../img/buttons/toggle-info-active.png);}
 
 button.toggle.next {background-image: url(../img/buttons/toggle-next.png);}
 button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
@@ -1056,10 +1060,12 @@ input[type="radio"] {
 
  .popover-title {
       font-family: exo-bold;
+      font-size: 1.3vw;
   }
   /* Popover Body */
   .popover-content {
       font-family: exo;
+      font-size: 1.1vw;
   }
 
 
@@ -1838,5 +1844,184 @@ input[type="radio"] {
 }
 
 
- 
->>>>>>> master
+/*Desafio BEBEDOURO ----------------------------------------------------------*/
+
+#desafiobebedouro{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/bebedourocenario.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+#imgBebedouro{
+  position: absolute;
+  top: 17%;
+  left: 33%;
+  width: 34%;
+}
+
+#imgVaso{
+  position: absolute;
+  top: 3%;
+  left: 37%;
+  width: 7%;
+}
+
+#imgBalde{
+  position: absolute;
+  top: 66%;
+  left: 68%;
+  width: 10%;
+}
+
+#imgBaldeOK{
+  position: absolute;
+  top: 72%;
+  left: 45%;
+  width: 10%;
+  display: none;
+}
+
+#imgGarrafao{
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  width: 12%;
+}
+
+#aceitaBalde{
+  position: absolute;
+  width: 16%;
+  height: 30%;
+  bottom: 5%;
+  left:42%; 
+
+}
+
+.btn-bebedouro-ajuda{
+  position: absolute;
+  top: 15%;
+  left: 61%;
+  transform: scale(1.4);
+
+}
+
+.btn-bebedouro-ajuda:hover{
+  transform: scale(1.55) !important;
+}
+
+/*Desafio Prato Sections-------------------------------------------------------------------*/
+
+#desafioprato{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenarioalimentacao.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#imgPrato{
+  position: absolute;
+  bottom: 23%;
+  left: 33%;
+  width: 35%;
+}
+
+#P-alface{
+  position: absolute;
+  top: 39%;
+  left: 18%;
+  width: 10%;
+}
+
+#P-arroz{
+  position: absolute;
+  top: 39%;
+  right: 10%;
+  width: 12%;
+}
+
+#P-banana{
+  position: absolute;
+  top: 80%;
+  right: 45%;  
+  width: 11%;
+}
+
+#P-carne{
+  position: absolute;
+  top: 65%;
+  left: 10%;
+  width: 12%;
+}
+
+#P-cenoura{
+  position: absolute;
+  top: 70%;
+  right: 17%;
+  width: 14%;
+}
+
+#P-feijao{
+  position: absolute;
+  top: 55%;
+  right: 10%;  
+  width: 14%;
+}
+
+#P-bombom{
+  position: absolute;
+  top: 38%;
+  right: 55%;  
+  width: 5%;
+}
+
+#P-pirulito{
+  position: absolute;
+  top: 42%;
+  right: 34%;  
+  width: 5%;
+}
+
+#barraSaudavel{
+  position: absolute;
+  top: 6%;
+  left: 32.2%;
+  width: 36%;
+}
+
+#nomeSaudavel{
+  position: absolute;
+  top: 6%;
+  left: 69%;
+  width: 12.2%;
+}
+
+#nomeNaoSaudavel{
+  position: absolute;
+  top: 6%;
+  right: 69%;
+  width: 12.2%;
+}
+
+#btn-enviar-prato{
+  position: absolute;
+  bottom: 5%;
+  right: 2.3%;
+}
+
+#biloto{
+  position: absolute;
+  top: 5.3%;
+  //left: 32.2%;
+  left: 49.4%;
+  width: 1.5%;
+}
+
