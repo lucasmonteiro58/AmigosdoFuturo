@@ -90,12 +90,16 @@ button.start:hover{background-image: url(../img/menu/start-hover.png);}
 button.start:active{background-image: url(../img/menu/start-active.png);}
 
 button.nextF {background-image: url(../img/buttons/toggle-arrow.png);}
-button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
+//button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
 button.nextF:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
 
 button.prevF {background-image: url(../img/buttons/toggle-arrow-p.png);}
-button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
+//button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
 button.prevF:active{background-image: url(../img/buttons/toggle-arrow-active-p.png);}
+
+button.help {background-image: url(../img/buttons/toggle-info.png);}
+button.help:hover{background-image: url(../img/buttons/toggle-info-hover.png);}
+button.help:active{background-image: url(../img/buttons/toggle-info-active.png);}
 
 button.toggle.next {background-image: url(../img/buttons/toggle-next.png);}
 button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
@@ -1048,10 +1052,12 @@ input[type="radio"] {
 
  .popover-title {
       font-family: exo-bold;
+      font-size: 1.3vw;
   }
   /* Popover Body */
   .popover-content {
       font-family: exo;
+      font-size: 1.1vw;
   }
 
 
@@ -1830,5 +1836,73 @@ input[type="radio"] {
 }
 
 
- 
->>>>>>> master
+/*Desafio BEBEDOURO ----------------------------------------------------------*/
+
+#desafiobebedouro{
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/bebedourocenario.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+
+#imgBebedouro{
+  position: absolute;
+  top: 17%;
+  left: 33%;
+  width: 34%;
+}
+
+#imgVaso{
+  position: absolute;
+  top: 7%;
+  left: 37%;
+  width: 8%;
+}
+
+#imgBalde{
+  position: absolute;
+  top: 66%;
+  left: 68%;
+  width: 10%;
+}
+
+#imgBaldeOK{
+  position: absolute;
+  top: 72%;
+  left: 45%;
+  width: 10%;
+  display: none;
+}
+
+#imgGarrafao{
+  position: absolute;
+  top: 55%;
+  left: 20%;
+  width: 12%;
+}
+
+#aceitaBalde{
+  position: absolute;
+  width: 16%;
+  height: 30%;
+  bottom: 5%;
+  left:42%; 
+
+}
+
+.btn-bebedouro-ajuda{
+  position: absolute;
+  top: 15%;
+  left: 61%;
+  transform: scale(1.4);
+
+}
+
+.btn-bebedouro-ajuda:hover{
+  transform: scale(1.55) !important;
+}
+
