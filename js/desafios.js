@@ -539,7 +539,8 @@ $("#droplegumes").droppable({
 
             }       
 
-          $( draggableId ).draggable( "disable" );
+          $(ui.draggable).draggable({revert:false});
+        $(ui.draggable).draggable({disabled:true});
 
 
           }
@@ -662,6 +663,122 @@ function mudaPeca(){
   }
   }
 }
+
+
+// Desafio do bebedouro ---------------------------------------------------------------------------------
+
+$( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
+      revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+         $('[data-toggle="popover"]').popover('hide');
+        
+       }
+    });
+
+$("#aceitaBalde").droppable({
+      accept: "#imgBalde",
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){      
+        },
+
+        drop: function( event, ui ) {      
+          $("#imgBalde").css("display", "none");
+          $("#imgBaldeOK").css("display", "block");
+          alert("conseguiu");
+          }
+      });
+
+
+// Desafio do Prato ---------------------------------------------------------------------------------
+var contIndex=1;
+var bilotoLeft = 49.4;
+
+$( ".alimentosSaudaveis , .alimentosNaoSaudaveis ").draggable({
+      revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+        contIndex++;
+         $('[data-toggle="popover"]').popover('hide');
+         $(this).css("z-index", contIndex);
+
+        
+       }
+    });
+
+$("#imgPrato").droppable({
+  tolerance: "fit",
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){ 
+
+           $(ui.draggable).removeClass('tanoprato');
+
+          if($(ui.draggable).hasClass('alimentosSaudaveis')){
+              bilotoLeft = bilotoLeft-1.6;                
+               $( "#biloto" ).animate({
+                    left: bilotoLeft+"%"                   
+                  })
+
+
+            } else{
+              bilotoLeft = bilotoLeft+8;
+               $( "#biloto" ).animate({
+                    left: bilotoLeft+"%"                   
+                  })
+            }
+
+        },
+
+        drop: function(event,ui) { 
+
+          if ($(ui.draggable).hasClass('tanoprato')){
+
+          } else {
+
+             $(ui.draggable).draggable({revert:false});
+            //$(ui.draggable).draggable({disabled:true});
+
+            if($(ui.draggable).hasClass('alimentosSaudaveis')){
+              bilotoLeft = bilotoLeft+1.6;             
+                $( "#biloto" ).animate({
+                    left: bilotoLeft+"%"                   
+                  })
+
+            } else{
+              bilotoLeft = bilotoLeft-8;
+               $( "#biloto" ).animate({
+                    left: bilotoLeft+"%"                   
+                  })
+            }
+
+          }
+
+          $(ui.draggable).addClass('tanoprato');           
+                  
+          }
+      });
+
+
+
+$( "#btn-enviar-prato").click(function() {
+
+  if (bilotoLeft<=55.7){
+    alert("Seu prato não está saúdavel ainda")
+  } else{
+    alert("Prato saúdavel! *enviar*")
+  }
+
+})
 
 
 // ---------------------------------------------------------------------------------
