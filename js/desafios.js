@@ -1,141 +1,12 @@
 // Mapa ----------------------------
 $(document).ready(function() {
 
-if($("#mapa").length) {
-  createInvokeHelp(helps_texts["map"])
-
 $(function () {
   $('[data-toggle="popover"]').popover({html:true})
-})
-
-
-	$( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
-       revert: true,
-      	revertDuration: 600,
-       cursor: "grabbing",
-
-        //snap: true,
-       scroll:false,
-       drag: function( event, ui ) {
-        $('[data-toggle="popover"]').popover('hide');
-        
-       }
-    });
-
- var contagemPecaMapa=0;
-
- function verificaPecaMapa(){
- 	if(contagemPecaMapa==7){
- 		alert("Você montou todas as peças!");
-    window.location.href = "fala.html"
- 	}
- }
-
-
-$("#pecaMapa1").droppable({
-      accept: "#pecaMesa1",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa1").css("display", "none");
-          $("#pecaMapa1").css("visibility", "visible"); 
-          contagemPecaMapa++;
-          verificaPecaMapa();       
-          }
-      });
-
-$("#pecaMapa2").droppable({
-      accept: "#pecaMesa2",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa2").css("display", "none");
-          $("#pecaMapa2").css("visibility", "visible");
-          contagemPecaMapa++;
-          verificaPecaMapa();         
-          }
-      });
-
-$("#pecaMapa3").droppable({
-      accept: "#pecaMesa3",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa3").css("display", "none");
-          $("#pecaMapa3").css("visibility", "visible");
-          contagemPecaMapa++;
-          verificaPecaMapa();         
-          }
-      });
-
-$("#pecaMapa4").droppable({
-      accept: "#pecaMesa4",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa4").css("display", "none");
-          $("#pecaMapa4").css("visibility", "visible");
-          contagemPecaMapa++;
-          verificaPecaMapa();         
-          }
-      });
-
-
-$("#pecaMapa5").droppable({
-      accept: "#pecaMesa5",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa5").css("display", "none");
-          $("#pecaMapa5").css("visibility", "visible"); 
-          contagemPecaMapa++;
-          verificaPecaMapa();        
-          }
-      });
-
-$("#pecaMapa6").droppable({
-      accept: "#pecaMesa6",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa6").css("display", "none");
-          $("#pecaMapa6").css("visibility", "visible"); 
-          contagemPecaMapa++;
-          verificaPecaMapa();        
-          }
-      });
-
-
-$("#pecaMapa7").droppable({
-      accept: "#pecaMesa7",
-        over: function( event, ui){     },
-
-        out: function( event, ui){      },
-
-        drop: function( event, ui ) {         
-          $("#pecaMesa7").css("display", "none");
-          $("#pecaMapa7").css("visibility", "visible"); 
-          contagemPecaMapa++;
-          verificaPecaMapa();        
-          }
-      });	
-
-    
+})   
 
 // Desafio Lixo -----------------------------------------------------------------
-} else if ($("#desafiolixos").length) {
+if ($("#desafiolixos").length) {
   createInvokeHelp(helps_texts["mei0"])
 
 $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
@@ -546,10 +417,6 @@ $("#droplegumes").droppable({
           }
       });
 
-
-
-
-
 var graus1 =90;
 var graus2 =0;
 var ultClickID = undefined;
@@ -785,8 +652,8 @@ $( "#btn-enviar-prato").click(function() {
   }
 
 })
+  
 // Desafio Campinho ------------------------------------------------------------------
-
 var contIndexC=1;
 
 
@@ -873,3 +740,130 @@ $("#campinhoAmarelo").droppable({
 // ---------------------------------------------------------------------------------
 });
 
+
+function mapa() {
+  createInvokeHelp(helps_texts["map"])
+
+  $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
+       revert: true,
+        revertDuration: 600,
+       cursor: "grabbing",
+
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+        $('[data-toggle="popover"]').popover('hide');
+        
+       }
+    });
+
+ var contagemPecaMapa=0;
+
+ function verificaPecaMapa(){
+  if(contagemPecaMapa==7){
+    alert("Você montou todas as peças!");
+    window.location.href = "fala.html"
+  }
+ }
+
+
+  $("#pecaMapa1").droppable({
+        accept: "#pecaMesa1",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa1").css("display", "none");
+            $("#pecaMapa1").css("visibility", "visible"); 
+            contagemPecaMapa++;
+            verificaPecaMapa();       
+            }
+        });
+
+  $("#pecaMapa2").droppable({
+        accept: "#pecaMesa2",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa2").css("display", "none");
+            $("#pecaMapa2").css("visibility", "visible");
+            contagemPecaMapa++;
+            verificaPecaMapa();         
+            }
+        });
+
+  $("#pecaMapa3").droppable({
+        accept: "#pecaMesa3",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa3").css("display", "none");
+            $("#pecaMapa3").css("visibility", "visible");
+            contagemPecaMapa++;
+            verificaPecaMapa();         
+            }
+        });
+
+  $("#pecaMapa4").droppable({
+        accept: "#pecaMesa4",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa4").css("display", "none");
+            $("#pecaMapa4").css("visibility", "visible");
+            contagemPecaMapa++;
+            verificaPecaMapa();         
+            }
+        });
+
+
+  $("#pecaMapa5").droppable({
+        accept: "#pecaMesa5",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa5").css("display", "none");
+            $("#pecaMapa5").css("visibility", "visible"); 
+            contagemPecaMapa++;
+            verificaPecaMapa();        
+            }
+        });
+
+  $("#pecaMapa6").droppable({
+        accept: "#pecaMesa6",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa6").css("display", "none");
+            $("#pecaMapa6").css("visibility", "visible"); 
+            contagemPecaMapa++;
+            verificaPecaMapa();        
+            }
+        });
+
+
+  $("#pecaMapa7").droppable({
+        accept: "#pecaMesa7",
+          over: function( event, ui){     },
+
+          out: function( event, ui){      },
+
+          drop: function( event, ui ) {         
+            $("#pecaMesa7").css("display", "none");
+            $("#pecaMapa7").css("visibility", "visible"); 
+            contagemPecaMapa++;
+            verificaPecaMapa();        
+            }
+        }); 
+}
