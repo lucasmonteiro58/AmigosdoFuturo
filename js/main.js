@@ -1,3 +1,8 @@
+//First page
+if ($("#menu").length) {
+  menu()
+}
+
 // General  ---------------------------------------------------------------------
 $(document).ready(function() {
   $(function () { $('[data-toggle="popover"]').popover({html:true}) })
@@ -15,25 +20,6 @@ $(document).ready(function() {
     openFullscreen()
     $('#myModal').modal('hide')
   })
-
-  //Switch actions depending on actual screen
-  if($("#menu").length) {
-    menu()
-  } else if($("#form").length) {
-    form()
-  } else if($("#quiz").length) {
-    quiz()
-  } else if($("#robo-congrats").length) {
-
-  }
-  // Modals
-  if($("#help").length) {
-
-  }
-  if($(".robot-comment").length) {
-    comment()
-  }
-
 });
 
 // Modal fulscreen --------------------------------------------------------
@@ -52,9 +38,10 @@ $(document).ready(function() {
 
 // Menu  -----------------------------------------------------------------
   function menu() {
+    console.log("menu()")
     $("#start-game").click(function () {
-      console.log("posted")
-      updateIndexAJAX({section:"form"})
+      console.log("Menu clicked")
+      updateSectionAJAX("form")
     })
   }
 
@@ -62,7 +49,8 @@ $(document).ready(function() {
   function form() {
     questions_array = questions_texts
     actual_section = "form"
-    createQuestion(questions_array[question_number],"questions-next")
+    createQuestion(questions_array[question_number])
+    console.log(questions_array[0])
     configPrevNext()
   }
 
@@ -227,8 +215,9 @@ $(document).ready(function() {
       // event.preventDefault();
     var obj = JSON.stringify(form_data)
     alert(obj)
-    window.location.href = "quiz.html"
-    // alert(form_data)
+
+    //Next section
+    updateSectionAJAX("quiz")
   }
   function saveInStorage(name, value) {
     if (typeof(Storage) !== "undefined") {
@@ -253,9 +242,11 @@ $(document).ready(function() {
 
 // Quiz  ----------------------------------------------------------------
   function quiz() {
+    question_number = 0
     questions_array = quiz_texts
     actual_section = "quiz"
-    createQuestion(questions_array[question_number],"questions-next")
+    createQuestion(questions_array[question_number])
+
     configPrevNext()
     emptyBadgeDetails()
   
@@ -351,7 +342,9 @@ $(document).ready(function() {
       //return a random number between 1 and max number of badges_possible
       var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
       alert(badges_possible[random_number])
-      window.location.href = "mapa.html"
+
+      //Next section
+      updateSectionAJAX("mapa")
     }
   }
 
@@ -439,23 +432,28 @@ $(document).ready(function() {
   }
 
 // AJAX ----------------------------------------------------------------
-  function updateIndexAJAX(data) {
-    $.ajax({
-        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-        url         : 'index.php', // the url where we want to POST
-        data        : data, // our data object
-        dataType    : 'json', // what type of data do we expect back from the server
-        encode       : true
-    })
-      .done(function(data) {
-          console.log(data); 
-      });
+  function updateSectionAJAX(name) {
+    //alert(name)
+    // Don't cache ajax or content won't be fresh
+    $.ajaxSetup ({
+        cache: false
+    });
+    // Image while loading
+    var ajax_load = "<img class='centeredX' src='img/loading.gif' alt='Carregando...' />";
 
-    // stop the form from submitting the normal way and refreshing the page
-    event.preventDefault();
+    // URL for load
+    // var loadUrl = name+".html";
+    // $("body").html(ajax_load).load(loadUrl); 
 
-    //var obj = JSON.stringify(data)
-    //alert(obj)
+    // setupSection(name)
+
+    var loadUrl = name+".html";
+    $("#main-div-content").html(ajax_load).load(loadUrl, function(){
+     $(this).hide().fadeIn('fast');
+     window[name](arguments)
+    });
+
+    
   }
 
   //https://stackoverflow.com/questions/22577457/update-data-on-a-page-without-refreshing

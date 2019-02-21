@@ -1,43 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Form / Amigos do Futuro</title>
-	<meta charset="utf-8">
-	<!-- Bootstrap -->
-	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
-	<!-- Jquery UI CSS -->
-	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.structure.min.css">
-	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.theme.min.css"> 
-
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	
-
-</head>
-<body>
-	<section id="form"> 
-		<div class="robot-arrows">
-			<div class="content centered">
-				<li><img id="img" src="img/robot-placeholder-orange.png" title="Robot"></li>
-				<li>
-					<div id="prev-next">
-						<button id="prev" class="toggle arrow"></button>
-						<button id="next" class="toggle arrow"></button>
-					</div>
-				</li>
-			</div>
+<section id="form"> 
+	<div class="sound-btn"><button class="toggle sound"></button></div>
+	<div class="robot-arrows">
+		<div class="content centered">
+			<li><img id="img" src="img/robot-placeholder-orange.png" title="Robot"></li>
+			<li>
+				<div id="prev-next">
+					<button id="prev" class="toggle arrow"></button>
+					<button id="next" class="toggle arrow"></button>
+				</div>
+			</li>
 		</div>
-		<div class="form-question">
-			<div class="sound-btn"><button class="toggle sound"></button></div>
-			<div class="content centered" id="question-content"></div>
-		</div>
-	</section>
-
-</body>
-<script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
-<script type="text/javascript" src="vendor/jquery_ui/jquery-ui.min.js"></script>
-<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/content.js"></script>
-<script type="text/javascript" src="js/main.js"></script>
-</html>
-
+	</div>
+	<div class="form-question">
+		<div class="content centered" id="question-content"></div>
+	</div>
+</section>	
