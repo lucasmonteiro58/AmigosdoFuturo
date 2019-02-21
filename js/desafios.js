@@ -493,40 +493,46 @@ var bico = 0;
 var meio = 0;
 var rabo = 0;
 
-$( ".prev1").click(function() { if (bico==0){bico=2; mudaPeca();} else {bico--;mudaPeca();}});
-$( ".next1").click(function() { if (bico==2){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
-$( ".prev2").click(function() { if (meio==0){meio=2; mudaPeca();} else {meio--;mudaPeca();}});
-$( ".next2").click(function() { if (meio==2){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
-$( ".prev3").click(function() { if (rabo==0){rabo=2; mudaPeca();} else {rabo--;mudaPeca();}});
-$( ".next3").click(function() { if (rabo==2){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
+$( ".prev1").click(function() { if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
+$( ".next1").click(function() { if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
+$( ".prev2").click(function() { if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
+$( ".next2").click(function() { if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
+$( ".prev3").click(function() { if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
+$( ".next3").click(function() { if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
 
 function mudaPeca(){
   switch (bico){
     case 0:
-    $('#bico1').css('display', 'block');$('#bico2').css('display', 'none'); $('#bico3').css('display', 'none');break;
+    $('#bico0').css('display', 'block');$('#bico1').css('display', 'none'); $('#bico2').css('display', 'none'); $('#bico3').css('display', 'none');break;
     case 1:
-    $('#bico1').css('display', 'none');$('#bico2').css('display', 'block');$('#bico3').css('display', 'none');break;
+    $('#bico1').css('display', 'block');$('#bico2').css('display', 'none'); $('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
     case 2:
-    $('#bico1').css('display', 'none');$('#bico2').css('display', 'none');$('#bico3').css('display', 'block');break;
+    $('#bico1').css('display', 'none');$('#bico2').css('display', 'block');$('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
+    case 3:
+    $('#bico1').css('display', 'none');$('#bico2').css('display', 'none');$('#bico3').css('display', 'block'); $('#bico0').css('display', 'none');break;
   }
 
   switch (meio){
     case 0:
-    $('#meio1').css('display', 'block');$('#meio2').css('display', 'none');$('#meio3').css('display', 'none');break;
+    $('#meio0').css('display', 'block');$('#meio1').css('display', 'none');$('#meio2').css('display', 'none'); $('#meio3').css('display', 'none');break;
     case 1:
-    $('#meio1').css('display', 'none');$('#meio2').css('display', 'block');$('#meio3').css('display', 'none');break;
+    $('#meio1').css('display', 'block');$('#meio2').css('display', 'none');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
     case 2:
-    $('#meio1').css('display', 'none');$('#meio2').css('display', 'none');$('#meio3').css('display', 'block');break;
+    $('#meio1').css('display', 'none');$('#meio2').css('display', 'block');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
+    case 3:
+    $('#meio1').css('display', 'none');$('#meio2').css('display', 'none');$('#meio3').css('display', 'block'); $('#meio0').css('display', 'none');break;
   }
 
    switch (rabo){
     case 0:
-    $('#rabo1').css('display', 'block');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'none');break;
+    $('#rabo0').css('display', 'block');$('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none'); $('#rabo3').css('display', 'none');break;
     case 1:
-    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'block');$('#rabo3').css('display', 'none');break;
+    $('#rabo1').css('display', 'block');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
     case 2:
-    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'block');break;
+    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'block');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
+    case 3:
+    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'block'); $('#rabo0').css('display', 'none');break;
   }
   }
 }
@@ -646,6 +652,91 @@ $( "#btn-enviar-prato").click(function() {
   }
 
 })
+  
+// Desafio Campinho ------------------------------------------------------------------
+var contIndexC=1;
+
+
+$( ".criancaAmarela , .criancaVermelha").draggable({
+      //revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+       containment: "#gramadotodo",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+        contIndexC++;
+         $('[data-toggle="popover"]').popover('hide');
+         $(this).css("z-index", contIndexC);
+
+        
+       }
+    });
+var amareloTrue = false;
+var vermelhoTrue = false;
+
+$("#campinhoVermelho").droppable({
+   accept: ".criancaVermelha",
+  //tolerance: 10%,
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){ 
+
+        $(ui.draggable).removeClass('tanocampo'); 
+
+        },
+
+        drop: function(event,ui) {   
+         
+            var totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
+
+            if($(ui.draggable).hasClass('tanocampo')){             
+
+                } else{            
+                  if (totalCriancaVermelha==2) {
+                    vermelhoTrue =true;
+                      if (vermelhoTrue && amareloTrue){
+                        alert("ta tudo organizado")
+                      }
+                  }
+                  
+                 }
+         $(ui.draggable).addClass('tanocampo');        
+                  
+        }
+});
+
+$("#campinhoAmarelo").droppable({
+   accept: ".criancaAmarela",
+  //tolerance: 10%,
+       over: function( event, ui){         
+        },
+
+        out: function( event, ui){ 
+        $(ui.draggable).removeClass('tanocampo');  
+        },
+
+        drop: function(event,ui) {        
+        var totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
+        if($(ui.draggable).hasClass('tanocampo')){            
+
+            } else{
+
+              if (totalCriancaAmarela==2) {
+                amareloTrue=true;
+
+                if (vermelhoTrue && amareloTrue){
+                  alert("ta tudo organizado")
+                }
+              }              
+            } 
+
+        $(ui.draggable).addClass('tanocampo');         
+                  
+        }
+});
+
 // ---------------------------------------------------------------------------------
 });
 

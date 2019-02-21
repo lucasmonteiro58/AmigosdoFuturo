@@ -1681,12 +1681,21 @@ input[type="radio"] {
   right: 2.3%;
 }
 
+
+#bico0{
+  position: absolute;
+  top: 11.25%;
+  left: 42.85%;
+  width: 15.23%;
+  //display: none;
+}
+
 #bico1{
   position: absolute;
   top: 10%;
   left: 44.1%;
   width: 12.8%;
-  //display: none;
+  display: none;
 }
 
 #bico2{
@@ -1706,12 +1715,21 @@ input[type="radio"] {
   display: none;
 }
 
+
+#meio0{
+  position: absolute;
+  top: 28.8%;
+  left: 42.92%;
+  width: 15%;
+ //display: none;
+}
+
 #meio1{
   position: absolute;
   top: 22.9%;
   left: 40.5%;
   width: 20%;
- //display: none;
+ display: none;
 }
 
 #meio2{
@@ -1731,12 +1749,21 @@ input[type="radio"] {
   display: none;
 }
 
+#rabo0{
+  position: absolute;
+  top: 60.3%;
+  left: 43.04%;
+  width: 15%;
+ //display: none;
+
+}
+
 #rabo1{
   position: absolute;
   top: 59.7%;
   left: 40.5%;
   width: 20%;
- //display: none;
+ display: none;
 
 }
 
@@ -2024,4 +2051,115 @@ input[type="radio"] {
   left: 49.4%;
   width: 1.5%;
 }
+
+/*Desafio Campinho Sections-------------------------------------------------------------------*/
+
+#desafiocampinho{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenario1_governo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#gramado{
+  position: absolute;
+  top: 42%;
+  left: 8%;
+  width: 85%;
+}
+
+#criancaV1{
+  position: absolute;
+  bottom: 60%;
+  left: 20%;
+}
+
+#criancaV2{
+  position: absolute;
+  bottom: 60%;
+  left: 50%;
+
+}
+
+#criancaV3{
+  position: absolute;
+  bottom: 59%;
+  left: 70%;
+}
+
+#criancaA1{
+  position: absolute;
+  bottom: 60%;
+  left: 30%;
+}
+
+#criancaA2{
+  position: absolute;
+  bottom: 60%;
+  left: 40%;
+}
+
+#criancaA3{
+  position: absolute;
+  bottom: 60%;
+  left: 60%;
+}
+
+#bandeiraA{
+  position: absolute;
+  right: 2%;
+  top: 45%;
+}
+
+#bandeiraV{
+  position: absolute;
+  left: 2%;
+  top: 45%;
+}
+
+#gramadotodo{
+  position: absolute;
+  top:0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  //background-color: red;
+}
+
+#campinhoVermelho{
+  position: absolute;
+  top: 34%;
+  width: 37.5%;
+  //background-color: red;
+  left: 12%;
+  height: 63%;
+}
+
+#campinhoAmarelo{
+  position: absolute;
+  top: 34%;
+  width: 37.5%;
+  //background-color: yellow;
+  left: 50%;
+  height: 63%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
