@@ -1,4 +1,4 @@
-// Mapa ----------------------------
+
 $(document).ready(function() {
 
 $(function () {
@@ -737,7 +737,43 @@ $("#campinhoAmarelo").droppable({
         }
 });
 
-// ---------------------------------------------------------------------------------
+// Desafio ONG --------------------------------------------------------------------------------------
+var contAlimentoRua =0;
+$( ".alimentosRua" ).click(function() {
+ contAlimentoRua ++;
+ var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
+ //alert(idAlimentoRua);
+
+ $(idAlimentoRua).css('display','block');
+ $(this).css('display','none');
+
+ if (contAlimentoRua==4){
+  alert("Você conseguiu");
+ }
+
+
+});
+
+// Desafio Radio --------------------------------------------------------------------------------------
+var contJornalRua =0;
+$( ".jornalRua" ).click(function() {
+ contJornalRua ++;
+ var idJornalRua = "#" + $(this).attr('id') + "cesta";
+ //alert(idAlimentoRua);
+
+ $(idJornalRua).css('display','block');
+ $(this).css('display','none');
+
+ if (contJornalRua==4){
+  alert("Você conseguiu");
+ }
+
+
+}); 
+
+// Mapa -------------------------------------------------------------------------------------------------------------
+
+
 });
 
 
@@ -868,3 +904,5 @@ function mapa() {
             }
         }); 
 }
+
+
