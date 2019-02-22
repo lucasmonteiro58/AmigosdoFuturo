@@ -759,10 +759,11 @@ function mapa() {
 
  var contagemPecaMapa=0;
 
- function verificaPecaMapa(){
+ function verificaPecaMapa() {
   if(contagemPecaMapa==7){
-    alert("Você montou todas as peças!");
-    window.location.href = "fala.html"
+    comment_name = "start_quiz"
+    createComment(comments_texts[comment_name])
+    $(".robot-comment").fadeIn(300)
   }
  }
 

@@ -6,6 +6,7 @@ var kidAge = 0
 var question_number = 0 //first question
 var questions_array = [] //actual array of questions
 var actual_section = undefined
+var comment_name = undefined // regions/other_normal_comment
 
 // Form ----------------------------	
 var questions_texts = [
@@ -144,24 +145,24 @@ var matrix_questions_pont  = [[3,2,-1,-2,-3,1,0],
 
 // Comment ----------------------------
 
-var comments_texts = [
-    { "id" : "startGame",
-      "color" : "orange", //red, gree, blue, orange, transparent
-      "text": "Fulano, você quer me ajudar a construir um futuro legal pra gente?"
-    },
-    { "id" : "startQuiz",
-      "color" : "sunshine",
-      "text": "Bom trabalho! Agora, precisamos saber com o que você vai trabalhar. Responda as perguntas!"
-    },
-    { "id" : "startChallenge",
-      "color" : "blue",
-      "text": "Agora, me ajude a resolver alguns desafios."// da #badge#."
-    },
-    { "id" : "aboutRegion",
-      "color" : "green",
-      "text": "Você sabia que o Ceará é dividido em 14 regiões e a sua cidade fica no "
-    }
-  ]
+var comments_texts = {
+  "start_game":
+      { "color" : "orange", //red, gree, blue, orange, transparent
+         "text": "#name#, você quer me ajudar a construir um futuro legal pra gente?"
+      },
+  "start_quiz":
+      { "color" : "sunshine",
+         "text": "Bom trabalho! Agora, precisamos saber com o que você vai trabalhar. Responda as perguntas!"
+      },
+  "start_challenge":
+      { "color" : "blue",
+         "text": "Agora, me ajude a resolver alguns desafios."// da #badge#."
+      },
+  "about_region":
+      { "color" : "green",
+         "text": "Você sabia que o Ceará é dividido em 14 regiões e a sua cidade fica no "
+      }
+}
 
 var map_regions_texts = [
     { "id" : "macico_de_baturite",
