@@ -38,9 +38,7 @@ $(document).ready(function() {
 
 // Menu  -----------------------------------------------------------------
   function menu() {
-    console.log("menu()")
     $("#start-game").click(function () {
-      console.log("Menu clicked")
       updateSectionAJAX("form")
     })
   }
@@ -50,7 +48,7 @@ $(document).ready(function() {
     questions_array = questions_texts
     actual_section = "form"
     createQuestion(questions_array[question_number])
-    console.log(questions_array[0])
+  
     configPrevNext()
   }
 
@@ -145,6 +143,7 @@ $(document).ready(function() {
       enterKeydown(false)
     }
   } 
+
   function autocompleteCities() {
     $("input").autocomplete({
       source: available_cities
@@ -214,10 +213,11 @@ $(document).ready(function() {
       // // stop the form from submitting the normal way and refreshing the page
       // event.preventDefault();
     var obj = JSON.stringify(form_data)
-    alert(obj)
+    //lert(obj)
 
     //Next section
-    updateSectionAJAX("quiz")
+    comment_name = "start_game"
+    updateSectionAJAX("comment")
   }
   function saveInStorage(name, value) {
     if (typeof(Storage) !== "undefined") {
@@ -344,17 +344,24 @@ $(document).ready(function() {
       alert(badges_possible[random_number])
 
       //Next section
-      updateSectionAJAX("mapa")
+      comment_name = "start_challenge"
+      updateSectionAJAX("comment")
     }
   }
 
 // Comment  -------------------------------------------------------------
   function comment() {
-     // createRobotComment(comments_texts[1])
-    createRobotCommentRegion(comments_texts[3], map_regions_texts[2])
+    if (comment_name == "about_region") {
+      createCommentRegion(comments_texts[comment_name], map_regions_texts[2])
+    } else {
+      createComment(comments_texts[comment_name])
+    }
   }
 
-  function createRobotComment(comment) {
+  function createComment(comment) {
+    if (comment_name == "start_game") {
+      comment["text"] = comment["text"].replace("#name#", getFromStorage("name"));
+    }
     //Set comment text
     var commentHTML = ""
     commentHTML = "<p>"+comment["text"]+"</p>"+
@@ -366,15 +373,31 @@ $(document).ready(function() {
     $(".robot-comment").addClass(comment["color"]+"-gradient")
 
     // Action for button clicked
-    commentButtonClicked("#comment-btn")
+    commentButtonClicked()
   }
-  function commentButtonClicked(selector) {
-    $(selector).click(function () { 
-      console.log("Botao cliclado VAMOS LA")
-      window.location.href = "desafio%20lixos.html"
+
+  // Switch witch screen to go
+  function commentButtonClicked() {
+    $("#go-comment").click(function () { 
+      switch (comment_name) {
+        case "about_region":
+          updateSectionAJAX("mapa")
+        break
+        case "start_game":
+          comment_name = "about_region"
+          updateSectionAJAX("comment")
+        break
+        case "start_quiz":
+          updateSectionAJAX("quiz")
+        break
+        case "start_challenge":
+          updateSectionAJAX("desafios lixos")
+        break
+
+      }      
     })
   }
-  function createRobotCommentRegion(comment, region) {
+  function createCommentRegion(comment, region) {
     //Set comment text
     var commentHTML = ""
     commentHTML = "<p>"+comment["text"]+"<span class='green-text'>"+region["name"]+"</span>?</p>"+
@@ -390,11 +413,11 @@ $(document).ready(function() {
     regionHTML = "<div id='about-region'>"+
                  "<p>"+region["info"]+"</p>"+
                  "<img src='img/desafios/mapa/pc_"+region["id"]+".png'>"+
-                 "<button id='comment-btn' class='toggle next'></button></div>"
+                 "<button id='go-comment' class='toggle next'></button></div>"
     $(".robot-comment #more").html(regionHTML)
 
     // Action for button clicked
-    commentButtonClicked("#comment-btn")
+    commentButtonClicked()
   }
 
 // Help  --------------------------------------------------------------
@@ -449,7 +472,7 @@ $(document).ready(function() {
 
     var loadUrl = name+".html";
     $("#main-div-content").html(ajax_load).load(loadUrl, function(){
-     $(this).hide().fadeIn('fast');
+     $(this).hide().fadeIn('slow');
      window[name](arguments)
     });
 
