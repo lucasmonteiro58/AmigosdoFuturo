@@ -254,12 +254,9 @@ $(document).ready(function() {
       $(this).toggleClass("active")
 
       var badge_id = $(this).attr("id")
-      for (b in badges_texts) {
-        if (badges_texts[b]["id"] == badge_id) {
-          var badge = badges_texts[b]
-          createBadgeDetails(badge)
-        }
-      }
+      var badge = badges_texts[badge_id]
+      createBadgeDetails(badge)
+ 
     })
     $(".all-badges img").mouseleave(function () {
       emptyBadgeDetails()
@@ -335,18 +332,13 @@ $(document).ready(function() {
       }
     }
 
-    if (badges_possible.length == 0) {
-      alert(badges_possible[0])
-      window.location.href = "map.html"
-    } else {
-      //return a random number between 1 and max number of badges_possible
-      var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
-      alert(badges_possible[random_number])
+    //Returns a random number between 1 and max number of badges_possible
+    var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
+    kidBadge = badges_texts[badges_possible[random_number]]
 
-      //Next section
-      comment_name = "start_challenge"
-      updateSectionAJAX("comment")
-    }
+    //Next section
+    congrats_name = "badge"
+    updateSectionAJAX("congrats")
   }
 
 // Comment  -------------------------------------------------------------
@@ -361,6 +353,10 @@ $(document).ready(function() {
   function createComment(comment) {
     if (comment_name == "start_game") {
       comment["text"] = comment["text"].replace("#name#", getFromStorage("name"));
+    }
+
+    if (comment_name == "start_challenge") {
+      comment["text"] = comment["text"].replace("#badge_title#", kidBadge["title"]);
     }
     //Set comment text
     var commentHTML = ""
@@ -391,9 +387,10 @@ $(document).ready(function() {
           updateSectionAJAX("quiz")
         break
         case "start_challenge":
-          updateSectionAJAX("desafios lixos")
+          actual_badge = kidBadge["id"]
+          actual_level = 0
+          updateSectionAJAX(actual_badge+"_"+actual_level)
         break
-
       }      
     })
   }
@@ -430,11 +427,12 @@ $(document).ready(function() {
       $('.robot-help .content p a').attr("data-trigger", "hover")
       $('.robot-help .content p a').attr("data-placement", "right")
       $('.robot-help .content p a').attr("data-content", help["tip"])
+      $('[data-toggle="popover"]').popover({html:true})
     }
 
     $('#help').fadeIn(300)
     $("#close-btn").click(function () { hideHelp() })
-    $(".backdrop").click(function () { hideHelp() })
+    // $(".backdrop").click(function () { hideHelp() })
   }
 
   function showHelp() {
@@ -443,7 +441,7 @@ $(document).ready(function() {
     $('#help .backdrop').fadeIn(300)
     $('#help .robot-help').show(300)
     $("#close-btn").click(function () { hideHelp() })
-    $(".backdrop").click(function () { hideHelp() })
+    // $(".backdrop").click(function () { hideHelp() })
   }
 
   function hideHelp() {
@@ -452,6 +450,59 @@ $(document).ready(function() {
     $('#help #robot-help-mini').show(300)
     $('#help').width("0%")
     $("#robot-help-mini img").click(function () { showHelp() })
+  }
+
+// Congragts starts ----------------------------------------------------------------
+  function congrats() {
+    createCongrats(congrats_texts[congrats_name])
+  }
+
+function createCongrats(congrats) {
+  if (congrats_name == "badge") {
+    congrats["text"] = congrats["text"].replace("#badge_title#", kidBadge["title"]);
+    $(".robot-congrats #text-comment p").addClass("badge-text-format")
+  }
+
+    $(".robot-congrats #text-comment p").html(congrats["text"])
+
+    if (congrats["tip"]) {
+      $('.robot-congrats #text-comment p a').attr("data-toggle", "popover")
+      $('.robot-congrats #text-comment p a').attr("data-trigger", "hover")
+      $('.robot-congrats #text-comment p a').attr("data-placement", "right")
+      $('.robot-congrats #text-comment p a').attr("data-content", congrats["tip"])
+      $('[data-toggle="popover"]').popover({html:true})
+    }
+
+    $(".robot-congrats .content-right img").attr("src", "img/congrats/"+kidBadge["id"]+".png")
+
+    var starsHTML = ""
+    for (var i = 0; i < level_stars.length; i++) {
+      starsHTML += "<li><img src='img/congrats/star-"+level_stars[i]+".png'></li>"
+    }
+    $('.robot-congrats .content-right #stars').html(starsHTML)
+
+    // Action for button clicked
+    congratsButtonClicked()
+  }
+
+  function congratsButtonClicked() {
+    $("#go-congrats").click(function () { 
+      switch (congrats_name) {
+        case "badge":
+          comment_name = "start_challenge"
+          updateSectionAJAX("comment")
+        break
+        default:
+          if (actual_level+1 < badges_texts[actual_badge]["levels"]) {
+            actual_level += 1
+            updateSectionAJAX(actual_badge+"_"+actual_level)
+          } else {
+            alert("Finalizou. Form de feedback aqui.")
+            //updateSectionAJAX("feedback")
+          }
+        break
+      }      
+    })
   }
 
 // AJAX ----------------------------------------------------------------
@@ -480,3 +531,7 @@ $(document).ready(function() {
   }
 
   //https://stackoverflow.com/questions/22577457/update-data-on-a-page-without-refreshing
+
+  function nextLevelBadge(badge,level) {
+    updateSectionAJAX(badge+"_"+level) //first challenge of badge
+  }
