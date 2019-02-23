@@ -5,164 +5,8 @@ $(function () {
   $('[data-toggle="popover"]').popover({html:true})
 })   
 
-// Desafio Lixo -----------------------------------------------------------------
-if ($("#desafiolixos").length) {
-  createInvokeHelp(helps_texts["mei0"])
-
-$( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
-      revert: true,
-      revertDuration: 600,
-       cursor: "grabbing",
-
-
-
-        //snap: true,
-       scroll:false,
-       drag: function( event, ui ) {
-       	 $('[data-toggle="popover"]').popover('hide');
-        
-       }
-    });
-
-var contagemLixoDrop=0;
-
-function verificaLixo(){
-  if (contagemLixoDrop==10){
-    alert("Parabéns, agora vamos plantar!");
-    window.location.href = "desafio plantar.html"
-  }
-
-}
-
-$("#lixometal").droppable({
-      accept: "#metal1, #metal2",
-         over: function( event, ui){
-           $("#lixometal").css("visibility", "hidden");
-           $("#lixometalaberto").css("display", "block");
-
-
-        },
-
-        out: function( event, ui){
-          $("#lixometalaberto").css("display", "none");
-          $("#lixometal").css("visibility", "visible");
-
-        },
-
-        drop: function( event, ui ) {         
-          $("#lixometalaberto").css("display", "none");
-          $("#lixometal").css("visibility", "visible");
-          var draggableId = ui.draggable.attr("id");
-          draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none");
-
-          contagemLixoDrop++;
-          verificaLixo();
-
-          }
-      });
-
-$("#lixopapel").droppable({
-      accept: "#papel1, #papel2",
-       over: function( event, ui){
-           $("#lixopapel").css("visibility", "hidden");
-           $("#lixopapelaberto").css("display", "block");
-        },
-
-        out: function( event, ui){
-          $("#lixopapelaberto").css("display", "none");
-          $("#lixopapel").css("visibility", "visible");
-
-        },
-
-        drop: function( event, ui ) {        
-          $("#lixopapelaberto").css("display", "none");
-          $("#lixopapel").css("visibility", "visible");
-          var draggableId = ui.draggable.attr("id");
-          draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none"); 
-
-          contagemLixoDrop++;
-          verificaLixo();         
-          }
-      });
-
-$("#lixoplastico").droppable({
-      accept: "#plastico1, #plastico2",
-        over: function( event, ui){
-           $("#lixoplastico").css("visibility", "hidden");
-           $("#lixoplasticoaberto").css("display", "block");
-
-        },
-
-        out: function( event, ui){
-           $("#lixoplasticoaberto").css("display", "none");
-           $("#lixoplastico").css("visibility", "visible");
-
-        },
-
-        drop: function( event, ui ) {               
-          $("#lixoplasticoaberto").css("display", "none");
-          $("#lixoplastico").css("visibility", "visible");
-          var draggableId = ui.draggable.attr("id");
-          draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none"); 
-
-          contagemLixoDrop++;
-          verificaLixo();        
-          }
-      });
-
-$("#lixovidro").droppable({
-      accept: "#vidro1, #vidro2",
-        over: function( event, ui){
-         $("#lixovidro").css("visibility", "hidden");
-          $("#lixovidroaberto").css("display", "block");
-        },
-
-        out: function( event, ui){
-          $("#lixovidroaberto").css("display", "none");
-          $("#lixovidro").css("visibility", "visible");
-
-        },
-
-        drop: function( event, ui ) {         
-           $("#lixovidroaberto").css("display", "none");
-           $("#lixovidro").css("visibility", "visible");
-          var draggableId = ui.draggable.attr("id");
-          draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none"); 
-          contagemLixoDrop++;
-          verificaLixo();        
-          }
-      });
-
-$("#lixoorganico").droppable({
-      accept: "#organico1, #organico2",
-         over: function( event, ui){
-          $("#lixoorganico").css("visibility", "hidden");
-          $("#lixoorganicoaberto").css("display", "block");
-
-        },
-
-        out: function( event, ui){
-            $("#lixoorganicoaberto").css("display", "none");
-           $("#lixoorganico").css("visibility", "visible");
-        },
-
-        drop: function( event, ui ) {                    
-           $("#lixoorganicoaberto").css("display", "none");
-           $("#lixoorganico").css("visibility", "visible");
-          var draggableId = ui.draggable.attr("id");
-          draggableId= '#'+ draggableId;    
-          $(draggableId).css("display", "none"); 
-          contagemLixoDrop++;
-          verificaLixo();        
-          }
-      });
-
 // Desafio Plantar -----------------------------------------------------------------
-} else if ($("#desafioplantar").length) {
+if ($("#desafioplantar").length) {
   createInvokeHelp(helps_texts["mei1"])
 
 var verificaLegumes = 0;
@@ -771,20 +615,16 @@ $( ".jornalRua" ).click(function() {
 
 }); 
 
-// Mapa -------------------------------------------------------------------------------------------------------------
-
-
 });
 
-
-function mapa() {
+// Mapa -------------------------------------------------------------------------------------------------------------
+function map() {
   createInvokeHelp(helps_texts["map"])
 
   $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
        revert: true,
         revertDuration: 600,
        cursor: "grabbing",
-
         //snap: true,
        scroll:false,
        drag: function( event, ui ) {
@@ -793,116 +633,211 @@ function mapa() {
        }
     });
 
- var contagemPecaMapa=0;
+ var contagemPecaMapa = 0;
 
  function verificaPecaMapa() {
-  if(contagemPecaMapa==7){
+  if(contagemPecaMapa == 7){
     comment_name = "start_quiz"
     createComment(comments_texts[comment_name])
     $(".robot-comment").fadeIn(300)
   }
  }
 
-
   $("#pecaMapa1").droppable({
         accept: "#pecaMesa1",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa1").css("display", "none");
             $("#pecaMapa1").css("visibility", "visible"); 
             contagemPecaMapa++;
-            verificaPecaMapa();       
-            }
+            verificaPecaMapa();}
         });
-
   $("#pecaMapa2").droppable({
         accept: "#pecaMesa2",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa2").css("display", "none");
             $("#pecaMapa2").css("visibility", "visible");
             contagemPecaMapa++;
-            verificaPecaMapa();         
-            }
+            verificaPecaMapa();  }
         });
-
   $("#pecaMapa3").droppable({
         accept: "#pecaMesa3",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa3").css("display", "none");
             $("#pecaMapa3").css("visibility", "visible");
             contagemPecaMapa++;
-            verificaPecaMapa();         
-            }
+            verificaPecaMapa();  }
         });
-
   $("#pecaMapa4").droppable({
         accept: "#pecaMesa4",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa4").css("display", "none");
             $("#pecaMapa4").css("visibility", "visible");
             contagemPecaMapa++;
-            verificaPecaMapa();         
-            }
+            verificaPecaMapa();}
         });
-
-
   $("#pecaMapa5").droppable({
         accept: "#pecaMesa5",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa5").css("display", "none");
             $("#pecaMapa5").css("visibility", "visible"); 
             contagemPecaMapa++;
-            verificaPecaMapa();        
-            }
+            verificaPecaMapa()}
         });
-
   $("#pecaMapa6").droppable({
         accept: "#pecaMesa6",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa6").css("display", "none");
             $("#pecaMapa6").css("visibility", "visible"); 
             contagemPecaMapa++;
-            verificaPecaMapa();        
-            }
+            verificaPecaMapa(); }
         });
-
-
   $("#pecaMapa7").droppable({
         accept: "#pecaMesa7",
           over: function( event, ui){     },
-
           out: function( event, ui){      },
-
           drop: function( event, ui ) {         
             $("#pecaMesa7").css("display", "none");
             $("#pecaMapa7").css("visibility", "visible"); 
             contagemPecaMapa++;
-            verificaPecaMapa();        
-            }
+            verificaPecaMapa(); }
         }); 
 }
 
+// Desafio Lixo -----------------------------------------------------------------
+function mei_0() {
+  createInvokeHelp(helps_texts["mei0"])
 
+  $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
+      revert: true,
+      revertDuration: 600,
+       cursor: "grabbing",
+        //snap: true,
+       scroll:false,
+       drag: function( event, ui ) {
+         $('[data-toggle="popover"]').popover('hide'); }
+    });
+
+  var contagemLixoDrop = 0;
+
+  function verificaLixo() {
+    if (contagemLixoDrop == 10){
+      alert("Parabéns, agora vamos plantar!");
+      window.location.href = "desafio plantar.html"
+    }
+  }
+
+  $("#lixometal").droppable({
+      accept: "#metal1, #metal2",
+         over: function( event, ui){
+           $("#lixometal").css("visibility", "hidden");
+           $("#lixometalaberto").css("display", "block");
+        },
+        out: function( event, ui){
+          $("#lixometalaberto").css("display", "none");
+          $("#lixometal").css("visibility", "visible");
+        },
+        drop: function( event, ui ) {         
+          $("#lixometalaberto").css("display", "none");
+          $("#lixometal").css("visibility", "visible");
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '#'+ draggableId;    
+          $(draggableId).css("display", "none");
+
+          contagemLixoDrop++;
+          verificaLixo();}
+      });
+
+  $("#lixopapel").droppable({
+      accept: "#papel1, #papel2",
+       over: function( event, ui){
+           $("#lixopapel").css("visibility", "hidden");
+           $("#lixopapelaberto").css("display", "block");
+        },
+        out: function( event, ui){
+          $("#lixopapelaberto").css("display", "none");
+          $("#lixopapel").css("visibility", "visible")
+        },
+        drop: function( event, ui ) {        
+          $("#lixopapelaberto").css("display", "none");
+          $("#lixopapel").css("visibility", "visible");
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '#'+ draggableId;    
+          $(draggableId).css("display", "none"); 
+          contagemLixoDrop++;
+          verificaLixo();  }
+      });
+
+  $("#lixoplastico").droppable({
+      accept: "#plastico1, #plastico2",
+        over: function( event, ui){
+           $("#lixoplastico").css("visibility", "hidden");
+           $("#lixoplasticoaberto").css("display", "block");
+        },
+        out: function( event, ui){
+           $("#lixoplasticoaberto").css("display", "none");
+           $("#lixoplastico").css("visibility", "visible");
+        },
+        drop: function( event, ui ) {               
+          $("#lixoplasticoaberto").css("display", "none");
+          $("#lixoplastico").css("visibility", "visible");
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '#'+ draggableId;    
+          $(draggableId).css("display", "none"); 
+
+          contagemLixoDrop++;
+          verificaLixo(); }
+      });
+
+  $("#lixovidro").droppable({
+      accept: "#vidro1, #vidro2",
+        over: function( event, ui){
+         $("#lixovidro").css("visibility", "hidden");
+          $("#lixovidroaberto").css("display", "block");
+        },
+        out: function( event, ui){
+          $("#lixovidroaberto").css("display", "none");
+          $("#lixovidro").css("visibility", "visible");
+        },
+        drop: function( event, ui ) {         
+           $("#lixovidroaberto").css("display", "none");
+           $("#lixovidro").css("visibility", "visible");
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '#'+ draggableId;    
+          $(draggableId).css("display", "none"); 
+          contagemLixoDrop++;
+          verificaLixo();}
+      });
+
+  $("#lixoorganico").droppable({
+      accept: "#organico1, #organico2",
+         over: function( event, ui){
+          $("#lixoorganico").css("visibility", "hidden");
+          $("#lixoorganicoaberto").css("display", "block");
+        },
+        out: function( event, ui){
+            $("#lixoorganicoaberto").css("display", "none");
+           $("#lixoorganico").css("visibility", "visible");
+        },
+        drop: function( event, ui ) {                    
+           $("#lixoorganicoaberto").css("display", "none");
+           $("#lixoorganico").css("visibility", "visible");
+          var draggableId = ui.draggable.attr("id");
+          draggableId= '#'+ draggableId;    
+          $(draggableId).css("display", "none"); 
+          contagemLixoDrop++;
+          verificaLixo();        
+          }
+      });
+}

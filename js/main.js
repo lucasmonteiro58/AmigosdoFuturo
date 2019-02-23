@@ -337,7 +337,7 @@ $(document).ready(function() {
 
     if (badges_possible.length == 0) {
       alert(badges_possible[0])
-      window.location.href = "mapa.html"
+      window.location.href = "map.html"
     } else {
       //return a random number between 1 and max number of badges_possible
       var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
@@ -381,7 +381,7 @@ $(document).ready(function() {
     $("#go-comment").click(function () { 
       switch (comment_name) {
         case "about_region":
-          updateSectionAJAX("mapa")
+          updateSectionAJAX("map")
         break
         case "start_game":
           comment_name = "about_region"
@@ -470,7 +470,7 @@ $(document).ready(function() {
 
     // setupSection(name)
 
-    var loadUrl = name+".html";
+    var loadUrl = "views/"+name+".html";
     $("#main-div-content").html(ajax_load).load(loadUrl, function(){
      $(this).hide().fadeIn('slow');
      window[name](arguments)
