@@ -2,11 +2,18 @@
 var kidName = ""
 var kidRegion = ""
 var kidAge = 0
+var kidBadge = ""
 
 var question_number = 0 //first question
 var questions_array = [] //actual array of questions
 var actual_section = undefined
+
+var actual_badge = undefined
+var actual_level = -1 //depends on number of levels of each badge
+var level_stars = ["empty","empty","empty"] //empty, half, full
+
 var comment_name = undefined // regions/other_normal_comment
+var congrats_name = undefined // badge/mei_0/edu_2
 
 // Form ----------------------------	
 var questions_texts = [
@@ -81,36 +88,43 @@ var quiz_texts = [
     "button_text": "Pronto"
   }]
 
-var badges_texts = [
-    { "id" : "sau",
-      "title": "Amigo da Saúde",
-      "description": "Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável."
+var badges_texts = {
+    "sau": { "id" : "sau",
+             "levels":2,
+             "title": "Amigo da Saúde",
+             "description": "Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável."
     },
-    { "id" : "laz",
-      "title": "Amigo do Lazer",
-      "description": "É muito divertido e adora conhecer lugares novos."
+    "laz": { "id" : "laz",
+             "levels":3,
+             "title": "Amigo do Lazer",
+             "description": "É muito divertido e adora conhecer lugares novos."
     },
-    { "id" : "eco",
-      "title": "Amigo da Economia",
-      "description": "Ama números e sabe bem como vender algo para juntar dinheiro."
+    "eco": { "id" : "eco",
+             "levels":2,
+             "title": "Amigo da Economia",
+             "description": "Ama números e sabe bem como vender algo para juntar dinheiro."
     },
-    { "id" : "mei",
-      "title": "Amigo do Meio Ambiente",
-      "description": "Respeita a natureza e está sempre ajudando outras pessoas."
+    "mei": { "id" : "mei",
+             "levels":3,
+             "title": "Amigo do Meio Ambiente",
+             "description": "Respeita a natureza e está sempre ajudando outras pessoas."
     },
-    { "id" : "gov",
-      "title": "Amigo do Governo",
-      "description": "Gosta muito de falar com as pessoas. É responsável e organizado."
+    "gov": { "id" : "gov",
+             "levels":4,
+             "title": "Amigo do Governo",
+             "description": "Gosta muito de falar com as pessoas. É responsável e organizado."
     },
-    { "id" : "edu",
-      "title": "Amigo da Educação",
-      "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."
+    "edu": { "id" : "edu",
+             "levels":3,
+             "title": "Amigo da Educação",
+             "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."
     },
-    { "id" : "ino",
-      "title": "Amigo da Inovação",
-      "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."
+    "ino": { "id" : "ino",
+             "levels":3,
+             "title": "Amigo da Inovação",
+             "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."
     }
-]
+}
 
 var final_pont = [
       { "name": "mei",
@@ -144,7 +158,6 @@ var matrix_questions_pont  = [[3,2,-1,-2,-3,1,0],
                               [0,-1,-3,1,-2,2,3]]
 
 // Comment ----------------------------
-
 var comments_texts = {
   "start_game":
       { "color" : "orange", //red, gree, blue, orange, transparent
@@ -156,7 +169,7 @@ var comments_texts = {
       },
   "start_challenge":
       { "color" : "blue",
-         "text": "Agora, me ajude a resolver alguns desafios."// da #badge#."
+         "text": "Agora, me ajude a resolver alguns desafios como um verdadeiro #badge_title#."
       },
   "about_region":
       { "color" : "green",
@@ -223,7 +236,6 @@ var map_regions_texts = [
     }]
 
 // Help desafios ----------------------------
-
 var helps_texts = { 
   "map":{"title": "Descobrindo o Ceará",
           "text" : "Encaixe as regiões no mapa. Precisamos de todas juntas para a nossa aventura!"
@@ -239,5 +251,18 @@ var helps_texts = {
           "text" : "Opa, essa casa não tem <a>saneamento básico</a>. Ligue os canos para chegar água na torneira!",
           "tip"  : "Saneamento básico: sistema de canos por onde a água chega na nossa casa e por onde sai."
         }
+}
+
+// Congrats ----------------------------
+var congrats_texts = {
+  "badge":{"text" : "Você é um #badge_title#. Parabéns!"
+          },
+  "mei_0":{"text" : "Parabéns! Você deixou o terreno limpo e ajudou na <a>reciclagem</a> do lixo.",
+           "tip"  : "Reciclagem: transformar o lixo em um produto novo."
+          },
+  "mei_1":{"text" : "Muito bem! Antes de cozinhar, vamos lavar o que você colheu."
+          },
+  "mei_2":{"text" : "Parabéns! Agora as pessoas do seu bairro podem gastar menos comprando comida e se alimentar melhor"
+          }
 }
 
