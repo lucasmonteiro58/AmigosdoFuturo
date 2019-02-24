@@ -98,6 +98,14 @@
   //button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
   button.nextF:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
 
+  button.leiSIM {background-image: url(../img/desafios/governo/prefeitura/op_sim_ativo.png);}
+  button.leiSIM:hover{background-image: url(../img/desafios/governo/prefeitura/op_sim_mouseover.png);}
+  button.leiSIM:active{background-image: url(../img/desafios/governo/prefeitura/op_sim_press.png);}
+
+  button.leiNAO {background-image: url(../img/desafios/governo/prefeitura/op_nao_ativo.png);}
+  button.leiNAO:hover{background-image: url(../img/desafios/governo/prefeitura/op_nao_mouseover.png);}
+  button.leiNAO:active{background-image: url(../img/desafios/governo/prefeitura/op_nao_press.png);}
+
   button.prevF {background-image: url(../img/buttons/toggle-arrow-p.png);}
   //button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}
   button.prevF:active{background-image: url(../img/buttons/toggle-arrow-active-p.png);}
@@ -2360,9 +2368,55 @@
 
 
 
+/*Desafio Prefeitura Sections-------------------------------------------------------------------*/
 
+#desafioPrefeitura{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenarioprefeitura_governo.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 
+}
 
+#titulolei{
+  position: absolute;
+  font-family: bungee;
+  top: 28%;
+  left: 42%;
+  width: 14%;
+  text-align: center;
+  font-size: 2.1vw;
+  color: #244C45;
+}
+
+#textolei{
+  position: absolute;
+  font-family: exo-bold;
+  top: 34%;
+  left: 34%;
+  width: 30%;
+  font-size: 1.8vw;
+  text-align: center;
+  color: #244C45;
+
+}
+
+#leiSIM{
+  position: absolute;
+  top: 50%;
+  left: 39%;
+  transform: scale(1.7);
+}
+
+#leiNAO{
+  position: absolute;
+  top: 50%;
+  left: 52%;
+  transform: scale(1.7);
+}
 
 
 
