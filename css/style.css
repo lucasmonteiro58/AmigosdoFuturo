@@ -2420,5 +2420,17 @@
 
 
 
+/*Desafio Carrinho Sections-------------------------------------------------------------------*/
+
+#desafiocarrinho{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenariocarrinho_inovacao.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
 
 
