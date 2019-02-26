@@ -118,6 +118,10 @@
   button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
   button.toggle.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
 
+  button.exit {background-image: url(../img/buttons/toggle-close.png);}
+  button.exit:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
+  button.exit:active{background-image: url(../img/buttons/toggle-close-active.png);}
+
   button.toggle.exit {background-image: url(../img/buttons/toggle-close.png);}
   button.toggle.exit:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
   button.toggle.exit:active{background-image: url(../img/buttons/toggle-close-active.png);}
@@ -133,6 +137,11 @@
   button.toggle.mute {background-image: url(../img/buttons/toggle-mute.png);}
   button.toggle.mute:hover{background-image: url(../img/buttons/toggle-mute-hover.png);}
   button.toggle.mute:active{background-image: url(../img/buttons/toggle-mute-active.png);}
+
+  button.ok {background-image: url(../img/buttons/toggle-ok.png);}
+  button.ok:hover{background-image: url(../img/buttons/toggle-ok-hover.png);}
+  button.ok:active{background-image: url(../img/buttons/toggle-ok-active.png);}
+
 
   button.toggle.ok {background-image: url(../img/buttons/toggle-ok.png);}
   button.toggle.ok:hover{background-image: url(../img/buttons/toggle-ok-hover.png);}
@@ -2567,4 +2576,106 @@
 
 }
 
+.carrofunciona{
+  display: none;
+}
 
+.carrofuncionaNAO{
+  display: none;
+}
+
+#carrofunciona{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+
+#caixafeedback{
+  position: absolute;
+  top: 10%;
+  left: 13%;
+  width: 74%;
+  z-index: 2;  
+}
+
+#pistafuncionando{
+  position: absolute;
+  left: 16%;
+  top: 13%;
+  width: 53%;
+  z-index: 2;
+}
+
+#txtCarroFunciona{
+  position: absolute;
+  right:17%;
+  bottom: 17%;
+  z-index: 2;
+  text-align: right;
+  font-family: exo-bold;
+  font-size: 4vw;
+  color: #3E9E74;
+  line-height: 8vh;
+}
+
+#btnOKcarro{
+  position: absolute;
+  z-index: 3;
+  right: 12.5%;
+  top: 12.4%;
+  transform: scale(2.2);
+}
+
+#btnOKcarroNAO{
+  position: absolute;
+  z-index: 3;
+  right: 12.5%;
+  top: 12.4%;
+  transform: scale(2.2);
+}
+
+#carrofuncionaNAO{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  z-index: 2;
+}
+
+
+#caixafeedbackNAO{
+  position: absolute;
+  top: 10%;
+  left: 13%;
+  width: 74%;
+  z-index: 2;  
+}
+
+#pistafuncionandoNAO{
+  position: absolute;
+  left: 16%;
+  top: 13%;
+  width: 53%;
+  z-index: 2;
+}
+
+#txtCarroFuncionaNAO{
+  position: absolute;
+  right:17%;
+  bottom: 17%;
+  z-index: 2;
+  text-align: right;
+  font-family: exo-bold;
+  font-size: 4vw;
+  color: #DA2E27;
+  line-height: 8vh;
+}

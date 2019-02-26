@@ -347,12 +347,22 @@ function verificarPecasCarro(){
   }
 }
 
+
+
 $( "#btn_next_carrinho" ).click(function() {
   if (liberarBotaoCarrinho) {
-    alert("carrinho ok");
+    $('.carrofunciona').css('display', 'block');
   } else {
-    alert("carrinho nao ok");
+     $('.carrofuncionaNAO').css('display', 'block');
   }
+})
+
+$( "#btnOKcarro" ).click(function() {
+  alert("proximo desafio");
+})
+
+$( "#btnOKcarroNAO" ).click(function() {
+  $('.carrofuncionaNAO').css('display', 'none');
 })
 
 function voltarpecas(){
