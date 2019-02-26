@@ -41,7 +41,7 @@ var questions_texts = [
     "placeholder": "Escreva o nome da sua cidade",
     "button_text": "Enviar"
   }]
-var available_cities = ["Abaiara","Acarapé","Acaraú","Acopiara","Aiuaba","Alcântaras","Altaneira","Alto Santo","Amontada","Antonina do Norte","Apuiarés","Aquiraz","Aracati","Aracoiaba","Ararendá","Araripe","Aratuba","Arneiroz","Assaré","Aurora","Baixio","Banabuiú","Barbalha","Barreira","Barro","Barroquinha","Baturité","Beberibe","Bela Cruz","Boa Viagem","Brejo Santo","Camocim","Campos Sales","Canindé","Capistrano","Caridade","Cariré","Caririaçu","Cariús","Carnaubal","Cascavel","Catarina","Catunda","Caucaia","Cedro","Chaval","Choró","Chorozinho","Coreaú","Crateús","Crato","Croatá","Cruz","Deputado Irapuan Pinheiro","Ererê","Eusébio","Farias Brito","Forquilha","Fortaleza","Fortim","Frecheirinha","General Sampaio","Graça","Granja","Granjeiro","Groaíras","Guaiúba","Guaraciaba do Norte","Guaramiranga","Hidrolândia","Horizonte","Ibaretama","Ibiapina","Ibicuitinga","Icapuí","Icó","Iguatu","Independência","Ipaporanga","Ipaumirim","Ipu","Ipueiras","Iracema","Irauçuba","Itaiçaba","Itaitinga","Itapagé","Itapipoca","Itapiúna","Itarema","Itatira","Jaguaretama","Jaguaribara","Jaguaribe","Jaguaruana","Jardim","Jati","Jijoca de Jericoaroara","Juazeiro do Norte","Jucás","Lavras da Mangabeira","Limoeiro do Norte","Madalena","Maracanaú","Maranguape","Marco","Martinópole","Massapê","Mauriti","Meruoca","Milagres","Milhã","Miraíma","Missão Velha","Mombaça","Monsenhor Tabosa","Morada Nova","Moraújo","Morrinhos","Mucambo","Mulungu","Nova Olinda","Nova Russas","Novo Oriente","Ocara","Orós","Pacajus","Pacatuba","Pacoti","Pacujá","Palhano","Palmácia","Paracuru","Paraipaba","Parambu","Paramoti","Pedra Branca","Penaforte","Pentecoste","Pereiro","Pindoretama","Piquet Carneiro","Pires Ferreira","Poranga","Porteiras","Potengi","Potiretama","Quiterianópolis","Quixadá","Quixelô","Quixeramobim","Quixeré","Redenção","Reriutaba","Russas","Saboeiro","Salitre","Santa Quitéria","Santana do Acaraú","Santana do Cariri","São Benedito","São Gonçalo do Amarante","São João do Jaguaribe","São Luís do Curu","Senador Pompeu","Senador Sá","Sobral","Solonópole","Tabuleiro do Norte","Tamboril","Tarrafas","Tauá","Tejuçuoca","Tianguá","Trairi","Tururu","Ubajara","Umari","Umirim","Uruburetama","Uruoca","Varjota","Várzea Alegre","Viçosa do Ceará"]
+var available_cities = ["Abaiara","Acarapé","Acaraú","Acopiara","Aiuaba","Alcântaras","Altaneira","Alto Santo","Amontada","Antonina do Norte","Apuiarés","Aquiraz","Aracati","Aracoiaba","Ararendá","Araripe","Aratuba","Arneiroz","Assaré","Aurora","Baixio","Banabuiú","Barbalha","Barreira","Barro","Barroquinha","Baturité","Beberibe","Bela Cruz","Boa Viagem","Brejo Santo","Camocim","Campos Sales","Canindé","Capistrano","Caridade","Cariré","Caririaçu","Cariús","Carnaubal","Cascavel","Catarina","Catunda","Caucaia","Cedro","Chaval","Choró","Chorozinho","Coreaú","Crateús","Crato","Croatá","Cruz","Deputado Irapuan Pinheiro","Ererê","Eusébio","Farias Brito","Forquilha","Fortaleza","Fortim","Frecheirinha","General Sampaio","Graça","Granja","Granjeiro","Groaíras","Guaiúba","Guaraciaba do Norte","Guaramiranga","Hidrolândia","Horizonte","Ibaretama","Ibiapina","Ibicuitinga","Icapuí","Icó","Iguatu","Independência","Ipaporanga","Ipaumirim","Ipu","Ipueiras","Iracema","Irauçuba","Itaiçaba","Itaitinga","Itapajé","Itapipoca","Itapiúna","Itarema","Itatira","Jaguaretama","Jaguaribara","Jaguaribe","Jaguaruana","Jardim","Jati","Jijoca de Jericoacoara","Juazeiro do Norte","Jucás","Lavras da Mangabeira","Limoeiro do Norte","Madalena","Maracanaú","Maranguape","Marco","Martinópole","Massapê","Mauriti","Meruoca","Milagres","Milhã","Miraíma","Missão Velha","Mombaça","Monsenhor Tabosa","Morada Nova","Moraújo","Morrinhos","Mucambo","Mulungu","Nova Olinda","Nova Russas","Novo Oriente","Ocara","Orós","Pacajus","Pacatuba","Pacoti","Pacujá","Palhano","Palmácia","Paracuru","Paraipaba","Parambu","Paramoti","Pedra Branca","Penaforte","Pentecoste","Pereiro","Pindoretama","Piquet Carneiro","Pires Ferreira","Poranga","Porteiras","Potengi","Potiretama","Quiterianópolis","Quixadá","Quixelô","Quixeramobim","Quixeré","Redenção","Reriutaba","Russas","Saboeiro","Salitre","Santa Quitéria","Santana do Acaraú","Santana do Cariri","São Benedito","São Gonçalo do Amarante","São João do Jaguaribe","São Luís do Curu","Senador Pompeu","Senador Sá","Sobral","Solonópole","Tabuleiro do Norte","Tamboril","Tarrafas","Tauá","Tejuçuoca","Tianguá","Trairi","Tururu","Ubajara","Umari","Umirim","Uruburetama","Uruoca","Varjota","Várzea Alegre","Viçosa do Ceará"]
 
 // Quiz ----------------------------
 var quiz_texts = [
@@ -180,59 +180,81 @@ var comments_texts = {
 var map_regions_texts = [
     { "id" : "macico_de_baturite",
       "name": "Maçico de Baturité",
-      "info" : "Maciço de Baturité <br>13 cidades<br>população: +390.000"
+      "info" : "Maciço de Baturité <br>13 cidades<br>população: +390.000",
+      "cities": ["Acarapé","Aracoiaba","Aratuba","Barreira","Baturité","Capistrano","Guaramiranga","Itapiúna","Mulungu","Ocara","Pacoti","Palmácia","Redenção"]
     },
     { "id" : "litoral_oeste",
       "name": "Litoral Oeste",
-      "info" : "Litoral Oeste<br>12 cidades<br>população: +380.000"
+      "info" : "Litoral Oeste<br>12 cidades<br>população: +380.000",
+      "cities": ["Amontada","Apuiarés","General Sampaio","Irauçuba","Itapajé","Itapipoca","Miraíma","Pentecoste","Tejuçuoca","Tururu","Umirim","Uruburetama"]
     },
     { "id" : "cariri",
       "name": "Cariri",
-      "info" : "Cariri<br>29 cidades<br>população: +1.000.000"
+      "info" : "Cariri<br>29 cidades<br>população: +1.000.000",
+      "cities": ["Abaiara","Altaneira","Antonina do Norte","Araripe","Assaré","Aurora","Barbalha","Barro","Brejo Santo","Campos Sales",
+                 "Caririaçu","Crato","Farias Brito","Granjeiro","Jardim","Jati","Juazeiro do Norte","Lavras da Mangabeira","Mauriti","Milagres",
+                 "Missão Velha","Nova Olinda","Penaforte","Porteiras","Potengi","Salitre","Santana do Cariri","Tarrafas","Várzea Alegre"]
     },
     { "id" : "centro_sul",
       "name": "Centro Sul",
-      "info" : "Centro Sul<br>13 cidades<br>+390.000"
+      "info" : "Centro Sul<br>13 cidades<br>+390.000",
+      "cities": ["Acopiara","Baixio","Cariús","Catarina","Cedro","Icó","Iguatu","Ipaumirim","Jucás", "Orós","Quixelô","Saboeiro","Umari"]
     },
     { "id" : "sertao_central",
       "name": "Sertão Central",
-      "info" : "Sertão Central<br>13 cidades<br>população: +390.000"
+      "info" : "Sertão Central<br>13 cidades<br>população: +390.000",
+      "cities": ["Banabuiú","Choró","Deputado Irapuan Pinheiro","Ibaretama","Ibicuitinga","Milhã","Mombaça","Pedra Branca","Piquet Carneiro",
+                 "Quixadá","Quixeramobim","Senador Pompeu","Solonópole"]
     },
     { "id" : "serra_da_ibiapaba",
       "name": "Serra da Ibiapaba",
-      "info" : "Serra da Ibiapaba<br>9 cidades<br>população: +350.00"
+      "info" : "Serra da Ibiapaba<br>9 cidades<br>população: +350.00",
+      "cities": ["Carnaubal", "Croatá", "Guaraciaba do Norte", "Ibiapina", "Ipu", "São Benedito", "Tianguá", "Ubajara", "Viçosa do Ceará"]
     },
     { "id" : "sertao_de_sobral",
       "name": "Sertão de Sobral",
-      "info" : "Sertão de Sobral<br>18 cidades<br>população: +490.00"
+      "info" : "Sertão de Sobral<br>18 cidades<br>população: +490.00",
+      "cities": ["Alcântaras", "Cariré", "Coreaú", "Forquilha", "Frecheirinha", "Graça", "Groaíras", "Massapê", "Meruoca", "Moraújo",
+                  "Mucambo", "Pacujá", "Pires Ferreira", "Reriutaba", "Santana do Acaraú", "Senador Sá", "Sobral", "Varjota"]
     },
     { "id" : "litoral_norte",
       "name": "Litoral Norte",
-      "info" : "Litoral Norte<br>13 cidades<br>população: +390.000"
+      "info" : "Litoral Norte<br>13 cidades<br>população: +390.000",
+      "cities": ["Acaraú", "Barroquinha", "Bela Cruz", "Camocim", "Chaval", "Cruz", "Granja", "Itarema", "Jijoca de Jericoacoara", "Marco",
+                  "Martinópole", "Morrinhos", "Uruoca"]
     },
     { "id" : "sertao_dos_inhamuns",
       "name": "Sertão dos Inhamuns",
-      "info" : "Sertão dos Inhamuns<br>5 cidades<br>população: +130.000"
+      "info" : "Sertão dos Inhamuns<br>5 cidades<br>população: +130.000",
+      "cities": ["Aiuaba","Arneiroz","Parambu","Quiterianópolis","Tauá"]
     },
     { "id" : "sertao_dos_crateus",
       "name": "Sertão dos Crateús",
-      "info" : "Sertão dos Crateús<br>13 cidades<br>população: +340.000"
+      "info" : "Sertão dos Crateús<br>13 cidades<br>população: +340.000",
+      "cities": ["Ararendá","Catunda","Crateús","Hidrolândia","Independência","Ipaporanga","Ipueiras","Monsenhor Tabosa","Nova Russas",
+                 "Novo Oriente","Poranga","Santa Quitéria","Tamboril"]
     },
     { "id" : "sertao_de_caninde",
       "name": "Sertão de Canindé",
-      "info" : "Sertão de Canindé<br>6 cidades<br>população +200.000"
+      "info" : "Sertão de Canindé<br>6 cidades<br>população +200.000",
+      "cities": ["Boa Viagem", "Canindé","Caridade","Itatira","Madalena","Paramoti"]
     },
     { "id" : "vale_do_jaguaribe",
       "name": "Vale do Jaguaribe",
-      "info" : "Vale do Jaguaribe<br>15 cidades<br>população +390.000"
+      "info" : "Vale do Jaguaribe<br>15 cidades<br>população +390.000",
+      "cities": ["Alto Santo","Ererê", "Iracema","Jaguaretama","Jaguaribara","Jaguaribe","Limoeiro do Norte","Morada Nova","Palhano",
+                 "Pereiro","Potiretama","Quixeré","Russas","São João do Jaguaribe","Tabuleiro do Norte"]
     },
     { "id" : "litoral_leste",
       "name": "Litoral Leste",
-      "info" : "Litoral Leste<br>6 cidades<br>população +200.000"
+      "info" : "Litoral Leste<br>6 cidades<br>população +200.000",
+      "cities": ["Aracati","Beberibe","Fortim","Icapuí","Itaiçaba","Jaguaruana"]
     },
     { "id" : "grande_fortaleza",
       "name": "Grande Fortaleza",
-      "info":  "Grande Fortaleza<br>19 cidade<br>+4.000.000"
+      "info":  "Grande Fortaleza<br>19 cidade<br>+4.000.000",
+      "cities":["Aquiraz","Cascavel","Caucaia","Chorozinho","Eusébio","Fortaleza","Guaiúba","Horizonte","Itaitinga","Maracanaú",
+                 "Maranguape","Pacajus","Pacatuba","Paracuru","Paraipaba","Pindoretama","São Gonçalo do Amarante","São Luis do Curu","Trairi"]
     }]
 
 // Help desafios ----------------------------
