@@ -118,6 +118,10 @@
   button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
   button.toggle.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
 
+  button.next {background-image: url(../img/buttons/toggle-next.png);}
+  button.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
+  button.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
+
   button.exit {background-image: url(../img/buttons/toggle-close.png);}
   button.exit:hover{background-image: url(../img/buttons/toggle-close-hover.png);}
   button.exit:active{background-image: url(../img/buttons/toggle-close-active.png);}
@@ -2755,3 +2759,97 @@
   bottom: 37%;
   width: 7.5%;
 }
+
+#barradeitensEscola{
+  position: absolute;
+  bottom: 0%;
+  width: 70%;
+  left: 15%;
+}
+
+#btnNextEscola{
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  transform: scale(2.4);
+}
+
+#icon_acessibilidade1:hover{
+  transform: scale(1.1);
+}
+
+#icon_acessibilidade1{
+  position: absolute;
+  bottom: 3%;
+  left: 18%;
+  width: 5.5%;
+}
+
+#icon_pintar1:hover{
+  transform: scale(1.1);
+}
+
+#icon_pintar1{
+  position: absolute;
+  bottom: 3%;
+  left: 26%;
+  width: 8%;
+}
+
+#icon_arborizar1{
+  position: absolute;
+  bottom: 3%;
+  left: 36%;
+  width: 6%;
+}
+
+#icon_arborizar1:hover{
+  transform: scale(1.1);
+}
+
+#icon_onibus1{
+  position: absolute;
+  bottom: 3%;
+  left: 44%;
+  width: 9.5%;
+}
+
+#icon_onibus1:hover{
+ transform: scale(1.1);
+}
+
+#icon_horta1{
+  position: absolute;
+  bottom: 3%;
+  left: 54%;
+  width: 9%;
+}
+
+#icon_horta1:hover{
+ transform: scale(1.1);
+}
+
+#icon_parquinho1{
+  position: absolute;
+  bottom: 3%;
+  left: 65%;
+  width: 5.5%;
+}
+
+#icon_parquinho1:hover{
+ transform: scale(1.1);
+}
+
+#icon_lixo1{
+  position: absolute;
+  bottom: 3%;
+  left: 73%;
+  width: 6%;
+}
+
+#icon_lixo1:hover{
+  transform: scale(1.1);
+}
+
+
+
