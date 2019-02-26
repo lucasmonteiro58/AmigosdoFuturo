@@ -2679,3 +2679,79 @@
   color: #DA2E27;
   line-height: 8vh;
 }
+
+/*Desafio Escola Fora Sections-------------------------------------------------------------------*/
+
+#desafioescolafora{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenarioescola_fora.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#escolafora_antes{
+  position: absolute;
+  bottom: 34%;
+  left: 25%;
+  width: 50%;
+}
+
+#escolafora_pintada{
+  position: absolute;
+  bottom: 34%;
+  left: 25%;
+  width: 50%;
+}
+
+#rampaacessibilidade{
+  position: absolute;
+  bottom: 30%;
+  left: 46%;
+  width: 8.4%;
+}
+
+#lixeirasseletivas{
+  position: absolute;
+  bottom: 34%;
+  left: 60%;
+  width: 14%;
+}
+
+#parquinhoescola{
+  position: absolute;
+  left: 76%;
+  bottom: 29%;
+  width: 19%;
+}
+
+#hortaescola{
+  position: absolute;
+  left: 8%;
+  bottom: 32%;
+  width: 16%;
+}
+
+#onibusescolar{
+  position: absolute;
+  left: 25%;
+  bottom: 25%;
+  width: 16%;
+}
+
+#arvoreescola1{
+  position: absolute;
+  left: -2.5%;
+  bottom: 24%;
+  width: 10%;
+}
+
+#arvoreescola2{
+  position: absolute;
+  right: -2.5%;
+  bottom: 37%;
+  width: 7.5%;
+}
