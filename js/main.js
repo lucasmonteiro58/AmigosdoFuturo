@@ -344,10 +344,27 @@ $(document).ready(function() {
 // Comment  -------------------------------------------------------------
   function comment() {
     if (comment_name == "about_region") {
-      createCommentRegion(comments_texts[comment_name], map_regions_texts[2])
+      var region = searchForRegion()
+      if (region) {
+        createCommentRegion(comments_texts[comment_name], region)
+      }
     } else {
       createComment(comments_texts[comment_name])
     }
+  }
+
+  function searchForRegion() {
+    var city = getFromStorage("city")
+
+    for (r in map_regions_texts) {
+      var cities = map_regions_texts[r]["cities"]
+      for (c in cities) {
+        if (city == cities[c]) {
+          return map_regions_texts[r]
+        }
+      }
+    }
+    return null
   }
 
   function createComment(comment) {
