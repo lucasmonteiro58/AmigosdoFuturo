@@ -2433,4 +2433,138 @@
 
 }
 
+#carcaca_carro{
+  position: absolute;
+  top: 32%;
+  left: 34%;
+  width: 36%;
+}
+
+#roda_carrodentro{
+  position: absolute;
+  top:49%;
+  left: 34%;
+  width: 14%;
+  display: none;
+}
+
+#leds_carrodentro{
+  position: absolute;
+  top: 45%;
+  left: 55%;
+  width: 13.5%;
+  display: none;
+}
+
+#motor_carrodentro{
+  position: absolute;
+  top: 30%;
+  left: 38%;
+  width: 9%;
+  display: none;
+}
+
+#placa_carrodentro{
+  position: absolute;
+  top: 48.5%;
+  left: 53%;
+  width: 9.5%;
+  display: none;
+}
+
+#sensorprox_carrodentro{
+  position: absolute;
+  top: 48.2%;
+  left: 41.5%;
+  width: 17%;
+  display: none;
+  
+}
+
+#caixapecas{
+  position: absolute;
+  top: 0%;
+  left: 22.5%;
+  width: 55%;
+}
+
+#caixadescricao{
+  position: absolute;
+  bottom: 0%;
+  left: 22.5%;
+  width: 55%;
+}
+
+.pecasforacarro:hover{
+  transform: scale(1.13);
+}
+
+#roda_carro{
+  position: absolute;
+  top:2%;
+  left: 25%;
+  width: 8.5%;
+  opacity: 0.5;
+}
+
+#leds_carro{
+  position: absolute;
+  top:2%;
+  left: 60%;
+  width: 4.5%;
+  opacity: 0.5;
+}
+
+#motor_carro{
+  position: absolute;
+  top: 2%;
+  left: 36%;
+  width: 10%;
+  opacity: 0.5;
+}
+
+#placa_carro{
+  position: absolute;
+  top: 2.5%;
+  left: 48%;
+  width: 9.5%;
+  opacity: 0.5;
+}
+
+#sensorprox_carro{
+  position: absolute;
+  top: 6.2%;
+  left: 66.5%;
+  width: 8%;
+  opacity: 0.5;
+  
+}
+
+#infopeca{
+  position: absolute;
+  bottom: 5%;
+  left: 24%;
+  width: 52%;
+  font-size: 2.6vw;
+  font-family: exo;
+  text-align: center;
+  opacity: 0.5;
+}
+
+#btn_next_carrinho{
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: scale(1.9);
+
+}
+
+#btn_info_carrinho{
+  position: absolute;
+  left: 2%;
+  top: 3%;
+  //transform: scale(1.9);
+
+}
+
 

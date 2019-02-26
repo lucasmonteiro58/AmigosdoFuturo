@@ -317,6 +317,114 @@ $( ".btnLei" ).click(function() {
 
 });
 
+// Desafio carrinho --------------------------------------------------------------------------------------
+var liberarBotaoCarrinho= false;
+$( ".pecasforacarro" ).click(function() {
+ 
+ var idPecaCarro = "#" + $(this).attr('id') + "dentro";
+
+ if ($(idPecaCarro).hasClass('tanocarro')){
+  $(idPecaCarro).css('display','none');
+  $(idPecaCarro).removeClass('tanocarro');
+  verificarPecasCarro();
+
+
+ } else {
+
+   $(idPecaCarro).css('display','block');
+   $(idPecaCarro).addClass('tanocarro');
+   verificarPecasCarro();
+  }
+ 
+}); 
+
+function verificarPecasCarro(){
+  liberarBotaoCarrinho=false;
+  var totalpecasCarro = $(".pecasnocarro.tanocarro").length;
+  if (totalpecasCarro==5){
+    liberarBotaoCarrinho=true;
+
+  }
+}
+
+$( "#btn_next_carrinho" ).click(function() {
+  if (liberarBotaoCarrinho) {
+    alert("carrinho ok");
+  } else {
+    alert("carrinho nao ok");
+  }
+})
+
+function voltarpecas(){
+  $('#infopeca').text("INFORMAÇÃO SOBRE A PEÇA");
+  $('#infopeca').css('color','black');
+  $('#infopeca').css('opacity','0.4');
+  $('#infopeca').css('font-size','2.6vw');
+  $('#infopeca').css('bottom','5%');
+}
+
+$('#sensorprox_carro').hover(        
+   function () {
+      $(this).css("opacity","1");
+      $('#infopeca').text("RECONHECE UMA COR");
+      $('#infopeca').css('color','#3E6DAC');
+      $('#infopeca').css('opacity','1');
+   },function () {
+    $(this).css('opacity','0.5');
+    voltarpecas();
+  }
+);
+
+$('#roda_carro').hover(        
+   function () {
+      $(this).css("opacity","1");
+      $('#infopeca').text("PERMITE QUE O CARRINHO ANDE");
+      $('#infopeca').css('color','#3E6DAC');
+      $('#infopeca').css('opacity','1');
+   },function () {
+     $(this).css('opacity','0.5');
+    voltarpecas();}
+);
+
+$('#leds_carro').hover(        
+   function () {
+      $(this).css("opacity","1");
+      $('#infopeca').text("ADICIONA LUZES AO CARRINHO");
+      $('#infopeca').css('color','#3E6DAC');
+      $('#infopeca').css('opacity','1');
+   },function () {
+    $(this).css('opacity','0.5');
+    voltarpecas();}
+);
+
+$('#motor_carro').hover(        
+   function () {
+      $(this).css("opacity","1");
+      $('#infopeca').text("AJUDA AS RODAS GIRAREM");
+      $('#infopeca').css('color','#3E6DAC');
+      $('#infopeca').css('opacity','1');
+   },function () {
+     $(this).css('opacity','0.5');
+     voltarpecas();}
+);
+
+$('#placa_carro').hover(        
+   function () {
+      $(this).css("opacity","1");
+      $('#infopeca').text("GUARDA OS CÓDIGOS QUE FAZEM O CARRINHO ANDAR");
+      $('#infopeca').css('color','#3E6DAC');
+      $('#infopeca').css('opacity','1');
+      $('#infopeca').css('font-size','2.2vw');
+      $('#infopeca').css('bottom','1%');
+   },function () {
+     $(this).css('opacity','0.5');
+     voltarpecas();}
+);
+
+
+
+//------------------------------------------------------------------------------------------------------------------
+
 
   function popoverInfo() {
     $('[data-toggle="popover"]').popover({html:true})
