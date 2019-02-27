@@ -432,6 +432,50 @@ $('#placa_carro').hover(
 );
 
 
+// Desafio Escola Fora --------------------------------------------------------------------------------------
+
+var idIconEscolaFora;
+var idIconEscolaFora1;
+
+
+$( ".iconNormal" )
+  .mouseenter(function() {
+
+    idIconEscolaFora2 = $(this).attr('id');
+
+    idIconEscolaFora = "#"+$(this).attr('id');
+    idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+    idIconEscolaFora1 = idIconEscolaFora1+"2";
+   
+    $(idIconEscolaFora).css('display','none');
+    $(idIconEscolaFora1).css('display','block');
+   //if ($(this).attr('id')==idIconEscolaFora)
+   alert('qaa')
+   
+  })
+  .mouseleave(function() {
+    $(idIconEscolaFora).css('display','block');
+    $(idIconEscolaFora1).css('display','none');
+    stop();
+    
+  });
+
+$('.iconNormal').hover(
+  function(){
+   
+
+  },function () {
+    
+
+  }
+
+
+
+   // alert(idIconEscolaFora1);
+  
+
+  )
+
 
 //------------------------------------------------------------------------------------------------------------------
 
@@ -949,3 +993,4 @@ $('#placa_carro').hover(
       console.log(graus1 , graus2);
     });
   }
+

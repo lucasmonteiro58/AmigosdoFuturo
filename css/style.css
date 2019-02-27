@@ -2774,82 +2774,95 @@
   transform: scale(2.4);
 }
 
-#icon_acessibilidade1:hover{
+#icon_acessibilidade1:hover, #icon_acessibilidade2:hover, #icon_acessibilidade3:hover, #icon_acessibilidade4:hover{
   transform: scale(1.1);
 }
 
-#icon_acessibilidade1{
+#icon_acessibilidade1, #icon_acessibilidade2, #icon_acessibilidade3, #icon_acessibilidade4{
   position: absolute;
   bottom: 3%;
-  left: 18%;
+  left: 19%;
   width: 5.5%;
 }
 
-#icon_pintar1:hover{
+#icon_pintar1:hover, #icon_pintar2:hover,  #icon_pintar3:hover,  #icon_pintar4:hover{
   transform: scale(1.1);
 }
 
-#icon_pintar1{
+#icon_pintar1, #icon_pintar2,  #icon_pintar3,  #icon_pintar4 {
   position: absolute;
   bottom: 3%;
-  left: 26%;
+  left: 27%;
   width: 8%;
 }
 
-#icon_arborizar1{
+#icon_arborizar1, #icon_arborizar2, #icon_arborizar3, #icon_arborizar4{
   position: absolute;
   bottom: 3%;
-  left: 36%;
+  left: 37%;
   width: 6%;
 }
 
-#icon_arborizar1:hover{
+#icon_arborizar1:hover, #icon_arborizar2:hover, #icon_arborizar3:hover, #icon_arborizar4:hover{
   transform: scale(1.1);
 }
 
-#icon_onibus1{
+#icon_onibus1, #icon_onibus2, #icon_onibus3, #icon_onibus4{
   position: absolute;
   bottom: 3%;
-  left: 44%;
+  left: 45%;
   width: 9.5%;
 }
 
-#icon_onibus1:hover{
+#icon_onibus1:hover , #icon_onibus2:hover, #icon_onibus3:hover, #icon_onibus4:hover{
  transform: scale(1.1);
 }
 
-#icon_horta1{
+#icon_horta1, #icon_horta2, #icon_horta3, #icon_horta4{
   position: absolute;
   bottom: 3%;
-  left: 54%;
+  left: 55%;
   width: 9%;
 }
 
-#icon_horta1:hover{
+#icon_horta1:hover, #icon_horta2:hover, #icon_horta3:hover, #icon_horta4:hover{
  transform: scale(1.1);
 }
 
-#icon_parquinho1{
+#icon_parquinho1, #icon_parquinho2, #icon_parquinho3, #icon_parquinho4{
   position: absolute;
   bottom: 3%;
-  left: 65%;
+  left: 66%;
   width: 5.5%;
 }
 
-#icon_parquinho1:hover{
+#icon_parquinho1:hover, #icon_parquinho2:hover, #icon_parquinho3:hover, #icon_parquinho4:hover{
  transform: scale(1.1);
 }
 
-#icon_lixo1{
+#icon_lixo1, #icon_lixo2, #icon_lixo3, #icon_lixo4{
   position: absolute;
   bottom: 3%;
-  left: 73%;
+  left: 74%;
   width: 6%;
 }
 
-#icon_lixo1:hover{
+#icon_lixo1:hover, #icon_lixo2:hover, #icon_lixo3:hover, #icon_lixo4:hover{
   transform: scale(1.1);
 }
 
+.iconNormal{
+  //display: none;
+}
 
+.iconAdd{
+  display: none;
+}
 
+.iconCheck{
+  display: none;
+}
+
+.iconMenos{
+  display: none;
+}
