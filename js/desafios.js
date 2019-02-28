@@ -436,45 +436,171 @@ $('#placa_carro').hover(
 
 var idIconEscolaFora;
 var idIconEscolaFora1;
+var clickIconAdd=false;
+var clickIconCheck=false;
+//var primeiraAdd=false;
 
 
-$( ".iconNormal" )
-  .mouseenter(function() {
+$( ".iconNormal" ).mouseenter(function() {
+   
+    idIconEscolaFora = "#"+$(this).attr('id');
+    idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+    idIconEscolaFora1 = idIconEscolaFora1+"2";   
+    $(idIconEscolaFora).css('display','none');
+    $(idIconEscolaFora1).css('display','block');
+    clickIconAdd=false; 
 
-    idIconEscolaFora2 = $(this).attr('id');
+    $( ".iconAdd" ).click(function() {      
+      idIconEscolaFora = "#"+$(this).attr('id');
+      idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+      idIconEscolaFora1 = idIconEscolaFora1+"3";
+      $(idIconEscolaFora).css('display','none');
+      $(idIconEscolaFora1).css('display','block'); 
+      clickIconAdd=true;
+    });  
+
+  })
+
+
+
+  $( ".iconAdd" ).mouseleave(function() {
 
     idIconEscolaFora = "#"+$(this).attr('id');
     idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
-    idIconEscolaFora1 = idIconEscolaFora1+"2";
-   
+    idIconEscolaFora1 = idIconEscolaFora1+"1";
     $(idIconEscolaFora).css('display','none');
     $(idIconEscolaFora1).css('display','block');
-   //if ($(this).attr('id')==idIconEscolaFora)
-   alert('qaa')
-   
+
+      $( ".iconAdd" ).click(function() {      
+      idIconEscolaFora = "#"+$(this).attr('id');
+      idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+      idIconEscolaFora1 = idIconEscolaFora1+"3";
+      $(idIconEscolaFora).css('display','none');
+      $(idIconEscolaFora1).css('display','block'); 
+      clickIconAdd=true;
+
+      });
+
+    if (clickIconAdd) {
+    
+    idIconEscolaFora = "#"+$(this).attr('id');
+    idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+    idIconEscolaFora1 = idIconEscolaFora1+"3";
+    $(idIconEscolaFora).css('display','none');
+    $(idIconEscolaFora1).css('display','block');
+    }
+
+})
+
+  //--------------------------------------
+
+
+   $( ".iconCheck" ).mouseenter(function() {   
+    idIconEscolaFora = "#"+$(this).attr('id');
+    idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+    idIconEscolaFora1 = idIconEscolaFora1+"4";   
+    $(idIconEscolaFora).css('display','none');
+    $(idIconEscolaFora1).css('display','block');
+     clickIconCheck=false;
+
+    $( ".iconMenos" ).click(function() {      
+      idIconEscolaFora = "#"+$(this).attr('id');
+      idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+      idIconEscolaFora1 = idIconEscolaFora1+"1";
+      $(idIconEscolaFora).css('display','none');
+      $(idIconEscolaFora1).css('display','block'); 
+      clickIconCheck=true;
+    });  
+
+
   })
-  .mouseleave(function() {
-    $(idIconEscolaFora).css('display','block');
-    $(idIconEscolaFora1).css('display','none');
-    stop();
-    
-  });
 
-$('.iconNormal').hover(
-  function(){
+
+   $( ".iconMenos" ).mouseleave(function() {
+  
    
+  $(idIconEscolaFora).css('display','block');
+  $(idIconEscolaFora1).css('display','none');
 
-  },function () {
+  $( ".iconMenos" ).click(function() {      
+      idIconEscolaFora = "#"+$(this).attr('id');
+      idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+      idIconEscolaFora1 = idIconEscolaFora1+"1";
+      $(idIconEscolaFora).css('display','none');
+      $(idIconEscolaFora1).css('display','block'); 
+      clickIconCheck=true;
+
+      });
+
+    if (clickIconCheck) {
     
+    $(idIconEscolaFora).css('display','none');
+    $(idIconEscolaFora1).css('display','block');
+    }
+})
 
-  }
+
+$( "#icon_acessibilidade2" ).click(function() {
+  $("#rampaacessibilidade").css('display','block');
+})
+$( "#icon_acessibilidade4" ).click(function() {
+  $("#rampaacessibilidade").css('display','none');
+})
 
 
+$( "#icon_pintar2" ).click(function() {
+  $("#escolafora_pintada").css('display','block');
+})
+$( "#icon_pintar4" ).click(function() {
+  $("#escolafora_pintada").css('display','none');
+})
 
-   // alert(idIconEscolaFora1);
+
+$( "#icon_arborizar2" ).click(function() {
+  $("#arvoreescola1").css('display','block');
+  $("#arvoreescola2").css('display','block');
+})
+$( "#icon_arborizar4" ).click(function() {
+  $("#arvoreescola1").css('display','none');
+  $("#arvoreescola2").css('display','none');
+})
+
+
+$( "#icon_onibus2" ).click(function() {
+  $("#onibusescolar").css('display','block');
+})
+$( "#icon_onibus4" ).click(function() {
+  $("#onibusescolar").css('display','none');
+})
+
+
+$( "#icon_horta2" ).click(function() {
+  $("#hortaescola").css('display','block');
+})
+$( "#icon_horta4" ).click(function() {
+  $("#hortaescola").css('display','none');
+})
+
+
+$( "#icon_parquinho2" ).click(function() {
+  $("#parquinhoescola").css('display','block');
+})
+$( "#icon_parquinho4" ).click(function() {
+  $("#parquinhoescola").css('display','none');
+})
+
+
+$( "#icon_lixo2" ).click(function() {
+  $("#lixeirasseletivas").css('display','block');
+})
+$( "#icon_lixo4" ).click(function() {
+  $("#lixeirasseletivas").css('display','none');
+})
+
+
   
 
-  )
+  
 
 
 //------------------------------------------------------------------------------------------------------------------
