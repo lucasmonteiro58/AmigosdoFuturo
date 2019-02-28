@@ -298,7 +298,7 @@ $( ".jornalRua" ).click(function() {
 }); 
 
 
-// Prefeitura  --------------------------------------------------------------------------------------
+// Desafio Prefeitura  --------------------------------------------------------------------------------------
 var contLei=0;
 $( ".btnLei" ).click(function() {
   if (contLei==0) {
@@ -434,32 +434,170 @@ $('#placa_carro').hover(
 
 // Desafio Escola Fora --------------------------------------------------------------------------------------
 
+var contElementsEFora = 0;
+var clickSendEFora= false;
+
+function validarSendEFora(){
+  if (contElementsEFora>=5){
+    clickSendEFora=true;
+   // alert(contElementsEFora);
+  } else{
+    clickSendEFora=false;
+   // alert(contElementsEFora)
+  }
+}
+
+var acessibilidadeBOL= false;
+var PintarBOL= false;
+var arborizarBOL= false;
+var onibusBOL= false;
+var parquinhoBOL= false;
+var hortaBOL= false;
+var lixoBOL= false;
+
+$( "#icon_acessibilidade2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#rampaacessibilidade").css('display','block');
+    contElementsEFora++;
+    acessibilidadeBOL= true;
+    validarSendEFora();
+
+  }
+})
+$( "#icon_acessibilidade4" ).click(function() {
+  $("#rampaacessibilidade").css('display','none');
+  contElementsEFora--;
+  acessibilidadeBOL= false;
+  validarSendEFora();
+})
+
+
+$( "#icon_pintar2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#escolafora_pintada").css('display','block');
+    contElementsEFora++;
+    PintarBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_pintar4" ).click(function() {
+  $("#escolafora_pintada").css('display','none');
+  contElementsEFora--;
+  PintarBOL=false;
+  validarSendEFora();
+})
+
+
+$( "#icon_arborizar2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#arvoreescola1").css('display','block');
+    $("#arvoreescola2").css('display','block');
+    contElementsEFora++;
+    arborizarBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_arborizar4" ).click(function() {
+  $("#arvoreescola1").css('display','none');
+  $("#arvoreescola2").css('display','none');
+  contElementsEFora--;
+  arborizarBOL= false;
+  validarSendEFora();
+})
+
+
+$( "#icon_onibus2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#onibusescolar").css('display','block');
+    contElementsEFora++;
+    onibusBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_onibus4" ).click(function() {
+  $("#onibusescolar").css('display','none');
+  contElementsEFora--;
+  onibusBOL= false;
+  validarSendEFora();
+})
+
+
+$( "#icon_horta2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#hortaescola").css('display','block');
+    contElementsEFora++;
+    hortaBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_horta4" ).click(function() {
+  $("#hortaescola").css('display','none');
+  contElementsEFora--;
+  hortaBOL= false;
+  validarSendEFora();
+})
+
+
+$( "#icon_parquinho2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#parquinhoescola").css('display','block');
+    contElementsEFora++;
+    parquinhoBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_parquinho4" ).click(function() {
+  $("#parquinhoescola").css('display','none');
+  contElementsEFora--;
+  parquinhoBOL= false;
+  validarSendEFora();
+})
+
+
+$( "#icon_lixo2" ).click(function() {
+  if (clickSendEFora==false) {
+    $("#lixeirasseletivas").css('display','block');
+    contElementsEFora++;
+    lixoBOL= true;
+    validarSendEFora();
+  }
+})
+$( "#icon_lixo4" ).click(function() {
+  $("#lixeirasseletivas").css('display','none');
+  contElementsEFora--;
+  lixoBOL=false;
+  validarSendEFora();
+})
+
+//-----------------------
+
 var idIconEscolaFora;
 var idIconEscolaFora1;
 var clickIconAdd=false;
 var clickIconCheck=false;
-//var primeiraAdd=false;
 
 
 $( ".iconNormal" ).mouseenter(function() {
-   
-    idIconEscolaFora = "#"+$(this).attr('id');
-    idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
-    idIconEscolaFora1 = idIconEscolaFora1+"2";   
-    $(idIconEscolaFora).css('display','none');
-    $(idIconEscolaFora1).css('display','block');
-    clickIconAdd=false; 
 
-    $( ".iconAdd" ).click(function() {      
-      idIconEscolaFora = "#"+$(this).attr('id');
-      idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
-      idIconEscolaFora1 = idIconEscolaFora1+"3";
-      $(idIconEscolaFora).css('display','none');
-      $(idIconEscolaFora1).css('display','block'); 
-      clickIconAdd=true;
-    });  
+    if (clickSendEFora==false){    
+          idIconEscolaFora = "#"+$(this).attr('id');
+          idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+          idIconEscolaFora1 = idIconEscolaFora1+"2";   
+          $(idIconEscolaFora).css('display','none');
+          $(idIconEscolaFora1).css('display','block');
+          clickIconAdd=false; 
 
-  })
+          $( ".iconAdd" ).click(function() {      
+            idIconEscolaFora = "#"+$(this).attr('id');
+            idIconEscolaFora1 = idIconEscolaFora.substr(0, idIconEscolaFora.length -1);
+            idIconEscolaFora1 = idIconEscolaFora1+"3";
+            $(idIconEscolaFora).css('display','none');
+            $(idIconEscolaFora1).css('display','block'); 
+            clickIconAdd=true;
+          }); 
+    } 
+
+      }) 
 
 
 
@@ -492,7 +630,7 @@ $( ".iconNormal" ).mouseenter(function() {
 
 })
 
-  //--------------------------------------
+  //---------------
 
 
    $( ".iconCheck" ).mouseenter(function() {   
@@ -512,9 +650,7 @@ $( ".iconNormal" ).mouseenter(function() {
       clickIconCheck=true;
     });  
 
-
   })
-
 
    $( ".iconMenos" ).mouseleave(function() {
   
@@ -538,65 +674,86 @@ $( ".iconNormal" ).mouseenter(function() {
     $(idIconEscolaFora1).css('display','block');
     }
 })
+//-----------------
 
+var posicaoEF=1;
+$( "#btnNextEscola" ).click(function() {
+  if(clickSendEFora){    
 
-$( "#icon_acessibilidade2" ).click(function() {
-  $("#rampaacessibilidade").css('display','block');
+   
+
+    if(acessibilidadeBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_acessib_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
+      posicaoEF++;
+    }
+
+    if(PintarBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_pintar_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
+      posicaoEF++;
+    }
+
+    if(arborizarBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_arbori_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
+      posicaoEF++;
+    }
+
+    if(onibusBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_bus_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
+      posicaoEF++;
+    }
+
+    if(parquinhoBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_parque_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
+      posicaoEF++;
+    }
+
+    if(hortaBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_horta_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
+      posicaoEF++;
+    }
+
+    if(lixoBOL){
+      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_lixo_normal.png');
+      $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
+      posicaoEF++;
+    }
+
+     $('.popoverEF').css('display', 'block'); //alert("entou");
+
+   
+  } else{
+    alert("escolha 5 opcoes antes de enviar")
+  }
+
 })
-$( "#icon_acessibilidade4" ).click(function() {
-  $("#rampaacessibilidade").css('display','none');
-})
 
 
-$( "#icon_pintar2" ).click(function() {
-  $("#escolafora_pintada").css('display','block');
-})
-$( "#icon_pintar4" ).click(function() {
-  $("#escolafora_pintada").css('display','none');
+$("#btnTrocarEF" ).click(function() {
+  $('.popoverEF').css('display', 'none');
+   posicaoEF=1;
+
+   for (i = 0; i < cars.length; i++) { 
+     $("#imgEscolaFora"+i).attr('src', '');
+     $("#TxtEscolaFora"+i).text("");
+  }
+  acessibilidadeBOL= false;
+  PintarBOL= false;
+  arborizarBOL= false;
+  onibusBOL= false;
+  parquinhoBOL= false;
+  hortaBOL= false;
+  lixoBOL= false;
 })
 
-
-$( "#icon_arborizar2" ).click(function() {
-  $("#arvoreescola1").css('display','block');
-  $("#arvoreescola2").css('display','block');
+$("#btnSalvarEF" ).click(function() {
+  alert('*INSIRA* código para o proximo desafio')
 })
-$( "#icon_arborizar4" ).click(function() {
-  $("#arvoreescola1").css('display','none');
-  $("#arvoreescola2").css('display','none');
-})
-
-
-$( "#icon_onibus2" ).click(function() {
-  $("#onibusescolar").css('display','block');
-})
-$( "#icon_onibus4" ).click(function() {
-  $("#onibusescolar").css('display','none');
-})
-
-
-$( "#icon_horta2" ).click(function() {
-  $("#hortaescola").css('display','block');
-})
-$( "#icon_horta4" ).click(function() {
-  $("#hortaescola").css('display','none');
-})
-
-
-$( "#icon_parquinho2" ).click(function() {
-  $("#parquinhoescola").css('display','block');
-})
-$( "#icon_parquinho4" ).click(function() {
-  $("#parquinhoescola").css('display','none');
-})
-
-
-$( "#icon_lixo2" ).click(function() {
-  $("#lixeirasseletivas").css('display','block');
-})
-$( "#icon_lixo4" ).click(function() {
-  $("#lixeirasseletivas").css('display','none');
-})
-
 
   
 

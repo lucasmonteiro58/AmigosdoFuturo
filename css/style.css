@@ -2874,3 +2874,144 @@
 .iconMenos{
   display: none;
 }
+
+#blackEscolaFora{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+#caixafeedbackEscolaFora{
+  position: absolute;
+  width: 82%;
+  left: 9%;
+  top: 11%;
+}
+
+#minhaescolatemEF{
+  position: absolute;
+  font-family: bungee;
+  color: #3B6B9E;
+  top: 18%;
+  font-size: 3.2vw;
+  left: 31%;
+}
+
+#imgEscolaFora1{
+  position: absolute;
+  top: 30%;
+  left: 16%;
+}
+
+#imgEscolaFora2{
+  position: absolute;
+  top: 30%;
+  left: 31%;
+}
+
+#imgEscolaFora3{
+  position: absolute;
+  top: 30%;
+  left: 46%;
+}
+
+#imgEscolaFora4{
+  position: absolute;
+  top: 30%;
+  left: 61%;
+}
+
+#imgEscolaFora5{
+  position: absolute;
+  top: 30%;
+  left: 77%;
+}
+
+#TxtEscolaFora1{
+  position: absolute;
+  color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 12%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaFora2{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 27.5%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaFora3{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 42%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaFora4{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 58%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaFora5{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 73%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#btnTrocarEF{
+  position: absolute;
+  top: 67%;
+  font-size: 2.7vw;
+  left: 25%;
+
+}
+
+#btnSalvarEF{
+  position: absolute;
+  top: 67%;
+  font-size: 2.7vw;
+  left: 52%;
+
+}
+
+.popoverEF{
+  display: none;
+}
