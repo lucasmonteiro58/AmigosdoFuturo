@@ -3157,3 +3157,132 @@
 .popoverEF{
   display: none;
 }
+
+
+/*Desafio Escola Dentro Sections-------------------------------------------------------------------*/
+
+#desafioescoladentro{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenarioescola_dentro.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#escoladentro_antes{
+  position: absolute;
+  bottom: 29%;
+  left: 25%;
+  width: 50%;
+}
+
+#btnNextEscolaDentro{
+  position: absolute;
+  right: 4%;
+  bottom: 6%;
+  transform: scale(2.4);
+}
+
+#btnNextEscolaDentro:hover{
+  transform: scale(2.6);
+}
+
+#btnNextEscola:hover{
+  transform: scale(2.6);
+}
+
+
+
+
+
+
+#icon_cantina1, #icon_cantina2{
+  position: absolute;
+  bottom: 4%;
+  left: 37%;
+  width: 7.3%;
+}
+
+#icon_cantina1:hover, #icon_cantina2:hover{
+  transform: scale(1.1);
+}
+
+#icon_musica1, #icon_musica2{
+  position: absolute;
+  bottom: 3%;
+  left: 46.3%;
+  width: 7%;
+}
+
+#icon_musica1:hover , #icon_musica2:hover{
+ transform: scale(1.1);
+}
+
+#icon_informatica1, #icon_informatica2{
+  position: absolute;
+  bottom: 4%;
+  left: 55%;
+  width: 9%;
+}
+
+#icon_informatica1:hover, #icon_informatica2:hover{
+ transform: scale(1.1);
+}
+
+#icon_quimica1, #icon_quimica2{
+  position: absolute;
+  bottom: 3%;
+  left: 66.5%;
+  width: 5.1%;
+}
+
+#icon_quimica1:hover, #icon_quimica2:hover{
+ transform: scale(1.1);
+}
+
+#icon_danca1, #icon_danca2{
+  position: absolute;
+  bottom: 3.5%;
+  left: 73.5%;
+  width: 7.5%;
+}
+
+#icon_danca1:hover, #icon_danca2:hover{
+  transform: scale(1.1);
+}
+
+
+button.btnBiblioteca {background-image: url(../img/buttons/ed/bt_livros_1.png);}
+button.btnBiblioteca:hover{background-image: url(../img/buttons/ed/bt_livros_add.png);}
+
+#icon_biblioteca1, #icon_biblioteca2{
+  position: absolute;
+  bottom: 6.5%;
+  left: 19%;
+  transform: scale(1.6);
+}
+
+#icon_biblioteca1:hover, #icon_biblioteca2:hover{
+  transform: scale(1.7);
+}
+
+
+button.btnTeatro {background-image: url(../img/buttons/ed/bt_teatro.png);}
+button.btnTeatro:hover{background-image: url(../img/buttons/ed/bt_teatro_add.png);}
+
+#icon_teatro1:hover, #icon_teatro2:hover{
+  transform: scale(2);
+}
+
+#icon_teatro1, #icon_teatro2{
+  position: absolute;
+  bottom: 6%;
+  left: 28.5%;
+ transform: scale(1.9);
+}
+
+
+
