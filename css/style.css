@@ -868,6 +868,114 @@
     width: 100%;
   }
 
+  textarea {
+      background:rgba(0,0,0,0);
+      border:0px solid #fff;
+      color:#000;
+      background-image: url(../img/feedback/textarea-box.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 100%;
+      height: 20vw;
+      padding: 5%;
+      text-align: center;
+      font-size: 2.3vw;
+      border-radius: 50px;
+      font-family: exo;
+      resize: none;
+  }
+
+  textarea:focus {
+      box-shadow: 0 0 0 0;
+      border: 0 none;
+      outline: 0;
+  }
+
+  #feedback .form-question .center-title h4 {
+    font-size: 3.3vw;
+    color: white;
+    font-weight: 600;
+    font-family: bungee;
+    width: 100%;
+  }
+
+  #feedback .form-question .content {
+    margin-top: 5%;
+  }
+
+/* Certificate Section ----------------------------------------------------------*/
+  #certificate {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .robot-certificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-image: url(../img/certificate/bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .robot-certificate .content {
+    width: 95%;
+    height: 97%;
+  }
+  .robot-certificate .content .content-left {
+    width: 55%;
+    position: absolute;
+    height: 100%;
+  }
+  .robot-certificate .content .content-left img {
+    width: 40%;
+  }
+
+  .robot-certificate .content .content-left #text-comment {
+    position: absolute;
+    height: 15vw;
+    width: 100%;
+    background-image: url(../img/certificate/box-comment.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 5%;
+    font-size: 2vw;
+    line-height: 2vw;
+    font-family: exo-medium;
+    text-align: center;
+  }
+
+  .robot-certificate .content .content-right {
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    right: 0%;
+  }
+
+  .robot-certificate .content .content-right .next {
+    right: -20%;
+    bottom: 45%;
+    position: absolute;
+    font-size: 2vw;
+  }
+
+  .robot-certificate .content .content-right img {
+    width: 60%;
+    text-align: center;
+    object-fit: contain;
+  }
+
+  .robot-certificate .content #text-comment button {
+    right: 4%;
+    bottom: 4%;
+    position: absolute;
+  }
 
 /*Mapa Section ----------------------------------------------------------*/
 #mapa{

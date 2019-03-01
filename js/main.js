@@ -39,7 +39,7 @@ $(document).ready(function() {
 // Menu  -----------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
-      updateSectionAJAX("form")
+      updateSectionAJAX("certificate")
     })
   }
 
