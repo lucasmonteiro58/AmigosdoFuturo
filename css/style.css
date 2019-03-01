@@ -54,6 +54,11 @@
       transform: translateY(-50%);
   }
 
+  ul {
+    padding: 0px;
+    list-style: none;
+    margin: 0px;
+  }
   /*Buttons ----------------------------------------------------------*/
   button, input[type="button"], input[type="radio"] {
     border: 0px solid #fff !important;
@@ -936,6 +941,15 @@
     width: 40%;
   }
 
+  .robot-certificate .content .content-left .buttons {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+  }
+  .robot-certificate .content .content-left .buttons li {
+    display: inline;
+  }
+
   .robot-certificate .content .content-left #text-comment {
     position: absolute;
     height: 15vw;
@@ -945,17 +959,20 @@
     background-size: contain;
     background-position: center;
     padding: 5%;
-    font-size: 2vw;
-    line-height: 2vw;
+    padding-top: 8%;
+    font-size: 2.2vw;
+    line-height: 2.2vw;
+    color: #305882;
     font-family: exo-medium;
     text-align: center;
   }
 
   .robot-certificate .content .content-right {
-    width: 40%;
+    width: 35%;
     height: 80%;
     position: absolute;
-    right: 0%;
+    right: 6%;
+    padding-top: 2%;
   }
 
   .robot-certificate .content .content-right .next {
@@ -966,14 +983,14 @@
   }
 
   .robot-certificate .content .content-right img {
-    width: 60%;
+    width: 100%;
     text-align: center;
     object-fit: contain;
+    box-shadow: 1vw 1vw #ccc;
   }
-
   .robot-certificate .content #text-comment button {
-    right: 4%;
-    bottom: 4%;
+    right: 2%;
+    bottom: 10%;
     position: absolute;
   }
 
