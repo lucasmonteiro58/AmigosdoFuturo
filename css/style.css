@@ -89,6 +89,12 @@
   .action.white {background-image: url(../img/buttons/action-white.png); color: #4573B8;}
   .action.white:hover{background-image: url(../img/buttons/action-hover-white.png);}
   .action.white:active{background-image: url(../img/buttons/action-active-white.png);}
+  .action.yes {background-image: url(../img/buttons/op-yes.png); font-size: 3vw;}
+  .action.yes:hover{background-image: url(../img/buttons/op-yes-hover.png);}
+  .action.yes:active{background-image: url(../img/buttons/op-yes-active.png);}
+  .action.no {background-image: url(../img/buttons/op-no.png); font-size: 3vw;}
+  .action.no:hover{background-image: url(../img/buttons/op-no-hover.png);}
+  .action.no:active{background-image: url(../img/buttons/op-no-active.png);}
 
   button.start {background-image: url(../img/menu/start.png); font-size: 6vw;}
   button.start:hover{background-image: url(../img/menu/start-hover.png);}
@@ -257,13 +263,13 @@
       background-position: center;
   }
 
-  #form {
+  #form, #feedback {
     background-color: #305882;
       position: relative;
       width: 100%;
       padding-top: 56.25%; /* 16:9 Aspect Ratio */
   }
-  .robot-arrows {
+  .robot-arrows, .robot-question {
     position: absolute;
     left: 0;
     top: 0;
@@ -272,13 +278,13 @@
     background-color: #fff;
     text-align: center;
   }
-  .robot-arrows .content {
+  .robot-arrows .content, .robot-question .content {
     width: 70%;
   }
-  .robot-arrows .content img {
+  .robot-arrows .content img, .robot-question .content img {
     width: 100%;
   }
-  .robot-arrows .content li {
+  .robot-arrows .content li, .robot-question .content li {
     margin-bottom: 10%;
   }
   .form-question {
@@ -762,7 +768,9 @@
   .robot-congrats .content .content-left img {
     width: 80%;
   }
-  .robot-congrats .content .content-left #text-comment {
+
+  .robot-congrats .content .content-left #text-comment,
+  .robot-question #text-comment {
     position: absolute;
     bottom: 10%;
     height: 20vw;
@@ -829,7 +837,141 @@
     background-position: center;
   }
 
-  .robot-congrats .content #text-comment button {
+  .robot-congrats .content #text-comment button,
+  .robot-question #text-comment button {
+    right: 4%;
+    bottom: 4%;
+    position: absolute;
+  }
+
+/*Feedback Section ----------------------------------------------------------*/
+
+ .robot-question img {
+    width: 70%;
+  }
+
+  .robot-question #text-comment {
+    width: 80%;
+    bottom: 18%;
+    background-image: url(../img/feedback/box-robot-comment-down.png);
+    font-family: exo-bold;
+    font-size: 2.5vw;
+    line-height: 2.5vw;
+    color: #305882;
+    padding-top: 25%;
+    text-align: left;
+  }
+
+  .robot-question #options {
+    bottom: 6%;
+    position: absolute;
+    width: 100%;
+  }
+
+  textarea {
+      background:rgba(0,0,0,0);
+      border:0px solid #fff;
+      color:#000;
+      background-image: url(../img/feedback/textarea-box.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 100%;
+      height: 20vw;
+      padding: 5%;
+      text-align: center;
+      font-size: 2.3vw;
+      border-radius: 50px;
+      font-family: exo;
+      resize: none;
+  }
+
+  textarea:focus {
+      box-shadow: 0 0 0 0;
+      border: 0 none;
+      outline: 0;
+  }
+
+  #feedback .form-question .center-title h4 {
+    font-size: 3.3vw;
+    color: white;
+    font-weight: 600;
+    font-family: bungee;
+    width: 100%;
+  }
+
+  #feedback .form-question .content {
+    margin-top: 5%;
+  }
+
+/* Certificate Section ----------------------------------------------------------*/
+  #certificate {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+  }
+
+  .robot-certificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-image: url(../img/certificate/bg.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  .robot-certificate .content {
+    width: 95%;
+    height: 97%;
+  }
+  .robot-certificate .content .content-left {
+    width: 55%;
+    position: absolute;
+    height: 100%;
+  }
+  .robot-certificate .content .content-left img {
+    width: 40%;
+  }
+
+  .robot-certificate .content .content-left #text-comment {
+    position: absolute;
+    height: 15vw;
+    width: 100%;
+    background-image: url(../img/certificate/box-comment.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 5%;
+    font-size: 2vw;
+    line-height: 2vw;
+    font-family: exo-medium;
+    text-align: center;
+  }
+
+  .robot-certificate .content .content-right {
+    width: 40%;
+    height: 80%;
+    position: absolute;
+    right: 0%;
+  }
+
+  .robot-certificate .content .content-right .next {
+    right: -20%;
+    bottom: 45%;
+    position: absolute;
+    font-size: 2vw;
+  }
+
+  .robot-certificate .content .content-right img {
+    width: 60%;
+    text-align: center;
+    object-fit: contain;
+  }
+
+  .robot-certificate .content #text-comment button {
     right: 4%;
     bottom: 4%;
     position: absolute;

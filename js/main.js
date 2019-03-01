@@ -39,7 +39,7 @@ $(document).ready(function() {
 // Menu  -----------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
-      updateSectionAJAX("form")
+      updateSectionAJAX("certificate")
     })
   }
 
@@ -473,53 +473,57 @@ $(document).ready(function() {
   function congrats() {
     createCongrats(congrats_texts[congrats_name])
   }
-
-function createCongrats(congrats) {
-  if (congrats_name == "badge") {
-    congrats["text"] = congrats["text"].replace("#badge_title#", kidBadge["title"]);
-    $(".robot-congrats #text-comment p").addClass("badge-text-format")
-  }
-
-    $(".robot-congrats #text-comment p").html(congrats["text"])
-
-    if (congrats["tip"]) {
-      $('.robot-congrats #text-comment p a').attr("data-toggle", "popover")
-      $('.robot-congrats #text-comment p a').attr("data-trigger", "hover")
-      $('.robot-congrats #text-comment p a').attr("data-placement", "right")
-      $('.robot-congrats #text-comment p a').attr("data-content", congrats["tip"])
-      $('[data-toggle="popover"]').popover({html:true})
+  function createCongrats(congrats) {
+    if (congrats_name == "badge") {
+      congrats["text"] = congrats["text"].replace("#badge_title#", kidBadge["title"]);
+      $(".robot-congrats #text-comment p").addClass("badge-text-format")
     }
 
-    $(".robot-congrats .content-right img").attr("src", "img/congrats/"+kidBadge["id"]+".png")
+      $(".robot-congrats #text-comment p").html(congrats["text"])
 
-    var starsHTML = ""
-    for (var i = 0; i < level_stars.length; i++) {
-      starsHTML += "<li><img src='img/congrats/star-"+level_stars[i]+".png'></li>"
+      if (congrats["tip"]) {
+        $('.robot-congrats #text-comment p a').attr("data-toggle", "popover")
+        $('.robot-congrats #text-comment p a').attr("data-trigger", "hover")
+        $('.robot-congrats #text-comment p a').attr("data-placement", "right")
+        $('.robot-congrats #text-comment p a').attr("data-content", congrats["tip"])
+        $('[data-toggle="popover"]').popover({html:true})
+      }
+
+      $(".robot-congrats .content-right img").attr("src", "img/congrats/"+kidBadge["id"]+".png")
+
+      var starsHTML = ""
+      for (var i = 0; i < level_stars.length; i++) {
+        starsHTML += "<li><img src='img/congrats/star-"+level_stars[i]+".png'></li>"
+      }
+      $('.robot-congrats .content-right #stars').html(starsHTML)
+
+      // Action for button clicked
+      congratsButtonClicked()
     }
-    $('.robot-congrats .content-right #stars').html(starsHTML)
 
-    // Action for button clicked
-    congratsButtonClicked()
-  }
+    function congratsButtonClicked() {
+      $("#go-congrats").click(function () { 
+        switch (congrats_name) {
+          case "badge":
+            comment_name = "start_challenge"
+            updateSectionAJAX("comment")
+          break
+          default:
+            if (actual_level+1 < badges_texts[actual_badge]["levels"]) {
+              actual_level += 1
+              updateSectionAJAX(actual_badge+"_"+actual_level)
+            } else {
+              // alert("Finalizou. Form de feedback aqui.")
+              updateSectionAJAX("feedback")
+            }
+          break
+        }      
+      })
+    }
 
-  function congratsButtonClicked() {
-    $("#go-congrats").click(function () { 
-      switch (congrats_name) {
-        case "badge":
-          comment_name = "start_challenge"
-          updateSectionAJAX("comment")
-        break
-        default:
-          if (actual_level+1 < badges_texts[actual_badge]["levels"]) {
-            actual_level += 1
-            updateSectionAJAX(actual_badge+"_"+actual_level)
-          } else {
-            alert("Finalizou. Form de feedback aqui.")
-            //updateSectionAJAX("feedback")
-          }
-        break
-      }      
-    })
+// Certificate  -----------------------------------------------------------------
+  function certificate() {
+    console.log(getFromStorage("name"))
   }
 
 // AJAX ----------------------------------------------------------------
