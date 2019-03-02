@@ -836,6 +836,7 @@ var habilitarBtnProximo = false;
 function todosOcupados(){
   if (posicaoSalaVazia1==false && posicaoSalaVazia2==false && posicaoSalaVazia3==false && posicaoSalaVazia4==false && posicaoSalaVazia5==false){
     todasSalasOcupadas=true;
+    FaseDentroOK();
   } else {
     todasSalasOcupadas=false;
   }
