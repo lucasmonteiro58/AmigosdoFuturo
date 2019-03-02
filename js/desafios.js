@@ -756,6 +756,254 @@ $("#btnSalvarEF" ).click(function() {
 })
 
   
+//Desafio escola dentro------------------------------------------------------------------------------------------------------------------
+
+var posicaoSalaVazia1=true;
+var posicaoSalaVazia2=true;
+var posicaoSalaVazia3=true;
+var posicaoSalaVazia4=true
+var posicaoSalaVazia5=true;
+
+
+var salaVazia1="";
+var salaVazia2="";
+var salaVazia3="";
+var salaVazia4="";
+var salaVazia5="";
+
+
+function posicaoSalas(idImagemSala){
+
+  if (posicaoSalaVazia1){
+      $(idImagemSala).css('display', 'block');
+      $(idImagemSala).css('top', '26.1%');
+      $(idImagemSala).css('left', '26.6%');
+      $(idImagemSala).css('width', '13.7%');
+      posicaoSalaVazia1=false;
+      salaVazia1 = idImagemSala;
+
+  } else if (posicaoSalaVazia2){
+      $(idImagemSala).css('display', 'block');
+      $(idImagemSala).css('top', '45%');
+      $(idImagemSala).css('left', '26.6%');
+      $(idImagemSala).css('width', '13.7%');
+      posicaoSalaVazia2=false;
+      salaVazia2 = idImagemSala;
+  } else if (posicaoSalaVazia3){
+       $(idImagemSala).css('display', 'block');
+      $(idImagemSala).css('top', '18.8%');
+      $(idImagemSala).css('left', '43.4%');
+      $(idImagemSala).css('width', '13%');
+      posicaoSalaVazia3=false;
+      salaVazia3 = idImagemSala;
+  } else if (posicaoSalaVazia4){
+       $(idImagemSala).css('display', 'block');
+      $(idImagemSala).css('top', '26.1%');
+      $(idImagemSala).css('left', '59.6%');
+      $(idImagemSala).css('width', '13.7%');
+      posicaoSalaVazia4=false;
+       salaVazia4 = idImagemSala;
+  } else if (posicaoSalaVazia5){
+     $(idImagemSala).css('display', 'block');
+      $(idImagemSala).css('top', '45%');
+      $(idImagemSala).css('left', '59.6%');
+      $(idImagemSala).css('width', '13.7%');
+      posicaoSalaVazia5=false;
+      salaVazia5 = idImagemSala;
+  }
+
+}
+
+function deixarTrueSalas(idimg){
+  habilitarBtnProximo=false;
+  if (salaVazia1==idimg){
+    posicaoSalaVazia1=true;
+  } else if(salaVazia2==idimg){
+    posicaoSalaVazia2=true;
+  } else if(salaVazia3==idimg){
+    posicaoSalaVazia3=true;
+  } else if(salaVazia4==idimg){
+    posicaoSalaVazia4=true;
+  } else if(salaVazia5==idimg){
+    posicaoSalaVazia5=true;
+  }
+}
+
+var idImgSala="";
+var todasSalasOcupadas= false;
+var habilitarBtnProximo = false;
+
+function todosOcupados(){
+  if (posicaoSalaVazia1==false && posicaoSalaVazia2==false && posicaoSalaVazia3==false && posicaoSalaVazia4==false && posicaoSalaVazia5==false){
+    todasSalasOcupadas=true;
+  } else {
+    todasSalasOcupadas=false;
+  }
+}
+
+function FaseDentroOK(){
+  habilitarBtnProximo=true;
+}
+
+$( "#icon_biblioteca1" ).click(function() {
+    todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+    idImgSala="#imgBiblioteca";
+    posicaoSalas(idImgSala);  
+    $(this).css('display', 'none');
+    $('#icon_biblioteca2').css('display', 'block')
+    todosOcupados();
+  }
+})
+$( "#icon_biblioteca2" ).click(function() {
+  idImgSala="#imgBiblioteca";
+  $(idImgSala).css('display', 'none');
+  deixarTrueSalas(idImgSala);  
+  $(this).css('display', 'none');
+  $('#icon_biblioteca1').css('display', 'block')
+})
+
+
+$( "#icon_teatro1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+  idImgSala="#imgTeatro";
+  posicaoSalas(idImgSala);  
+  $(this).css('display', 'none');
+  $('#icon_teatro2').css('display', 'block')
+  todosOcupados();
+}
+})
+$( "#icon_teatro2" ).click(function() {
+  idImgSala="#imgTeatro";
+   $(idImgSala).css('display', 'none');
+  deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_teatro1').css('display', 'block')
+})
+
+
+$( "#icon_cantina1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+  idImgSala="#imgCantina";
+  posicaoSalas(idImgSala);
+  
+  $(this).css('display', 'none');
+  $('#icon_cantina2').css('display', 'block')
+  todosOcupados();
+}
+})
+$( "#icon_cantina2" ).click(function() {
+   idImgSala="#imgCantina";
+    $(idImgSala).css('display', 'none');
+  deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_cantina1').css('display', 'block')
+})
+
+
+$( "#icon_musica1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+  idImgSala="#imgMusica";
+  posicaoSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_musica2').css('display', 'block')
+  todosOcupados();
+}
+})
+$( "#icon_musica2" ).click(function() {
+  idImgSala="#imgMusica";
+   $(idImgSala).css('display', 'none');
+   deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_musica1').css('display', 'block')
+})
+
+
+$( "#icon_informatica1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+  idImgSala="#imgInformatica";
+  posicaoSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_informatica2').css('display', 'block')
+  todosOcupados();
+}
+})
+$( "#icon_informatica2" ).click(function() {
+  idImgSala="#imgInformatica";
+   $(idImgSala).css('display', 'none');
+   deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_informatica1').css('display', 'block')
+})
+
+
+$( "#icon_quimica1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+  idImgSala="#imgQuimica";
+  posicaoSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_quimica2').css('display', 'block')
+  todosOcupados();
+}
+})
+$( "#icon_quimica2" ).click(function() {
+   idImgSala="#imgQuimica";
+    $(idImgSala).css('display', 'none');
+    deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_quimica1').css('display', 'block')
+})
+
+
+$( "#icon_danca1" ).click(function() {
+  todosOcupados();
+  if (todasSalasOcupadas){
+      FaseDentroOK();
+  } else{
+   idImgSala="#imgDanca";
+  $(this).css('display', 'none');
+  posicaoSalas(idImgSala);
+  $('#icon_danca2').css('display', 'block')
+  todosOcupados();
+  }
+})
+$( "#icon_danca2" ).click(function() {
+   idImgSala="#imgDanca";
+    $(idImgSala).css('display', 'none');
+    deixarTrueSalas(idImgSala);
+  $(this).css('display', 'none');
+  $('#icon_danca1').css('display', 'block')
+})
+
+
+$( "#btnNextEscolaDentro" ).click(function() {
+  todosOcupados();
+ if (habilitarBtnProximo){
+  alert("insira aqui codigo pra proxima fase");
+ } else {
+    alert("selecione 5");
+ }
+})
+
+
+
 
   
 
