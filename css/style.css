@@ -3355,3 +3355,145 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
 #imgBiblioteca, #imgCantina, #imgMusica, #imgTeatro, #imgInformatica, #imgQuimica, #imgDanca{
   position: absolute;
 }
+
+
+#blackEscolaDentro{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+#caixafeedbackEscolaDentro{
+  position: absolute;
+  width: 82%;
+  left: 9%;
+  top: 11%;
+}
+
+#minhaescolatemED{
+  position: absolute;
+  font-family: bungee;
+  color: #3B6B9E;
+  top: 18%;
+  font-size: 3.2vw;
+  left: 31%;
+}
+
+#imgEscolaDentro1{
+  position: absolute;
+  top: 30%;
+  left: 16%;
+}
+
+#imgEscolaDentro2{
+  position: absolute;
+  top: 30%;
+  left: 31%;
+}
+
+#imgEscolaDentro3{
+  position: absolute;
+  top: 30%;
+  left: 46%;
+}
+
+#imgEscolaDentro4{
+  position: absolute;
+  top: 30%;
+  left: 61%;
+}
+
+#imgEscolaDentro5{
+  position: absolute;
+  top: 30%;
+  left: 77%;
+}
+
+#TxtEscolaDentro1{
+  position: absolute;
+  color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 12%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaDentro2{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 27.5%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaDentro3{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 42%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaDentro4{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 58%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaDentro5{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 44%;
+  left: 73%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#btnTrocarED{
+  position: absolute;
+  top: 67%;
+  font-size: 2.7vw;
+  left: 25%;
+
+}
+
+#btnSalvarED{
+  position: absolute;
+  top: 67%;
+  font-size: 2.7vw;
+  left: 52%;
+
+}
+
+.popoverED{
+  display: none;
+}

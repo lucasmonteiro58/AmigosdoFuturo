@@ -771,6 +771,14 @@ var salaVazia3="";
 var salaVazia4="";
 var salaVazia5="";
 
+var bibliotecaBOL= false;
+var teatroBOL= false;
+var cantinaBOL= false;
+var musicaBOL= false;
+var informaticaBOL= false;
+var quimicaBOL= false;
+var dancaBOL= false;
+
 
 function posicaoSalas(idImagemSala){
 
@@ -856,6 +864,7 @@ $( "#icon_biblioteca1" ).click(function() {
     $(this).css('display', 'none');
     $('#icon_biblioteca2').css('display', 'block')
     todosOcupados();
+    bibliotecaBOL= true;
   }
 })
 $( "#icon_biblioteca2" ).click(function() {
@@ -864,6 +873,7 @@ $( "#icon_biblioteca2" ).click(function() {
   deixarTrueSalas(idImgSala);  
   $(this).css('display', 'none');
   $('#icon_biblioteca1').css('display', 'block')
+  bibliotecaBOL= false;
 })
 
 
@@ -877,6 +887,7 @@ $( "#icon_teatro1" ).click(function() {
   $(this).css('display', 'none');
   $('#icon_teatro2').css('display', 'block')
   todosOcupados();
+  teatroBOL=true;
 }
 })
 $( "#icon_teatro2" ).click(function() {
@@ -885,6 +896,7 @@ $( "#icon_teatro2" ).click(function() {
   deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_teatro1').css('display', 'block')
+  teatroBOL=false;
 })
 
 
@@ -899,6 +911,7 @@ $( "#icon_cantina1" ).click(function() {
   $(this).css('display', 'none');
   $('#icon_cantina2').css('display', 'block')
   todosOcupados();
+  cantinaBOL=true;
 }
 })
 $( "#icon_cantina2" ).click(function() {
@@ -907,6 +920,7 @@ $( "#icon_cantina2" ).click(function() {
   deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_cantina1').css('display', 'block')
+  cantinaBOL=false;
 })
 
 
@@ -920,6 +934,7 @@ $( "#icon_musica1" ).click(function() {
   $(this).css('display', 'none');
   $('#icon_musica2').css('display', 'block')
   todosOcupados();
+  musicaBOL=true;
 }
 })
 $( "#icon_musica2" ).click(function() {
@@ -928,6 +943,7 @@ $( "#icon_musica2" ).click(function() {
    deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_musica1').css('display', 'block')
+  musicaBOL=false;
 })
 
 
@@ -941,6 +957,7 @@ $( "#icon_informatica1" ).click(function() {
   $(this).css('display', 'none');
   $('#icon_informatica2').css('display', 'block')
   todosOcupados();
+  informaticaBOL=true;
 }
 })
 $( "#icon_informatica2" ).click(function() {
@@ -949,6 +966,7 @@ $( "#icon_informatica2" ).click(function() {
    deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_informatica1').css('display', 'block')
+  informaticaBOL=false;
 })
 
 
@@ -962,6 +980,7 @@ $( "#icon_quimica1" ).click(function() {
   $(this).css('display', 'none');
   $('#icon_quimica2').css('display', 'block')
   todosOcupados();
+  quimicaBOL=true;
 }
 })
 $( "#icon_quimica2" ).click(function() {
@@ -970,6 +989,7 @@ $( "#icon_quimica2" ).click(function() {
     deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_quimica1').css('display', 'block')
+  quimicaBOL=false;
 })
 
 
@@ -983,6 +1003,7 @@ $( "#icon_danca1" ).click(function() {
   posicaoSalas(idImgSala);
   $('#icon_danca2').css('display', 'block')
   todosOcupados();
+  dancaBOL=true;
   }
 })
 $( "#icon_danca2" ).click(function() {
@@ -991,16 +1012,85 @@ $( "#icon_danca2" ).click(function() {
     deixarTrueSalas(idImgSala);
   $(this).css('display', 'none');
   $('#icon_danca1').css('display', 'block')
+  dancaBOL=false;
 })
 
+
+var posicaoED=1;
 
 $( "#btnNextEscolaDentro" ).click(function() {
   todosOcupados();
  if (habilitarBtnProximo){
-  alert("insira aqui codigo pra proxima fase");
+
+   if(bibliotecaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_livros_1.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Muito conhecimento");
+      posicaoED++;
+    }
+
+    if(teatroBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_teatro.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Peças teatrais feitas pelos meus amigos");
+      posicaoED++;
+    }
+
+    if(cantinaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_cantina.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Comidas muito gostosas");
+      posicaoED++;
+    }
+
+    if(musicaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_musica.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Muitos músicos");
+      posicaoED++;
+    }
+
+    if(informaticaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_informatica.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Um mundo digital");
+      posicaoED++;
+    }
+
+    if(quimicaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_quimica.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Um lugar para fazer experimentos");
+      posicaoED++;
+    }
+
+    if(dancaBOL){
+      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_danca.png');
+      $("#TxtEscolaDentro"+posicaoED).text("Muitos dançarinos");
+      posicaoED++;
+    }
+
+     $('.popoverED').css('display', 'block'); //alert("entou");
+
+ 
  } else {
     alert("selecione 5");
  }
+})
+
+$("#btnTrocarED" ).click(function() {
+  $('.popoverED').css('display', 'none');
+   posicaoED=1;
+
+   for (i = 0; i < cars.length; i++) { 
+     $("#imgEscolaDentro"+i).attr('src', '');
+     $("#TxtEscolaDentro"+i).text("");
+  }
+  var bibliotecaBOL= false;
+var teatroBOL= false;
+var cantinaBOL= false;
+var musicaBOL= false;
+var informaticaBOL= false;
+var quimicaBOL= false;
+var dancaBOL= false;
+})
+
+$("#btnSalvarED" ).click(function() {
+  alert('*INSIRA* código para o proximo desafio')
 })
 
 
