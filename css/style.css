@@ -96,10 +96,10 @@
   .action.white:active{background-image: url(../img/buttons/action-active-white.png);}
   .action.yes {background-image: url(../img/buttons/op-yes.png); font-size: 3vw;}
   .action.yes:hover{background-image: url(../img/buttons/op-yes-hover.png);}
-  .action.yes:active{background-image: url(../img/buttons/op-yes-active.png);}
+  .action.yes:active,.action.yes.active{background-image: url(../img/buttons/op-yes-active.png);}
   .action.no {background-image: url(../img/buttons/op-no.png); font-size: 3vw;}
   .action.no:hover{background-image: url(../img/buttons/op-no-hover.png);}
-  .action.no:active{background-image: url(../img/buttons/op-no-active.png);}
+  .action.no:active,.action.no.active{background-image: url(../img/buttons/op-no-active.png);}
 
   button.start {background-image: url(../img/menu/start.png); font-size: 6vw;}
   button.start:hover{background-image: url(../img/menu/start-hover.png);}
@@ -145,6 +145,14 @@
   button.toggle.home:hover{background-image: url(../img/buttons/toggle-home-hover.png);}
   button.toggle.home:active{background-image: url(../img/buttons/toggle-home-active.png);}
 
+  button.toggle.download {background-image: url(../img/buttons/toggle-download.png);}
+  button.toggle.download:hover{background-image: url(../img/buttons/toggle-download-hover.png);}
+  button.toggle.download:active{background-image: url(../img/buttons/toggle-download-active.png);}
+
+  button.toggle.print {background-image: url(../img/buttons/toggle-print.png);}
+  button.toggle.print:hover{background-image: url(../img/buttons/toggle-print-hover.png);}
+  button.toggle.print:active{background-image: url(../img/buttons/toggle-print-active.png);}
+
   button.toggle.info {background-image: url(../img/buttons/toggle-info.png);}
   button.toggle.info:hover{background-image: url(../img/buttons/toggle-info-hover.png);}
   button.toggle.info:active{background-image: url(../img/buttons/toggle-info-active.png);}
@@ -184,7 +192,7 @@
 
   button.toggle {
     padding: 2em 2em;
-    font-size: 1.3vw;
+    font-size: 1.5vw;
   }
   button.toggle:disabled{
     filter: opacity(0.5);
@@ -396,7 +404,7 @@
   .badges-about .content {
     width: 90%;
   }
-  .badges-about .content .all-badges {
+  .all-badges {
   	height: 38%;
       width: 90%;
      	padding-top: 5%;
@@ -405,20 +413,20 @@
       background-size: contain;
       background-position: center;
   }
-  .badges-about .content .all-badges li {
+  .all-badges li {
   	display: inline;
   }
-  .badges-about .content .all-badges li img {
+  .all-badges li img {
   	width: 18%;
       margin: 1%;
       filter: opacity(0.5);
   }
-  .badges-about .content .all-badges li img:hover {
+  .all-badges li img:hover {
   	transform: scale(1.05);
   	filter: opacity(1.0);
       cursor: pointer;
   }
-  .badges-about .content .all-badges li img .active {
+  .all-badges li img .active {
   	transform: scale(1.05);
   	filter: opacity(1.0);
       cursor: pointer;
@@ -436,12 +444,12 @@
   .badges-about .content .single-badge li:first-child {
       margin-bottom: 14%;
   } 
-  .badges-about .content .single-badge h4 {
+  .single-badge h4 {
       font-family: bungee;
       font-size: 2.3vw;
       color: #ccc;
   } 
-  .badges-about .content .single-badge p {
+  .single-badge p {
       font-family: exo;
       font-size: 1.9vw;
       line-height: 1.9vw;
@@ -548,6 +556,11 @@
     background-color: #3E6DAC;
     background-image: linear-gradient(to right, #3E6DAC , #305882); 
   }
+
+  .dark-gradient {
+    background-color: rgba(0,0,0,0.5);
+  }
+
   .sunshine-gradient {
     background-color: rgba(0,0,0,0);
     background-image: url(../img/sunshine-bg.png);
@@ -882,7 +895,7 @@
       background-size: contain;
       background-position: center;
       width: 100%;
-      height: 20vw;
+      height: 19vw;
       padding: 5%;
       text-align: center;
       font-size: 2.3vw;
@@ -948,6 +961,7 @@
   }
   .robot-certificate .content .content-left .buttons li {
     display: inline;
+    padding: 0px 2%;
   }
 
   .robot-certificate .content .content-left #text-comment {
@@ -993,6 +1007,75 @@
     bottom: 10%;
     position: absolute;
   }
+
+/* Other badges Section ----------------------------------------------------------*/
+  .other-badges .content {
+      width: 65%;
+      height: 80%;
+      background-image: url(../img/certificate/bg-other-badges.png);
+  }
+
+  .other-badges .all-badges {
+    height: 55%;
+    width: 65%;
+    top: 2%;
+  }
+
+  .other-badges .single-badge {
+    width: 65%;
+    bottom: 15%;
+  }
+
+  .other-badges .exit {
+    position: absolute;
+    right: 0%;
+    top: 5%;
+  }
+
+  .other-badges .home {
+    position: absolute;
+    left: 0%;
+    top: 9%;
+  }
+
+/* Cutscene Section ----------------------------------------------------------*/
+  #cutscene {
+     position: relative;
+     width: 100%;
+     padding-top: 56.25%; /* 16:9 Aspect Ratio */
+  }
+
+  #cutscene .content {
+     width: 100%;
+     height: 100%;
+  }
+
+  #cutscene .content video{
+     width: 100%;
+     height: 100%;
+  }
+
+  #cutscene .content button {
+     position: absolute;
+  }
+  #cutscene .content .pause {
+     bottom: 2%;
+     left: 1%;
+  }
+  #cutscene .content .play {
+    position: absolute;          
+    left: 50%;                                  
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3vw;
+  }
+
+  #cutscene .content .action {
+     bottom: 1%;
+     right: 1%;
+  }
+
+
 
 /*Mapa Section ----------------------------------------------------------*/
 #mapa{

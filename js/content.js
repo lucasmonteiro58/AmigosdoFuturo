@@ -4,14 +4,17 @@ var kidRegion = ""
 var kidAge = 0
 var kidBadge = ""
 
+//form
 var question_number = 0 //first question
 var questions_array = [] //actual array of questions
 var actual_section = undefined
 
+//general
 var actual_badge = undefined
 var actual_level = -1 //depends on number of levels of each badge
 var level_stars = ["empty","empty","empty"] //empty, half, full
 
+// modal
 var comment_name = undefined // regions/other_normal_comment
 var congrats_name = undefined // badge/mei_0/edu_2
 
@@ -90,36 +93,43 @@ var quiz_texts = [
 
 var badges_texts = {
     "sau": { "id" : "sau",
+             "finished": [false,false],
              "levels":2,
              "title": "Amigo da Saúde",
              "description": "Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável."
     },
     "laz": { "id" : "laz",
+             "finished": [false,false,false],
              "levels":3,
              "title": "Amigo do Lazer",
              "description": "É muito divertido e adora conhecer lugares novos."
     },
     "eco": { "id" : "eco",
+             "finished": [false,false],
              "levels":2,
              "title": "Amigo da Economia",
              "description": "Ama números e sabe bem como vender algo para juntar dinheiro."
     },
     "mei": { "id" : "mei",
+             "finished": [false,false,false],
              "levels":3,
              "title": "Amigo do Meio Ambiente",
              "description": "Respeita a natureza e está sempre ajudando outras pessoas."
     },
     "gov": { "id" : "gov",
+             "finished": [false,false,false,false],
              "levels":4,
              "title": "Amigo do Governo",
              "description": "Gosta muito de falar com as pessoas. É responsável e organizado."
     },
     "edu": { "id" : "edu",
+             "finished": [false,false,false],
              "levels":3,
              "title": "Amigo da Educação",
              "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."
     },
     "ino": { "id" : "ino",
+             "finished": [false,false,false],
              "levels":3,
              "title": "Amigo da Inovação",
              "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."

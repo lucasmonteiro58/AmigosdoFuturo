@@ -1504,6 +1504,7 @@ $("#btnSalvarED" ).click(function() {
       if (verificaLegumesCesta==6 && verificaCanos){
         congrats_name = "mei_2"
         level_stars = ["full", "full", "full"]
+        badges_texts["mei"]["finished"] = true //ended mei badge
         updateSectionAJAX("congrats")
       }
     }
