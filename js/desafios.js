@@ -506,17 +506,11 @@ $("#btnTrocarEF" ).click(function() {
   $('.popoverEF').css('display', 'none');
    posicaoEF=1;
 
-   for (i = 0; i < cars.length; i++) { 
+   for (i = 0; i < i.length; i++) { 
      $("#imgEscolaFora"+i).attr('src', '');
      $("#TxtEscolaFora"+i).text("");
   }
-  acessibilidadeBOL= false;
-  pintarBOL= false;
-  arborizarBOL= false;
-  onibusBOL= false;
-  parquinhoBOL= false;
-  hortaBOL= false;
-  lixoBOL= false;
+  
 })
 
 $("#btnSalvarEF" ).click(function() {
