@@ -3024,98 +3024,138 @@
   transform: scale(2.4);
 }
 
-#icon_acessibilidade1:hover, #icon_acessibilidade2:hover, #icon_acessibilidade3:hover, #icon_acessibilidade4:hover{
-  transform: scale(1.1);
-}
+button.btnAcessibilidade1 {background-image: url(../img/buttons/ef/bt_acessib_normal.png);}
+button.btnAcessibilidade1:hover{background-image: url(../img/buttons/ef/bt_acessib_add.png);}
 
-#icon_acessibilidade1, #icon_acessibilidade2, #icon_acessibilidade3, #icon_acessibilidade4{
+button.btnAcessibilidade2 {background-image: url(../img/buttons/ef/bt_acessib_check.png);}
+button.btnAcessibilidade2:hover{background-image: url(../img/buttons/ef/bt_acessib_menos.png);}
+
+#icon_acessibilidade1, #icon_acessibilidade2{
   position: absolute;
-  bottom: 3%;
+  bottom: 6%;
   left: 19%;
-  width: 5.5%;
+  transform: scale(2);
 }
 
-#icon_pintar1:hover, #icon_pintar2:hover,  #icon_pintar3:hover,  #icon_pintar4:hover{
-  transform: scale(1.1);
+#icon_acessibilidade1:hover, #icon_acessibilidade2:hover{
+  transform: scale(2.1);
 }
 
-#icon_pintar1, #icon_pintar2,  #icon_pintar3,  #icon_pintar4 {
+
+button.btnPintar1 {background-image: url(../img/buttons/ef/bt_pintar_normal.png);}
+button.btnPintar1:hover{background-image: url(../img/buttons/ef/bt_pintar_add.png);}
+
+button.btnPintar2 {background-image: url(../img/buttons/ef/bt_pintar_check.png);}
+button.btnPintar2:hover{background-image: url(../img/buttons/ef/bt_pintar_menos.png);}
+
+#icon_pintar1:hover, #icon_pintar2:hover{
+  transform: scale(2);
+}
+
+#icon_pintar1, #icon_pintar2{
   position: absolute;
-  bottom: 3%;
-  left: 27%;
-  width: 8%;
+  bottom: 6%;
+  left: 28%;
+  transform: scale(1.9);
 }
 
-#icon_arborizar1, #icon_arborizar2, #icon_arborizar3, #icon_arborizar4{
+
+button.btnArborizar1 {background-image: url(../img/buttons/ef/bt_arbori_normal.png);}
+button.btnArborizar1:hover{background-image: url(../img/buttons/ef/bt_arbori_add.png);}
+
+button.btnArborizar2 {background-image: url(../img/buttons/ef/bt_arbori_check.png);}
+button.btnArborizar2:hover{background-image: url(../img/buttons/ef/bt_arbori_menos.png);}
+
+#icon_arborizar1, #icon_arborizar2{
   position: absolute;
-  bottom: 3%;
+  bottom: 6%;
   left: 37%;
-  width: 6%;
+ transform: scale(1.9);
 }
 
-#icon_arborizar1:hover, #icon_arborizar2:hover, #icon_arborizar3:hover, #icon_arborizar4:hover{
-  transform: scale(1.1);
+#icon_arborizar1:hover, #icon_arborizar2:hover{
+  transform: scale(2);
 }
 
-#icon_onibus1, #icon_onibus2, #icon_onibus3, #icon_onibus4{
+button.btnOnibus1 {background-image: url(../img/buttons/ef/bt_bus_normal.png);}
+button.btnOnibus1:hover{background-image: url(../img/buttons/ef/bt_bus_add.png);}
+
+button.btnOnibus2 {background-image: url(../img/buttons/ef/bt_bus_check.png);}
+button.btnOnibus2:hover{background-image: url(../img/buttons/ef/bt_bus_menos.png);}
+
+
+#icon_onibus1, #icon_onibus2{
   position: absolute;
-  bottom: 3%;
-  left: 45%;
-  width: 9.5%;
+  bottom: 6.5%;
+  left: 46%;
+  transform: scale(1.7);
 }
 
-#icon_onibus1:hover , #icon_onibus2:hover, #icon_onibus3:hover, #icon_onibus4:hover{
- transform: scale(1.1);
+#icon_onibus1:hover , #icon_onibus2:hover{
+ transform: scale(1.8);
 }
 
-#icon_horta1, #icon_horta2, #icon_horta3, #icon_horta4{
+button.btnHorta1 {background-image: url(../img/buttons/ef/bt_horta_normal.png);}
+button.btnHorta1:hover{background-image: url(../img/buttons/ef/bt_horta_add.png);}
+
+button.btnHorta2 {background-image: url(../img/buttons/ef/bt_horta_check.png);}
+button.btnHorta2:hover{background-image: url(../img/buttons/ef/bt_horta_menos.png);}
+
+#icon_horta1, #icon_horta2{
   position: absolute;
-  bottom: 3%;
+  bottom: 6%;
   left: 55%;
-  width: 9%;
+  transform: scale(1.9);
 }
 
-#icon_horta1:hover, #icon_horta2:hover, #icon_horta3:hover, #icon_horta4:hover{
- transform: scale(1.1);
+#icon_horta1:hover, #icon_horta2:hover{
+ transform: scale(2);
 }
 
-#icon_parquinho1, #icon_parquinho2, #icon_parquinho3, #icon_parquinho4{
+button.btnParque1 {background-image: url(../img/buttons/ef/bt_parque_normal.png);}
+button.btnParque1:hover{background-image: url(../img/buttons/ef/bt_parque_add.png);}
+
+button.btnParque2 {background-image: url(../img/buttons/ef/bt_parque_check.png);}
+button.btnParque2:hover{background-image: url(../img/buttons/ef/bt_parque_menos.png);}
+
+
+#icon_parquinho1, #icon_parquinho2{
   position: absolute;
-  bottom: 3%;
-  left: 66%;
-  width: 5.5%;
+  bottom: 6%;
+  left: 65.6%;
+  transform: scale(1.9);
 }
 
-#icon_parquinho1:hover, #icon_parquinho2:hover, #icon_parquinho3:hover, #icon_parquinho4:hover{
- transform: scale(1.1);
+#icon_parquinho1:hover, #icon_parquinho2:hover{
+ transform: scale(2);
 }
 
-#icon_lixo1, #icon_lixo2, #icon_lixo3, #icon_lixo4{
+button.btnLixo1 {background-image: url(../img/buttons/ef/bt_lixo_normal.png);}
+button.btnLixo1:hover{background-image: url(../img/buttons/ef/bt_lixo_add.png);}
+
+button.btnLixo2 {background-image: url(../img/buttons/ef/bt_lixo_check.png);}
+button.btnLixo2:hover{background-image: url(../img/buttons/ef/bt_lixo_menos.png);}
+
+#icon_lixo1, #icon_lixo2{
   position: absolute;
-  bottom: 3%;
+  bottom: 6%;
   left: 74%;
-  width: 6%;
+  transform: scale(1.9);
 }
 
-#icon_lixo1:hover, #icon_lixo2:hover, #icon_lixo3:hover, #icon_lixo4:hover{
-  transform: scale(1.1);
+#icon_lixo1:hover, #icon_lixo2:hover{
+  transform: scale(2);
 }
 
-.iconNormal{
+.iconNormalF{
   //display: none;
 }
 
-.iconAdd{
+.iconCheckF{
   display: none;
 }
 
-.iconCheck{
-  display: none;
-}
 
-.iconMenos{
-  display: none;
-}
 
 #blackEscolaFora{
   position: absolute;
@@ -3145,32 +3185,37 @@
 
 #imgEscolaFora1{
   position: absolute;
-  top: 30%;
+  bottom: 54%;
   left: 16%;
+   width: 7.5%;
 }
 
 #imgEscolaFora2{
   position: absolute;
-  top: 30%;
+ bottom: 54%;
   left: 31%;
+   width: 7.5%;
 }
 
 #imgEscolaFora3{
   position: absolute;
-  top: 30%;
+  bottom: 54%;
   left: 46%;
+   width: 7.5%;
 }
 
 #imgEscolaFora4{
   position: absolute;
-  top: 30%;
+  bottom: 54%;
   left: 61%;
+   width: 7.5%;
 }
 
 #imgEscolaFora5{
   position: absolute;
-  top: 30%;
+ bottom: 54%;
   left: 77%;
+   width: 7.5%;
 }
 
 #TxtEscolaFora1{
@@ -3178,7 +3223,7 @@
   color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 48%;
   left: 12%;
   width: 13%;
   text-align: center;
@@ -3191,7 +3236,7 @@
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 48%;
   left: 27.5%;
   width: 13%;
   text-align: center;
@@ -3204,7 +3249,7 @@
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 48%;
   left: 42%;
   width: 13%;
   text-align: center;
@@ -3217,7 +3262,7 @@
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 48%;
   left: 58%;
   width: 13%;
   text-align: center;
@@ -3230,7 +3275,7 @@
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 48%;
   left: 73%;
   width: 13%;
   text-align: center;
@@ -3240,7 +3285,7 @@
 
 #btnTrocarEF{
   position: absolute;
-  top: 67%;
+  top: 70%;
   font-size: 2.7vw;
   left: 25%;
 
@@ -3248,7 +3293,7 @@
 
 #btnSalvarEF{
   position: absolute;
-  top: 67%;
+  top: 70%;
   font-size: 2.7vw;
   left: 52%;
 
@@ -3468,32 +3513,37 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
 
 #imgEscolaDentro1{
   position: absolute;
-  top: 30%;
+  bottom: 58%;
   left: 16%;
+  width: 7.5%;
 }
 
 #imgEscolaDentro2{
   position: absolute;
-  top: 30%;
+  bottom: 58%;
   left: 31%;
+   width: 7.5%;
 }
 
 #imgEscolaDentro3{
   position: absolute;
-  top: 30%;
+ bottom: 58%;
   left: 46%;
+   width: 7.5%;
 }
 
 #imgEscolaDentro4{
   position: absolute;
-  top: 30%;
+  bottom: 58%;
   left: 61%;
+   width: 7.5%;
 }
 
 #imgEscolaDentro5{
   position: absolute;
-  top: 30%;
+  bottom: 58%;
   left: 77%;
+   width: 7.5%;
 }
 
 #TxtEscolaDentro1{
@@ -3501,7 +3551,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
   color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 45%;
   left: 12%;
   width: 13%;
   text-align: center;
@@ -3514,7 +3564,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 45%;
   left: 27.5%;
   width: 13%;
   text-align: center;
@@ -3527,7 +3577,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 45%;
   left: 42%;
   width: 13%;
   text-align: center;
@@ -3540,7 +3590,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 45%;
   left: 58%;
   width: 13%;
   text-align: center;
@@ -3553,7 +3603,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
    color: black;
   font-family: exo-medium;
   font-size: 2.2vw;
-  top: 44%;
+  top: 45%;
   left: 73%;
   width: 13%;
   text-align: center;
@@ -3563,7 +3613,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
 
 #btnTrocarED{
   position: absolute;
-  top: 67%;
+  top: 70%;
   font-size: 2.7vw;
   left: 25%;
 
@@ -3571,7 +3621,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
 
 #btnSalvarED{
   position: absolute;
-  top: 67%;
+  top: 70%;
   font-size: 2.7vw;
   left: 52%;
 
