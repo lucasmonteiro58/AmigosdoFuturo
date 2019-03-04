@@ -7,12 +7,7 @@ if ($("#menu").length) {
 $(document).ready(function() {
   $(function () { $('[data-toggle="popover"]').popover({html:true}) })
 
-  // Toggle sound
-  $(".sound").click(function () {
-    $(this).toggleClass("sound")
-    $(this).toggleClass("mute")
-    console.log("Inserir logica de mutar o som, aqui!")
-  })
+  toggleSoundSetup()
 
   // Toggle fullscreen
   $('#myModal').modal('show')
@@ -21,6 +16,15 @@ $(document).ready(function() {
     $('#myModal').modal('hide')
   })
 });
+
+  function toggleSoundSetup() {
+    // Toggle sound
+    $(".sound").click(function () {
+      $(this).toggleClass("sound")
+      $(this).toggleClass("mute")
+      console.log("Inserir logica de mutar o som, aqui!")
+    })
+  }
 
 // Modal fulscreen --------------------------------------------------------
   function openFullscreen() {
@@ -39,7 +43,7 @@ $(document).ready(function() {
 // Menu  -----------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
-      updateSectionAJAX("certificate")
+      updateSectionAJAX("feedback")
     })
   }
 
@@ -249,19 +253,22 @@ $(document).ready(function() {
 
     configPrevNext()
     emptyBadgeDetails()
-  
-    $(".all-badges img").mouseenter(function () {
-      $(this).toggleClass("active")
 
-      var badge_id = $(this).attr("id")
-      var badge = badges_texts[badge_id]
-      createBadgeDetails(badge)
- 
-    })
-    $(".all-badges img").mouseleave(function () {
-      emptyBadgeDetails()
-    })
+    badgeDetailsToggle()
   }
+  function badgeDetailsToggle() {
+      $(".all-badges img").mouseenter(function () {
+        $(this).toggleClass("active")
+
+        var badge_id = $(this).attr("id")
+        var badge = badges_texts[badge_id]
+        createBadgeDetails(badge)
+   
+      })
+      $(".all-badges img").mouseleave(function () {
+        emptyBadgeDetails()
+      })
+    }
 
   function createBadgeDetails(badge) {
     var badgeHTML = ""
@@ -513,7 +520,6 @@ $(document).ready(function() {
               actual_level += 1
               updateSectionAJAX(actual_badge+"_"+actual_level)
             } else {
-              // alert("Finalizou. Form de feedback aqui.")
               updateSectionAJAX("feedback")
             }
           break
@@ -521,11 +527,116 @@ $(document).ready(function() {
       })
     }
 
+// Feedback ----------------------------------------------------------------
+
+function feedback() {
+  $("#feedback .yes").click(function () {
+    $(this).toggleClass("active")
+    changedAnswer()
+  })
+  $("#feedback .no").click(function () {
+    $(this).toggleClass("active")
+    changedAnswer()
+  })
+  $("#submit-feedback").click(function () {
+    // FIX check if all the fields are full
+    updateSectionAJAX("certificate")
+  })
+}
+
+function changedAnswer() {
+  // FIX save and toggle answers
+}
+
 // Certificate  -----------------------------------------------------------------
   function certificate() {
     console.log(getFromStorage("name"))
+
+    badgeDetailsToggleModal()
   }
 
+  function badgeDetailsToggleModal() {
+    $(".all-badges img").mouseenter(function () {
+      $(this).toggleClass("active")
+
+      var badge_id = $(this).attr("id")
+      var badge = badges_texts[badge_id]
+      createBadgeDetailsModal(badge)
+ 
+    })
+    $(".all-badges img").mouseleave(function () {
+      emptyBadgeDetailsModal()
+    })
+    $(".all-badges img").click(function () {
+      var badge_id = $(this).attr("id")
+      var badge = badges_texts[badge_id]
+
+      // FIX Reset level information
+      actual_level = 0
+      actual_badge = badge_id
+
+      alert(actual_badge+"_"+actual_level)
+      updateSectionAJAX(actual_badge+"_"+actual_level)
+    })
+
+    $("#other-badges-btn").click(function () {
+      $('.other-badges').fadeIn(300)
+    })
+    $(".other-badges .exit").click(function () {
+      $('.other-badges').fadeOut(300)
+    })
+    $(".other-badges .home").click(function () {
+      // FIX Reset level information
+      updateSectionAJAX("menu")
+    })
+  }
+
+  function createBadgeDetailsModal(badge) {
+    var badgeHTML = ""
+    badgeHTML = "<li><h4>"+badge["title"]+"</h4></li>"+
+                "<li><p>"+badge["description"]+"</p></li>"
+
+    $("#single-badge-details").html(badgeHTML)  
+  }
+  function emptyBadgeDetailsModal() {
+    var badgeHTML = ""
+    badgeHTML = "<li><h4>Conheça os poderes dos amigos do futuro!</h4></li>"+
+                "<li><p>Passe o mouse nas medalhas<br>ali em cima.</p></li>"
+
+    $("#single-badge-details").html(badgeHTML)  
+  }
+
+// Video Cutscene  -----------------------------------------------------------------
+  function cutscene() {
+    $("#cutscene .play").click(function () {
+      play()
+      $("#cutscene .play").fadeOut(300)
+    })
+    $("#cutscene .pause").click(function () {
+      pause()
+      $("#cutscene .play").fadeIn(100)
+    })
+    $("#cutscene .action").click(function () {
+      updateSectionAJAX("form")
+    })
+
+    videoEnded()
+  }
+  function videoEnded() {
+    var cutscene_video = document.getElementById("cutscene_video"); 
+    cutscene_video.onended = function() {
+      // FIX Go to correct question
+      setTimeout(updateSectionAJAX("form"), 3000);
+    };
+  }
+  function play() { 
+    var cutscene_video = document.getElementById("cutscene_video"); 
+    cutscene_video.play(); 
+  }  
+  function pause() { 
+    var cutscene_video = document.getElementById("cutscene_video"); 
+    cutscene_video.pause(); 
+  }
 // AJAX ----------------------------------------------------------------
   function updateSectionAJAX(name) {
     //alert(name)
@@ -546,6 +657,7 @@ $(document).ready(function() {
     $("#main-div-content").html(ajax_load).load(loadUrl, function(){
      $(this).hide().fadeIn('slow');
      window[name](arguments)
+     toggleSoundSetup()
     });
 
     
