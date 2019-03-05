@@ -530,23 +530,74 @@ $(document).ready(function() {
 // Feedback ----------------------------------------------------------------
 
 function feedback() {
+  saveInStorage("like", null)
+
   $("#feedback .yes").click(function () {
-    $(this).toggleClass("active")
-    changedAnswer()
+    answerLike(this, "yes")
   })
   $("#feedback .no").click(function () {
-    $(this).toggleClass("active")
-    changedAnswer()
+    answerLike(this, "no")
   })
   $("#submit-feedback").click(function () {
-    // FIX check if all the fields are full
-    updateSectionAJAX("certificate")
+    // Check if all the fields are full
+    if ($("textarea").val() == "" || getFromStorage("like") == null) {
+      alert("Preencha todos os campos para continuar.")
+      return false
+    } else {
+      // submitFeedbackAJAX(data FIX)
+      updateSectionAJAX("certificate")
+    }
   })
 }
 
-function changedAnswer() {
-  // FIX save and toggle answers
+function answerLike(button, answer) {
+  $(button).toggleClass("active")
+
+  var beforeAnswer = getFromStorage("like")
+    // If already answered before
+    if (beforeAnswer == "yes") {
+      if (answer == "yes") {
+        saveInStorage("like", null)
+      }
+      if (answer == "no") {
+        saveInStorage("like", "no")
+        $("#feedback .yes").toggleClass("active")
+      }
+    } else if (beforeAnswer == "no") {
+      if (answer == "no") {
+        saveInStorage("like", null)
+      }
+      if (answer == "yes") {
+        saveInStorage("like", "yes")
+        $("#feedback .no").toggleClass("active")
+      }
+    } else {
+      // First time answering
+      if (answer == "yes") {
+        saveInStorage("like", "yes")
+      } else if (answer == "no") {
+        saveInStorage("like", "no")
+      }
+    }
 }
+
+function submitFeedbackAJAX(feedback_data) {
+    // $.ajax({
+    //     type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+    //     url         : 'save_feedback.php', // the url where we want to POST
+    //     data        : form_data, // our data object
+    //     dataType    : 'json', // what type of data do we expect back from the server
+    //     encode       : true
+    // })
+    //   .done(function(data) {
+    //       console.log(data); 
+    //   });
+
+      // // stop the form from submitting the normal way and refreshing the page
+      // event.preventDefault();
+    var obj = JSON.stringify(form_data)
+    alert(obj)
+  }
 
 // Certificate  -----------------------------------------------------------------
   function certificate() {
