@@ -43,7 +43,8 @@ $(document).ready(function() {
 // Menu  -----------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
-      updateSectionAJAX("feedback")
+      cutscene_name = "start"
+      updateSectionAJAX("cutscene")
     })
   }
 
@@ -530,23 +531,22 @@ $(document).ready(function() {
 // Feedback ----------------------------------------------------------------
 
 function feedback() {
-  saveInStorage("like", null)
-
   $("#feedback .yes").click(function () {
-    answerLike(this, "yes")
+    answerLike(this, "Sim")
   })
   $("#feedback .no").click(function () {
-    answerLike(this, "no")
+    answerLike(this, "Não")
   })
   $("#submit-feedback").click(function () {
     // Check if all the fields are full
-    if ($("textarea").val() == "" || getFromStorage("like") == null) {
-      alert("Preencha todos os campos para continuar.")
-      return false
-    } else {
-      // submitFeedbackAJAX(data FIX)
-      updateSectionAJAX("certificate")
+    if ($("textarea").val() == "" || !(getFromStorage("like"))) {
+       alert("Preencha todos os campos para continuar.") 
+       return false
     }
+
+    saveInStorage("feedback", $("textarea").val())
+    submitFeedbackAJAX()
+    updateSectionAJAX("certificate")
   })
 }
 
@@ -555,37 +555,43 @@ function answerLike(button, answer) {
 
   var beforeAnswer = getFromStorage("like")
     // If already answered before
-    if (beforeAnswer == "yes") {
-      if (answer == "yes") {
+    if (beforeAnswer == "Sim") {
+      if (answer == "Sim") {
         saveInStorage("like", null)
       }
-      if (answer == "no") {
-        saveInStorage("like", "no")
+      if (answer == "Não") {
+        saveInStorage("like", "Não")
         $("#feedback .yes").toggleClass("active")
       }
-    } else if (beforeAnswer == "no") {
-      if (answer == "no") {
+    } else if (beforeAnswer == "Não") {
+      if (answer == "Não") {
         saveInStorage("like", null)
       }
-      if (answer == "yes") {
-        saveInStorage("like", "yes")
+      if (answer == "Sim") {
+        saveInStorage("like", "Sim")
         $("#feedback .no").toggleClass("active")
       }
     } else {
       // First time answering
-      if (answer == "yes") {
-        saveInStorage("like", "yes")
-      } else if (answer == "no") {
-        saveInStorage("like", "no")
+      if (answer == "Sim") {
+        saveInStorage("like", "Sim")
+      } else if (answer == "Não") {
+        saveInStorage("like", "Não")
       }
     }
 }
 
-function submitFeedbackAJAX(feedback_data) {
+function submitFeedbackAJAX() {
+    var data = {}
+    var like = getFromStorage("like")
+    var feedback = getFromStorage("feedback")
+    data["like"] = like
+    data["feedback"] = feedback
+
     // $.ajax({
     //     type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
     //     url         : 'save_feedback.php', // the url where we want to POST
-    //     data        : form_data, // our data object
+    //     data        : data, // our data object
     //     dataType    : 'json', // what type of data do we expect back from the server
     //     encode       : true
     // })
@@ -595,40 +601,79 @@ function submitFeedbackAJAX(feedback_data) {
 
       // // stop the form from submitting the normal way and refreshing the page
       // event.preventDefault();
-    var obj = JSON.stringify(form_data)
+    var obj = JSON.stringify(data)
     alert(obj)
   }
 
 // Certificate  -----------------------------------------------------------------
   function certificate() {
-    console.log(getFromStorage("name"))
+    actual_badge = "mei"
+    console.log("actual badge "+actual_badge)
+
+    setupFinishedBadges()
 
     badgeDetailsToggleModal()
   }
 
-  function badgeDetailsToggleModal() {
-    $(".all-badges img").mouseenter(function () {
-      $(this).toggleClass("active")
+  function setupFinishedBadges() {
+    var badges_li = $('.all-badges li');
 
+    for (var i = 0; i < badges_li.length; i++) {
+      var this_badge_li = badges_li.eq(i)
+      var this_badge_li_img = this_badge_li.find("img")
+      var this_badge_li_name = this_badge_li_img[0].id
+
+      console.log(badges_texts[this_badge_li_name]["finished"])
+
+      if (badges_texts[this_badge_li_name]["finished"]) {
+        this_badge_li_img.addClass("finished")
+
+        var liHTML = this_badge_li.html()
+        liHTML += "<span></span>"
+        this_badge_li.html(liHTML)
+
+        console.log(this_badge_li_img[0])
+      }
+    }
+  }
+
+  function badgeDetailsToggleModal() {
+    // $(".all-badges img").mouseenter(function () {
+    //   $(this).toggleClass("active")
+
+    //   var badge_id = $(this).attr("id")
+    //   var badge = badges_texts[badge_id]
+    //   createBadgeDetailsModal(badge)
+ 
+    // })
+    // $(".all-badges img").mouseleave(function () {
+    //   emptyBadgeDetailsModal()
+    // })
+    $(".all-badges img").click(function () {
+      var badges_li = $('.all-badges li');
+      for (var i = 0; i < badges_li.length; i++) {
+        var this_badge_li = badges_li.eq(i)
+        var this_badge_li_img = this_badge_li.find("img")
+        this_badge_li_img.removeClass("active")
+      }
+
+      $(this).addClass("active")
       var badge_id = $(this).attr("id")
       var badge = badges_texts[badge_id]
       createBadgeDetailsModal(badge)
- 
     })
-    $(".all-badges img").mouseleave(function () {
-      emptyBadgeDetailsModal()
-    })
-    $(".all-badges img").click(function () {
-      var badge_id = $(this).attr("id")
-      var badge = badges_texts[badge_id]
 
-      // FIX Reset level information
-      actual_level = 0
-      actual_badge = badge_id
+    // $(".all-badges img").click(function () {
+    //   var badge_id = $(this).attr("id")
+    //   var badge = badges_texts[badge_id]
 
-      alert(actual_badge+"_"+actual_level)
-      updateSectionAJAX(actual_badge+"_"+actual_level)
-    })
+    //   // FIX Reset level information
+    //   actual_level = 0
+    //   actual_badge = badge_id
+
+    //   alert(actual_badge+"_"+actual_level)
+    //   updateSectionAJAX(actual_badge+"_"+actual_level)
+    // })
 
     $("#other-badges-btn").click(function () {
       $('.other-badges').fadeIn(300)
@@ -647,18 +692,38 @@ function submitFeedbackAJAX(feedback_data) {
     badgeHTML = "<li><h4>"+badge["title"]+"</h4></li>"+
                 "<li><p>"+badge["description"]+"</p></li>"
 
+    if (badge["finished"]) {
+      badgeHTML += "<li><p><button class='action orange'>Recomeçar</button></p></li>"
+    } else {
+      badgeHTML += "<li><p><button class='action orange'>Começar</button></p></li>"
+    }
     $("#single-badge-details").html(badgeHTML)  
+
+    $(".other-badges .action").click(function () {
+      // FIX Reset level information
+      actual_level = 0
+      actual_badge = badge["id"]
+
+      updateSectionAJAX(actual_badge+"_"+actual_level)
+    })
   }
   function emptyBadgeDetailsModal() {
     var badgeHTML = ""
-    badgeHTML = "<li><h4>Conheça os poderes dos amigos do futuro!</h4></li>"+
-                "<li><p>Passe o mouse nas medalhas<br>ali em cima.</p></li>"
+    badgeHTML = "<li><h4>Escolha outro amigo do futuro!</h4></li>"+
+                "<li><p>Clique no amigo que quer ajudar agora.</p></li>"
 
     $("#single-badge-details").html(badgeHTML)  
   }
 
 // Video Cutscene  -----------------------------------------------------------------
   function cutscene() {
+    $("#cutscene video source").attr("src", cutscenes_infos[cutscene_name]["src"])
+
+    $("#cutscene .action").click(function () {
+      updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
+    })
+
+    // Play and pause actions
     $("#cutscene .play").click(function () {
       play()
       $("#cutscene .play").fadeOut(300)
@@ -667,11 +732,8 @@ function submitFeedbackAJAX(feedback_data) {
       pause()
       $("#cutscene .play").fadeIn(100)
     })
-    $("#cutscene .action").click(function () {
-      updateSectionAJAX("form")
-    })
 
-    videoEnded()
+    //videoEnded()
   }
   function videoEnded() {
     var cutscene_video = document.getElementById("cutscene_video"); 
@@ -688,9 +750,9 @@ function submitFeedbackAJAX(feedback_data) {
     var cutscene_video = document.getElementById("cutscene_video"); 
     cutscene_video.pause(); 
   }
+
 // AJAX ----------------------------------------------------------------
   function updateSectionAJAX(name) {
-    //alert(name)
     // Don't cache ajax or content won't be fresh
     $.ajaxSetup ({
         cache: false
@@ -698,23 +760,15 @@ function submitFeedbackAJAX(feedback_data) {
     // Image while loading
     var ajax_load = "<img class='centeredX' src='img/loading.gif' alt='Carregando...' />";
 
-    // URL for load
-    // var loadUrl = name+".html";
-    // $("body").html(ajax_load).load(loadUrl); 
-
-    // setupSection(name)
-
     var loadUrl = "views/"+name+".html";
     $("#main-div-content").html(ajax_load).load(loadUrl, function(){
      $(this).hide().fadeIn('slow');
      window[name](arguments)
+
+     // Sound things
      toggleSoundSetup()
     });
-
-    
   }
-
-  //https://stackoverflow.com/questions/22577457/update-data-on-a-page-without-refreshing
 
   function nextLevelBadge(badge,level) {
     updateSectionAJAX(badge+"_"+level) //first challenge of badge
