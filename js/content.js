@@ -15,8 +15,21 @@ var actual_level = -1 //depends on number of levels of each badge
 var level_stars = ["empty","empty","empty"] //empty, half, full
 
 // modal
+var cutscenes_name = undefined
 var comment_name = undefined // regions/other_normal_comment
 var congrats_name = undefined // badge/mei_0/edu_2
+
+// Cutscenes ----------------------------
+var cutscenes_infos = {
+    "start": {
+             "src": "video/video.mp4",
+             "jump": "form"
+    },
+    "end": {
+             "src": "video/video.mp4",
+             "jump": "menu"
+    }
+}
 
 // Form ----------------------------	
 var questions_texts = [
@@ -93,43 +106,43 @@ var quiz_texts = [
 
 var badges_texts = {
     "sau": { "id" : "sau",
-             "finished": [false,false],
+             "finished": false,
              "levels":2,
              "title": "Amigo da Saúde",
              "description": "Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável."
     },
     "laz": { "id" : "laz",
-             "finished": [false,false,false],
+             "finished": false,
              "levels":3,
              "title": "Amigo do Lazer",
              "description": "É muito divertido e adora conhecer lugares novos."
     },
     "eco": { "id" : "eco",
-             "finished": [false,false],
+             "finished": false,
              "levels":2,
              "title": "Amigo da Economia",
              "description": "Ama números e sabe bem como vender algo para juntar dinheiro."
     },
     "mei": { "id" : "mei",
-             "finished": [false,false,false],
+             "finished": false,
              "levels":3,
-             "title": "Amigo do Meio Ambiente",
+             "title": "Amigo da Sustentabilidade",
              "description": "Respeita a natureza e está sempre ajudando outras pessoas."
     },
     "gov": { "id" : "gov",
-             "finished": [false,false,false,false],
+             "finished": false,
              "levels":4,
              "title": "Amigo do Governo",
              "description": "Gosta muito de falar com as pessoas. É responsável e organizado."
     },
     "edu": { "id" : "edu",
-             "finished": [false,false,false],
+             "finished": false,
              "levels":3,
              "title": "Amigo da Educação",
-             "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."
+             "description": "Está sempre lendo livros, revistas e quadrinhos. Também adora ensinar os amigos."
     },
     "ino": { "id" : "ino",
-             "finished": [false,false,false],
+             "finished": false,
              "levels":3,
              "title": "Amigo da Inovação",
              "description": "Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas."

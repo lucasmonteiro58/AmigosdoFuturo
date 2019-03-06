@@ -421,10 +421,30 @@
       margin: 1%;
       filter: opacity(0.5);
   }
+  .all-badges li .finished {
+    transform: scale(1.05);
+    filter: opacity(1.0);
+  }
+  .all-badges span{
+    position: sticky;
+  }
+  .all-badges span:after{
+    position: absolute;
+    content: "0";
+    color: rgba(0,0,0,0);
+    background-image: url(../img/buttons/toggle-ok.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    padding: 1.5vw;
+    top: 9%;
+    right: 6%;
+  }
+
   .all-badges li img:hover {
   	transform: scale(1.05);
   	filter: opacity(1.0);
-      cursor: pointer;
+    cursor: pointer;
   }
   .all-badges li img .active {
   	transform: scale(1.05);
@@ -1016,14 +1036,31 @@
   }
 
   .other-badges .all-badges {
-    height: 55%;
-    width: 65%;
-    top: 2%;
+    height: 53%;
+    width: 60%;
+    top: 4%;
+    background-image: url(../img/certificate/box-all-badges.png);
   }
 
   .other-badges .single-badge {
-    width: 65%;
-    bottom: 15%;
+    width: 75%;
+    bottom: 5%;
+  }
+  .other-badges .single-badge h4,
+  .other-badges .single-badge p {
+    margin: 0px;
+    margin-bottom: 1vw;
+  }
+
+  .other-badges .all-badges li .active:hover {
+    transform: scale(1.05);
+    filter: opacity(1.0);
+    cursor: pointer;
+  }
+  .other-badges .all-badges li .active {
+    transform: scale(1.05);
+    filter: opacity(1.0);
+    cursor: pointer;
   }
 
   .other-badges .exit {
