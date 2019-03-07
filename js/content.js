@@ -114,7 +114,7 @@ var badges_texts = {
     },
     "laz": { "id" : "laz",
              "color": "#D87100" ,
-             "finished": false,
+             "finished": true,
              "levels":3,
              "title": "Amigo do Lazer",
              "description": "É muito divertido e adora conhecer lugares novos."
