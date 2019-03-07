@@ -4,18 +4,18 @@ if ($("#menu").length) {
 }
 
 // General  ---------------------------------------------------------------------
-$(document).ready(function() {
-  $(function () { $('[data-toggle="popover"]').popover({html:true}) })
+  $(document).ready(function() {
+    $(function () { $('[data-toggle="popover"]').popover({html:true}) })
 
-  toggleSoundSetup()
+    toggleSoundSetup()
 
-  // Toggle fullscreen
-  $('#myModal').modal('show')
-  $("#openFullscreen").click(function () {
-    openFullscreen()
-    $('#myModal').modal('hide')
-  })
-});
+    // Toggle fullscreen
+    $('#myModal').modal('show')
+    $("#openFullscreen").click(function () {
+      openFullscreen()
+      $('#myModal').modal('hide')
+    })
+  });
 
   function toggleSoundSetup() {
     // Toggle sound
@@ -677,14 +677,6 @@ function submitFeedbackAJAX() {
     $(".all-badges img").click(function () {
       resetAllActivesBadges()
       activeAndShowDetails(this) 
-    })
-
-    $(".robot-certificate .download").click(function () {
-      // New window
-      // createCertificateImg()
-
-      // Same window
-      toCanvas()
     })
     $(".robot-certificate .print").click(function () {
       window.print()
