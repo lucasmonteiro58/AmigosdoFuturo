@@ -32,7 +32,7 @@
   }
   body {
     height: 100%;
-    overflow:hidden;
+    /*overflow:hidden;*/
   	margin: 0px;
   	list-style: none;
   }
@@ -1048,6 +1048,7 @@
     text-align: center;
     object-fit: contain;
     box-shadow: 1vw 1vw #ccc;
+    transition: 1s;
   }
   .robot-certificate .content #text-comment button {
     right: 2%;

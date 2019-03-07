@@ -608,11 +608,13 @@ function submitFeedbackAJAX() {
 // Certificate  -----------------------------------------------------------------
   function certificate() {
     //FIX temporary
-    actual_badge = "sau"
+    actual_badge = "laz"
+    saveInStorage("name", "Jucilene")
 
     setupFinishedBadges()
+    activeAndShowDetails("#"+actual_badge)
 
-    badgeDetailsToggleModal()
+    setupActionsCertificate()
 
     generateCertificateImg()
   }
@@ -624,56 +626,30 @@ function submitFeedbackAJAX() {
                        " e cuidar do Ceará até 2050 pois sei que posso melhorar ainda mais este lugar."
 
     $(".to-print p").text(certificateText)
+
     $(".to-print p").css("color", badges_texts[actual_badge]["color"])
 
-    //Save to use in download tab
-    saveInStorage("downloadHTML", $(".to-print").html())
-
-    console.log(badges_texts[actual_badge]["color"])
-
+    toCanvas()
   }
 
-  function createCertificateImg(image,text) {
-      var win = window.open();
+  function toCanvas() {
+    html2canvas(document.getElementsByClassName("to-print")[0], {
+        onclone: function (clonedDoc) {
+          $(clonedDoc).find('.to-screen').css('display', 'none');
+          $(clonedDoc).find('.to-print').css('display', 'block');
+        }
+    }).then((canvas)=>{
+        var myImage = canvas.toDataURL();
+        $("#small-certificate-img").attr("src", myImage)
+        downloadURI(myImage, "meu_certificado_ceara2050.png");
+      })
+  }
 
-      var style = "<link rel='stylesheet' type='text/css' href='css/style.css'>"
-      win.document.write(style)
-
-      // win.document.write("<link rel='stylesheet' type='text/css' href='css/style.css'>");
-      win.document.write(getFromStorage("downloadHTML"))
-
-      check(win); // start checking
-      
-      function check(win) {
-          if(win.document) { // if loaded
-              toCanvas(win)
-          } else { // if not loaded yet
-              setTimeout(check, 10); // check in another 10ms
-          }
-      }
-      function toCanvas(win) {
-        html2canvas(win.document.body).then(function(canvas) {
-            var myImage = canvas.toDataURL();
-            downloadURI(myImage, "meu_certificado_ceara2050.png");
-            console.log(win.document.body)
-            // win.window.close();
-        });
-      }
-
-      function downloadURI(uri, name) {
-          // var link = document.getElementById("download-certificate-img");
-          // link.download = name;
-          // link.href = uri;
-
-          var link = document.createElement("a");
-          link.download = name;
-          link.href = uri;
-          document.body.appendChild(link);
-          link.click();   
-          //after creating link you should delete dynamic link
-          //clearDynamicLink(link); 
-      }
-    }
+  function downloadURI(uri, name) {
+      var link = document.getElementById("download-btn")
+      link.download = name;
+      link.href = uri;
+  }
 
 
   function setupFinishedBadges() {
@@ -684,7 +660,6 @@ function submitFeedbackAJAX() {
       var this_badge_li_img = this_badge_li.find("img")
       var this_badge_li_name = this_badge_li_img[0].id
 
-      // console.log(badges_texts[this_badge_li_name]["finished"])
 
       if (badges_texts[this_badge_li_name]["finished"]) {
         this_badge_li_img.addClass("finished")
@@ -698,46 +673,18 @@ function submitFeedbackAJAX() {
     }
   }
 
-  function badgeDetailsToggleModal() {
-    // $(".all-badges img").mouseenter(function () {
-    //   $(this).toggleClass("active")
-
-    //   var badge_id = $(this).attr("id")
-    //   var badge = badges_texts[badge_id]
-    //   createBadgeDetailsModal(badge)
- 
-    // })
-    // $(".all-badges img").mouseleave(function () {
-    //   emptyBadgeDetailsModal()
-    // })
+  function setupActionsCertificate() {
     $(".all-badges img").click(function () {
-      var badges_li = $('.all-badges li');
-      for (var i = 0; i < badges_li.length; i++) {
-        var this_badge_li = badges_li.eq(i)
-        var this_badge_li_img = this_badge_li.find("img")
-        this_badge_li_img.removeClass("active")
-      }
-
-      $(this).addClass("active")
-      var badge_id = $(this).attr("id")
-      var badge = badges_texts[badge_id]
-      createBadgeDetailsModal(badge)
+      resetAllActivesBadges()
+      activeAndShowDetails(this) 
     })
 
-    // $(".all-badges img").click(function () {
-    //   var badge_id = $(this).attr("id")
-    //   var badge = badges_texts[badge_id]
-
-    //   // FIX Reset level information
-    //   actual_level = 0
-    //   actual_badge = badge_id
-
-    //   alert(actual_badge+"_"+actual_level)
-    //   updateSectionAJAX(actual_badge+"_"+actual_level)
-    // })
-
     $(".robot-certificate .download").click(function () {
-      createCertificateImg()
+      // New window
+      // createCertificateImg()
+
+      // Same window
+      toCanvas()
     })
     $(".robot-certificate .print").click(function () {
       window.print()
@@ -752,6 +699,21 @@ function submitFeedbackAJAX() {
       // FIX Reset level information
       updateSectionAJAX("menu")
     })
+  }
+  function resetAllActivesBadges() {
+      var badges_li = $('.all-badges li');
+      for (var i = 0; i < badges_li.length; i++) {
+        var this_badge_li = badges_li.eq(i)
+        var this_badge_li_img = this_badge_li.find("img")
+        this_badge_li_img.removeClass("active")
+      }
+    }
+    
+  function activeAndShowDetails(selector) {
+    $(selector).addClass("active")
+    var badge_id = $(selector).attr("id")
+    var badge = badges_texts[badge_id]
+    createBadgeDetailsModal(badge)
   }
 
   function createBadgeDetailsModal(badge) {
