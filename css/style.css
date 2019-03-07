@@ -943,6 +943,33 @@
   }
 
 /* Certificate Section ----------------------------------------------------------*/
+.to-print {
+    display: none;
+}
+#certificate-img {
+    width: 100%;
+}
+
+#certificate-text {
+  top: 69vw;
+  width: 80%;
+  font-size: 4vw;
+  font-family: exo-medium;
+  text-align: center;
+  line-height: 4.7vw;
+  margin: 0px;
+}
+
+@media print {
+   .to-screen {
+       display: none;
+    }
+    .to-print {
+       display: block;
+    }
+}
+
+
   #certificate {
     position: relative;
     width: 100%;
