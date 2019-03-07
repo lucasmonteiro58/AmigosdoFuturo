@@ -44,7 +44,7 @@ $(document).ready(function() {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-      updateSectionAJAX("cutscene")
+      updateSectionAJAX("certificate")
     })
   }
 
@@ -607,13 +607,74 @@ function submitFeedbackAJAX() {
 
 // Certificate  -----------------------------------------------------------------
   function certificate() {
-    actual_badge = "mei"
-    console.log("actual badge "+actual_badge)
+    //FIX temporary
+    actual_badge = "sau"
 
     setupFinishedBadges()
 
     badgeDetailsToggleModal()
+
+    generateCertificateImg()
   }
+
+  function generateCertificateImg() {
+    $("#certificate-img").attr("src", "img/certificate/cards/"+actual_badge+".png")
+
+    var certificateText = "Eu "+getFromStorage("name")+", prometo honrar meu título de Amigo do Futuro"+
+                       " e cuidar do Ceará até 2050 pois sei que posso melhorar ainda mais este lugar."
+
+    $(".to-print p").text(certificateText)
+    $(".to-print p").css("color", badges_texts[actual_badge]["color"])
+
+    //Save to use in download tab
+    saveInStorage("downloadHTML", $(".to-print").html())
+
+    console.log(badges_texts[actual_badge]["color"])
+
+  }
+
+  function createCertificateImg(image,text) {
+      var win = window.open();
+
+      var style = "<link rel='stylesheet' type='text/css' href='css/style.css'>"
+      win.document.write(style)
+
+      // win.document.write("<link rel='stylesheet' type='text/css' href='css/style.css'>");
+      win.document.write(getFromStorage("downloadHTML"))
+
+      check(win); // start checking
+      
+      function check(win) {
+          if(win.document) { // if loaded
+              toCanvas(win)
+          } else { // if not loaded yet
+              setTimeout(check, 10); // check in another 10ms
+          }
+      }
+      function toCanvas(win) {
+        html2canvas(win.document.body).then(function(canvas) {
+            var myImage = canvas.toDataURL();
+            downloadURI(myImage, "meu_certificado_ceara2050.png");
+            console.log(win.document.body)
+            // win.window.close();
+        });
+      }
+
+      function downloadURI(uri, name) {
+          // var link = document.getElementById("download-certificate-img");
+          // link.download = name;
+          // link.href = uri;
+
+          var link = document.createElement("a");
+          link.download = name;
+          link.href = uri;
+          document.body.appendChild(link);
+          link.click();   
+          //after creating link you should delete dynamic link
+          //clearDynamicLink(link); 
+      }
+    }
+
 
   function setupFinishedBadges() {
     var badges_li = $('.all-badges li');
@@ -623,7 +684,7 @@ function submitFeedbackAJAX() {
       var this_badge_li_img = this_badge_li.find("img")
       var this_badge_li_name = this_badge_li_img[0].id
 
-      console.log(badges_texts[this_badge_li_name]["finished"])
+      // console.log(badges_texts[this_badge_li_name]["finished"])
 
       if (badges_texts[this_badge_li_name]["finished"]) {
         this_badge_li_img.addClass("finished")
@@ -675,6 +736,12 @@ function submitFeedbackAJAX() {
     //   updateSectionAJAX(actual_badge+"_"+actual_level)
     // })
 
+    $(".robot-certificate .download").click(function () {
+      createCertificateImg()
+    })
+    $(".robot-certificate .print").click(function () {
+      window.print()
+    })
     $("#other-badges-btn").click(function () {
       $('.other-badges').fadeIn(300)
     })
