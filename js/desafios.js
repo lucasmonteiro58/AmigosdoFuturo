@@ -1284,7 +1284,20 @@ $("#btnSalvarED" ).click(function() {
   alert('*INSIRA* código para o proximo desafio')
 })
 
-
+// Desafio 7 erros------------------------------------------------------------------------------------------------------------------
+var contErros=0;
+$(".divErros" ).click(function() {
+  //alert('aaaa');
+  $(this).css('display', 'none');
+  var id7erros= $(this).attr('id');
+  var id7erros1 = "#" + id7erros.substr(0,(id7erros.length - 3));
+  $(id7erros1).css('display', 'block');
+  contErros++;
+  $('#txtContador0').text(contErros);
+  if(contErros==7){
+    alert("*INSERIR CODIGO PARA PROXIMO DEAFIO");
+  }
+})
 
 
   
