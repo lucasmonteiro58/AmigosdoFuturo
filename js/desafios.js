@@ -1,1327 +1,13 @@
+// Chamar ajuda no inicio da funcao
+// setupLevel()
 
-$(document).ready(function() {
+// Se passar de Fase
+// congratsNextLevel(["full","full","full"], false) //true se tiver terminado
 
-  $(function () {
-    $('[data-toggle="popover"]').popover({html:true})
-  })  
-
-  // function function_name(argument) {
-  //   var isDragging = $(".ui-draggable").hasClass(".ui-draggable-dragging")
-  //   if(!isDragging) {
-  //     $(".ui-draggable").addClass("hover-big")
-  //   }
-  // }
-
-// Desafio Foguete ---------------------------------------------------------------------------------
-if ($("#desafiofoguete").length) {
-createInvokeHelp(helps_texts["mei2"])
-  
-var bico = 0;
-var meio = 0;
-var rabo = 0;
-
-$( ".prev1").click(function() { if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
-$( ".next1").click(function() { if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
-$( ".prev2").click(function() { if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
-$( ".next2").click(function() { if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
-$( ".prev3").click(function() { if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
-$( ".next3").click(function() { if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
-
-
-function mudaPeca(){
-  switch (bico){
-    case 0:
-    $('#bico0').css('display', 'block');$('#bico1').css('display', 'none'); $('#bico2').css('display', 'none'); $('#bico3').css('display', 'none');break;
-    case 1:
-    $('#bico1').css('display', 'block');$('#bico2').css('display', 'none'); $('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
-    case 2:
-    $('#bico1').css('display', 'none');$('#bico2').css('display', 'block');$('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
-    case 3:
-    $('#bico1').css('display', 'none');$('#bico2').css('display', 'none');$('#bico3').css('display', 'block'); $('#bico0').css('display', 'none');break;
-  }
-
-  switch (meio){
-    case 0:
-    $('#meio0').css('display', 'block');$('#meio1').css('display', 'none');$('#meio2').css('display', 'none'); $('#meio3').css('display', 'none');break;
-    case 1:
-    $('#meio1').css('display', 'block');$('#meio2').css('display', 'none');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
-    case 2:
-    $('#meio1').css('display', 'none');$('#meio2').css('display', 'block');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
-    case 3:
-    $('#meio1').css('display', 'none');$('#meio2').css('display', 'none');$('#meio3').css('display', 'block'); $('#meio0').css('display', 'none');break;
-  }
-
-   switch (rabo){
-    case 0:
-    $('#rabo0').css('display', 'block');$('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none'); $('#rabo3').css('display', 'none');break;
-    case 1:
-    $('#rabo1').css('display', 'block');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
-    case 2:
-    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'block');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
-    case 3:
-    $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'block'); $('#rabo0').css('display', 'none');break;
-  }
-  }
-}
-
-
-// Desafio do bebedouro ---------------------------------------------------------------------------------
-
-$( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
-      revert: true,
-      revertDuration: 600,
-       cursor: "grabbing",
-        //snap: true,
-       scroll:false,
-       drag: function( event, ui ) {
-         $('[data-toggle="popover"]').popover('hide');
-        
-       }
-    });
-
-$("#aceitaBalde").droppable({
-      accept: "#imgBalde",
-       over: function( event, ui){         
-        },
-
-        out: function( event, ui){      
-        },
-
-        drop: function( event, ui ) {      
-          $("#imgBalde").css("display", "none");
-          $("#imgBaldeOK").css("display", "block");
-          alert("conseguiu");
-          }
-      });
-
-
-// Desafio do Prato ---------------------------------------------------------------------------------
-var contIndex=1;
-var bilotoLeft = 49.4;
-
-$( ".alimentosSaudaveis , .alimentosNaoSaudaveis ").draggable({
-      revert: true,
-      revertDuration: 600,
-       cursor: "grabbing",
-        //snap: true,
-       scroll:false,
-       drag: function( event, ui ) {
-        contIndex++;
-         $('[data-toggle="popover"]').popover('hide');
-         $(this).css("z-index", contIndex);
-
-        
-       }
-    });
-
-$("#imgPrato").droppable({
-  tolerance: "fit",
-       over: function( event, ui){         
-        },
-
-        out: function( event, ui){ 
-
-           $(ui.draggable).removeClass('tanoprato');
-
-          if($(ui.draggable).hasClass('alimentosSaudaveis')){
-              bilotoLeft = bilotoLeft-1.6;                
-               $( "#biloto" ).animate({
-                    left: bilotoLeft+"%"                   
-                  })
-
-
-            } else{
-              bilotoLeft = bilotoLeft+8;
-               $( "#biloto" ).animate({
-                    left: bilotoLeft+"%"                   
-                  })
-            }
-
-        },
-
-        drop: function(event,ui) { 
-
-          if ($(ui.draggable).hasClass('tanoprato')){
-
-          } else {
-
-             $(ui.draggable).draggable({revert:false});
-            //$(ui.draggable).draggable({disabled:true});
-
-            if($(ui.draggable).hasClass('alimentosSaudaveis')){
-              bilotoLeft = bilotoLeft+1.6;             
-                $( "#biloto" ).animate({
-                    left: bilotoLeft+"%"                   
-                  })
-
-            } else{
-              bilotoLeft = bilotoLeft-8;
-               $( "#biloto" ).animate({
-                    left: bilotoLeft+"%"                   
-                  })
-            }
-
-          }
-
-          $(ui.draggable).addClass('tanoprato');           
-                  
-          }
-      });
-
-
-
-$( "#btn-enviar-prato").click(function() {
-
-  if (bilotoLeft<=55.7){
-    alert("Seu prato não está saúdavel ainda")
-  } else{
-    alert("Prato saúdavel! *enviar*")
-  }
-
-})
-  
-// Desafio Campinho ------------------------------------------------------------------
-var contIndexC=1;
-
-
-$( ".criancaAmarela , .criancaVermelha").draggable({
-      //revert: true,
-      revertDuration: 600,
-       cursor: "grabbing",
-       containment: "#gramadotodo",
-        //snap: true,
-       scroll:false,
-       drag: function( event, ui ) {
-        contIndexC++;
-         $('[data-toggle="popover"]').popover('hide');
-         $(this).css("z-index", contIndexC);
-
-        
-       }
-    });
-var amareloTrue = false;
-var vermelhoTrue = false;
-
-$("#campinhoVermelho").droppable({
-   accept: ".criancaVermelha",
-  //tolerance: 10%,
-       over: function( event, ui){         
-        },
-
-        out: function( event, ui){ 
-
-        $(ui.draggable).removeClass('tanocampo'); 
-
-        },
-
-        drop: function(event,ui) {   
-         
-            var totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
-
-            if($(ui.draggable).hasClass('tanocampo')){             
-
-                } else{            
-                  if (totalCriancaVermelha==2) {
-                    vermelhoTrue =true;
-                      if (vermelhoTrue && amareloTrue){
-                        alert("ta tudo organizado")
-                      }
-                  }
-                  
-                 }
-         $(ui.draggable).addClass('tanocampo');        
-                  
-        }
-});
-
-$("#campinhoAmarelo").droppable({
-   accept: ".criancaAmarela",
-  //tolerance: 10%,
-       over: function( event, ui){         
-        },
-
-        out: function( event, ui){ 
-        $(ui.draggable).removeClass('tanocampo');  
-        },
-
-        drop: function(event,ui) {        
-        var totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
-        if($(ui.draggable).hasClass('tanocampo')){            
-
-            } else{
-
-              if (totalCriancaAmarela==2) {
-                amareloTrue=true;
-
-                if (vermelhoTrue && amareloTrue){
-                  alert("ta tudo organizado")
-                }
-              }              
-            } 
-
-        $(ui.draggable).addClass('tanocampo');         
-                  
-        }
-});
-
-// Desafio ONG --------------------------------------------------------------------------------------
-var contAlimentoRua =0;
-$( ".alimentosRua" ).click(function() {
- contAlimentoRua ++;
- var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
- //alert(idAlimentoRua);
-
- $(idAlimentoRua).css('display','block');
- $(this).css('display','none');
-
- if (contAlimentoRua==4){
-  alert("Você conseguiu");
- }
-
-
-});
-
-// Desafio Radio --------------------------------------------------------------------------------------
-var contJornalRua =0;
-$( ".jornalRua" ).click(function() {
- contJornalRua ++;
- var idJornalRua = "#" + $(this).attr('id') + "cesta";
-
- $(idJornalRua).css('display','block');
- $(this).css('display','none');
-
- if (contJornalRua==4){
-  alert("Você conseguiu");
- }
-
-
-}); 
-
-
-// Desafio Prefeitura  --------------------------------------------------------------------------------------
-var contLei=0;
-$( ".btnLei" ).click(function() {
-  if (contLei==0) {
-    $('#titulolei').text("Lei 456");
-    $('#textolei').text("Todos devem plantar uma árvore e dar um nome a ela.");
-    contLei++;
-  } else if(contLei==1) {
-    $('#titulolei').text("Lei 9564");
-    $('#textolei').text("Pode ser preso aquele que não der bom dia ao porteiro.");
-    contLei++;
-  } else{
-    alert("terminou");
-  }
-  
-}); 
-
-});
-
-// Desafio carrinho --------------------------------------------------------------------------------------
-var liberarBotaoCarrinho= false;
-$( ".pecasforacarro" ).click(function() {
- 
- var idPecaCarro = "#" + $(this).attr('id') + "dentro";
-
- if ($(idPecaCarro).hasClass('tanocarro')){
-  $(idPecaCarro).css('display','none');
-  $(idPecaCarro).removeClass('tanocarro');
-  verificarPecasCarro();
-
-
- } else {
-
-   $(idPecaCarro).css('display','block');
-   $(idPecaCarro).addClass('tanocarro');
-   verificarPecasCarro();
-  }
- 
-}); 
-
-function verificarPecasCarro(){
-  liberarBotaoCarrinho=false;
-  var totalpecasCarro = $(".pecasnocarro.tanocarro").length;
-  if (totalpecasCarro==5){
-    liberarBotaoCarrinho=true;
-
-  }
-}
-
-
-
-$( "#btn_next_carrinho" ).click(function() {
-  if (liberarBotaoCarrinho) {
-    $('.carrofunciona').css('display', 'block');
-  } else {
-     $('.carrofuncionaNAO').css('display', 'block');
-  }
-})
-
-$( "#btnOKcarro" ).click(function() {
-  alert("proximo desafio");
-})
-
-$( "#btnOKcarroNAO" ).click(function() {
-  $('.carrofuncionaNAO').css('display', 'none');
-})
-
-function voltarpecas(){
-  $('#infopeca').text("INFORMAÇÃO SOBRE A PEÇA");
-  $('#infopeca').css('color','black');
-  $('#infopeca').css('opacity','0.4');
-  $('#infopeca').css('font-size','2.6vw');
-  $('#infopeca').css('bottom','5%');
-}
-
-$('#sensorprox_carro').hover(        
-   function () {
-      $(this).css("opacity","1");
-      $('#infopeca').text("RECONHECE UMA COR");
-      $('#infopeca').css('color','#3E6DAC');
-      $('#infopeca').css('opacity','1');
-   },function () {
-    $(this).css('opacity','0.5');
-    voltarpecas();
-  }
-);
-
-$('#roda_carro').hover(        
-   function () {
-      $(this).css("opacity","1");
-      $('#infopeca').text("PERMITE QUE O CARRINHO ANDE");
-      $('#infopeca').css('color','#3E6DAC');
-      $('#infopeca').css('opacity','1');
-   },function () {
-     $(this).css('opacity','0.5');
-    voltarpecas();}
-);
-
-$('#leds_carro').hover(        
-   function () {
-      $(this).css("opacity","1");
-      $('#infopeca').text("ADICIONA LUZES AO CARRINHO");
-      $('#infopeca').css('color','#3E6DAC');
-      $('#infopeca').css('opacity','1');
-   },function () {
-    $(this).css('opacity','0.5');
-    voltarpecas();}
-);
-
-$('#motor_carro').hover(        
-   function () {
-      $(this).css("opacity","1");
-      $('#infopeca').text("AJUDA AS RODAS GIRAREM");
-      $('#infopeca').css('color','#3E6DAC');
-      $('#infopeca').css('opacity','1');
-   },function () {
-     $(this).css('opacity','0.5');
-     voltarpecas();}
-);
-
-$('#placa_carro').hover(        
-   function () {
-      $(this).css("opacity","1");
-      $('#infopeca').text("GUARDA OS CÓDIGOS QUE FAZEM O CARRINHO ANDAR");
-      $('#infopeca').css('color','#3E6DAC');
-      $('#infopeca').css('opacity','1');
-      $('#infopeca').css('font-size','2.2vw');
-      $('#infopeca').css('bottom','1%');
-   },function () {
-     $(this).css('opacity','0.5');
-     voltarpecas();}
-);
-
-
-// Desafio Escola Fora --------------------------------------------------------------------------------------
-
-var acessibilidadeBOL= false;
-var pintarBOL= false;
-var arborizarBOL= false;
-var onibusBOL= false;
-var hortaBOL= false;
-var parquinhoBOL= false;
-var lixoBOL= false;
-
-var contCoisasEscolaF=0;
-var habilitarBtnPF=false;
-
-var posicaoEF=1;
-
-$( "#btnNextEscola" ).click(function() {
-  var totalImgs = $(".imagensEF.imgVisible").length;
-  if (totalImgs==5) {
-    
-    if(acessibilidadeBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_acessib_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
-      posicaoEF++;
-    }
-
-    if(pintarBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_pintar_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
-      posicaoEF++;
-    }
-
-    if(arborizarBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_arbori_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
-      posicaoEF++;
-    }
-
-    if(onibusBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_bus_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
-      posicaoEF++;
-    }
-
-    if(parquinhoBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_parque_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
-      posicaoEF++;
-    }
-
-    if(hortaBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_horta_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
-      posicaoEF++;
-    }
-
-    if(lixoBOL){
-      $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_lixo_normal.png');
-      $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
-      posicaoEF++;
-    }
-
-     $('.popoverEF').css('display', 'block');
-      
-
-  } else{
-    alert("selecione ate 5")
-  }
-})
-
-
-$("#btnTrocarEF" ).click(function() {
-  $('.popoverEF').css('display', 'none');
-   posicaoEF=1;
-
-   for (i = 0; i < i.length; i++) { 
-     $("#imgEscolaFora"+i).attr('src', '');
-     $("#TxtEscolaFora"+i).text("");
-  }
-  
-})
-
-$("#btnSalvarEF" ).click(function() {
-  alert('*INSIRA* código para o proximo desafio')
-})
-
-
-
-$( "#icon_acessibilidade1" ).click(function() {
-  if (contCoisasEscolaF==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#rampaacessibilidade').css('display', 'block');
-    $('#rampaacessibilidade').addClass('imgVisible')
-    $('#icon_acessibilidade2').css('display', 'block');
-    contCoisasEscolaF++;
-    acessibilidadeBOL= true;
-  }
-})
-
-$( "#icon_acessibilidade2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#rampaacessibilidade').css('display', 'none');
-    $('#rampaacessibilidade').removeClass('imgVisible')
-    $('#icon_acessibilidade1').css('display', 'block');
-    contCoisasEscolaF--;
-    acessibilidadeBOL= false;
-  
-})
-
-$( "#icon_pintar1" ).click(function() {
-  if (contCoisasEscolaF==5){
-    
-      
-  } else{ 
-    $(this).css('display', 'none');
-    $('#escolafora_pintada').css('display', 'block');
-    $('#escolafora_pintada').addClass('imgVisible');
-    $('#icon_pintar2').css('display', 'block');
-    contCoisasEscolaF++;
-    pintarBOL= true;
-  }
-})
-$( "#icon_pintar2" ).click(function() {
-  
-    $(this).css('display', 'none');
-    $('#escolafora_pintada').css('display', 'none');
-    $('#escolafora_pintada').removeClass('imgVisible');
-    $('#icon_pintar1').css('display', 'block');
-    contCoisasEscolaF--;
-    pintarBOL= false;
-  
-})
-
-$( "#icon_arborizar1" ).click(function() {
-  if (contCoisasEscolaF==5){
-      
-      
-  } else{  
-    $(this).css('display', 'none');
-    $('#arvoreescola1').css('display', 'block')
-    $('#arvoreescola2').css('display', 'block')
-    $('#arvoreescola2').addClass('imgVisible');
-    $('#icon_arborizar2').css('display', 'block')
-    contCoisasEscolaF++;
-    arborizarBOL= true;
-  }
-})
-
-$( "#icon_arborizar2" ).click(function() {
- 
-    $(this).css('display', 'none');
-    $('#arvoreescola1').css('display', 'none')
-    $('#arvoreescola2').css('display', 'none')
-    $('#arvoreescola2').removeClass('imgVisible');
-    $('#icon_arborizar1').css('display', 'block')
-    contCoisasEscolaF--;
-    arborizarBOL= false;
-  
-})
-
-$( "#icon_onibus1" ).click(function() {
-  if (contCoisasEscolaF==5){
-    
-      
-  } else{  
-    $(this).css('display', 'none');
-    $('#onibusescolar').css('display', 'block');
-    $('#icon_onibus2').css('display', 'block');
-    $('#onibusescolar').addClass('imgVisible');
-    contCoisasEscolaF++;
-    onibusBOL= true;
-  }
-})
-$( "#icon_onibus2" ).click(function() {
-  
-    $(this).css('display', 'none');
-    $('#onibusescolar').css('display', 'none');
-    $('#onibusescolar').removeClass('imgVisible');
-    $('#icon_onibus1').css('display', 'block');
-    contCoisasEscolaF--;
-    onibusBOL= false;
-  
-})
-
-$( "#icon_horta1" ).click(function() {
-  if (contCoisasEscolaF==5){
-    
-      
-  } else{  
-    $(this).css('display', 'none');
-    $('#hortaescola').css('display', 'block');
-    $('#hortaescola').addClass('imgVisible');
-    $('#icon_horta2').css('display', 'block');
-    contCoisasEscolaF++;
-    hortaBOL= true;
-  }
-})
-$( "#icon_horta2" ).click(function() {
-  
-    $(this).css('display', 'none');
-    $('#hortaescola').css('display', 'none');
-    $('#hortaescola').removeClass('imgVisible');
-    $('#icon_horta1').css('display', 'block');
-    contCoisasEscolaF--;
-    hortaBOL= false;
-  
-})
-
-$( "#icon_parquinho1" ).click(function() {
-  if (contCoisasEscolaF==5){
-    
-      
-  } else{  
-    $(this).css('display', 'none');
-    $('#parquinhoescola').css('display', 'block');
-    $('#parquinhoescola').addClass('imgVisible');
-    $('#icon_parquinho2').css('display', 'block');
-    contCoisasEscolaF++;
-    parquinhoBOL= true;
-  }
-})
-$( "#icon_parquinho2" ).click(function() {
-  
-    $(this).css('display', 'none');
-    $('#parquinhoescola').css('display', 'none');
-    $('#parquinhoescola').removeClass('imgVisible');
-    $('#icon_parquinho1').css('display', 'block');
-    contCoisasEscolaF--;
-    parquinhoBOL= false;
-  
-})
-
-$( "#icon_lixo1" ).click(function() {
-  if (contCoisasEscolaF==5){
-    
-      
-  } else{  
-    $(this).css('display', 'none');
-    $('#lixeirasseletivas').css('display', 'block');
-    $('#lixeirasseletivas').addClass('imgVisible');
-    $('#icon_lixo2').css('display', 'block');
-    contCoisasEscolaF++;
-    lixoBOL= true;
-  }
-})
-$( "#icon_lixo2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#lixeirasseletivas').css('display', 'none');
-    $('#lixeirasseletivas').removeClass('imgVisible');
-    $('#icon_lixo1').css('display', 'block');
-    lixoBOL= false;
-    contCoisasEscolaF--;
-  
-})
-
-// Desafio escola Sala -------------------------------------------------------------------------------------------------------------------
-
-var cadeirasBOL=false;
-var livrosBOL=false;
-var lapisBOL=false;
-var quadroBOL=false;
-var globoBOL=false;
-var lixeiraBOL=false;
-var luzBOL= false;
-
-var contCoisasEscolaS=0;
-var habilitarBtnPS=false;
-
-var posicaoES=1;
-
-$( "#btnNextSala" ).click(function() {
-  var totalImgsS = $(".imgEscolaSala.imgVisibleS").length;
-  //alert(totalImgsS );
-  if (totalImgsS==5) {
-    
-    if(cadeirasBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_carteira.png');
-      $("#TxtEscolaSala"+posicaoES).text("Lugares confortáveis para escrever");
-      posicaoES++;
-
-    }
-
-    if(livrosBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_livros.png');
-      $("#TxtEscolaSala"+posicaoES).text("Livros com muitas aventuras");
-      posicaoES++;
-    }
-
-   if(lapisBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lapis.png');
-      $("#TxtEscolaSala"+posicaoES).text("Lápis de todas as cores");
-      posicaoES++;
-    }
-
-    if(quadroBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_quadro.png');
-      $("#TxtEscolaSala"+posicaoES).text("Onde o professor escrever");
-      posicaoES++;
-    }
-
-    if(globoBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_globo.png');
-      $("#TxtEscolaSala"+posicaoES).text("Onde ver todos os países");
-      posicaoES++;
-    }
-
-    if(lixeiraBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lixo.png');
-      $("#TxtEscolaSala"+posicaoES).text("Chão limpo sempre");
-      posicaoES++;
-    }
-
-   
-    if(luzBOL){
-      $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lampada.png');
-      $("#TxtEscolaSala"+posicaoES).text("Iluminação boa");
-      posicaoES++;
-    }
-
-     $('.popoverES').css('display', 'block');
-      
-
-  } else{
-    alert("selecione ate 5")
-  }
-})
-
-$("#btnTrocarES" ).click(function() {
-  $('.popoverES').css('display', 'none');
-   posicaoES=1;
-
-   for (i = 0; i < i.length; i++) { 
-     $("#imgEscolaSala"+i).attr('src', '');
-     $("#TxtEscolaSala"+i).text("");
-  }
-  
-})
-
-$("#btnSalvarES" ).click(function() {
-  alert('*INSIRA* código para o proximo desafio')
-})
-
-
-$( "#icon_cadeiras1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaCadeiras').css('display', 'block');
-    $('#SalaCadeiras').addClass('imgVisibleS')
-    $('#icon_cadeiras2').css('display', 'block');
-    contCoisasEscolaS++;
-    cadeirasBOL= true;
-  }
-})
-
-$( "#icon_cadeiras2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaCadeiras').css('display', 'none');
-    $('#SalaCadeiras').removeClass('imgVisibleS')
-    $('#icon_cadeiras1').css('display', 'block');
-    contCoisasEscolaS--;
-    cadeirasBOL= false;
-  
-})
-
-$( "#icon_livros1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaLivros').css('display', 'block');
-    $('#SalaLivros').addClass('imgVisibleS')
-    $('#icon_livros2').css('display', 'block');
-    contCoisasEscolaS++;
-    livrosBOL= true;
-  }
-})
-
-$( "#icon_livros2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaLivros').css('display', 'none');
-    $('#SalaLivros').removeClass('imgVisibleS')
-    $('#icon_livros1').css('display', 'block');
-    contCoisasEscolaS--;
-    livrosBOL= false;
-  
-})
-
-$( "#icon_lapis1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaLapis').css('display', 'block');
-    $('#SalaLapis').addClass('imgVisibleS')
-    $('#icon_lapis2').css('display', 'block');
-    contCoisasEscolaS++;
-    lapisBOL= true;
-  }
-})
-
-$( "#icon_lapis2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaLapis').css('display', 'none');
-    $('#SalaLapis').removeClass('imgVisibleS')
-    $('#icon_lapis1').css('display', 'block');
-    contCoisasEscolaS--;
-    lapisBOL= false;
-  
-})
-
-$( "#icon_quadro1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaQuadro').css('display', 'block');
-    $('#SalaQuadro').addClass('imgVisibleS')
-    $('#icon_quadro2').css('display', 'block');
-    contCoisasEscolaS++;
-    quadroBOL= true;
-  }
-})
-
-$( "#icon_quadro2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaQuadro').css('display', 'none');
-    $('#SalaQuadro').removeClass('imgVisibleS')
-    $('#icon_quadro1').css('display', 'block');
-    contCoisasEscolaS--;
-    quadroBOL= false;
-  
-})
-
-$( "#icon_globo1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaGlobo').css('display', 'block');
-    $('#SalaGlobo').addClass('imgVisibleS')
-    $('#icon_globo2').css('display', 'block');
-    contCoisasEscolaS++;
-    globoBOL= true;
-  }
-})
-
-$( "#icon_globo2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaGlobo').css('display', 'none');
-    $('#SalaGlobo').removeClass('imgVisibleS')
-    $('#icon_globo1').css('display', 'block');
-    contCoisasEscolaS--;
-    globoBOL= false;
-  
-})
-
-
-$( "#icon_lixeira1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaLixeira').css('display', 'block');
-    $('#SalaLixeira').addClass('imgVisibleS')
-    $('#icon_lixeira2').css('display', 'block');
-    contCoisasEscolaS++;
-    lixeiraBOL= true;
-  }
-})
-
-$( "#icon_lixeira2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaLixeira').css('display', 'none');
-    $('#SalaLixeira').removeClass('imgVisibleS')
-    $('#icon_lixeira1').css('display', 'block');
-    contCoisasEscolaS--;
-    lixeiraBOL= false;
-  
-})
-
-$( "#icon_luz1" ).click(function() {
-  if (contCoisasEscolaS==5){
-   
-  } else{  
-    $(this).css('display', 'none');
-    $('#SalaLuz').css('display', 'block');
-    $('#SalaLuz').addClass('imgVisibleS')
-    $('#icon_luz2').css('display', 'block');
-    contCoisasEscolaS++;
-    luzBOL= true;
-  }
-})
-
-$( "#icon_lixeira2" ).click(function() {
-   
-    $(this).css('display', 'none');
-    $('#SalaLuz').css('display', 'none');
-    $('#SalaLuz').removeClass('imgVisibleS')
-    $('#icon_luz1').css('display', 'block');
-    contCoisasEscolaS--;
-    luzBOL= false;
-  
-})
-  
-//Desafio escola dentro------------------------------------------------------------------------------------------------------------------
-
-var posicaoSalaVazia1=true;
-var posicaoSalaVazia2=true;
-var posicaoSalaVazia3=true;
-var posicaoSalaVazia4=true
-var posicaoSalaVazia5=true;
-
-
-var salaVazia1="";
-var salaVazia2="";
-var salaVazia3="";
-var salaVazia4="";
-var salaVazia5="";
-
-var bibliotecaBOL= false;
-var teatroBOL= false;
-var cantinaBOL= false;
-var musicaBOL= false;
-var informaticaBOL= false;
-var quimicaBOL= false;
-var dancaBOL= false;
-
-
-function posicaoSalas(idImagemSala){
-
-  if (posicaoSalaVazia1){
-      $(idImagemSala).css('display', 'block');
-      $(idImagemSala).css('top', '26.1%');
-      $(idImagemSala).css('left', '26.6%');
-      $(idImagemSala).css('width', '13.7%');
-      posicaoSalaVazia1=false;
-      salaVazia1 = idImagemSala;
-
-  } else if (posicaoSalaVazia2){
-      $(idImagemSala).css('display', 'block');
-      $(idImagemSala).css('top', '45%');
-      $(idImagemSala).css('left', '26.6%');
-      $(idImagemSala).css('width', '13.7%');
-      posicaoSalaVazia2=false;
-      salaVazia2 = idImagemSala;
-  } else if (posicaoSalaVazia3){
-       $(idImagemSala).css('display', 'block');
-      $(idImagemSala).css('top', '18.8%');
-      $(idImagemSala).css('left', '43.4%');
-      $(idImagemSala).css('width', '13%');
-      posicaoSalaVazia3=false;
-      salaVazia3 = idImagemSala;
-  } else if (posicaoSalaVazia4){
-       $(idImagemSala).css('display', 'block');
-      $(idImagemSala).css('top', '26.1%');
-      $(idImagemSala).css('left', '59.6%');
-      $(idImagemSala).css('width', '13.7%');
-      posicaoSalaVazia4=false;
-       salaVazia4 = idImagemSala;
-  } else if (posicaoSalaVazia5){
-     $(idImagemSala).css('display', 'block');
-      $(idImagemSala).css('top', '45%');
-      $(idImagemSala).css('left', '59.6%');
-      $(idImagemSala).css('width', '13.7%');
-      posicaoSalaVazia5=false;
-      salaVazia5 = idImagemSala;
-  }
-
-}
-
-function deixarTrueSalas(idimg){
-  habilitarBtnProximo=false;
-  if (salaVazia1==idimg){
-    posicaoSalaVazia1=true;
-  } else if(salaVazia2==idimg){
-    posicaoSalaVazia2=true;
-  } else if(salaVazia3==idimg){
-    posicaoSalaVazia3=true;
-  } else if(salaVazia4==idimg){
-    posicaoSalaVazia4=true;
-  } else if(salaVazia5==idimg){
-    posicaoSalaVazia5=true;
-  }
-}
-
-var idImgSala="";
-var todasSalasOcupadas= false;
-var habilitarBtnProximo = false;
-
-function todosOcupados(){
-  if (posicaoSalaVazia1==false && posicaoSalaVazia2==false && posicaoSalaVazia3==false && posicaoSalaVazia4==false && posicaoSalaVazia5==false){
-    todasSalasOcupadas=true;
-    FaseDentroOK();
-  } else {
-    todasSalasOcupadas=false;
-  }
-}
-
-function FaseDentroOK(){
-  habilitarBtnProximo=true;
-}
-
-$( "#icon_biblioteca1" ).click(function() {
-    todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-    idImgSala="#imgBiblioteca";
-    posicaoSalas(idImgSala);  
-    $(this).css('display', 'none');
-    $('#icon_biblioteca2').css('display', 'block')
-    todosOcupados();
-    bibliotecaBOL= true;
-  }
-})
-$( "#icon_biblioteca2" ).click(function() {
-  idImgSala="#imgBiblioteca";
-  $(idImgSala).css('display', 'none');
-  deixarTrueSalas(idImgSala);  
-  $(this).css('display', 'none');
-  $('#icon_biblioteca1').css('display', 'block')
-  bibliotecaBOL= false;
-})
-
-
-$( "#icon_teatro1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-  idImgSala="#imgTeatro";
-  posicaoSalas(idImgSala);  
-  $(this).css('display', 'none');
-  $('#icon_teatro2').css('display', 'block')
-  todosOcupados();
-  teatroBOL=true;
-}
-})
-$( "#icon_teatro2" ).click(function() {
-  idImgSala="#imgTeatro";
-   $(idImgSala).css('display', 'none');
-  deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_teatro1').css('display', 'block')
-  teatroBOL=false;
-})
-
-
-$( "#icon_cantina1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-  idImgSala="#imgCantina";
-  posicaoSalas(idImgSala);
-  
-  $(this).css('display', 'none');
-  $('#icon_cantina2').css('display', 'block')
-  todosOcupados();
-  cantinaBOL=true;
-}
-})
-$( "#icon_cantina2" ).click(function() {
-   idImgSala="#imgCantina";
-    $(idImgSala).css('display', 'none');
-  deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_cantina1').css('display', 'block')
-  cantinaBOL=false;
-})
-
-
-$( "#icon_musica1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-  idImgSala="#imgMusica";
-  posicaoSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_musica2').css('display', 'block')
-  todosOcupados();
-  musicaBOL=true;
-}
-})
-$( "#icon_musica2" ).click(function() {
-  idImgSala="#imgMusica";
-   $(idImgSala).css('display', 'none');
-   deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_musica1').css('display', 'block')
-  musicaBOL=false;
-})
-
-
-$( "#icon_informatica1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-  idImgSala="#imgInformatica";
-  posicaoSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_informatica2').css('display', 'block')
-  todosOcupados();
-  informaticaBOL=true;
-}
-})
-$( "#icon_informatica2" ).click(function() {
-  idImgSala="#imgInformatica";
-   $(idImgSala).css('display', 'none');
-   deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_informatica1').css('display', 'block')
-  informaticaBOL=false;
-})
-
-
-$( "#icon_quimica1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-  idImgSala="#imgQuimica";
-  posicaoSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_quimica2').css('display', 'block')
-  todosOcupados();
-  quimicaBOL=true;
-}
-})
-$( "#icon_quimica2" ).click(function() {
-   idImgSala="#imgQuimica";
-    $(idImgSala).css('display', 'none');
-    deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_quimica1').css('display', 'block')
-  quimicaBOL=false;
-})
-
-
-$( "#icon_danca1" ).click(function() {
-  todosOcupados();
-  if (todasSalasOcupadas){
-      FaseDentroOK();
-  } else{
-   idImgSala="#imgDanca";
-  $(this).css('display', 'none');
-  posicaoSalas(idImgSala);
-  $('#icon_danca2').css('display', 'block')
-  todosOcupados();
-  dancaBOL=true;
-  }
-})
-$( "#icon_danca2" ).click(function() {
-   idImgSala="#imgDanca";
-    $(idImgSala).css('display', 'none');
-    deixarTrueSalas(idImgSala);
-  $(this).css('display', 'none');
-  $('#icon_danca1').css('display', 'block')
-  dancaBOL=false;
-})
-
-
-var posicaoED=1;
-
-$( "#btnNextEscolaDentro" ).click(function() {
-  todosOcupados();
- if (habilitarBtnProximo){
-
-   if(bibliotecaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_livros_1.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Muito conhecimento");
-      posicaoED++;
-    }
-
-    if(teatroBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_teatro.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Peças teatrais feitas pelos meus amigos");
-      posicaoED++;
-    }
-
-    if(cantinaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_cantina.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Comidas muito gostosas");
-      posicaoED++;
-    }
-
-    if(musicaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_musica.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Muitos músicos");
-      posicaoED++;
-    }
-
-    if(informaticaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_informatica.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Um mundo digital");
-      posicaoED++;
-    }
-
-    if(quimicaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_quimica.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Um lugar para fazer experimentos");
-      posicaoED++;
-    }
-
-    if(dancaBOL){
-      $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_danca.png');
-      $("#TxtEscolaDentro"+posicaoED).text("Muitos dançarinos");
-      posicaoED++;
-    }
-
-     $('.popoverED').css('display', 'block'); //alert("entou");
-
- 
- } else {
-    alert("selecione 5");
- }
-})
-
-$("#btnTrocarED" ).click(function() {
-  $('.popoverED').css('display', 'none');
-   posicaoED=1;
-
-   for (i = 0; i < cars.length; i++) { 
-     $("#imgEscolaDentro"+i).attr('src', '');
-     $("#TxtEscolaDentro"+i).text("");
-  }
-  var bibliotecaBOL= false;
-var teatroBOL= false;
-var cantinaBOL= false;
-var musicaBOL= false;
-var informaticaBOL= false;
-var quimicaBOL= false;
-var dancaBOL= false;
-})
-
-$("#btnSalvarED" ).click(function() {
-  alert('*INSIRA* código para o proximo desafio')
-})
-
-// Desafio 7 erros------------------------------------------------------------------------------------------------------------------
-var contErros=0;
-$(".divErros" ).click(function() {
-  //alert('aaaa');
-  $(this).css('display', 'none');
-  var id7erros= $(this).attr('id');
-  var id7erros1 = "#" + id7erros.substr(0,(id7erros.length - 3));
-  $(id7erros1).css('display', 'block');
-  contErros++;
-  $('#txtContador0').text(contErros);
-  if(contErros==7){
-    alert("*INSERIR CODIGO PARA PROXIMO DEAFIO");
-  }
-})
-
-
-  
-
-
-//------------------------------------------------------------------------------------------------------------------
-
-
-  function popoverInfo() {
-    $('[data-toggle="popover"]').popover({html:true})
-  } 
-
-// MODIFICACOES DEBORA-----------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
-// ------------------------------------------------------------------------------------------------------------------
 // Mapa -------------------------------------------------------------------------------------------------------------
   function map() {
     createInvokeHelp(helps_texts["map"])
-    popoverInfo()
+    $('[data-toggle="popover"]').popover({html:true})
 
     $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
          revert: true,
@@ -1416,10 +102,9 @@ $(".divErros" ).click(function() {
           }); 
   }
 
-// Desafio Lixo -----------------------------------------------------------------
+// Desafio mei_0 Lixo -----------------------------------------------------------------
   function mei_0() {
-    createInvokeHelp(helps_texts["mei0"])
-    popoverInfo()
+    setupLevel()
 
     $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
         revert: true,
@@ -1435,9 +120,8 @@ $(".divErros" ).click(function() {
 
     function verificaLixo() {
       if (contagemLixoDrop == 10){
-        congrats_name = "mei_0"
-        level_stars = ["full", "empty", "empty"]
-        updateSectionAJAX("congrats")
+        alert("conseguiu")
+        congratsNextLevel(["full", "empty", "empty"], false)
       }
     }
 
@@ -1545,18 +229,16 @@ $(".divErros" ).click(function() {
         });
   }
 
-// Desafio Plantar -----------------------------------------------------------------
+// Desafio mei_1 Plantar -----------------------------------------------------------------
   function mei_1() {
-    createInvokeHelp(helps_texts["mei1"])
-    popoverInfo()
+    setupLevel()
 
     var verificaLegumes = 0;
 
     function verificaLegumesOK(){
       if (verificaLegumes==6){
-        congrats_name = "mei_1"
-        level_stars = ["full", "full", "empty"]
-        updateSectionAJAX("congrats")
+        alert("conseguiu")
+        congratsNextLevel(["full", "full", "empty"], false)
       }
     }
 
@@ -1695,10 +377,9 @@ $(".divErros" ).click(function() {
     });
   }
 
-// Desafio Cozinha  -----------------------------------------------------------------
+// Desafio mei_2 Cozinha  -----------------------------------------------------------------
   function mei_2() {
-    createInvokeHelp(helps_texts["mei2"])
-    popoverInfo()
+    setupLevel()
 
     document.getElementById('C_cestavazia3').draggable = false;
     var verificaCanos = false;
@@ -1706,10 +387,8 @@ $(".divErros" ).click(function() {
 
     function verificaLegumesCestaOK(){
       if (verificaLegumesCesta==6 && verificaCanos){
-        congrats_name = "mei_2"
-        level_stars = ["full", "full", "full"]
-        badges_texts["mei"]["finished"] = true //ended mei badge
-        updateSectionAJAX("congrats")
+        alert("conseguiu")
+        congratsNextLevel(["full", "full", "full"], true)
       }
     }
 
@@ -1821,3 +500,1220 @@ $(".divErros" ).click(function() {
     });
   }
 
+// Desafio gov_0 Campinho ------------------------------------------------------------------
+  function gov_0() {
+    setupLevel()
+
+    var contIndexC=1;
+
+    $( ".criancaAmarela , .criancaVermelha").draggable({
+          //revert: true,
+          revertDuration: 600,
+           cursor: "grabbing",
+           containment: "#gramadotodo",
+            //snap: true,
+           scroll:false,
+           drag: function( event, ui ) {
+            contIndexC++;
+             $('[data-toggle="popover"]').popover('hide');
+             $(this).css("z-index", contIndexC);
+
+            
+           }
+        });
+    var amareloTrue = false;
+    var vermelhoTrue = false;
+
+    $("#campinhoVermelho").droppable({
+       accept: ".criancaVermelha",
+      //tolerance: 10%,
+           over: function( event, ui){         
+            },
+
+            out: function( event, ui){ 
+
+            $(ui.draggable).removeClass('tanocampo'); 
+
+            },
+
+            drop: function(event,ui) {   
+             
+                var totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
+
+                if($(ui.draggable).hasClass('tanocampo')){             
+
+                    } else{            
+                      if (totalCriancaVermelha==2) {
+                        vermelhoTrue =true;
+                          if (vermelhoTrue && amareloTrue){
+                            alert("ta tudo organizado")
+                            congratsNextLevel(["full","empty","empty"], false)
+                          }
+                      }
+                      
+                     }
+             $(ui.draggable).addClass('tanocampo');        
+                      
+            }
+    });
+
+    $("#campinhoAmarelo").droppable({
+       accept: ".criancaAmarela",
+      //tolerance: 10%,
+           over: function( event, ui){         
+            },
+
+            out: function( event, ui){ 
+            $(ui.draggable).removeClass('tanocampo');  
+            },
+
+            drop: function(event,ui) {        
+            var totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
+            if($(ui.draggable).hasClass('tanocampo')){            
+
+                } else{
+
+                  if (totalCriancaAmarela==2) {
+                    amareloTrue=true;
+
+                    if (vermelhoTrue && amareloTrue){
+                      alert("ta tudo organizado")
+                      congratsNextLevel(["full","empty","empty"], false)
+                    }
+                  }              
+                } 
+
+            $(ui.draggable).addClass('tanocampo');         
+                      
+            }
+    });
+  }
+
+// Desafio gov_1 ONG --------------------------------------------------------------------------------------
+  function gov_1() {
+    setupLevel()
+
+    var contAlimentoRua =0;
+    $( ".alimentosRua" ).click(function() {
+     contAlimentoRua ++;
+     var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
+     //alert(idAlimentoRua);
+
+     $(idAlimentoRua).css('display','block');
+     $(this).css('display','none');
+
+     if (contAlimentoRua==4){
+      alert("Você conseguiu");
+      congratsNextLevel(["full", "half","empty"], false)
+     }
+
+    });
+  }
+
+// Desafio gov_2 Radio --------------------------------------------------------------------------------------
+  function gov_2() {
+    setupLevel()
+    var contJornalRua =0;
+    $( ".jornalRua" ).click(function() {
+     contJornalRua ++;
+     var idJornalRua = "#" + $(this).attr('id') + "cesta";
+
+     $(idJornalRua).css('display','block');
+     $(this).css('display','none');
+
+     if (contJornalRua==4){
+      alert("Você conseguiu");
+      congratsNextLevel(["full", "full", "empty"], false)
+     }
+    }); 
+  }
+
+// Desafio gov_3 Prefeitura  --------------------------------------------------------------------------------------
+  function gov_3() {
+    setupLevel()
+
+    var contLei=0;
+    $( ".btnLei" ).click(function() {
+      if (contLei==0) {
+        $('#titulolei').text("Lei 456");
+        $('#textolei').text("Todos devem plantar uma árvore e dar um nome a ela.");
+        contLei++;
+      } else if(contLei==1) {
+        $('#titulolei').text("Lei 9564");
+        $('#textolei').text("Pode ser preso aquele que não der bom dia ao porteiro.");
+        contLei++;
+      } else{
+        alert("terminou");
+        congratsNextLevel(["full","full","full"], true)
+      }
+    });               
+  }
+
+// Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
+  function laz_2() {
+    setupLevel()
+
+    var contErros=0;
+    $(".divErros" ).click(function() {
+      //alert('aaaa');
+      $(this).css('display', 'none');
+      var id7erros= $(this).attr('id');
+      var id7erros1 = "#" + id7erros.substr(0,(id7erros.length - 3));
+      $(id7erros1).css('display', 'block');
+      contErros++;
+      $('#txtContador0').text(contErros);
+      if(contErros==7){
+        alert("PROXIMO DEAFIO");
+        congratsNextLevel(["full","full","full"], true)
+      }
+    })
+  }
+
+// Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
+  function ino_0() {
+    setupLevel()
+
+    $( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
+          revert: true,
+          revertDuration: 600,
+           cursor: "grabbing",
+            //snap: true,
+           scroll:false,
+           drag: function( event, ui ) {
+             $('[data-toggle="popover"]').popover('hide');
+            
+           }
+        });
+
+    $("#aceitaBalde").droppable({
+          accept: "#imgBalde",
+           over: function( event, ui){         
+            },
+
+            out: function( event, ui){      
+            },
+
+            drop: function( event, ui ) {      
+              $("#imgBalde").css("display", "none");
+              $("#imgBaldeOK").css("display", "block");
+                alert("conseguiu");
+                congratsNextLevel(["full", "empty", "empty"], false)
+              }
+          });               
+
+  }
+
+// Desafio ino_1 Foguete ---------------------------------------------------------------------------------
+  function ino_1() {
+    setupLevel()
+      
+    var bico = 0;
+    var meio = 0;
+    var rabo = 0;
+
+    $( ".prev1").click(function() { if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
+    $( ".next1").click(function() { if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
+    $( ".prev2").click(function() { if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
+    $( ".next2").click(function() { if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
+    $( ".prev3").click(function() { if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
+    $( ".next3").click(function() { if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
+
+    $( "#btn-lancar .action").click(function() {
+      alert("lançou")
+      congratsNextLevel(['full','full','empty'], false)
+    });
+
+
+    function mudaPeca(){
+      switch (bico){
+        case 0:
+        $('#bico0').css('display', 'block');$('#bico1').css('display', 'none'); $('#bico2').css('display', 'none'); $('#bico3').css('display', 'none');break;
+        case 1:
+        $('#bico1').css('display', 'block');$('#bico2').css('display', 'none'); $('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
+        case 2:
+        $('#bico1').css('display', 'none');$('#bico2').css('display', 'block');$('#bico3').css('display', 'none'); $('#bico0').css('display', 'none');break;
+        case 3:
+        $('#bico1').css('display', 'none');$('#bico2').css('display', 'none');$('#bico3').css('display', 'block'); $('#bico0').css('display', 'none');break;
+      }
+
+      switch (meio){
+        case 0:
+        $('#meio0').css('display', 'block');$('#meio1').css('display', 'none');$('#meio2').css('display', 'none'); $('#meio3').css('display', 'none');break;
+        case 1:
+        $('#meio1').css('display', 'block');$('#meio2').css('display', 'none');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
+        case 2:
+        $('#meio1').css('display', 'none');$('#meio2').css('display', 'block');$('#meio3').css('display', 'none'); $('#meio0').css('display', 'none');break;
+        case 3:
+        $('#meio1').css('display', 'none');$('#meio2').css('display', 'none');$('#meio3').css('display', 'block'); $('#meio0').css('display', 'none');break;
+      }
+
+       switch (rabo){
+        case 0:
+        $('#rabo0').css('display', 'block');$('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none'); $('#rabo3').css('display', 'none');break;
+        case 1:
+        $('#rabo1').css('display', 'block');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
+        case 2:
+        $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'block');$('#rabo3').css('display', 'none'); $('#rabo0').css('display', 'none');break;
+        case 3:
+        $('#rabo1').css('display', 'none');$('#rabo2').css('display', 'none');$('#rabo3').css('display', 'block'); $('#rabo0').css('display', 'none');break;
+      }
+      }
+  }
+
+// Desafio ino_2 carrinho --------------------------------------------------------------------------------------
+  function ino_2() {
+    setupLevel()
+
+    var liberarBotaoCarrinho= false;
+    $( ".pecasforacarro").click(function() {
+     
+     var idPecaCarro = "#" + $(this).attr('id') + "dentro";
+
+     if ($(idPecaCarro).hasClass('tanocarro')){
+      $(idPecaCarro).css('display','none');
+      $(idPecaCarro).removeClass('tanocarro');
+      verificarPecasCarro();
+     } else {
+       $(idPecaCarro).css('display','block');
+       $(idPecaCarro).addClass('tanocarro');
+       verificarPecasCarro();
+      }
+    }); 
+
+    function verificarPecasCarro(){
+      liberarBotaoCarrinho=false;
+      var totalpecasCarro = $(".pecasnocarro.tanocarro").length;
+      if (totalpecasCarro==5){
+        liberarBotaoCarrinho=true;
+      }
+    }
+
+    $( "#btn_next_carrinho" ).click(function() {
+      if (liberarBotaoCarrinho) {
+        $('.carrofunciona').css('display', 'block');
+      } else {
+         $('.carrofuncionaNAO').css('display', 'block');
+      }
+    })
+
+    $( "#btnOKcarro" ).click(function() {
+      alert("proximo desafio");
+      congratsNextLevel(['full','full','full'], true)
+    })
+
+    $( "#btnOKcarroNAO" ).click(function() {
+      $('.carrofuncionaNAO').css('display', 'none');
+    })
+
+    function voltarpecas(){
+      $('#infopeca').text("INFORMAÇÃO SOBRE A PEÇA");
+      $('#infopeca').css('color','black');
+      $('#infopeca').css('opacity','0.4');
+      $('#infopeca').css('font-size','2.6vw');
+      $('#infopeca').css('bottom','5%');
+    }
+    $('#sensorprox_carro').hover(        
+       function () {
+          $(this).css("opacity","1");
+          $('#infopeca').text("RECONHECE UMA COR");
+          $('#infopeca').css('color','#3E6DAC');
+          $('#infopeca').css('opacity','1');
+       },function () {
+        $(this).css('opacity','0.5');
+        voltarpecas();
+      }
+    );
+    $('#roda_carro').hover(        
+       function () {
+          $(this).css("opacity","1");
+          $('#infopeca').text("PERMITE QUE O CARRINHO ANDE");
+          $('#infopeca').css('color','#3E6DAC');
+          $('#infopeca').css('opacity','1');
+       },function () {
+         $(this).css('opacity','0.5');
+        voltarpecas();}
+    );
+    $('#leds_carro').hover(        
+       function () {
+          $(this).css("opacity","1");
+          $('#infopeca').text("ADICIONA LUZES AO CARRINHO");
+          $('#infopeca').css('color','#3E6DAC');
+          $('#infopeca').css('opacity','1');
+       },function () {
+        $(this).css('opacity','0.5');
+        voltarpecas();}
+    );
+    $('#motor_carro').hover(        
+       function () {
+          $(this).css("opacity","1");
+          $('#infopeca').text("AJUDA AS RODAS GIRAREM");
+          $('#infopeca').css('color','#3E6DAC');
+          $('#infopeca').css('opacity','1');
+       },function () {
+         $(this).css('opacity','0.5');
+         voltarpecas();}
+    );
+    $('#placa_carro').hover(        
+       function () {
+          $(this).css("opacity","1");
+          $('#infopeca').text("GUARDA OS CÓDIGOS QUE FAZEM O CARRINHO ANDAR");
+          $('#infopeca').css('color','#3E6DAC');
+          $('#infopeca').css('opacity','1');
+          $('#infopeca').css('font-size','2.2vw');
+          $('#infopeca').css('bottom','1%');
+       },function () {
+         $(this).css('opacity','0.5');
+         voltarpecas();}
+    );
+  }
+
+// Desafio sau_0 Prato ---------------------------------------------------------------------------------
+  function sau_0() {
+    setupLevel()
+
+    var contIndex=1;
+    var bilotoLeft = 49.4;
+
+    $( ".alimentosSaudaveis , .alimentosNaoSaudaveis ").draggable({
+          revert: true,
+          revertDuration: 600,
+           cursor: "grabbing",
+            //snap: true,
+           scroll:false,
+           drag: function( event, ui ) {
+            contIndex++;
+             $('[data-toggle="popover"]').popover('hide');
+             $(this).css("z-index", contIndex);
+           }
+        });
+    $("#imgPrato").droppable({
+      tolerance: "fit",
+           over: function( event, ui){         
+            },
+            out: function( event, ui){ 
+               $(ui.draggable).removeClass('tanoprato');
+              if($(ui.draggable).hasClass('alimentosSaudaveis')){
+                  bilotoLeft = bilotoLeft-1.6;                
+                   $( "#biloto" ).animate({
+                        left: bilotoLeft+"%"                   
+                      })
+                } else{
+                  bilotoLeft = bilotoLeft+8;
+                   $( "#biloto" ).animate({
+                        left: bilotoLeft+"%"                   
+                      })
+                }
+            },
+            drop: function(event,ui) { 
+              if ($(ui.draggable).hasClass('tanoprato')){
+              } else {
+                 $(ui.draggable).draggable({revert:false});
+                //$(ui.draggable).draggable({disabled:true});
+                if($(ui.draggable).hasClass('alimentosSaudaveis')){
+                  bilotoLeft = bilotoLeft+1.6;             
+                    $( "#biloto" ).animate({
+                        left: bilotoLeft+"%"                   
+                      })
+                } else{
+                  bilotoLeft = bilotoLeft-8;
+                   $( "#biloto" ).animate({
+                        left: bilotoLeft+"%"                   
+                      })
+                }
+              }
+              $(ui.draggable).addClass('tanoprato');                  
+              }
+          });
+
+    $( "#btn-enviar-prato").click(function() {
+      if (bilotoLeft<=55.7){
+        alert("Seu prato não está saúdavel ainda")
+      } else{
+        alert("Prato saúdavel! *enviar*")
+        congratsNextLevel(['full', 'half', 'empty'], false)
+      }
+    })
+  }
+
+// Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
+  function edu_0 () {
+    setupLevel()
+
+    var acessibilidadeBOL= false;
+    var pintarBOL= false;
+    var arborizarBOL= false;
+    var onibusBOL= false;
+    var hortaBOL= false;
+    var parquinhoBOL= false;
+    var lixoBOL= false;
+
+    var contCoisasEscolaF=0;
+    var habilitarBtnPF=false;
+
+    var posicaoEF=1;
+
+    $( "#btnNextEscola" ).click(function() {
+      var totalImgs = $(".imagensEF.imgVisible").length;
+      if (totalImgs==5) {
+        if(acessibilidadeBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_acessib_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
+          posicaoEF++;
+        }
+        if(pintarBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_pintar_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
+          posicaoEF++;
+        }
+        if(arborizarBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_arbori_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
+          posicaoEF++;
+        }
+        if(onibusBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_bus_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
+          posicaoEF++;
+        }
+        if(parquinhoBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_parque_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
+          posicaoEF++;
+        }
+        if(hortaBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_horta_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
+          posicaoEF++;
+        }
+        if(lixoBOL){
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_lixo_normal.png');
+          $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
+          posicaoEF++;
+        }
+         $('.popoverEF').css('display', 'block');
+      } else{
+        alert("selecione ate 5")
+      }
+    })
+
+    $("#btnTrocarEF" ).click(function() {
+      $('.popoverEF').css('display', 'none');
+       posicaoEF=1;
+
+       for (i = 0; i < i.length; i++) { 
+         $("#imgEscolaFora"+i).attr('src', '');
+         $("#TxtEscolaFora"+i).text("");
+      }
+    })
+
+    $("#btnSalvarEF" ).click(function() {
+      alert('*INSIRA* código para o proximo desafio')
+      congratsNextLevel(['full','empty','empty'], false)
+    })
+
+    $( "#icon_acessibilidade1" ).click(function() {
+      if (contCoisasEscolaF==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#rampaacessibilidade').css('display', 'block');
+        $('#rampaacessibilidade').addClass('imgVisible')
+        $('#icon_acessibilidade2').css('display', 'block');
+        contCoisasEscolaF++;
+        acessibilidadeBOL= true;
+      }
+    })
+    $( "#icon_acessibilidade2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#rampaacessibilidade').css('display', 'none');
+        $('#rampaacessibilidade').removeClass('imgVisible')
+        $('#icon_acessibilidade1').css('display', 'block');
+        contCoisasEscolaF--;
+        acessibilidadeBOL= false;
+    })
+    $( "#icon_pintar1" ).click(function() {
+      if (contCoisasEscolaF==5){
+         
+      } else{ 
+        $(this).css('display', 'none');
+        $('#escolafora_pintada').css('display', 'block');
+        $('#escolafora_pintada').addClass('imgVisible');
+        $('#icon_pintar2').css('display', 'block');
+        contCoisasEscolaF++;
+        pintarBOL= true;
+      }
+    })
+    $( "#icon_pintar2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#escolafora_pintada').css('display', 'none');
+        $('#escolafora_pintada').removeClass('imgVisible');
+        $('#icon_pintar1').css('display', 'block');
+        contCoisasEscolaF--;
+        pintarBOL= false;
+    })
+    $( "#icon_arborizar1" ).click(function() {
+      if (contCoisasEscolaF==5){
+          
+          
+      } else{  
+        $(this).css('display', 'none');
+        $('#arvoreescola1').css('display', 'block')
+        $('#arvoreescola2').css('display', 'block')
+        $('#arvoreescola2').addClass('imgVisible');
+        $('#icon_arborizar2').css('display', 'block')
+        contCoisasEscolaF++;
+        arborizarBOL= true;
+      }
+    })
+    $( "#icon_arborizar2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#arvoreescola1').css('display', 'none')
+        $('#arvoreescola2').css('display', 'none')
+        $('#arvoreescola2').removeClass('imgVisible');
+        $('#icon_arborizar1').css('display', 'block')
+        contCoisasEscolaF--;
+        arborizarBOL= false;
+    })
+
+    $( "#icon_onibus1" ).click(function() {
+      if (contCoisasEscolaF==5){
+         
+      } else{  
+        $(this).css('display', 'none');
+        $('#onibusescolar').css('display', 'block');
+        $('#icon_onibus2').css('display', 'block');
+        $('#onibusescolar').addClass('imgVisible');
+        contCoisasEscolaF++;
+        onibusBOL= true;
+      }
+    })
+    $( "#icon_onibus2" ).click(function() {
+      
+        $(this).css('display', 'none');
+        $('#onibusescolar').css('display', 'none');
+        $('#onibusescolar').removeClass('imgVisible');
+        $('#icon_onibus1').css('display', 'block');
+        contCoisasEscolaF--;
+        onibusBOL= false;
+    })
+    $( "#icon_horta1" ).click(function() {
+      if (contCoisasEscolaF==5){
+          
+      } else{  
+        $(this).css('display', 'none');
+        $('#hortaescola').css('display', 'block');
+        $('#hortaescola').addClass('imgVisible');
+        $('#icon_horta2').css('display', 'block');
+        contCoisasEscolaF++;
+        hortaBOL= true;
+      }
+    })
+    $( "#icon_horta2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#hortaescola').css('display', 'none');
+        $('#hortaescola').removeClass('imgVisible');
+        $('#icon_horta1').css('display', 'block');
+        contCoisasEscolaF--;
+        hortaBOL= false;
+    })
+
+    $( "#icon_parquinho1" ).click(function() {
+      if (contCoisasEscolaF==5){
+           
+      } else{  
+        $(this).css('display', 'none');
+        $('#parquinhoescola').css('display', 'block');
+        $('#parquinhoescola').addClass('imgVisible');
+        $('#icon_parquinho2').css('display', 'block');
+        contCoisasEscolaF++;
+        parquinhoBOL= true;
+      }
+    })
+    $( "#icon_parquinho2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#parquinhoescola').css('display', 'none');
+        $('#parquinhoescola').removeClass('imgVisible');
+        $('#icon_parquinho1').css('display', 'block');
+        contCoisasEscolaF--;
+        parquinhoBOL= false;
+    })
+
+    $( "#icon_lixo1" ).click(function() {
+      if (contCoisasEscolaF==5){
+         
+      } else{  
+        $(this).css('display', 'none');
+        $('#lixeirasseletivas').css('display', 'block');
+        $('#lixeirasseletivas').addClass('imgVisible');
+        $('#icon_lixo2').css('display', 'block');
+        contCoisasEscolaF++;
+        lixoBOL= true;
+      }
+    })
+    $( "#icon_lixo2" ).click(function() {
+       
+        $(this).css('display', 'none');
+        $('#lixeirasseletivas').css('display', 'none');
+        $('#lixeirasseletivas').removeClass('imgVisible');
+        $('#icon_lixo1').css('display', 'block');
+        lixoBOL= false;
+        contCoisasEscolaF--;
+    })
+  }
+
+// Desafio edu_1 escola dentro------------------------------------------------------------------------------------------------------------------
+  function edu_1() {
+    setupLevel()
+
+    var posicaoSalaVazia1=true;
+    var posicaoSalaVazia2=true;
+    var posicaoSalaVazia3=true;
+    var posicaoSalaVazia4=true
+    var posicaoSalaVazia5=true;
+
+
+    var salaVazia1="";
+    var salaVazia2="";
+    var salaVazia3="";
+    var salaVazia4="";
+    var salaVazia5="";
+
+    var bibliotecaBOL= false;
+    var teatroBOL= false;
+    var cantinaBOL= false;
+    var musicaBOL= false;
+    var informaticaBOL= false;
+    var quimicaBOL= false;
+    var dancaBOL= false;
+
+
+    function posicaoSalas(idImagemSala){
+
+      if (posicaoSalaVazia1){
+          $(idImagemSala).css('display', 'block');
+          $(idImagemSala).css('top', '26.1%');
+          $(idImagemSala).css('left', '26.6%');
+          $(idImagemSala).css('width', '13.7%');
+          posicaoSalaVazia1=false;
+          salaVazia1 = idImagemSala;
+
+      } else if (posicaoSalaVazia2){
+          $(idImagemSala).css('display', 'block');
+          $(idImagemSala).css('top', '45%');
+          $(idImagemSala).css('left', '26.6%');
+          $(idImagemSala).css('width', '13.7%');
+          posicaoSalaVazia2=false;
+          salaVazia2 = idImagemSala;
+      } else if (posicaoSalaVazia3){
+           $(idImagemSala).css('display', 'block');
+          $(idImagemSala).css('top', '18.8%');
+          $(idImagemSala).css('left', '43.4%');
+          $(idImagemSala).css('width', '13%');
+          posicaoSalaVazia3=false;
+          salaVazia3 = idImagemSala;
+      } else if (posicaoSalaVazia4){
+           $(idImagemSala).css('display', 'block');
+          $(idImagemSala).css('top', '26.1%');
+          $(idImagemSala).css('left', '59.6%');
+          $(idImagemSala).css('width', '13.7%');
+          posicaoSalaVazia4=false;
+           salaVazia4 = idImagemSala;
+      } else if (posicaoSalaVazia5){
+         $(idImagemSala).css('display', 'block');
+          $(idImagemSala).css('top', '45%');
+          $(idImagemSala).css('left', '59.6%');
+          $(idImagemSala).css('width', '13.7%');
+          posicaoSalaVazia5=false;
+          salaVazia5 = idImagemSala;
+      }
+
+    }
+
+    function deixarTrueSalas(idimg){
+      habilitarBtnProximo=false;
+      if (salaVazia1==idimg){
+        posicaoSalaVazia1=true;
+      } else if(salaVazia2==idimg){
+        posicaoSalaVazia2=true;
+      } else if(salaVazia3==idimg){
+        posicaoSalaVazia3=true;
+      } else if(salaVazia4==idimg){
+        posicaoSalaVazia4=true;
+      } else if(salaVazia5==idimg){
+        posicaoSalaVazia5=true;
+      }
+    }
+
+    var idImgSala="";
+    var todasSalasOcupadas= false;
+    var habilitarBtnProximo = false;
+
+    function todosOcupados(){
+      if (posicaoSalaVazia1==false && posicaoSalaVazia2==false && posicaoSalaVazia3==false && posicaoSalaVazia4==false && posicaoSalaVazia5==false){
+        todasSalasOcupadas=true;
+        FaseDentroOK();
+      } else {
+        todasSalasOcupadas=false;
+      }
+    }
+
+    function FaseDentroOK(){
+      habilitarBtnProximo=true;
+    }
+
+    $( "#icon_biblioteca1" ).click(function() {
+        todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+        idImgSala="#imgBiblioteca";
+        posicaoSalas(idImgSala);  
+        $(this).css('display', 'none');
+        $('#icon_biblioteca2').css('display', 'block')
+        todosOcupados();
+        bibliotecaBOL= true;
+      }
+    })
+    $( "#icon_biblioteca2" ).click(function() {
+      idImgSala="#imgBiblioteca";
+      $(idImgSala).css('display', 'none');
+      deixarTrueSalas(idImgSala);  
+      $(this).css('display', 'none');
+      $('#icon_biblioteca1').css('display', 'block')
+      bibliotecaBOL= false;
+    })
+
+
+    $( "#icon_teatro1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+      idImgSala="#imgTeatro";
+      posicaoSalas(idImgSala);  
+      $(this).css('display', 'none');
+      $('#icon_teatro2').css('display', 'block')
+      todosOcupados();
+      teatroBOL=true;
+    }
+    })
+    $( "#icon_teatro2" ).click(function() {
+      idImgSala="#imgTeatro";
+       $(idImgSala).css('display', 'none');
+      deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_teatro1').css('display', 'block')
+      teatroBOL=false;
+    })
+
+
+    $( "#icon_cantina1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+      idImgSala="#imgCantina";
+      posicaoSalas(idImgSala);
+      
+      $(this).css('display', 'none');
+      $('#icon_cantina2').css('display', 'block')
+      todosOcupados();
+      cantinaBOL=true;
+    }
+    })
+    $( "#icon_cantina2" ).click(function() {
+       idImgSala="#imgCantina";
+        $(idImgSala).css('display', 'none');
+      deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_cantina1').css('display', 'block')
+      cantinaBOL=false;
+    })
+
+
+    $( "#icon_musica1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+      idImgSala="#imgMusica";
+      posicaoSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_musica2').css('display', 'block')
+      todosOcupados();
+      musicaBOL=true;
+    }
+    })
+    $( "#icon_musica2" ).click(function() {
+      idImgSala="#imgMusica";
+       $(idImgSala).css('display', 'none');
+       deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_musica1').css('display', 'block')
+      musicaBOL=false;
+    })
+
+
+    $( "#icon_informatica1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+      idImgSala="#imgInformatica";
+      posicaoSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_informatica2').css('display', 'block')
+      todosOcupados();
+      informaticaBOL=true;
+    }
+    })
+    $( "#icon_informatica2" ).click(function() {
+      idImgSala="#imgInformatica";
+       $(idImgSala).css('display', 'none');
+       deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_informatica1').css('display', 'block')
+      informaticaBOL=false;
+    })
+
+
+    $( "#icon_quimica1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+      idImgSala="#imgQuimica";
+      posicaoSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_quimica2').css('display', 'block')
+      todosOcupados();
+      quimicaBOL=true;
+    }
+    })
+    $( "#icon_quimica2" ).click(function() {
+       idImgSala="#imgQuimica";
+        $(idImgSala).css('display', 'none');
+        deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_quimica1').css('display', 'block')
+      quimicaBOL=false;
+    })
+
+
+    $( "#icon_danca1" ).click(function() {
+      todosOcupados();
+      if (todasSalasOcupadas){
+          FaseDentroOK();
+      } else{
+       idImgSala="#imgDanca";
+      $(this).css('display', 'none');
+      posicaoSalas(idImgSala);
+      $('#icon_danca2').css('display', 'block')
+      todosOcupados();
+      dancaBOL=true;
+      }
+    })
+    $( "#icon_danca2" ).click(function() {
+       idImgSala="#imgDanca";
+        $(idImgSala).css('display', 'none');
+        deixarTrueSalas(idImgSala);
+      $(this).css('display', 'none');
+      $('#icon_danca1').css('display', 'block')
+      dancaBOL=false;
+    })
+
+
+    var posicaoED=1;
+
+    $( "#btnNextEscolaDentro" ).click(function() {
+      todosOcupados();
+     if (habilitarBtnProximo){
+       if(bibliotecaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_livros_1.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Muito conhecimento");
+          posicaoED++;
+        }
+        if(teatroBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_teatro.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Peças teatrais feitas pelos meus amigos");
+          posicaoED++;
+        }
+        if(cantinaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_cantina.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Comidas muito gostosas");
+          posicaoED++;
+        }
+        if(musicaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_musica.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Muitos músicos");
+          posicaoED++;
+        }
+        if(informaticaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_informatica.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Um mundo digital");
+          posicaoED++;
+        }
+        if(quimicaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_quimica.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Um lugar para fazer experimentos");
+          posicaoED++;
+        }
+        if(dancaBOL){
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_danca.png');
+          $("#TxtEscolaDentro"+posicaoED).text("Muitos dançarinos");
+          posicaoED++;
+        }
+        $('.popoverED').css('display', 'block'); //alert("entou");
+     } else {
+        alert("selecione 5");
+     }
+    })
+
+    $("#btnTrocarED" ).click(function() {
+      $('.popoverED').css('display', 'none');
+       posicaoED=1;
+
+       for (i = 0; i < cars.length; i++) { 
+         $("#imgEscolaDentro"+i).attr('src', '');
+         $("#TxtEscolaDentro"+i).text("");
+      }
+      var bibliotecaBOL= false;
+      var teatroBOL= false;
+      var cantinaBOL= false;
+      var musicaBOL= false;
+      var informaticaBOL= false;
+      var quimicaBOL= false;
+      var dancaBOL= false;
+    })
+
+    $("#btnSalvarED" ).click(function() {
+      alert('*INSIRA* código para o proximo desafio')
+      congratsNextLevel(['full','full','empty'], false)
+    }) 
+  }
+
+// Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
+  function edu_2() {
+    setupLevel()
+
+    var cadeirasBOL=false;
+    var livrosBOL=false;
+    var lapisBOL=false;
+    var quadroBOL=false;
+    var globoBOL=false;
+    var lixeiraBOL=false;
+    var luzBOL= false;
+
+    var contCoisasEscolaS=0;
+    var habilitarBtnPS=false;
+
+    var posicaoES=1;
+
+    $( "#btnNextSala" ).click(function() {
+      var totalImgsS = $(".imgEscolaSala.imgVisibleS").length;
+      //alert(totalImgsS );
+      if (totalImgsS==5) {
+        if(cadeirasBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_carteira.png');
+          $("#TxtEscolaSala"+posicaoES).text("Lugares confortáveis para escrever");
+          posicaoES++;
+
+        }
+        if(livrosBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_livros.png');
+          $("#TxtEscolaSala"+posicaoES).text("Livros com muitas aventuras");
+          posicaoES++;
+        }
+       if(lapisBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lapis.png');
+          $("#TxtEscolaSala"+posicaoES).text("Lápis de todas as cores");
+          posicaoES++;
+        }
+        if(quadroBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_quadro.png');
+          $("#TxtEscolaSala"+posicaoES).text("Onde o professor escrever");
+          posicaoES++;
+        }
+        if(globoBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_globo.png');
+          $("#TxtEscolaSala"+posicaoES).text("Onde ver todos os países");
+          posicaoES++;
+        }
+        if(lixeiraBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lixo.png');
+          $("#TxtEscolaSala"+posicaoES).text("Chão limpo sempre");
+          posicaoES++;
+        }
+       
+        if(luzBOL){
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lampada.png');
+          $("#TxtEscolaSala"+posicaoES).text("Iluminação boa");
+          posicaoES++;
+        }
+
+         $('.popoverES').css('display', 'block');
+          
+
+      } else{
+        alert("selecione ate 5")
+      }
+    })
+
+    $("#btnTrocarES" ).click(function() {
+      $('.popoverES').css('display', 'none');
+       posicaoES=1;
+
+       for (i = 0; i < i.length; i++) { 
+         $("#imgEscolaSala"+i).attr('src', '');
+         $("#TxtEscolaSala"+i).text("");
+      }
+    })
+
+    $("#btnSalvarES" ).click(function() {
+      alert('*INSIRA* código para o proximo desafio')
+      congratsNextLevel(['full','full','full'],true)
+    })
+
+    $( "#icon_cadeiras1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaCadeiras').css('display', 'block');
+        $('#SalaCadeiras').addClass('imgVisibleS')
+        $('#icon_cadeiras2').css('display', 'block');
+        contCoisasEscolaS++;
+        cadeirasBOL= true;
+      }
+    })
+    $( "#icon_cadeiras2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaCadeiras').css('display', 'none');
+        $('#SalaCadeiras').removeClass('imgVisibleS')
+        $('#icon_cadeiras1').css('display', 'block');
+        contCoisasEscolaS--;
+        cadeirasBOL= false;
+    })
+    $( "#icon_livros1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaLivros').css('display', 'block');
+        $('#SalaLivros').addClass('imgVisibleS')
+        $('#icon_livros2').css('display', 'block');
+        contCoisasEscolaS++;
+        livrosBOL= true;
+      }
+    })
+    $( "#icon_livros2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaLivros').css('display', 'none');
+        $('#SalaLivros').removeClass('imgVisibleS')
+        $('#icon_livros1').css('display', 'block');
+        contCoisasEscolaS--;
+        livrosBOL= false;
+    })
+    $( "#icon_lapis1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaLapis').css('display', 'block');
+        $('#SalaLapis').addClass('imgVisibleS')
+        $('#icon_lapis2').css('display', 'block');
+        contCoisasEscolaS++;
+        lapisBOL= true;
+      }
+    })
+    $( "#icon_lapis2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaLapis').css('display', 'none');
+        $('#SalaLapis').removeClass('imgVisibleS')
+        $('#icon_lapis1').css('display', 'block');
+        contCoisasEscolaS--;
+        lapisBOL= false;
+    })
+    $( "#icon_quadro1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaQuadro').css('display', 'block');
+        $('#SalaQuadro').addClass('imgVisibleS')
+        $('#icon_quadro2').css('display', 'block');
+        contCoisasEscolaS++;
+        quadroBOL= true;
+      }
+    })
+    $( "#icon_quadro2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaQuadro').css('display', 'none');
+        $('#SalaQuadro').removeClass('imgVisibleS')
+        $('#icon_quadro1').css('display', 'block');
+        contCoisasEscolaS--;
+        quadroBOL= false; 
+    })
+    $( "#icon_globo1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaGlobo').css('display', 'block');
+        $('#SalaGlobo').addClass('imgVisibleS')
+        $('#icon_globo2').css('display', 'block');
+        contCoisasEscolaS++;
+        globoBOL= true;
+      }
+    })
+    $( "#icon_globo2" ).click(function() {      
+        $(this).css('display', 'none');
+        $('#SalaGlobo').css('display', 'none');
+        $('#SalaGlobo').removeClass('imgVisibleS')
+        $('#icon_globo1').css('display', 'block');
+        contCoisasEscolaS--;
+        globoBOL= false;
+      
+    })
+    $( "#icon_lixeira1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaLixeira').css('display', 'block');
+        $('#SalaLixeira').addClass('imgVisibleS')
+        $('#icon_lixeira2').css('display', 'block');
+        contCoisasEscolaS++;
+        lixeiraBOL= true;
+      }
+    })
+    $( "#icon_lixeira2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaLixeira').css('display', 'none');
+        $('#SalaLixeira').removeClass('imgVisibleS')
+        $('#icon_lixeira1').css('display', 'block');
+        contCoisasEscolaS--;
+        lixeiraBOL= false;
+      
+    })
+    $( "#icon_luz1" ).click(function() {
+      if (contCoisasEscolaS==5){
+       
+      } else{  
+        $(this).css('display', 'none');
+        $('#SalaLuz').css('display', 'block');
+        $('#SalaLuz').addClass('imgVisibleS')
+        $('#icon_luz2').css('display', 'block');
+        contCoisasEscolaS++;
+        luzBOL= true;
+      }
+    })
+    $( "#icon_lixeira2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#SalaLuz').css('display', 'none');
+        $('#SalaLuz').removeClass('imgVisibleS')
+        $('#icon_luz1').css('display', 'block');
+        contCoisasEscolaS--;
+        luzBOL= false;
+    })
+  }

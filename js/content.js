@@ -114,7 +114,7 @@ var badges_texts = {
     },
     "laz": { "id" : "laz",
              "color": "#D87100" ,
-             "finished": true,
+             "finished": false,
              "levels":3,
              "title": "Amigo do Lazer",
              "description": "É muito divertido e adora conhecer lugares novos."
@@ -288,20 +288,65 @@ var map_regions_texts = [
     }]
 
 // Help desafios ----------------------------
-var helps_texts = { 
+var helps_texts = {
   "map":{"title": "Descobrindo o Ceará",
           "text" : "Encaixe as regiões no mapa. Precisamos de todas juntas para a nossa aventura!"
         },
-  "mei0":{"title": "Hora de limpar!",
+  "mei_0":{"title": "Hora de limpar!",
           "text" : "Transforme um espaço da sua cidade. Junte e separe o lixo do terreno abandonado."
         },
-  "mei1":{"title": "Vamos plantar!",
+  "mei_1":{"title": "Vamos plantar!",
           "text" : "Podemos deixar o lugar melhor ainda. Que tal fazer uma <a>horta comunitária</a>?",
           "tip"  : "Horta comunitária: lugar onde todo mundo pode plantar e colher alimentos."
         },
-  "mei2":{"title": "Xiii...Sem água!",
+  "mei_2":{"title": "Xiii...Sem água!",
           "text" : "Opa, essa casa não tem <a>saneamento básico</a>. Ligue os canos para chegar água na torneira!",
           "tip"  : "Saneamento básico: sistema de canos por onde a água chega na nossa casa e por onde sai."
+        },
+  "gov_0":{"title": "Hora de brincar!",
+           "text" : "Você pode ser líder no parquinho e organizar as brincadeiras. Comece separando os times."
+        },
+  "gov_1":{"title": "Ajude!",
+           "text" : "Receba as doações de alimento do bairro para ajudar a ONG."
+        },
+  "gov_2":{"title": "Olá ouvintes!",
+           "text" : "Participe da rádio. Junte as notícias para o programa."
+        },
+  "gov_3":{"title": "Lei é lei!",
+           "text" : "Ajude o prefeito a decidir o que é bom para a sua cidade."
+        },
+  "laz_0":{"title": "Você sabe o que tem de bom no Ceará?",
+           "text" : "Complete o álbum de figurinhas e descubra!"
+        },
+  "laz_1":{"title": "Me conta!",
+           "text" : "O que tem na sua cidade? Marque as imagens abaixo."
+        },
+  "laz_2":{"title": "7 erros.",
+           "text" : "Hmmm...tem algo de errado na imagem ao lado. Encontre 7 erros."
+        },
+  "ino_0":{"title": "Fique atento!",
+           "text" : "Observe a cena e veja como o problema pode ser resolvido."
+        },
+  "ino_1":{"title": "Indo para o espaço!",
+           "text" : "Monte um foguete que consiga ir até o espaço."
+        },
+  "ino_2":{"title": "Seguindo o caminho!",
+           "text" : "Adicione peças ao robô para que ele consiga andar sozinho pelo caminho corretamente."
+        },
+  "sau_0":{"title": "Comer, comer…",
+           "text" : "Um prato de comida saudável é melhor que remédio! Você sabe montar um? Arraste as comidas para o prato."
+        },
+  "sau_1":{"title": "Vamos brincar!",
+           "text" : "Brincar também te deixa muito saudável. Aproveite os brinquedos."
+        },
+  "edu_0":{"title": "Super escola!",
+           "text" : "Adicione novas coisas na sua escola e veja o que acontece."
+        },
+  "edu_1":{"title": "?",
+           "text" : "?"
+        },
+  "edu_2":{"title": "?",
+           "text" : "?"
         }
 }
 
@@ -315,6 +360,36 @@ var congrats_texts = {
   "mei_1":{"text" : "Muito bem! Antes de cozinhar, vamos lavar o que você colheu."
           },
   "mei_2":{"text" : "Parabéns! Agora as pessoas do seu bairro podem gastar menos comprando comida e se alimentar melhor"
+          },
+  "gov_0":{"text" : "Parabéns! Você conseguiu organizar a brincadeira."
+          },
+  "gov_1":{"text" : "Maravilha! Sua atitude ajudou muita gente que estava com fome!"
+          },
+  "gov_2":{"text" : "A cidade adorou! Agora está todo mundo mais informado."
+          },
+  "gov_3":{"text" : "Você é um grande líder! Fez ótimas escolhas para sua cidade. Continue assim."
+          },
+  "laz_0":{"text" : "Uau! Você conhece tudo mesmo!"
+          },
+  "laz_1":{"text" : "Sua cidade é bem legal!"
+          },
+  "laz_2":{"text" : "Bom trabalho. Isso sim é ser um grande amigo do lazer."
+          },
+  "ino_0":{"text" : "Parabéns! Um inventor precisa ser um ótimo observador."
+          },
+  "ino_1":{"text" : "Maravilhoso! É preciso muita criatividade para fazer um foguete."
+          },
+  "ino_2":{"text" : "É isso aí! Testar, testar e testar várias vezes ajuda a melhorar as invenções! Isso é persistência."
+          },
+  "sau_0":{"text" : "Muito bem. Você sabe como se cuidar!"
+          },
+  "sau_1":{"text" : "Maravilha! Comer bem e brincar mais, sem doenças nunca mais!"
+          },
+  "edu_0":{"text" : "Por fora sua escola está incrível!"
+          },
+  "edu_1":{"text" : "Incrível! Eu queria estudar numa escola dessas!"
+          },
+  "edu_2":{"text" : "?"
           }
 }
 
