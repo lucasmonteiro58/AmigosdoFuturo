@@ -41,6 +41,22 @@
 	<div id="campinhoVermelho"></div>
 	<div id="campinhoAmarelo"></div>
 	
+	<!-- Robot help -->
+	<div id="help" style="display: none;">
+		<div class="backdrop">
+			<div class="robot-help">
+				<div class="content">
+					<li><h4></h4></li>
+					<li><p></p></li>	
+				</div>
+				<button id='repeat-btn' class='toggle repeat'></button>
+				<button id='close-btn' class='toggle exit'></button>
+			</div>
+		</div>
+		<div id="robot-help-mini" style="display: none;">
+			<img src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
+		</div>
+	</div>
 		
 	</section>
 
@@ -54,4 +70,9 @@
 <script type="text/javascript" src="js/content.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="js/desafios.js"></script>
+<script type="text/javascript">
+actual_badge = "gov"
+actual_level = 0
+gov_0()
+</script>
 </html>

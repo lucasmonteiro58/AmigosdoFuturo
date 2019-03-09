@@ -4,18 +4,18 @@ if ($("#menu").length) {
 }
 
 // General  ---------------------------------------------------------------------
-$(document).ready(function() {
-  $(function () { $('[data-toggle="popover"]').popover({html:true}) })
+  $(document).ready(function() {
+    $(function () { $('[data-toggle="popover"]').popover({html:true}) })
 
-  toggleSoundSetup()
+    toggleSoundSetup()
 
-  // Toggle fullscreen
-  $('#myModal').modal('show')
-  $("#openFullscreen").click(function () {
-    openFullscreen()
-    $('#myModal').modal('hide')
-  })
-});
+    // Toggle fullscreen
+    $('#myModal').modal('show')
+    $("#openFullscreen").click(function () {
+      openFullscreen()
+      $('#myModal').modal('hide')
+    })
+  });
 
   function toggleSoundSetup() {
     // Toggle sound
@@ -44,7 +44,7 @@ $(document).ready(function() {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-      updateSectionAJAX("certificate")
+      updateSectionAJAX("form")
     })
   }
 
@@ -342,7 +342,7 @@ $(document).ready(function() {
 
     //Returns a random number between 1 and max number of badges_possible
     var random_number = Math.floor((Math.random() * badges_possible.length-1) + 1);
-    kidBadge = badges_texts[badges_possible[random_number]]
+    actual_badge = badges_texts[badges_possible[random_number]]
 
     //Next section
     congrats_name = "badge"
@@ -381,7 +381,7 @@ $(document).ready(function() {
     }
 
     if (comment_name == "start_challenge") {
-      comment["text"] = comment["text"].replace("#badge_title#", kidBadge["title"]);
+      comment["text"] = comment["text"].replace("#badge_title#", actual_badge["title"]);
     }
     //Set comment text
     var commentHTML = ""
@@ -412,9 +412,11 @@ $(document).ready(function() {
           updateSectionAJAX("quiz")
         break
         case "start_challenge":
-          actual_badge = kidBadge["id"]
           actual_level = 0
-          updateSectionAJAX(actual_badge+"_"+actual_level)
+          console.log(actual_badge)
+          console.log(actual_level)
+          console.log(actual_badge+"_"+actual_level)
+          updateSectionAJAX(actual_badge["id"]+"_"+actual_level)
         break
       }      
     })
@@ -483,7 +485,7 @@ $(document).ready(function() {
   }
   function createCongrats(congrats) {
     if (congrats_name == "badge") {
-      congrats["text"] = congrats["text"].replace("#badge_title#", kidBadge["title"]);
+      congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
       $(".robot-congrats #text-comment p").addClass("badge-text-format")
     }
 
@@ -497,7 +499,7 @@ $(document).ready(function() {
         $('[data-toggle="popover"]').popover({html:true})
       }
 
-      $(".robot-congrats .content-right img").attr("src", "img/congrats/"+kidBadge["id"]+".png")
+      $(".robot-congrats .content-right img").attr("src", "img/congrats/"+actual_badge["id"]+".png")
 
       var starsHTML = ""
       for (var i = 0; i < level_stars.length; i++) {
@@ -517,9 +519,9 @@ $(document).ready(function() {
             updateSectionAJAX("comment")
           break
           default:
-            if (actual_level+1 < badges_texts[actual_badge]["levels"]) {
+            if (actual_level+1 < actual_badge["levels"]) {
               actual_level += 1
-              updateSectionAJAX(actual_badge+"_"+actual_level)
+              updateSectionAJAX(actual_badge["id"]+"_"+actual_level)
             } else {
               updateSectionAJAX("feedback")
             }
@@ -607,12 +609,8 @@ function submitFeedbackAJAX() {
 
 // Certificate  -----------------------------------------------------------------
   function certificate() {
-    //FIX temporary
-    actual_badge = "laz"
-    saveInStorage("name", "Jucilene")
-
     setupFinishedBadges()
-    activeAndShowDetails("#"+actual_badge)
+    activeAndShowDetails("#"+actual_badge["id"])
 
     setupActionsCertificate()
 
@@ -620,14 +618,14 @@ function submitFeedbackAJAX() {
   }
 
   function generateCertificateImg() {
-    $("#certificate-img").attr("src", "img/certificate/cards/"+actual_badge+".png")
+    $("#certificate-img").attr("src", "img/certificate/cards/"+actual_badge["id"]+".png")
 
     var certificateText = "Eu "+getFromStorage("name")+", prometo honrar meu título de Amigo do Futuro"+
                        " e cuidar do Ceará até 2050 pois sei que posso melhorar ainda mais este lugar."
 
     $(".to-print p").text(certificateText)
 
-    $(".to-print p").css("color", badges_texts[actual_badge]["color"])
+    $(".to-print p").css("color", actual_badge["color"])
 
     toCanvas()
   }
@@ -667,8 +665,6 @@ function submitFeedbackAJAX() {
         var liHTML = this_badge_li.html()
         liHTML += "<span></span>"
         this_badge_li.html(liHTML)
-
-        console.log(this_badge_li_img[0])
       }
     }
   }
@@ -677,14 +673,6 @@ function submitFeedbackAJAX() {
     $(".all-badges img").click(function () {
       resetAllActivesBadges()
       activeAndShowDetails(this) 
-    })
-
-    $(".robot-certificate .download").click(function () {
-      // New window
-      // createCertificateImg()
-
-      // Same window
-      toCanvas()
     })
     $(".robot-certificate .print").click(function () {
       window.print()
@@ -731,9 +719,9 @@ function submitFeedbackAJAX() {
     $(".other-badges .action").click(function () {
       // FIX Reset level information
       actual_level = 0
-      actual_badge = badge["id"]
+      actual_badge = badge
 
-      updateSectionAJAX(actual_badge+"_"+actual_level)
+      updateSectionAJAX(actual_badge["id"]+"_"+actual_level)
     })
   }
   function emptyBadgeDetailsModal() {
@@ -799,6 +787,17 @@ function submitFeedbackAJAX() {
     });
   }
 
-  function nextLevelBadge(badge,level) {
-    updateSectionAJAX(badge+"_"+level) //first challenge of badge
+  function setupLevel(){
+    createInvokeHelp(helps_texts[actual_badge["id"]+"_"+actual_level])
+    $('[data-toggle="popover"]').popover({html:true})
   }
+
+
+  function congratsNextLevel(stars, ended) {
+    congrats_name = actual_badge["id"]+"_"+actual_level
+    level_stars = stars
+    if (ended) {
+      actual_badge["finished"] = true //ended badge
+    }
+    updateSectionAJAX("congrats")
+  } 
