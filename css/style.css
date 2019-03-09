@@ -32,7 +32,7 @@
   }
   body {
     height: 100%;
-    /*overflow:hidden;*/
+    overflow:hidden;
   	margin: 0px;
   	list-style: none;
   }
@@ -3683,7 +3683,7 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
   display: none;
 }
 
-/*Desafio Escola Dentro Sections-------------------------------------------------------------------*/
+/*Desafio Escola Sala Sections-------------------------------------------------------------------*/
 
 #desafioescolasala{
   width: 100%;
@@ -3882,4 +3882,313 @@ button.btnLuz2:hover{background-image: url(../img/buttons/es/bt_lampada_menos.pn
 
 .imgEscolaSala{
   display: none;
+}
+
+#blackEscolaSala{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+#caixafeedbackEscolaSala{
+  position: absolute;
+  width: 82%;
+  left: 9%;
+  top: 11%;
+}
+
+#minhaescolatemES{
+  position: absolute;
+  font-family: bungee;
+  color: #3B6B9E;
+  top: 18%;
+  font-size: 3.2vw;
+  left: 31%;
+}
+
+#imgEscolaSala1{
+  position: absolute;
+  bottom: 54%;
+  left: 16%;
+   width: 7.5%;
+}
+
+#imgEscolaSala2{
+  position: absolute;
+ bottom: 54%;
+  left: 31%;
+   width: 7.5%;
+}
+
+#imgEscolaSala3{
+  position: absolute;
+  bottom: 54%;
+  left: 46%;
+   width: 7.5%;
+}
+
+#imgEscolaSala4{
+  position: absolute;
+  bottom: 54%;
+  left: 61%;
+   width: 7.5%;
+}
+
+#imgEscolaSala5{
+  position: absolute;
+ bottom: 54%;
+  left: 77%;
+   width: 7.5%;
+}
+
+#TxtEscolaSala1{
+  position: absolute;
+  color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 48%;
+  left: 12%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaSala2{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 48%;
+  left: 27.5%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaSala3{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 48%;
+  left: 42%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaSala4{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 48%;
+  left: 58%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#TxtEscolaSala5{
+  position: absolute;
+   color: black;
+  font-family: exo-medium;
+  font-size: 2.2vw;
+  top: 48%;
+  left: 73%;
+  width: 13%;
+  text-align: center;
+  line-height: 4vh;
+  //background-color: pink;
+}
+
+#btnTrocarES{
+  position: absolute;
+  top: 70%;
+  font-size: 2.7vw;
+  left: 25%;
+
+}
+
+#btnSalvarES{
+  position: absolute;
+  top: 70%;
+  font-size: 2.7vw;
+  left: 52%;
+
+}
+
+.popoverES{
+  display: none;
+}
+
+/*Desafio 7 erros Sections-------------------------------------------------------------------*/
+
+#desafio7erros{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/cenarios/cenario_7erros.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#erroX1{
+  position: absolute;
+  top: 42%;
+  left: 75%;
+  width: 4.5%;
+}
+
+#erroX2{
+  position: absolute;
+  top: 41%;
+  left: 66%;
+  width: 2%;
+}
+
+#erroX3{
+  position: absolute;
+  top: 57%;
+  left: 66%;
+  width: 2.5%;
+}
+
+#erroX4{
+  position: absolute;
+  top: 56%;
+  left: 76.2%;
+  width: 2.4%;
+}
+
+#erroX5{
+  position: absolute;
+  top: 69%;
+  left: 60.5%;
+   width: 2.4%;
+}
+
+#erroX6{
+  position: absolute;
+  top: 65.5%;
+  left: 75.2%;
+  width: 2.2%;
+}
+
+#erroX7{
+  position: absolute;
+  top: 64.5%;
+  left: 79.3%;
+  width: 1.9%;
+}
+
+#contador-erros{
+  position: absolute;
+  top: 0%;
+  left: 41%;
+  width: 25%;
+}
+
+#txtContador0{
+  position: absolute;
+  top: -1%;
+  left: 45%;
+  font-family: bungee;
+  font-size: 5vw;
+  color: #918274;
+}
+
+#txtContadorDE{
+  position: absolute;
+   top: -1%;
+  left: 50%;
+  font-family: bungee;
+  font-size: 5vw;
+  color: #C9C2BB;
+}
+
+#txtContador7{
+  position: absolute;
+   top: -1%;
+  left: 59%;
+  font-family: bungee;
+  font-size: 5vw;
+  color: #918274;
+}
+
+.errosX{
+display: none;
+}
+
+#erroX1DIV{
+  position: absolute;
+  top: 42%;
+  left: 75%;
+  width: 4.9%;
+  height: 10%;
+
+  
+}
+
+#erroX2DIV{
+  position: absolute;
+  top: 41%;
+  left: 66%;
+  width: 2%;
+  height: 6%;
+}
+
+#erroX3DIV{
+  position: absolute;
+  top: 57%;
+  left: 66%;
+  width: 2.9%;
+  height: 6%;
+
+  
+}
+
+#erroX4DIV{
+  position: absolute;
+  top: 56%;
+  left: 76.2%;
+  width: 2.4%;
+  
+  height: 6%;
+}
+
+#erroX5DIV{
+  position: absolute;
+  top: 69%;
+  left: 60.5%;
+   width: 2.4%;
+   height: 6%;
+  
+}
+
+#erroX6DIV{
+  position: absolute;
+  top: 65.5%;
+  left: 75.2%;
+  width: 2.2%;
+   
+   height: 6%;
+}
+
+#erroX7DIV{
+  position: absolute;
+  top: 64.5%;
+  left: 79.3%;
+  width: 1.9%;
+  height: 6%;
 }
