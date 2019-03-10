@@ -4192,3 +4192,172 @@ display: none;
   width: 1.9%;
   height: 6%;
 }
+
+/*Desafio album 1 Sections-------------------------------------------------------------------*/
+
+#desafioalbum1{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  //background-image: url("../img/desafios/lazer/album Pg 1 e 2/pagina1e2.png");
+  //background-repeat: no-repeat;
+  //background-size: cover;
+
+}
+
+#paginaAlbum1{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#figurinhasCosta1{
+  position: absolute;
+  bottom: -10%;
+  left: 20%;
+  width: 13%;
+}
+
+#figurinhasCosta2{
+  position: absolute;
+  bottom: -10%;
+  left: 36%;
+  width: 13%;
+}
+
+#figurinhasCosta3{
+  position: absolute;
+  bottom: -10%;
+  left: 52%;
+  width: 13%;
+}
+
+#figurinhasCosta4{
+  position: absolute;
+  bottom: -10%;
+  left: 68%;
+  width: 13%;
+}
+
+#A1fig1{
+  position: absolute;
+  top: 84%;
+  left: 18.5%;
+  width: 11.3%;
+}
+
+#A1fig1:hover, #A1fig2:hover, #A1fig3:hover, #A1fig4:hover{
+  top: 79%;
+}
+
+#A1fig2{
+  position: absolute;
+  top: 84%;
+  left: 34.5%;
+  width: 11.3%;
+}
+
+#A1fig3{
+  position: absolute;
+  top: 84%;
+  left: 50.5%;
+  width: 11.3%;
+}
+
+#A1fig4{
+  position: absolute;
+  top: 84%;
+  left: 66.5%;
+  width: 11.3%;
+}
+
+#A1figOK1{
+  position: absolute;
+  top: 14.6%;
+  left: 37.3%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A1figOK2{
+  position: absolute;
+  top: 14.6%;
+  left: 65.9%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A1figOK3{
+  position: absolute;
+  top: 46.2%;
+  left: 24.7%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A1figOK4{
+  position: absolute;
+  top: 45%;
+  left: 65.9%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A1nextPage{
+  position: absolute;
+  right: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  display: none;
+}
+
+#A1nextPageDis{
+  position: absolute;
+  right: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  opacity: 0.6;
+}
+
+#A1prevPage{
+  position: absolute;
+  left: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  display: none;
+}
+
+#A1prevPageDis{
+  position: absolute;
+  left: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  opacity: 0.6;
+}
+
+#A1nextPage:hover{
+ transform: scale(2.3); 
+}
+
+#A1prevPage:hover{
+ transform: scale(2.3); 
+}
+
+#A1Pg1{
+  
+}
+
+#A1Pg2{
+ 
+  display: none;
+  
+}
+
+#paginaAlbum2{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}

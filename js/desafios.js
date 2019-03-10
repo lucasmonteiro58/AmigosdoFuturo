@@ -649,6 +649,92 @@
     });               
   }
 
+// Desafio laz_0 Album 1 --------------------------------------------------------------------------------------
+
+$( "#A1fig1, #A1fig2, #A1fig3, #A1fig4 ").draggable({
+    revert: true,
+    revertDuration: 600,
+     cursor: "grabbing",
+      //snap: true,
+     scroll:false,
+     drag: function( event, ui ) {
+       $('[data-toggle="popover"]').popover('hide'); },
+    stop: function( event, ui ) {
+      $(this).css('top','84%');
+    }
+});
+
+var contFigA1= 0;
+
+function habilitarNextA1(){
+   if (contFigA1==4){
+    $("#A1nextPage").css('display', 'block');
+    $("#A1nextPageDis").css('display', 'none');
+   }
+}
+
+$("#A1figOK1").droppable({
+    accept: "#A1fig1",
+       over: function( event, ui){          
+      },
+      out: function( event, ui){
+      },
+      drop: function( event, ui ) {
+      $(this).css('visibility','visible'); 
+      $('#A1fig1').css('display', 'none'); 
+      contFigA1++;  
+      habilitarNextA1();    
+        }
+  });
+
+$("#A1figOK2").droppable({
+    accept: "#A1fig2",
+       over: function( event, ui){          
+      },
+      out: function( event, ui){
+      },
+      drop: function( event, ui ) {
+      $(this).css('visibility','visible'); 
+      $('#A1fig2').css('display', 'none'); 
+      contFigA1++; 
+      habilitarNextA1();      
+        }
+  });
+
+$("#A1figOK3").droppable({
+    accept: "#A1fig3",
+       over: function( event, ui){          
+      },
+      out: function( event, ui){
+      },
+      drop: function( event, ui ) {
+      $(this).css('visibility','visible'); 
+      $('#A1fig3').css('display', 'none'); 
+      contFigA1++; 
+      habilitarNextA1();      
+        }
+  });
+
+$("#A1figOK4").droppable({
+    accept: "#A1fig4",
+       over: function( event, ui){          
+      },
+      out: function( event, ui){
+      },
+      drop: function( event, ui ) {
+      $(this).css('visibility','visible'); 
+      $('#A1fig4').css('display', 'none'); 
+      contFigA1++;  
+      habilitarNextA1();     
+        }
+  });
+
+$( "#A1nextPage" ).click(function() {
+  $('#A1Pg1').css('display', 'none');
+  $('#A1Pg2').css('display', 'block');
+
+})
+
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
     setupLevel()
