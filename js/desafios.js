@@ -853,7 +853,7 @@
   $( "#btnAlbum2" ).click(function() {
     alert("Next Desafio")
   })
-  
+
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
     setupLevel()
@@ -1139,6 +1139,76 @@
       }
     })
   }
+
+// Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
+
+var bilotoP = 49.4;
+var escorregador = false;
+var campinho = false;
+var balanco = false;
+var gangorra = false;
+var tablet = false;
+
+
+ $( "#escorregador").click(function() {
+  if (escorregador){
+  } else{
+    bilotoP= bilotoP+4.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    escorregador=true;
+  }})
+
+ $( ".campinho").click(function() {
+  if (campinho){
+  } else{
+    bilotoP= bilotoP+5.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    campinho=true;
+  }})
+
+ $( "#balanco").click(function() {
+  if (balanco){
+  } else{
+    bilotoP= bilotoP+2.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    balanco=true;
+  }})
+
+  $( "#gangorra").click(function() {
+  if (gangorra){
+  } else{
+    bilotoP= bilotoP+3.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    gangorra=true;
+  }})
+
+  $( "#tablet").click(function() {
+  if (tablet){
+  } else{
+    bilotoP= bilotoP+0;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    tablet=true;
+  }})
+
+   $( "#btn-enviar-parquinho").click(function() {
+    if (bilotoP==65.6) {
+      alert(" codigo para proximo desafio")
+    } else{
+      alert("brinque mais")
+    }
+   })
+
+
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
