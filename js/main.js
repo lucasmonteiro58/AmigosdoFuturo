@@ -5,12 +5,11 @@ if ($("#menu").length) {
 
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
-    // $(function () { $('[data-toggle="popover"]').popover({html:true}) })
 
     toggleSoundSetup()
 
     // Toggle fullscreen
-    $('#myModal').modal('show')
+   // $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
       openFullscreen()
       $('#myModal').modal('hide')
@@ -44,6 +43,7 @@ if ($("#menu").length) {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
+
       updateSectionAJAX("form")
     })
   }
@@ -51,6 +51,7 @@ if ($("#menu").length) {
 // Form  -----------------------------------------------------------------
   function form() {
     questions_array = questions_texts
+
     actual_section = "form"
     createQuestion(questions_array[question_number])
   
@@ -108,6 +109,20 @@ if ($("#menu").length) {
       
       $("#question-content").html(questionHTML)
       configClickOptions()
+    } else if (question["type"] == "select") {
+      var selectOptions = "<option value='' disabled selected>"+question["placeholder"]+"</option>"
+      for (var i = 0; i < available_cities.length; i++) {
+           row = available_cities[i];
+           selectOptions += '<option value="'+row+'">'+row+'</option>'
+      }
+
+      questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
+      "<li><form><select name='"+question["name"]+"'>"+selectOptions+"</select></form></li>"+
+      "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
+
+      $("#question-content").html(questionHTML)
+      configClick("select")
+      
     } else {
       if (question["name"] == "age") {
         question["title"] = question["title"].replace("#name#", getFromStorage("name"));
@@ -118,7 +133,7 @@ if ($("#menu").length) {
       "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
       
       $("#question-content").html(questionHTML)
-      configClick()
+      configClick("input")
     }
     function configClickOptions(){
       // //Changes the button action if it's the end of the form
@@ -129,13 +144,10 @@ if ($("#menu").length) {
       $("input[value='"+getFromStorage(question["name"])+"']").prop("checked", true);
     }
 
-    function configClick() {  
-      if (question["name"]=="city") {
-        autocompleteCities()
-      }
+    function configClick(selector) {  
       actionButtonClicked("#questions-next")
       prevNextDisable()
-      $("input").val(getFromStorage(question["name"]))
+      $(selector).val(getFromStorage(question["name"]))
     }
   }
   function actionButtonClicked(selector) {
@@ -149,11 +161,6 @@ if ($("#menu").length) {
     }
   } 
 
-  function autocompleteCities() {
-    $("input").autocomplete({
-      source: available_cities
-    });
-  }
   function enterKeydown(end) {
     $('form').on('keyup keypress', function(e) {
       var keyCode = e.keyCode || e.which;
@@ -194,10 +201,18 @@ if ($("#menu").length) {
         submitAJAX(data)
       }
   }
-  function saveInputInStorage() {
-    var inputName = $("input").attr("name")
+  function saveInputInStorage(selector) {
+    if (questions_array[question_number]["type"] == "select"){
+      var inputName = $("select").attr("name")
+    } else {
+      var inputName = $("input").attr("name")
+    }
+
+
     if (questions_array[question_number]["type"] == "options"){
       var value = $("input[name='"+inputName+"']:checked").val()
+    } else if (questions_array[question_number]["type"] == "select") {
+      var value = $("select").val()
     } else {
       var value = $("input").val()
     }
