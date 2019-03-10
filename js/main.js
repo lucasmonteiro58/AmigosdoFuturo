@@ -9,7 +9,7 @@ if ($("#menu").length) {
     toggleSoundSetup()
 
     // Toggle fullscreen
-    $('#myModal').modal('show')
+   // $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
       openFullscreen()
       $('#myModal').modal('hide')
