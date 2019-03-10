@@ -266,7 +266,7 @@
 
 
   /*Form Section ----------------------------------------------------------*/
-  input[type="text"], input[type="number"] {
+  input[type="text"], input[type="number"], select {
       background:rgba(0,0,0,0);
       border:0px solid #fff;
       color:#000;
@@ -275,7 +275,9 @@
       background-size: contain;
       background-position: center;
   }
-
+  select {
+    text-align-last:center;
+  }
   #form, #feedback {
     background-color: #305882;
       position: relative;
@@ -329,7 +331,8 @@
   }
 
   .form-question .content form input[type="text"],
-  .form-question .content form input[type="number"] {
+  .form-question .content form input[type="number"],
+  .form-question .content form select {
       font-size: 2.3vw;
       width: 90%;
       height: 7vw;
@@ -337,17 +340,12 @@
       border-radius: 50px;
       font-family: exo;
   }
-  .form-question .content form input:focus {
+  .form-question .content form input:focus, select:focus {
       box-shadow: 0 0 0 0;
       border: 0 none;
       outline: 0;
   }
 
-  /*Custom jquery autocomplete*/
-  .ui-menu .ui-menu-item{
-    font-size: 2vw;
-    font-family: exo;
-  }
   .form-question .progress-div {
     width: 90%;
     bottom: 0;
@@ -1385,12 +1383,18 @@
 
  .popover-title {
       font-family: exo-bold;
-      font-size: 1.3vw;
+      font-size: 1.7vw;
+      padding: 4%;
   }
-  /* Popover Body */
+
   .popover-content {
       font-family: exo;
-      font-size: 1.1vw;
+      font-size: 1.5vw;
+      padding: 4%;
+  }
+
+  .popover {
+      width: 100%;
   }
 
 

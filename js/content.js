@@ -52,7 +52,7 @@ var questions_texts = [
     "button_text": "Próximo"
   },
   {"title": "Legal! E qual o nome da sua cidade?",
-    "type": "text",
+    "type": "select",
     "name": "city",
     "placeholder": "Escreva o nome da sua cidade",
     "button_text": "Enviar"
