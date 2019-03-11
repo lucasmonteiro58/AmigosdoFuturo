@@ -25,6 +25,7 @@ if ($("#menu").length) {
     })
   }
 
+
 // Modal fulscreen --------------------------------------------------------
   function openFullscreen() {
     var elem = document.documentElement;
@@ -43,7 +44,6 @@ if ($("#menu").length) {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-
       updateSectionAJAX("form")
     })
   }
