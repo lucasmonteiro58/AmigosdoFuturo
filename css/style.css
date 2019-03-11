@@ -4349,8 +4349,121 @@ display: none;
  transform: scale(2.3); 
 }
 
-#A1Pg1{
+
+
+#paginaAlbum2{
+  position: absolute;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+}
+
+#A2fig1{
+  position: absolute;
+  top: 84%;
+  left: 18.5%;
+  width: 11.3%;
+}
+
+#A2fig1:hover, #A2fig2:hover, #A2fig3:hover, #A2fig4:hover{
+  top: 79%;
+}
+
+#A2fig2{
+  position: absolute;
+  top: 84%;
+  left: 34.5%;
+  width: 11.3%;
+}
+
+#A2fig3{
+  position: absolute;
+  top: 84%;
+  left: 50.5%;
+  width: 11.3%;
+}
+
+#A2fig4{
+  position: absolute;
+  top: 84%;
+  left: 66.5%;
+  width: 11.3%;
+}
+
+#A2figOK1{
+  position: absolute;
+  top: 12.8%;
+  left: 23.7%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A2figOK2{
+  position: absolute;
+   top: 12.2%;
+  left: 66.1%;
+  width: 11.3%;
+ visibility: hidden;
+}
+
+#A2figOK3{
+  position: absolute;
+  top: 46.2%;
+  left: 24.7%;
+  width: 11.3%;
+  visibility: hidden;
+}
+
+#A2figOK4{
+  position: absolute;
+  top: 45%;
+  left: 65.9%;
+  width: 11.3%;
+ visibility: hidden;
+}
+
+#A2nextPage{
+  position: absolute;
+  right: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  display: none;
+}
+
+#A2nextPageDis{
+  position: absolute;
+  right: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  opacity: 0.6;
+}
+
+#A2prevPage{
+  position: absolute;
+  left: 4%;
+  top: 41%;
+  transform: scale(2.2);
   
+}
+
+#A2prevPageDis{
+  position: absolute;
+  left: 4%;
+  top: 41%;
+  transform: scale(2.2);
+  opacity: 0.6;
+}
+
+#A2nextPage:hover{
+ transform: scale(2.3); 
+}
+
+#A2prevPage:hover{
+ transform: scale(2.3); 
+}
+
+#A1Pg1{
+ // display: none
 }
 
 #A1Pg2{
@@ -4359,9 +4472,215 @@ display: none;
   
 }
 
-#paginaAlbum2{
-  position: absolute;
+/*Desafio album 2 Sections-------------------------------------------------------------------*/
+
+#desafioalbum2{
   width: 100%;
-  top: 0%;
-  left: 0%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/desafios/lazer/album Pg Final/cenario_album_ultpagina.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#check1{
+  position: absolute;
+  top: 37.5%;
+  left: 22.2%;
+  width: 1.75%;
+  display: none;
+
+}
+
+#check2{
+  position: absolute;
+  top: 44%;
+  left: 38.4%;
+  width: 1.8%;
+  display: none;
+}
+
+#check3{
+  position: absolute;
+  top: 36.6%;
+  left: 56.4%;
+  width: 1.8%;
+  display: none;
+}
+
+#check4{
+  position: absolute;
+  top: 48%;
+  left: 71.1%;
+  width: 1.8%;
+  display: none;
+}
+
+#check5{
+  position: absolute;
+  top: 69.2%;
+  left: 23.3%;
+  width: 1.8%;
+  display: none;
+}
+
+#check6{
+  position: absolute;
+   top: 77.4%;
+  left: 39.1%;
+  width: 1.8%;
+  display: none;
+}
+
+#check7{
+  position: absolute;
+   top: 68%;
+  left: 54.2%;
+  width: 1.8%;
+  display: none;
+}
+
+#check8{
+  position: absolute;
+  top: 79%;
+  left: 69%;
+  width: 1.8%;
+  display: none;
+}
+
+#divcheck1{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 19%;
+  left: 19%;
+}
+
+#divcheck2{
+   position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 25%;
+  left: 35%;
+}
+
+#divcheck3{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 18%;
+  left: 53%;
+}
+
+#divcheck4{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 30%;
+  left: 68%;
+}
+
+#divcheck5{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 51%;
+  left: 20%;
+}
+
+#divcheck6{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 59%;
+  left: 35%;
+}
+
+#divcheck7{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 49.5%;
+  left: 53%;
+}
+
+#divcheck8{
+  position: absolute;
+  width: 13.5%;
+  height: 24%;
+  top: 61%;
+  left: 67%;
+}
+
+#btnAlbum2{
+  position: absolute;
+  bottom: 42%;
+  right: 4%;
+  transform: scale(1.5);
+}
+
+
+/*Desafio Parquinho Sections-------------------------------------------------------------------*/
+
+#desafioparquinho{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/desafios/saude/parquinho/cenarioparquinho_saude.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#bilotoP{
+  position: absolute;
+  top: 5.3%;
+  //left: 32.2%;
+  left: 49.4%;
+  width: 1.5%;
+}
+
+#btn-enviar-parquinho{
+  position: absolute;
+  bottom: 5%;
+  right: 2.3%;
+}
+
+#escorregador{
+  position: absolute;
+  top: 26%;
+  left: 5%;
+  width: 21%;
+}
+
+#campinho_futebol{
+  position: absolute;
+  top: 35%;
+  left: 32%;
+  width: 37%;
+}
+
+#balanco{
+  position: absolute;
+  left: 74%;
+  top: 35%;
+  width: 22%;
+
+}
+
+#gangorra{
+  position: absolute;
+  left: 33%;
+  top: 70%;
+  width: 28%;
+}
+
+#tablet{
+  position: absolute;
+  left: 70%;
+  top: 72%;
+  width: 8%;
 }

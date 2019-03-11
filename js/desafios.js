@@ -653,7 +653,7 @@
   function laz_0() {
     setupLevel()
 
-    $( "#A1fig1, #A1fig2, #A1fig3, #A1fig4 ").draggable({
+  $( "#A1fig1, #A1fig2, #A1fig3, #A1fig4 ").draggable({
         revert: true,
         revertDuration: 600,
          cursor: "grabbing",
@@ -736,7 +736,123 @@
       $('#A1Pg2').css('display', 'block');
 
     })
-  }
+
+    $( "#A2prevPage" ).click(function() {
+      $('#A1Pg1').css('display', 'block');
+      $('#A1Pg2').css('display', 'none');
+
+    })
+
+    $( "#A2nextPage" ).click(function() {
+      
+
+
+      alert("next desafio")
+
+    })
+
+
+
+    $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
+        revert: true,
+        revertDuration: 600,
+         cursor: "grabbing",
+          //snap: true,
+         scroll:false,
+         drag: function( event, ui ) {
+           $('[data-toggle="popover"]').popover('hide'); },
+        stop: function( event, ui ) {
+          $(this).css('top','84%');
+        }
+    });
+
+
+    var contFigA2= 0;
+
+    function habilitarNextA2(){
+       if (contFigA2==4){
+        $("#A2nextPage").css('display', 'block');
+       $("#A2nextPageDis").css('display', 'none');
+       
+       }
+    }
+
+    $("#A2figOK1").droppable({
+        accept: "#A2fig1",
+           over: function( event, ui){          
+          },
+          out: function( event, ui){
+          },
+          drop: function( event, ui ) {
+          $(this).css('visibility','visible'); 
+          $('#A2fig1').css('display', 'none'); 
+          contFigA2++;  
+          habilitarNextA2();    
+            }
+      });
+
+    $("#A2figOK2").droppable({
+        accept: "#A2fig2",
+           over: function( event, ui){          
+          },
+          out: function( event, ui){
+          },
+          drop: function( event, ui ) {
+          $(this).css('visibility','visible'); 
+          $('#A2fig2').css('display', 'none'); 
+          contFigA2++; 
+          habilitarNextA2();      
+            }
+      });
+
+    $("#A2figOK3").droppable({
+        accept: "#A2fig3",
+           over: function( event, ui){          
+          },
+          out: function( event, ui){
+          },
+          drop: function( event, ui ) {
+          $(this).css('visibility','visible'); 
+          $('#A2fig3').css('display', 'none'); 
+          contFigA2++; 
+          habilitarNextA2();      
+            }
+      });
+
+    $("#A2figOK4").droppable({
+        accept: "#A2fig4",
+           over: function( event, ui){          
+          },
+          out: function( event, ui){
+          },
+          drop: function( event, ui ) {
+          $(this).css('visibility','visible'); 
+          $('#A2fig4').css('display', 'none'); 
+          contFigA2++;  
+          habilitarNextA2();     
+            }
+      });
+      
+    }
+
+// Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
+
+  $( ".checkClick" ).click(function() {
+
+    var idCheckDIV= $(this).attr('id');
+      var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
+
+      if ($(idCheckOK).css('display')=='none'){
+        $(idCheckOK).css('display', 'block');
+      } else {
+        $(idCheckOK).css('display', 'none');
+      }      
+
+  })
+
+  $( "#btnAlbum2" ).click(function() {
+    alert("Next Desafio")
+  })
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
@@ -1023,6 +1139,76 @@
       }
     })
   }
+
+// Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
+
+var bilotoP = 49.4;
+var escorregador = false;
+var campinho = false;
+var balanco = false;
+var gangorra = false;
+var tablet = false;
+
+
+ $( "#escorregador").click(function() {
+  if (escorregador){
+  } else{
+    bilotoP= bilotoP+4.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    escorregador=true;
+  }})
+
+ $( ".campinho").click(function() {
+  if (campinho){
+  } else{
+    bilotoP= bilotoP+5.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    campinho=true;
+  }})
+
+ $( "#balanco").click(function() {
+  if (balanco){
+  } else{
+    bilotoP= bilotoP+2.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    balanco=true;
+  }})
+
+  $( "#gangorra").click(function() {
+  if (gangorra){
+  } else{
+    bilotoP= bilotoP+3.55;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    gangorra=true;
+  }})
+
+  $( "#tablet").click(function() {
+  if (tablet){
+  } else{
+    bilotoP= bilotoP+0;
+    $( "#bilotoP" ).animate({
+      left: bilotoP+"%"                   
+     })
+    tablet=true;
+  }})
+
+   $( "#btn-enviar-parquinho").click(function() {
+    if (bilotoP==65.6) {
+      alert(" codigo para proximo desafio")
+    } else{
+      alert("brinque mais")
+    }
+   })
+
+
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
