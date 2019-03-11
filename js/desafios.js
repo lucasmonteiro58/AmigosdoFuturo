@@ -1142,73 +1142,71 @@
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
 
-var bilotoP = 49.4;
-var escorregador = false;
-var campinho = false;
-var balanco = false;
-var gangorra = false;
-var tablet = false;
+  var bilotoP = 49.4;
+  var escorregador = false;
+  var campinho = false;
+  var balanco = false;
+  var gangorra = false;
+  var tablet = false;
 
 
- $( "#escorregador").click(function() {
-  if (escorregador){
-  } else{
-    bilotoP= bilotoP+4.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    escorregador=true;
-  }})
-
- $( ".campinho").click(function() {
-  if (campinho){
-  } else{
-    bilotoP= bilotoP+5.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    campinho=true;
-  }})
-
- $( "#balanco").click(function() {
-  if (balanco){
-  } else{
-    bilotoP= bilotoP+2.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    balanco=true;
-  }})
-
-  $( "#gangorra").click(function() {
-  if (gangorra){
-  } else{
-    bilotoP= bilotoP+3.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    gangorra=true;
-  }})
-
-  $( "#tablet").click(function() {
-  if (tablet){
-  } else{
-    bilotoP= bilotoP+0;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    tablet=true;
-  }})
-
-   $( "#btn-enviar-parquinho").click(function() {
-    if (bilotoP==65.6) {
-      alert(" codigo para proximo desafio")
+   $( "#escorregador").click(function() {
+    if (escorregador){
     } else{
-      alert("brinque mais")
-    }
-   })
+      bilotoP= bilotoP+4.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      escorregador=true;
+    }})
 
+   $( ".campinho").click(function() {
+    if (campinho){
+    } else{
+      bilotoP= bilotoP+5.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      campinho=true;
+    }})
 
+   $( "#balanco").click(function() {
+    if (balanco){
+    } else{
+      bilotoP= bilotoP+2.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      balanco=true;
+    }})
+
+    $( "#gangorra").click(function() {
+    if (gangorra){
+    } else{
+      bilotoP= bilotoP+3.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      gangorra=true;
+    }})
+
+    $( "#tablet").click(function() {
+    if (tablet){
+    } else{
+      bilotoP= bilotoP+0;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      tablet=true;
+    }})
+
+     $( "#btn-enviar-parquinho").click(function() {
+      if (bilotoP==65.6) {
+        alert(" codigo para proximo desafio")
+      } else{
+        alert("brinque mais")
+      }
+     })
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
@@ -1992,3 +1990,142 @@ var tablet = false;
         luzBOL= false;
     })
   }
+
+// Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
+
+setInterval(movePlane, 20);
+var keys = {}
+
+$(document).keydown(function(e) {
+    keys[e.keyCode] = true;
+});
+
+$(document).keyup(function(e) {
+    delete keys[e.keyCode];
+});
+
+var qtd_moedas= 0;
+var DivA = document.querySelector("#icon_pers_move")
+var DivB = document.querySelector("#icon_bola")
+var DivC = document.querySelector("#icon_bola2")
+var DivD = document.querySelector("#icon_dog")
+var DivE = document.querySelector("#icon_vo")
+var DivF = document.querySelector("#icon_vaso")
+var DivG = document.querySelector("#icon_pirulito")
+var DivH = document.querySelector("#icon_biscoito")
+
+//Função de utilidade
+var rangeIntersect = function(min0, max0, min1, max1) {
+    return Math.max(min0, max0) >= Math.min(min1, max1) && Math.min(min0, max0) <= Math.max(min1, max1)
+}
+//Função para detectar se 2 BoundingClientRect's estão colidindo
+var rectIntersect = function (r0, r1) {
+    return rangeIntersect(r0.left, r0.right, r1.left, r1.right) && rangeIntersect(r0.top, r0.bottom, r1.top, r1.bottom)
+}
+
+
+
+function movePlane() {
+    for (var direction in keys) {
+        if (!keys.hasOwnProperty(direction)) continue;
+        if (direction == 37) {
+            $("#icon_pers_move").animate({left: "-=5"}, 0);                
+        }
+        if (direction == 38) {
+            $("#icon_pers_move").animate({top: "-=5"}, 0);  
+        }
+        if (direction == 39) {
+            $("#icon_pers_move").animate({left: "+=5"}, 0);  
+        }
+        if (direction == 40) {
+            $("#icon_pers_move").animate({top: "+=5"}, 0);  
+        }
+
+        var BBoxA = DivA.getBoundingClientRect()
+        var BBoxB = DivB.getBoundingClientRect()
+        var BBoxC = DivC.getBoundingClientRect()
+        var BBoxD = DivD.getBoundingClientRect()
+        var BBoxE = DivE.getBoundingClientRect()
+        var BBoxF = DivF.getBoundingClientRect()
+        var BBoxG = DivG.getBoundingClientRect()
+        var BBoxH = DivH.getBoundingClientRect()
+
+        if(rectIntersect(BBoxA, BBoxB)){
+          $('#icon_bola').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxC)){
+          $('#icon_bola2').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxD)){
+          $('#icon_dog').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxE)){
+          $('#icon_vo').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+         if(rectIntersect(BBoxA, BBoxF)){
+          $('#icon_vaso').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxG)){
+          $('#icon_pirulito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+         if(rectIntersect(BBoxA, BBoxH)){
+          $('#icon_biscoito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+
+
+    }
+}
+
+
+
+
+

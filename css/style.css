@@ -4684,3 +4684,128 @@ display: none;
   top: 72%;
   width: 8%;
 }
+
+/*Desafio Casa Sections-------------------------------------------------------------------*/
+
+#desafiocasa{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/desafios/economia/Planta Casa/fundo_economia1.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+#plantacasa{
+  position: absolute;
+  top: 13%;
+  left: 19%;
+  width: 69%;
+
+}
+
+#icon_bola{
+  position: absolute;
+  top: 72%;
+  left: 62%;
+  width: 5%;
+}
+
+#icon_bola2{
+  position: absolute;
+  top: 84%;
+  left: 75%;
+  width: 5%;
+}
+
+#icon_dog{
+  position: absolute;
+  top: 55%;
+  left: 77%;
+  width: 5%;
+}
+
+#icon_vo{
+  position: absolute;
+  top: 36%;
+  left: 60%;
+  width: 5%;
+}
+
+#icon_vaso{
+  position: absolute;
+  top: 23%;
+  left: 68%;
+  width: 5%;
+}
+
+#icon_pirulito{
+  position: absolute;
+  top: 31%;
+  left: 41%;
+  width: 5%;
+}
+
+#icon_biscoito{
+  position: absolute;
+  top: 68%;
+  left: 34%;
+  width: 5%;
+}
+
+#icon_pers_move{
+  position: absolute;
+  top: 72%;
+  left: 51%;
+  width: 5%;
+}
+
+#totalmoedas{
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  width: 12%;
+}
+
+#ic_moeda{
+  position: absolute;
+  top: 3.2%;
+  left: 2.1%;
+  width: 3.4%;
+}
+
+#qtd_moeda{
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  font-family: norwester;
+  font-size: 3.1vw;
+  width: 5%;
+ // background-color: red;
+  text-align: right;
+
+}
+
+#imgtexto_maismoedas{
+   position: absolute;
+  top: 2%;
+  left: 8%;
+  width: 58%;
+  display: none;
+
+}
+
+#txt_maismoedas{
+  position: absolute;
+  left: 14%;
+  top: 2%;
+  font-family: norwester;
+  font-size: 3.1vw;
+  width: 50%;
+ //background-color: red;
+  text-align: left;
+  color: #2BCB8D;
+  display: none;
+}
