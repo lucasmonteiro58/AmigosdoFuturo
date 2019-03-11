@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>as</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<pre id="csv"></pre>
+</body>
+<script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/content.js"></script>
+
+<script type="text/javascript">
+			function createCitiesCSV() {
+			    var csvHTML = "id,name,region\n"
+			    var count = 1
+			    for (var i=0; i < map_regions_texts.length; i++) {
+			      var region = map_regions_texts[i]
+			      var cities = region["cities"]
+
+			      for (var j=0; j < cities.length; j++) {
+			        csvHTML += count+',"'+cities[j]+'","'+region["name"]+'"\n'
+			        count += 1
+			      }
+			    }
+
+			    $("#csv").html(csvHTML)
+			    //alert(csvHTML)
+			  }
+			  function createBadgesCSV() {
+			    var csvHTML = "id,name,description,img\n"
+			    var count = 1
+
+			    var badges = ["sau", "laz", "eco", "mei", "gov", "edu", "ino"]
+			    for (var i=0; i < badges.length; i++) {
+			      var badge = badges_texts[badges[i]]
+
+			      csvHTML += count+',"'+badge["title"]+
+			      			'","'+badge["description"]+'","img/quiz/'+badge["id"]+'-badge-2x.png"\n'
+			      count += 1
+			    }
+
+			    $("#csv").html(csvHTML)
+			    //alert(csvHTML)
+			  }
+			  // createCitiesCSV()
+			  createBadgesCSV()
+		</script>
+
+</html>

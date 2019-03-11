@@ -1,0 +1,156 @@
+body{
+  background-color: #c0392b;
+  margin:0;
+  height:100%;
+  width:100%;
+}
+.new{
+  height: 50px;
+  width: 250px;
+  position:relative;
+  margin: -25px -125px;
+  left: 50%;
+  top: 50%;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background: #922e24;
+  box-shadow: 0px 2px 20px #A8372C;
+  font-size: 25px;
+  font-weight: bold;
+  color:#fff;
+  border-radius: 50px;
+  border: 0;
+}
+.new:hover{
+  background: #78261E;
+  transform: translateY(0.2px);
+
+}
+.new:active{
+  background: #521A14;
+  transform: translateY(0.5px);
+
+}
+table {
+    font-family: Rubik;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 1200px;
+    margin-left: 10%;
+}
+
+.titulo-post{
+  width: 50%;
+}
+
+td, th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+.btn1{
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  background:#755aff;
+  cursor: pointer;
+  height: 25px;
+  width: 90px;
+}
+.btn1:active {
+  color: #fff;
+  background: #342971;
+  transform: translateY(0.5px);
+}
+.btn2{
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  background:#39afde;
+  cursor: pointer;
+  height: 25px;
+  width: 90px;
+}
+.btn2:active {
+  color: #fff;
+  background: #2b6577;
+  transform: translateY(0.5px);
+}
+.btn3{
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  background:#c1584b;
+  cursor: pointer;
+  height: 25px;
+  width: 90px;
+}
+.btn3:active {
+  color: #fff;
+  background: #A73D30;
+  transform: translateY(0.5px);
+}
+.link{
+  text-decoration: none;
+  color: #717171;
+  font-size: 16px;
+}
+.link:hover{
+  color: #333;
+  text-decoration: none;
+}
+.post{
+ padding-top: 3%;
+ font-family: Rubik;
+ width: 100%;
+ height: 500px;
+ padding-bottom: 1%;
+ filter: alpha(opacity=50);
+ margin: auto;
+ box-sizing:border-box;
+ color: #717171;
+ background-image: url('http://thepatternlibrary.com/img/bc.png') ;
+ box-shadow: 0px 2px 2px #919C98;
+}
+.post img{
+  opacity: 0,7;
+
+}
+ .publicados, .rascunhos{
+  padding-top: 1%;
+  font-family: Rubik;
+  width: 100%;
+  padding-bottom: 3%;
+  margin: auto;
+  box-sizing:border-box;
+  color: #717171;
+  background-color: #fff;
+  box-shadow: 0px 3px 10px #521A14;
+}
+img{
+  float: left;
+  height: 50px;
+  margin-left: 30px;
+}
+h1{
+  margin-left: 10%;
+  font-family: Rubik;
+  color: #717171;
+  font-weight: 400;
+}
+h2{
+  margin-left: 10%;
+  font-family: Rubik;
+  color: #717171;
+  font-weight: 400;
+}
+p{
+  margin: 20px 0;
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  font-family: Rubik;
+}
