@@ -657,24 +657,20 @@
         revert: true,
         revertDuration: 600,
          cursor: "grabbing",
-          //snap: true,
-         scroll:false,
+         scroll: false,
          drag: function( event, ui ) {
            $('[data-toggle="popover"]').popover('hide'); },
         stop: function( event, ui ) {
           $(this).css('top','84%');
         }
     });
-
     var contFigA1= 0;
-
     function habilitarNextA1(){
        if (contFigA1==4){
         $("#A1nextPage").css('display', 'block');
         $("#A1nextPageDis").css('display', 'none');
        }
     }
-
     $("#A1figOK1").droppable({
         accept: "#A1fig1",
            over: function( event, ui){          
@@ -688,7 +684,6 @@
           habilitarNextA1();    
             }
       });
-
     $("#A1figOK2").droppable({
         accept: "#A1fig2",
            over: function( event, ui){          
@@ -702,7 +697,6 @@
           habilitarNextA1();      
             }
       });
-
     $("#A1figOK3").droppable({
         accept: "#A1fig3",
            over: function( event, ui){          
@@ -716,7 +710,6 @@
           habilitarNextA1();      
             }
       });
-
     $("#A1figOK4").droppable({
         accept: "#A1fig4",
            over: function( event, ui){          
@@ -728,31 +721,20 @@
           $('#A1fig4').css('display', 'none'); 
           contFigA1++;  
           habilitarNextA1();     
-            }
+          }
       });
-
     $( "#A1nextPage" ).click(function() {
       $('#A1Pg1').css('display', 'none');
       $('#A1Pg2').css('display', 'block');
-
     })
-
     $( "#A2prevPage" ).click(function() {
       $('#A1Pg1').css('display', 'block');
       $('#A1Pg2').css('display', 'none');
-
     })
-
     $( "#A2nextPage" ).click(function() {
-      
-
-
       alert("next desafio")
-
+      congratsNextLevel(["full","empty", "empty"], false)
     })
-
-
-
     $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
         revert: true,
         revertDuration: 600,
@@ -765,18 +747,13 @@
           $(this).css('top','84%');
         }
     });
-
-
     var contFigA2= 0;
-
     function habilitarNextA2(){
        if (contFigA2==4){
         $("#A2nextPage").css('display', 'block');
-       $("#A2nextPageDis").css('display', 'none');
-       
+       $("#A2nextPageDis").css('display', 'none'); 
        }
     }
-
     $("#A2figOK1").droppable({
         accept: "#A2fig1",
            over: function( event, ui){          
@@ -790,7 +767,6 @@
           habilitarNextA2();    
             }
       });
-
     $("#A2figOK2").droppable({
         accept: "#A2fig2",
            over: function( event, ui){          
@@ -804,7 +780,6 @@
           habilitarNextA2();      
             }
       });
-
     $("#A2figOK3").droppable({
         accept: "#A2fig3",
            over: function( event, ui){          
@@ -818,7 +793,6 @@
           habilitarNextA2();      
             }
       });
-
     $("#A2figOK4").droppable({
         accept: "#A2fig4",
            over: function( event, ui){          
@@ -832,27 +806,30 @@
           habilitarNextA2();     
             }
       });
-      
     }
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
+  function laz_1() {
+    setupLevel()
 
-  $( ".checkClick" ).click(function() {
+    $( ".checkClick" ).click(function() {
 
-    var idCheckDIV= $(this).attr('id');
-      var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
+      var idCheckDIV= $(this).attr('id');
+        var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
 
-      if ($(idCheckOK).css('display')=='none'){
-        $(idCheckOK).css('display', 'block');
-      } else {
-        $(idCheckOK).css('display', 'none');
-      }      
+        if ($(idCheckOK).css('display')=='none'){
+          $(idCheckOK).css('display', 'block');
+        } else {
+          $(idCheckOK).css('display', 'none');
+        }      
 
-  })
+    })
 
-  $( "#btnAlbum2" ).click(function() {
-    alert("Next Desafio")
-  })
+    $( "#btnAlbum2" ).click(function() {
+      alert("Next Desafio")
+      congratsNextLevel(["full", "full", "empty"], false)
+    })
+  }
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
@@ -1141,74 +1118,75 @@
   }
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
+  function sau_1() {
+    setupLevel()
 
-var bilotoP = 49.4;
-var escorregador = false;
-var campinho = false;
-var balanco = false;
-var gangorra = false;
-var tablet = false;
+    var bilotoP = 49.4;
+    var escorregador = false;
+    var campinho = false;
+    var balanco = false;
+    var gangorra = false;
+    var tablet = false;
 
-
- $( "#escorregador").click(function() {
-  if (escorregador){
-  } else{
-    bilotoP= bilotoP+4.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    escorregador=true;
-  }})
-
- $( ".campinho").click(function() {
-  if (campinho){
-  } else{
-    bilotoP= bilotoP+5.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    campinho=true;
-  }})
-
- $( "#balanco").click(function() {
-  if (balanco){
-  } else{
-    bilotoP= bilotoP+2.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    balanco=true;
-  }})
-
-  $( "#gangorra").click(function() {
-  if (gangorra){
-  } else{
-    bilotoP= bilotoP+3.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    gangorra=true;
-  }})
-
-  $( "#tablet").click(function() {
-  if (tablet){
-  } else{
-    bilotoP= bilotoP+0;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    tablet=true;
-  }})
-
-   $( "#btn-enviar-parquinho").click(function() {
-    if (bilotoP==65.6) {
-      alert(" codigo para proximo desafio")
+   $( "#escorregador").click(function() {
+    if (escorregador){
     } else{
-      alert("brinque mais")
-    }
-   })
+      bilotoP= bilotoP+4.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      escorregador=true;
+    }})
 
+   $( ".campinho").click(function() {
+    if (campinho){
+    } else{
+      bilotoP= bilotoP+5.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      campinho=true;
+    }})
 
+   $( "#balanco").click(function() {
+    if (balanco){
+    } else{
+      bilotoP= bilotoP+2.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      balanco=true;
+    }})
+
+    $( "#gangorra").click(function() {
+    if (gangorra){
+    } else{
+      bilotoP= bilotoP+3.55;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      gangorra=true;
+    }})
+
+    $( "#tablet").click(function() {
+    if (tablet){
+    } else{
+      bilotoP= bilotoP+0;
+      $( "#bilotoP" ).animate({
+        left: bilotoP+"%"                   
+       })
+      tablet=true;
+    }})
+
+     $( "#btn-enviar-parquinho").click(function() {
+      if (bilotoP==65.6) {
+        alert(" codigo para proximo desafio")
+        congratsNextLevel(["full","full","full"], true)
+      } else{
+        alert("brinque mais")
+      }
+     })
+  }
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
@@ -1991,4 +1969,22 @@ var tablet = false;
         contCoisasEscolaS--;
         luzBOL= false;
     })
+  }
+
+// Desafio eco_0 Moedinhas -------------------------------------------------------------------------------------------------------------------
+  function eco_0() {
+    setupLevel()
+
+    alert("Este jogo não foi terminado ainda.")
+    congratsNextLevel(["full", "half", "empty"], false)
+    //Escrever codigo do jogo aqui e apagar as 2 linhas anteriores
+  }
+
+// Desafio eco_1 Maquina de bolinhas -------------------------------------------------------------------------------------------------------------------
+  function eco_1() {
+    setupLevel()
+
+    alert("Este jogo não foi terminado ainda.")
+    congratsNextLevel(["full", "full", "full"], true)
+    //Escrever codigo do jogo aqui e apagar as 2 linhas anteriores
   }
