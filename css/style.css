@@ -4809,3 +4809,240 @@ display: none;
   color: #2BCB8D;
   display: none;
 }
+
+#divplantacasa{
+  position: absolute;
+  top: 25%;
+  left: 27.5%;
+  width: 53%;
+ //background-color: red;
+  height: 62%;
+
+
+}
+
+/*Desafio Monstrnhos Sections-------------------------------------------------------------------*/
+
+#desafiomonstrinhos{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  padding-top: 56.25%;
+  background-image: url("../img/desafios/economia/Monstrinhos/cenariomonstrinhos_economia.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+  button.addMoedaEdu {background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press2.png);}
+  button.addMoedaEdu:active{background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press.png);}
+
+  button.addMoedaSau {background-image: url(../img/desafios/economia/Monstrinhos/bt_addmoeda_saude.png);}
+  button.addMoedaSau:active{background-image: url(../img/desafios/economia/Monstrinhos/bt_saude_press.png);}
+
+  button.addMoedaLaz {background-image: url(../img/desafios/economia/Monstrinhos/bt_addmoeda_lazer.png);}
+  button.addMoedaLaz:active{background-image: url(../img/desafios/economia/Monstrinhos/bt_lazer_press.png);}
+
+#btn_addMoedaEdu{
+  position: absolute;
+  top: 14%;
+  left: 20%;
+  transform: scale(2);
+}
+
+#btn_addMoedaEdu:hover{
+   transform: scale(2.1);
+}
+
+#btn_addMoedaSau{
+  position: absolute;
+    top: 14%;
+  left: 48.6%;
+  transform: scale(2);
+   
+}
+
+#btn_addMoedaSau:hover{
+  transform: scale(2.1);
+
+}
+
+#btn_addMoedaLaz{
+  position: absolute;
+  top: 14%;
+  left: 77%;
+  transform: scale(2);
+
+}
+
+#btn_addMoedaLaz:hover{
+  transform: scale(2.1);
+
+}
+
+#totalmoedasM{
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  width: 12%;
+}
+
+#ic_moedaM{
+  position: absolute;
+  top: 3.2%;
+  left: 2.1%;
+  width: 3.4%;
+}
+
+#qtd_moedaM{
+  position: absolute;
+  left: 5%;
+  top: 2%;
+  font-family: norwester;
+  font-size: 3.1vw;
+  width: 5%;
+ // background-color: red;
+  text-align: right;
+
+}
+
+#div_monstrinhos{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+
+#M_preto{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.5;
+  top: 0%;
+  left: 0%;
+}
+
+#bg_monstrinhos{
+  position: absolute;
+  left: 15%;
+  top: 13%;
+  width: 68%;
+
+
+}
+
+#img_monstrinho{
+  position: absolute;
+  top: 25%;
+  left: 22%;
+  width: 25%;
+  //background-color: red;
+}
+
+#nome_monstrinho{
+  position: absolute;
+  top: 27%;
+  left: 49%;
+  font-size: 4vw;
+  font-family: bungee;
+  color: #FF3939;
+  width: 28%;
+  //background-color: green;
+  text-align: center;
+
+}
+
+#desc_monstrinho{
+  position: absolute;
+  top: 42%;
+  left: 48%;
+   font-family: exo-medium;
+  font-size: 2vw;
+  width: 30%;
+   text-align: center;
+  
+}
+
+#guardar_monstrinhos{
+  position: absolute;
+  top: 63%;
+  left: 55%;
+  transform: scale(1.4);
+}
+
+#guardar_monstrinhos:hover{
+  transform: scale(1.5);
+}
+
+.div_monstrinhos{
+  display: none;
+}
+
+#bolaEduc1{
+  position: absolute;
+  top: 76%;
+  left: 21.6%;
+  width: 3.9%;
+}
+
+#bolaEduc2{
+  position: absolute;
+   top: 76%;
+  left: 21.6%;
+  width: 3.9%;
+}
+
+#bolaEduc3{
+  position: absolute;
+   top: 76%;
+  left: 21.6%;
+  width: 3.9%;
+}
+
+#bolaSau1{
+  position: absolute;
+  top: 76%;
+  left: 50.2%;
+  width: 3.9%;
+}
+
+#bolaSau2{
+  position: absolute;
+   top: 76%;
+  left: 50.2%;
+  width: 3.9%;
+}
+
+#bolaSau3{
+  position: absolute;
+   top: 76%;
+  left: 50.2%;
+  width: 3.9%;
+}
+
+#bolaLaz1{
+  position: absolute;
+  top: 76%;
+  left: 78.7%;
+  width: 3.9%;
+}
+
+#bolaLaz2{
+  position: absolute;
+  top: 76%;
+  left: 78.7%;
+  width: 3.9%;
+}
+
+#bolaLaz3{
+  position: absolute;
+  top: 76%;
+  left: 78.7%;
+  width: 3.9%;
+}
+
+.all_bolinhas{
+  display: none;
+}
