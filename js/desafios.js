@@ -2139,56 +2139,104 @@
 var cont_bola_edu=1;
 var cont_bola_sau=1;
 var cont_bola_laz=1;
+var qntMoedasM= 30; //pegar da variavel da fase anterior
 
-$("#btn_addMoedaEdu").click(function() {
-  if(cont_bola_edu==1){
-    $('#bolaEduc3').css('display', 'none');
-    $('#bolaEduc1').css('display', 'block');
-    cont_bola_edu=2;
-  } else if(cont_bola_edu==2){
-    $('#bolaEduc1').css('display', 'none');
-    $('#bolaEduc2').css('display', 'block');
-    cont_bola_edu=3
-  } else if(cont_bola_edu==3){
-    $('#bolaEduc2').css('display', 'none');
-    $('#bolaEduc3').css('display', 'block');
-     cont_bola_edu=1;
+
+var addMoedaEdu=true;
+var addMoedaSau=true;
+var addMoedaLaz=true;
+
+
+function retirarAddMoeda(){
+addMoedaEdu=false;
+addMoedaSau=false;
+addMoedaLaz=false;
+}
+
+function adicionarAddMoeda(){
+addMoedaEdu=true;
+addMoedaSau=true;
+addMoedaLaz=true;
+}
+
+$(".addMoedaEdu1").click(function() {
+if (addMoedaEdu){  
+    if(qntMoedasM==0){
+
+    } else {
+        qntMoedasM= qntMoedasM-10;
+        $('#qtd_moedaM').text(qntMoedasM);
+        retirarAddMoeda();
+        if(cont_bola_edu==1){
+          $('#bolaEduc3').css('display', 'none');
+          $('#bolaEduc1').css('display', 'block');
+          cont_bola_edu=2;
+        } else if(cont_bola_edu==2){
+          $('#bolaEduc1').css('display', 'none');
+          $('#bolaEduc2').css('display', 'block');
+          cont_bola_edu=3
+        } else if(cont_bola_edu==3){
+          $('#bolaEduc2').css('display', 'none');
+          $('#bolaEduc3').css('display', 'block');
+           cont_bola_edu=1;
+        }
+    }
   }
 })
 
-$("#btn_addMoedaSau").click(function() {
-  if(cont_bola_sau==1){
-    $('#bolaSau3').css('display', 'none');
-    $('#bolaSau1').css('display', 'block');
-    cont_bola_sau=2;
-  } else if(cont_bola_sau==2){
-    $('#bolaSau1').css('display', 'none');
-    $('#bolaSau2').css('display', 'block');
-    cont_bola_sau=3
-  } else if(cont_bola_sau==3){
-    $('#bolaSau2').css('display', 'none');
-    $('#bolaSau3').css('display', 'block');
-     cont_bola_sau=1;
+$(".addMoedaSau1").click(function() { 
+if(addMoedaSau){  
+     if(qntMoedasM==0){
+
+    } else {
+      qntMoedasM= qntMoedasM-10;
+      $('#qtd_moedaM').text(qntMoedasM);
+      retirarAddMoeda();
+      if(cont_bola_sau==1){
+        $('#bolaSau3').css('display', 'none');
+        $('#bolaSau1').css('display', 'block');
+        cont_bola_sau=2;
+      } else if(cont_bola_sau==2){
+        $('#bolaSau1').css('display', 'none');
+        $('#bolaSau2').css('display', 'block');
+        cont_bola_sau=3
+      } else if(cont_bola_sau==3){
+        $('#bolaSau2').css('display', 'none');
+        $('#bolaSau3').css('display', 'block');
+         cont_bola_sau=1;
+      }
+    }
   }
 })
 
-$("#btn_addMoedaLaz").click(function() {
-  if(cont_bola_laz==1){
-    $('#bolaLaz3').css('display', 'none');
-    $('#bolaLaz1').css('display', 'block');
-    cont_bola_laz=2;
-  } else if(cont_bola_laz==2){
-    $('#bolaLaz1').css('display', 'none');
-    $('#bolaLaz2').css('display', 'block');
-    cont_bola_laz=3
-  } else if(cont_bola_laz==3){
-    $('#bolaLaz2').css('display', 'none');
-    $('#bolaLaz3').css('display', 'block');
-     cont_bola_laz=1;
+
+$(".addMoedaLaz1").click(function() {   
+  if(addMoedaLaz){
+     if(qntMoedasM==0){
+
+    } else {
+      qntMoedasM= qntMoedasM-10;
+      $('#qtd_moedaM').text(qntMoedasM);
+      retirarAddMoeda();
+      if(cont_bola_laz==1){
+        $('#bolaLaz3').css('display', 'none');
+        $('#bolaLaz1').css('display', 'block');
+        cont_bola_laz=2;
+      } else if(cont_bola_laz==2){
+        $('#bolaLaz1').css('display', 'none');
+        $('#bolaLaz2').css('display', 'block');
+        cont_bola_laz=3
+      } else if(cont_bola_laz==3){
+        $('#bolaLaz2').css('display', 'none');
+        $('#bolaLaz3').css('display', 'block');
+         cont_bola_laz=1;
+      }
+    }
   }
 })
 
 $("#bolaEduc1").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/ciencito_educ.png');
   $('#nome_monstrinho').text("CIENCITO");
@@ -2198,6 +2246,7 @@ $("#bolaEduc1").click(function() {
 })
 
 $("#bolaEduc2").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/mapamax_educ.png');
   $('#nome_monstrinho').text("MAPAMAX");
@@ -2207,6 +2256,7 @@ $("#bolaEduc2").click(function() {
 })
 
 $("#bolaEduc3").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/livrex_educ.png');
   $('#nome_monstrinho').text("LIVREX");
@@ -2216,6 +2266,7 @@ $("#bolaEduc3").click(function() {
 })
 
 $("#bolaSau1").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/remeldino_saude.png');
   $('#nome_monstrinho').text("REMELDINO");
@@ -2225,6 +2276,7 @@ $("#bolaSau1").click(function() {
 })
 
 $("#bolaSau2").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/higiento_saude.png');
   $('#nome_monstrinho').text("HIGIENTO");
@@ -2234,6 +2286,7 @@ $("#bolaSau2").click(function() {
 })
 
 $("#bolaSau3").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/alimeniro_saude.png');
   $('#nome_monstrinho').text("ALIMENIRO");
@@ -2243,6 +2296,7 @@ $("#bolaSau3").click(function() {
 })
 
 $("#bolaLaz1").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/aventurim_lazer.png');
   $('#nome_monstrinho').text("AVENTURIM");
@@ -2252,6 +2306,7 @@ $("#bolaLaz1").click(function() {
 })
 
 $("#bolaLaz2").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/esportanto_lazer.png');
   $('#nome_monstrinho').text("ESPORTANTO");
@@ -2261,10 +2316,20 @@ $("#bolaLaz2").click(function() {
 })
 
 $("#bolaLaz3").click(function() {
+  adicionarAddMoeda();
   $(this).css('display', 'none');  
   $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/dancitar_lazer.png');
   $('#nome_monstrinho').text("DANCITAR");
   $('#nome_monstrinho').css('color', '#E8AD2A');
   $('#desc_monstrinho').text("Te faz um expert em qualquer tipo de dança.");
   $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#guardar_monstrinhos").click(function() {
+  if(qntMoedasM==0){
+    $('.div_monstrinhos').css('display', 'none');
+    alert("*CODIGO PARA PROXIMO DESAFIO");
+  } else{
+  $('.div_monstrinhos').css('display', 'none');
+}
 })
