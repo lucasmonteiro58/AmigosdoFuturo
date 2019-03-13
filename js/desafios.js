@@ -1079,6 +1079,8 @@
     var contIndex=1;
     var bilotoLeft = 49.4;
 
+    var contAlimPrato=0;
+
     $( ".alimentosSaudaveis , .alimentosNaoSaudaveis, .alimentosSaudaveisP , .alimentosNaoSaudaveisP ").draggable({
           revert: true,
           revertDuration: 600,
@@ -1106,6 +1108,7 @@
                     $(alimentoNoPrato2).css('display', 'block');
                     $(ui.draggable).css('display', 'none');
                     AndarBilotoRemove(alimentoNoPrato2);
+                    contAlimPrato--;
 
               } else{
                                             
@@ -1119,31 +1122,36 @@
             },
             out: function( event, ui){          
             },
-            drop: function(event,ui) { 
+            drop: function(event,ui) {
+            if (contAlimPrato==5) { 
+              alert("so 5 alimentos");
+            } else{
               if($(ui.draggable).hasClass('alimentosSaudaveis') || $(ui.draggable).hasClass('alimentosNaoSaudaveis')){
                 
                     var alimentoNoPrato= '#'+$(ui.draggable).attr('id')+'OK';
                     $(ui.draggable).css('display', 'none');
                     $(alimentoNoPrato).css('display', 'block');                   
                      AndarBilotoAdd(alimentoNoPrato);
+                     contAlimPrato++;
                             
                   
               } 
             }
+          }
           });
 
     function AndarBilotoAdd(alimento){
       if(alimento=="#P-alfaceOK" || alimento=="#P-bananaOK" || alimento=="#P-carneOK" ){
-        bilotoLeft = bilotoLeft+2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
-      }
-      if(alimento=="#P-arrozOK"){
-        bilotoLeft = bilotoLeft+2.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
-      }
-      if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
         bilotoLeft = bilotoLeft+3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
       }
+      if(alimento=="#P-arrozOK"){
+        bilotoLeft = bilotoLeft+2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
+        bilotoLeft = bilotoLeft+3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
       if (alimento=="#P-bombomOK" || alimento=="#P-pirulitoOK" ) {
-         bilotoLeft = bilotoLeft-1.5; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+         bilotoLeft = bilotoLeft-2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
     }
@@ -1151,26 +1159,31 @@
 
     function AndarBilotoRemove(alimento){
       if(alimento=="#P-alface" || alimento=="#P-banana" || alimento=="#P-carne" ){
-        bilotoLeft = bilotoLeft-2.5; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
-      }
-      if(alimento=="#P-arroz"){
-        bilotoLeft = bilotoLeft-2.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
-      }
-      if(alimento=="#P-feijao" || alimento=="#P-cenoura"){
         bilotoLeft = bilotoLeft-3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
       }
+      if(alimento=="#P-arroz"){
+        bilotoLeft = bilotoLeft-2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-feijao" || alimento=="#P-cenoura"){
+        bilotoLeft = bilotoLeft-3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
       if (alimento=="#P-bombom" || alimento=="#P-pirulito" ) {
-         bilotoLeft = bilotoLeft+1.5; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+         bilotoLeft = bilotoLeft+2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
     }
 
     $( "#btn-enviar-prato").click(function() {
-      if (bilotoLeft<=55.7){
-        alert("Seu prato não está saúdavel ainda")
+
+      if (contAlimPrato==5) {
+                  if (bilotoLeft<=55.7){
+                    alert("Seu prato não está saúdavel ainda")
+                  } else{
+                    alert("Prato saúdavel! *enviar*")
+                    congratsNextLevel(['full', 'half', 'empty'], false)
+                  }
       } else{
-        alert("Prato saúdavel! *enviar*")
-        congratsNextLevel(['full', 'half', 'empty'], false)
+        alert("adicione 5 aliment No Prato");
       }
     })
   }

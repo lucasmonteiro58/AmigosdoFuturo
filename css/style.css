@@ -2290,6 +2290,22 @@
 
 }
 
+.alimentosSaudaveis:hover{
+  transform: scale(1.1);
+}
+
+.alimentosNaoSaudaveis:hover{
+  transform: scale(1.1);
+}
+
+.alimentosSaudaveisP:hover{
+  transform: scale(1.1);
+}
+
+.alimentosNaoSaudaveisP:hover{
+  transform: scale(1.1);
+}
+
 #imgPrato{
   position: absolute;
   bottom: 23%;
