@@ -1385,6 +1385,9 @@
 
 }
 
+.fontlixos:hover{
+  transform: scale(1.1);
+}
  .popover-title {
       font-family: exo-bold;
       font-size: 1.7vw;
