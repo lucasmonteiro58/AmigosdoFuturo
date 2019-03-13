@@ -1150,6 +1150,10 @@
 
 }
 
+.pecasnamesa:hover{
+  transform: scale(1.1);
+}
+
 #backgroundmapa{
   position: absolute;
   top: 0%;
@@ -2344,6 +2348,80 @@
   top: 42%;
   right: 34%;  
   width: 5%;
+}
+
+
+#P-alfaceOK{
+  position: absolute;
+  top: 44%;
+  left: 38%;
+  width: 10%;
+}
+
+#P-arrozOK{
+  position: absolute;
+  top: 55%;
+  left: 40%;
+  width: 12%;
+}
+
+#P-bananaOK{
+  position: absolute;
+  top: 55%;
+  left: 50%; 
+  width: 11%;
+}
+
+#P-carneOK{
+  position: absolute;
+  top: 59%;
+  left: 50%;
+  width: 12%;
+}
+
+#P-cenouraOK{
+  position: absolute;
+   top: 54%;
+  left: 50%;
+  width: 14%;
+}
+
+#P-feijaoOK{
+  position: absolute;
+  top: 62%;
+  left: 42%;  
+  width: 14%;
+}
+
+#P-bombomOK{
+  position: absolute;
+  top: 62%;
+  left: 37%;  
+  width: 5%;
+}
+
+#P-pirulitoOK{
+  position: absolute;
+   top: 59%;
+  left: 37%; 
+  width: 5%;
+}
+
+.alimentosSaudaveisP{
+display: none;
+}
+
+.alimentosNaoSaudaveisP{
+  display: none;
+}
+
+#todoespacoP{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  //background-color: red;
+  top: 0%;
+  left: 0%;
 }
 
 #barraSaudavel{
