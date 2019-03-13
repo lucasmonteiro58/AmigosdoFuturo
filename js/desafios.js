@@ -2136,7 +2136,135 @@
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
 
+var cont_bola_edu=1;
+var cont_bola_sau=1;
+var cont_bola_laz=1;
 
+$("#btn_addMoedaEdu").click(function() {
+  if(cont_bola_edu==1){
+    $('#bolaEduc3').css('display', 'none');
+    $('#bolaEduc1').css('display', 'block');
+    cont_bola_edu=2;
+  } else if(cont_bola_edu==2){
+    $('#bolaEduc1').css('display', 'none');
+    $('#bolaEduc2').css('display', 'block');
+    cont_bola_edu=3
+  } else if(cont_bola_edu==3){
+    $('#bolaEduc2').css('display', 'none');
+    $('#bolaEduc3').css('display', 'block');
+     cont_bola_edu=1;
+  }
+})
 
+$("#btn_addMoedaSau").click(function() {
+  if(cont_bola_sau==1){
+    $('#bolaSau3').css('display', 'none');
+    $('#bolaSau1').css('display', 'block');
+    cont_bola_sau=2;
+  } else if(cont_bola_sau==2){
+    $('#bolaSau1').css('display', 'none');
+    $('#bolaSau2').css('display', 'block');
+    cont_bola_sau=3
+  } else if(cont_bola_sau==3){
+    $('#bolaSau2').css('display', 'none');
+    $('#bolaSau3').css('display', 'block');
+     cont_bola_sau=1;
+  }
+})
 
+$("#btn_addMoedaLaz").click(function() {
+  if(cont_bola_laz==1){
+    $('#bolaLaz3').css('display', 'none');
+    $('#bolaLaz1').css('display', 'block');
+    cont_bola_laz=2;
+  } else if(cont_bola_laz==2){
+    $('#bolaLaz1').css('display', 'none');
+    $('#bolaLaz2').css('display', 'block');
+    cont_bola_laz=3
+  } else if(cont_bola_laz==3){
+    $('#bolaLaz2').css('display', 'none');
+    $('#bolaLaz3').css('display', 'block');
+     cont_bola_laz=1;
+  }
+})
 
+$("#bolaEduc1").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/ciencito_educ.png');
+  $('#nome_monstrinho').text("CIENCITO");
+  $('#nome_monstrinho').css('color', ' #376DC4');
+  $('#desc_monstrinho').text("Te dá o poder de fazer invenções incríveis.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaEduc2").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/mapamax_educ.png');
+  $('#nome_monstrinho').text("MAPAMAX");
+  $('#nome_monstrinho').css('color', ' #376DC4');
+  $('#desc_monstrinho').text("Coloca na sua cabeça o nome de todos os lugares do mundo.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaEduc3").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/livrex_educ.png');
+  $('#nome_monstrinho').text("LIVREX");
+  $('#nome_monstrinho').css('color', ' #376DC4');
+  $('#desc_monstrinho').text("Te dar o poder de devorar vários livros em pouco tempo.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaSau1").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/remeldino_saude.png');
+  $('#nome_monstrinho').text("REMELDINO");
+  $('#nome_monstrinho').css('color', '#E54141');
+  $('#desc_monstrinho').text("Te cura sempre que ficar doente.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaSau2").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/higiento_saude.png');
+  $('#nome_monstrinho').text("HIGIENTO");
+  $('#nome_monstrinho').css('color', '#E54141');
+  $('#desc_monstrinho').text("Te deixa sempre limpo e longe de bichinhos.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaSau3").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/alimeniro_saude.png');
+  $('#nome_monstrinho').text("ALIMENIRO");
+  $('#nome_monstrinho').css('color', '#E54141');
+  $('#desc_monstrinho').text("Transforma toda a sua comida em coisas saudáveis.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaLaz1").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/aventurim_lazer.png');
+  $('#nome_monstrinho').text("AVENTURIM");
+  $('#nome_monstrinho').css('color', '#E8AD2A');
+  $('#desc_monstrinho').text("Te transporta para dentro dos filmes que você quiser.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaLaz2").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/esportanto_lazer.png');
+  $('#nome_monstrinho').text("ESPORTANTO");
+  $('#nome_monstrinho').css('color', '#E8AD2A');
+  $('#desc_monstrinho').text("Te deixa craque em qualquer esporte.");
+  $('.div_monstrinhos').css('display', 'block');
+})
+
+$("#bolaLaz3").click(function() {
+  $(this).css('display', 'none');  
+  $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/dancitar_lazer.png');
+  $('#nome_monstrinho').text("DANCITAR");
+  $('#nome_monstrinho').css('color', '#E8AD2A');
+  $('#desc_monstrinho').text("Te faz um expert em qualquer tipo de dança.");
+  $('.div_monstrinhos').css('display', 'block');
+})
