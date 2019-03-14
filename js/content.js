@@ -342,11 +342,17 @@ var helps_texts = {
   "edu_0":{"title": "Super escola!",
            "text" : "Adicione novas coisas na sua escola e veja o que acontece."
         },
-  "edu_1":{"title": "?",
-           "text" : "?"
+  "edu_1":{"title": "Dentro da escola!",
+           "text" : "Agora vamos adicionar mais 5 coisas legais dentro da escola."
         },
-  "edu_2":{"title": "?",
-           "text" : "?"
+  "edu_2":{"title": "Minha sala de aula!",
+           "text" : "Por último, adicione 5 coisas na sala de aula."
+        },
+  "eco_0":{"title": "Cofrinho cheio! Quanto dinheiro você consegue juntar?",
+           "text" : "Pegue as moedas verdes e fuja das vermelhas. Use as setas do teclado."
+        },
+  "eco_1":{"title": "Coleção de bolinhas!",
+           "text" : "Veja o que você ganha se colocar moedas nas máquinas de bolinhas."
         }
 }
 
@@ -389,7 +395,12 @@ var congrats_texts = {
           },
   "edu_1":{"text" : "Incrível! Eu queria estudar numa escola dessas!"
           },
-  "edu_2":{"text" : "?"
+  "edu_2":{"text" : "Agora sim está tudo certo para os alunos aprenderem melhor. Parabéns."
+          },
+  "eco_0":{"text" : "Parabéns! Você juntou seu próprio dinheiro!"
+          },
+  "eco_1":{"text" : "Maravilha! Você <a>investiu/a> seu dinheiro em coisas muito legais.",
+           "tip"  : "Investir: ..."
           }
 }
 

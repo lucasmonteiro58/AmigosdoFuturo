@@ -836,23 +836,27 @@
     }
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
+  function laz_1() {
+    setupLevel()
 
-  $( ".checkClick" ).click(function() {
+    $( ".checkClick" ).click(function() {
 
-    var idCheckDIV= $(this).attr('id');
-      var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
+      var idCheckDIV= $(this).attr('id');
+        var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
 
-      if ($(idCheckOK).css('display')=='none'){
-        $(idCheckOK).css('display', 'block');
-      } else {
-        $(idCheckOK).css('display', 'none');
-      }      
+        if ($(idCheckOK).css('display')=='none'){
+          $(idCheckOK).css('display', 'block');
+        } else {
+          $(idCheckOK).css('display', 'none');
+        }      
 
-  })
+    })
 
-  $( "#btnAlbum2" ).click(function() {
-    alert("Next Desafio")
-  })
+    $( "#btnAlbum2" ).click(function() {
+      alert("Next Desafio")
+      congratsNextLevel(["full","full", "empty"], false)
+    })
+  }
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
@@ -1189,72 +1193,76 @@
   }
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
+  function sau_1() {
+    setupLevel()
 
-  var bilotoP = 49.4;
-  var escorregador = false;
-  var campinho = false;
-  var balanco = false;
-  var gangorra = false;
-  var tablet = false;
+    var bilotoP = 49.4;
+    var escorregador = false;
+    var campinho = false;
+    var balanco = false;
+    var gangorra = false;
+    var tablet = false;
 
 
-   $( "#escorregador").click(function() {
-    if (escorregador){
-    } else{
-      bilotoP= bilotoP+4.55;
-      $( "#bilotoP" ).animate({
-        left: bilotoP+"%"                   
-       })
-      escorregador=true;
-    }})
-
-   $( ".campinho").click(function() {
-    if (campinho){
-    } else{
-      bilotoP= bilotoP+5.55;
-      $( "#bilotoP" ).animate({
-        left: bilotoP+"%"                   
-       })
-      campinho=true;
-    }})
-
-   $( "#balanco").click(function() {
-    if (balanco){
-    } else{
-      bilotoP= bilotoP+2.55;
-      $( "#bilotoP" ).animate({
-        left: bilotoP+"%"                   
-       })
-      balanco=true;
-    }})
-
-    $( "#gangorra").click(function() {
-    if (gangorra){
-    } else{
-      bilotoP= bilotoP+3.55;
-      $( "#bilotoP" ).animate({
-        left: bilotoP+"%"                   
-       })
-      gangorra=true;
-    }})
-
-    $( "#tablet").click(function() {
-    if (tablet){
-    } else{
-      bilotoP= bilotoP+0;
-      $( "#bilotoP" ).animate({
-        left: bilotoP+"%"                   
-       })
-      tablet=true;
-    }})
-
-     $( "#btn-enviar-parquinho").click(function() {
-      if (bilotoP==65.6) {
-        alert(" codigo para proximo desafio")
+     $( "#escorregador").click(function() {
+      if (escorregador){
       } else{
-        alert("brinque mais")
-      }
-     })
+        bilotoP= bilotoP+4.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        escorregador=true;
+      }})
+
+     $( ".campinho").click(function() {
+      if (campinho){
+      } else{
+        bilotoP= bilotoP+5.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        campinho=true;
+      }})
+
+     $( "#balanco").click(function() {
+      if (balanco){
+      } else{
+        bilotoP= bilotoP+2.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        balanco=true;
+      }})
+
+      $( "#gangorra").click(function() {
+      if (gangorra){
+      } else{
+        bilotoP= bilotoP+3.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        gangorra=true;
+      }})
+
+      $( "#tablet").click(function() {
+      if (tablet){
+      } else{
+        bilotoP= bilotoP+0;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        tablet=true;
+      }})
+
+       $( "#btn-enviar-parquinho").click(function() {
+        if (bilotoP==65.6) {
+          alert(" codigo para proximo desafio")
+          congratsNextLevel(["full", "full", "full"], true)
+        } else{
+          alert("brinque mais")
+        }
+       })
+  }
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
@@ -2040,344 +2048,315 @@
   }
 
 // Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
+  function eco_0() {
+    setupLevel()
+  
+    var qtd_moedas= 0;
+    var DivA = document.querySelector("#icon_pers_move")
+    var DivB = document.querySelector("#icon_bola")
+    var DivC = document.querySelector("#icon_bola2")
+    var DivD = document.querySelector("#icon_dog")
+    var DivE = document.querySelector("#icon_vo")
+    var DivF = document.querySelector("#icon_vaso")
+    var DivG = document.querySelector("#icon_pirulito")
+    var DivH = document.querySelector("#icon_biscoito")
+    var DivI = document.querySelector('#divplantacasa')
 
-  var qtd_moedas= 0;
-  var DivA = document.querySelector("#icon_pers_move")
-  var DivB = document.querySelector("#icon_bola")
-  var DivC = document.querySelector("#icon_bola2")
-  var DivD = document.querySelector("#icon_dog")
-  var DivE = document.querySelector("#icon_vo")
-  var DivF = document.querySelector("#icon_vaso")
-  var DivG = document.querySelector("#icon_pirulito")
-  var DivH = document.querySelector("#icon_biscoito")
-  var DivI = document.querySelector('#divplantacasa')
+    setInterval(movePlane, 20);
+    var keys = {}
 
-  setInterval(movePlane, 20);
-  var keys = {}
+    $(document).keydown(function(e) {
+        keys[e.keyCode] = true;  
+    });
 
-  $(document).keydown(function(e) {
-         
-           
-              keys[e.keyCode] = true;
-          
-  });
+    $(document).keyup(function(e) {
+        delete keys[e.keyCode];
+    });
 
-  $(document).keyup(function(e) {
-      delete keys[e.keyCode];
-  });
+    //Função de utilidade
+    var rangeIntersect = function(min0, max0, min1, max1) {
+        return Math.max(min0, max0) >= Math.min(min1, max1) && Math.min(min0, max0) <= Math.max(min1, max1)
+    }
+    //Função para detectar se 2 BoundingClientRect's estão colidindo
+    var rectIntersect = function (r0, r1) {
+        return rangeIntersect(r0.left, r0.right, r1.left, r1.right) && rangeIntersect(r0.top, r0.bottom, r1.top, r1.bottom)
+    }
 
+    function movePlane() {
+        for (var direction in keys) {
+            if (!keys.hasOwnProperty(direction)) continue;
+            if (direction == 37) {
+                $("#icon_pers_move").animate({left: "-=5"}, 0);
+            }
+            if (direction == 38) {
+                $("#icon_pers_move").animate({top: "-=5"}, 0);  
+            }
+            if (direction == 39) {
+                $("#icon_pers_move").animate({left: "+=5"}, 0);  
+            }
+            if (direction == 40) {
+                $("#icon_pers_move").animate({top: "+=5"}, 0);  
+            }
 
+            var BBoxA = DivA.getBoundingClientRect()
+            var BBoxB = DivB.getBoundingClientRect()
+            var BBoxC = DivC.getBoundingClientRect()
+            var BBoxD = DivD.getBoundingClientRect()
+            var BBoxE = DivE.getBoundingClientRect()
+            var BBoxF = DivF.getBoundingClientRect()
+            var BBoxG = DivG.getBoundingClientRect()
+            var BBoxH = DivH.getBoundingClientRect()
 
-  //Função de utilidade
-  var rangeIntersect = function(min0, max0, min1, max1) {
-      return Math.max(min0, max0) >= Math.min(min1, max1) && Math.min(min0, max0) <= Math.max(min1, max1)
-  }
-  //Função para detectar se 2 BoundingClientRect's estão colidindo
-  var rectIntersect = function (r0, r1) {
-      return rangeIntersect(r0.left, r0.right, r1.left, r1.right) && rangeIntersect(r0.top, r0.bottom, r1.top, r1.bottom)
-  }
-
-
-
-  function movePlane() {
-      for (var direction in keys) {
-          if (!keys.hasOwnProperty(direction)) continue;
-          if (direction == 37) {
-            
-              $("#icon_pers_move").animate({left: "-=5"}, 0);
-
-
-          }
-          if (direction == 38) {
-              $("#icon_pers_move").animate({top: "-=5"}, 0);  
-          }
-          if (direction == 39) {
-              $("#icon_pers_move").animate({left: "+=5"}, 0);  
-          }
-          if (direction == 40) {
-              $("#icon_pers_move").animate({top: "+=5"}, 0);  
-          }
-
-          var BBoxA = DivA.getBoundingClientRect()
-          var BBoxB = DivB.getBoundingClientRect()
-          var BBoxC = DivC.getBoundingClientRect()
-          var BBoxD = DivD.getBoundingClientRect()
-          var BBoxE = DivE.getBoundingClientRect()
-          var BBoxF = DivF.getBoundingClientRect()
-          var BBoxG = DivG.getBoundingClientRect()
-          var BBoxH = DivH.getBoundingClientRect()
-
-          if(rectIntersect(BBoxA, BBoxB)){
-            $('#icon_bola').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
-            $('#txt_maismoedas').css('color','#2BCB8D')
-            qtd_moedas=qtd_moedas+10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-          if(rectIntersect(BBoxA, BBoxC)){
-            $('#icon_bola2').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
-            $('#txt_maismoedas').css('color','#ea493a')
-            qtd_moedas=qtd_moedas-10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-          if(rectIntersect(BBoxA, BBoxD)){
-            $('#icon_dog').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
-            $('#txt_maismoedas').css('color','#2BCB8D')
-            qtd_moedas=qtd_moedas+10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-          if(rectIntersect(BBoxA, BBoxE)){
-            $('#icon_vo').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
-            $('#txt_maismoedas').css('color','#2BCB8D')
-            qtd_moedas=qtd_moedas+10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-           if(rectIntersect(BBoxA, BBoxF)){
-            $('#icon_vaso').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
-            $('#txt_maismoedas').css('color','#ea493a')
-            qtd_moedas=qtd_moedas-10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-          if(rectIntersect(BBoxA, BBoxG)){
-            $('#icon_pirulito').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
-            $('#txt_maismoedas').css('color','#ea493a')
-            qtd_moedas=qtd_moedas-10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-           if(rectIntersect(BBoxA, BBoxH)){
-            $('#icon_biscoito').css('display', 'none');
-            $('#imgtexto_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').css('display', 'block');
-            $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
-            $('#txt_maismoedas').css('color','#2BCB8D')
-            qtd_moedas=qtd_moedas+10;
-            $('#qtd_moeda').text(qtd_moedas);        
-          }
-
-
-
-      }
+            if(rectIntersect(BBoxA, BBoxB)){
+              $('#icon_bola').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
+              $('#txt_maismoedas').css('color','#2BCB8D')
+              qtd_moedas=qtd_moedas+10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+            if(rectIntersect(BBoxA, BBoxC)){
+              $('#icon_bola2').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
+              $('#txt_maismoedas').css('color','#ea493a')
+              qtd_moedas=qtd_moedas-10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+            if(rectIntersect(BBoxA, BBoxD)){
+              $('#icon_dog').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
+              $('#txt_maismoedas').css('color','#2BCB8D')
+              qtd_moedas=qtd_moedas+10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+            if(rectIntersect(BBoxA, BBoxE)){
+              $('#icon_vo').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
+              $('#txt_maismoedas').css('color','#2BCB8D')
+              qtd_moedas=qtd_moedas+10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+            if(rectIntersect(BBoxA, BBoxF)){
+              $('#icon_vaso').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
+              $('#txt_maismoedas').css('color','#ea493a')
+              qtd_moedas=qtd_moedas-10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+            if(rectIntersect(BBoxA, BBoxG)){
+              $('#icon_pirulito').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
+              $('#txt_maismoedas').css('color','#ea493a')
+              qtd_moedas=qtd_moedas-10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+             if(rectIntersect(BBoxA, BBoxH)){
+              $('#icon_biscoito').css('display', 'none');
+              $('#imgtexto_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').css('display', 'block');
+              $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
+              $('#txt_maismoedas').css('color','#2BCB8D')
+              qtd_moedas=qtd_moedas+10;
+              $('#qtd_moeda').text(qtd_moedas);        
+            }
+        }
+    }
   }
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
+  function eco_1() {
+    setupLevel()
 
-  var cont_bola_edu=1;
-  var cont_bola_sau=1;
-  var cont_bola_laz=1;
-  var qntMoedasM= 30; //pegar da variavel da fase anterior
+    var cont_bola_edu=1;
+    var cont_bola_sau=1;
+    var cont_bola_laz=1;
+    var qntMoedasM= 30; //pegar da variavel da fase anterior
 
+    var addMoedaEdu=true;
+    var addMoedaSau=true;
+    var addMoedaLaz=true;
 
-  var addMoedaEdu=true;
-  var addMoedaSau=true;
-  var addMoedaLaz=true;
+    function retirarAddMoeda(){
+      addMoedaEdu=false;
+      addMoedaSau=false;
+      addMoedaLaz=false;
+    }
+    function adicionarAddMoeda(){
+      addMoedaEdu=true;
+      addMoedaSau=true;
+      addMoedaLaz=true;
+    }
 
+    $(".addMoedaEdu1").click(function() {
+    if (addMoedaEdu){  
+        if(qntMoedasM==0){
 
-  function retirarAddMoeda(){
-  addMoedaEdu=false;
-  addMoedaSau=false;
-  addMoedaLaz=false;
-  }
+        } else {
+            qntMoedasM= qntMoedasM-10;
+            $('#qtd_moedaM').text(qntMoedasM);
+            retirarAddMoeda();
+            if(cont_bola_edu==1){
+              $('#bolaEduc3').css('display', 'none');
+              $('#bolaEduc1').css('display', 'block');
+              cont_bola_edu=2;
+            } else if(cont_bola_edu==2){
+              $('#bolaEduc1').css('display', 'none');
+              $('#bolaEduc2').css('display', 'block');
+              cont_bola_edu=3
+            } else if(cont_bola_edu==3){
+              $('#bolaEduc2').css('display', 'none');
+              $('#bolaEduc3').css('display', 'block');
+               cont_bola_edu=1;
+            }
+        }
+      }
+    })
+    $(".addMoedaSau1").click(function() { 
+    if(addMoedaSau){  
+         if(qntMoedasM==0){
 
-  function adicionarAddMoeda(){
-  addMoedaEdu=true;
-  addMoedaSau=true;
-  addMoedaLaz=true;
-  }
-
-  $(".addMoedaEdu1").click(function() {
-  if (addMoedaEdu){  
-      if(qntMoedasM==0){
-
-      } else {
+        } else {
           qntMoedasM= qntMoedasM-10;
           $('#qtd_moedaM').text(qntMoedasM);
           retirarAddMoeda();
-          if(cont_bola_edu==1){
-            $('#bolaEduc3').css('display', 'none');
-            $('#bolaEduc1').css('display', 'block');
-            cont_bola_edu=2;
-          } else if(cont_bola_edu==2){
-            $('#bolaEduc1').css('display', 'none');
-            $('#bolaEduc2').css('display', 'block');
-            cont_bola_edu=3
-          } else if(cont_bola_edu==3){
-            $('#bolaEduc2').css('display', 'none');
-            $('#bolaEduc3').css('display', 'block');
-             cont_bola_edu=1;
+          if(cont_bola_sau==1){
+            $('#bolaSau3').css('display', 'none');
+            $('#bolaSau1').css('display', 'block');
+            cont_bola_sau=2;
+          } else if(cont_bola_sau==2){
+            $('#bolaSau1').css('display', 'none');
+            $('#bolaSau2').css('display', 'block');
+            cont_bola_sau=3
+          } else if(cont_bola_sau==3){
+            $('#bolaSau2').css('display', 'none');
+            $('#bolaSau3').css('display', 'block');
+             cont_bola_sau=1;
           }
-      }
-    }
-  })
-
-  $(".addMoedaSau1").click(function() { 
-  if(addMoedaSau){  
-       if(qntMoedasM==0){
-
-      } else {
-        qntMoedasM= qntMoedasM-10;
-        $('#qtd_moedaM').text(qntMoedasM);
-        retirarAddMoeda();
-        if(cont_bola_sau==1){
-          $('#bolaSau3').css('display', 'none');
-          $('#bolaSau1').css('display', 'block');
-          cont_bola_sau=2;
-        } else if(cont_bola_sau==2){
-          $('#bolaSau1').css('display', 'none');
-          $('#bolaSau2').css('display', 'block');
-          cont_bola_sau=3
-        } else if(cont_bola_sau==3){
-          $('#bolaSau2').css('display', 'none');
-          $('#bolaSau3').css('display', 'block');
-           cont_bola_sau=1;
         }
       }
-    }
-  })
+    })
+    $(".addMoedaLaz1").click(function() {   
+      if(addMoedaLaz){
+         if(qntMoedasM==0){
 
-
-  $(".addMoedaLaz1").click(function() {   
-    if(addMoedaLaz){
-       if(qntMoedasM==0){
-
-      } else {
-        qntMoedasM= qntMoedasM-10;
-        $('#qtd_moedaM').text(qntMoedasM);
-        retirarAddMoeda();
-        if(cont_bola_laz==1){
-          $('#bolaLaz3').css('display', 'none');
-          $('#bolaLaz1').css('display', 'block');
-          cont_bola_laz=2;
-        } else if(cont_bola_laz==2){
-          $('#bolaLaz1').css('display', 'none');
-          $('#bolaLaz2').css('display', 'block');
-          cont_bola_laz=3
-        } else if(cont_bola_laz==3){
-          $('#bolaLaz2').css('display', 'none');
-          $('#bolaLaz3').css('display', 'block');
-           cont_bola_laz=1;
+        } else {
+          qntMoedasM= qntMoedasM-10;
+          $('#qtd_moedaM').text(qntMoedasM);
+          retirarAddMoeda();
+          if(cont_bola_laz==1){
+            $('#bolaLaz3').css('display', 'none');
+            $('#bolaLaz1').css('display', 'block');
+            cont_bola_laz=2;
+          } else if(cont_bola_laz==2){
+            $('#bolaLaz1').css('display', 'none');
+            $('#bolaLaz2').css('display', 'block');
+            cont_bola_laz=3
+          } else if(cont_bola_laz==3){
+            $('#bolaLaz2').css('display', 'none');
+            $('#bolaLaz3').css('display', 'block');
+             cont_bola_laz=1;
+          }
         }
       }
-    }
-  })
-
-  $("#bolaEduc1").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/ciencito_educ.png');
-    $('#nome_monstrinho').text("CIENCITO");
-    $('#nome_monstrinho').css('color', ' #376DC4');
-    $('#desc_monstrinho').text("Te dá o poder de fazer invenções incríveis.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaEduc2").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/mapamax_educ.png');
-    $('#nome_monstrinho').text("MAPAMAX");
-    $('#nome_monstrinho').css('color', ' #376DC4');
-    $('#desc_monstrinho').text("Coloca na sua cabeça o nome de todos os lugares do mundo.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaEduc3").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/livrex_educ.png');
-    $('#nome_monstrinho').text("LIVREX");
-    $('#nome_monstrinho').css('color', ' #376DC4');
-    $('#desc_monstrinho').text("Te dar o poder de devorar vários livros em pouco tempo.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaSau1").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/remeldino_saude.png');
-    $('#nome_monstrinho').text("REMELDINO");
-    $('#nome_monstrinho').css('color', '#E54141');
-    $('#desc_monstrinho').text("Te cura sempre que ficar doente.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaSau2").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/higiento_saude.png');
-    $('#nome_monstrinho').text("HIGIENTO");
-    $('#nome_monstrinho').css('color', '#E54141');
-    $('#desc_monstrinho').text("Te deixa sempre limpo e longe de bichinhos.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaSau3").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/alimeniro_saude.png');
-    $('#nome_monstrinho').text("ALIMENIRO");
-    $('#nome_monstrinho').css('color', '#E54141');
-    $('#desc_monstrinho').text("Transforma toda a sua comida em coisas saudáveis.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaLaz1").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/aventurim_lazer.png');
-    $('#nome_monstrinho').text("AVENTURIM");
-    $('#nome_monstrinho').css('color', '#E8AD2A');
-    $('#desc_monstrinho').text("Te transporta para dentro dos filmes que você quiser.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaLaz2").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/esportanto_lazer.png');
-    $('#nome_monstrinho').text("ESPORTANTO");
-    $('#nome_monstrinho').css('color', '#E8AD2A');
-    $('#desc_monstrinho').text("Te deixa craque em qualquer esporte.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#bolaLaz3").click(function() {
-    adicionarAddMoeda();
-    $(this).css('display', 'none');  
-    $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/dancitar_lazer.png');
-    $('#nome_monstrinho').text("DANCITAR");
-    $('#nome_monstrinho').css('color', '#E8AD2A');
-    $('#desc_monstrinho').text("Te faz um expert em qualquer tipo de dança.");
-    $('.div_monstrinhos').css('display', 'block');
-  })
-
-  $("#guardar_monstrinhos").click(function() {
-    if(qntMoedasM==0){
+    })
+    $("#bolaEduc1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/ciencito_educ.png');
+      $('#nome_monstrinho').text("CIENCITO");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Te dá o poder de fazer invenções incríveis.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaEduc2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/mapamax_educ.png');
+      $('#nome_monstrinho').text("MAPAMAX");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Coloca na sua cabeça o nome de todos os lugares do mundo.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaEduc3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/livrex_educ.png');
+      $('#nome_monstrinho').text("LIVREX");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Te dar o poder de devorar vários livros em pouco tempo.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/remeldino_saude.png');
+      $('#nome_monstrinho').text("REMELDINO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Te cura sempre que ficar doente.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/higiento_saude.png');
+      $('#nome_monstrinho').text("HIGIENTO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Te deixa sempre limpo e longe de bichinhos.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/alimeniro_saude.png');
+      $('#nome_monstrinho').text("ALIMENIRO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Transforma toda a sua comida em coisas saudáveis.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/aventurim_lazer.png');
+      $('#nome_monstrinho').text("AVENTURIM");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te transporta para dentro dos filmes que você quiser.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/esportanto_lazer.png');
+      $('#nome_monstrinho').text("ESPORTANTO");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te deixa craque em qualquer esporte.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/dancitar_lazer.png');
+      $('#nome_monstrinho').text("DANCITAR");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te faz um expert em qualquer tipo de dança.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#guardar_monstrinhos").click(function() {
+      if(qntMoedasM==0){
+        $('.div_monstrinhos').css('display', 'none');
+        alert("*CODIGO PARA PROXIMO DESAFIO");
+      } else{
       $('.div_monstrinhos').css('display', 'none');
-      alert("*CODIGO PARA PROXIMO DESAFIO");
-    } else{
-    $('.div_monstrinhos').css('display', 'none');
+    }
+    })
   }
-  })
