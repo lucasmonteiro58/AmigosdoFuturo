@@ -2592,6 +2592,17 @@ display: none;
   bottom: 23.5%;
   left: 4%;
   width: 7%;
+  animation-name: ong1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+
+ @keyframes ong1 {
+  0%   {bottom: 23.5%;}  
+  50%  {bottom:25%;}
+  100% {bottom: 23.5%;}
 }
 
 #bananaONG{
@@ -2599,14 +2610,23 @@ display: none;
    bottom: 23.5%;
    left: 20%;
    width: 7%;
-
+   animation-name: ong1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
+
+
 
 #cenouraONG{
   position: absolute;
    bottom: 23.5%;
    right: 22%;
    width: 7%;
+   animation-name: ong1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
 
@@ -2615,6 +2635,10 @@ display: none;
    bottom: 23.5%;
    right: 4%;
    width: 7%;
+   animation-name: ong1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
 
@@ -2702,11 +2726,21 @@ display: none;
 
 }
 
+ @keyframes radio1 {
+  0%   {bottom: 23.5%;}  
+  50%  {bottom:25%;}
+  100% {bottom: 23.5%;}
+}
+
 #jornalRua1{
   position: absolute;
   bottom: 23.5%;
   left: 4%;
   width: 7%;
+   animation-name: radio1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
 
 #jornalRua2{
@@ -2714,6 +2748,10 @@ display: none;
    bottom: 23.5%;
    left: 20%;
    width: 7%;
+    animation-name: radio1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
 
@@ -2722,6 +2760,10 @@ display: none;
    bottom: 23.5%;
    right: 22%;
    width: 7%;
+    animation-name: radio1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
 
@@ -2730,6 +2772,10 @@ display: none;
    bottom: 23.5%;
    right: 4%;
    width: 7%;
+    animation-name: radio1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 
 }
 
