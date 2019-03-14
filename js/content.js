@@ -350,7 +350,6 @@ var helps_texts = {
         },
   "eco_0":{"title": "Cofrinho cheio! Quanto dinheiro você consegue juntar?",
            "text" : "Pegue as moedas verdes e fuja das vermelhas. Use as setas do teclado."
-        },
   "eco_1":{"title": "Coleção de bolinhas!",
            "text" : "Veja o que você ganha se colocar moedas nas máquinas de bolinhas."
         }
@@ -399,7 +398,7 @@ var congrats_texts = {
           },
   "eco_0":{"text" : "Parabéns! Você juntou seu próprio dinheiro!"
           },
-  "eco_1":{"text" : "Maravilha! Você <a>investiu/a> seu dinheiro em coisas muito legais.",
+  "eco_1":{"text" : "Maravilha! Você <a>investiu</a> seu dinheiro em coisas muito legais.",
            "tip"  : "Investir: ..."
           }
 }
