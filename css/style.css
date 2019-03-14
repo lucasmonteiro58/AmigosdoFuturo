@@ -4810,6 +4810,16 @@ display: none;
   top: 84%;
   left: 75%;
   width: 5%;
+  animation-name: example2;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example2 {
+  0%   {top:84%;}  
+  50%  {top:85%;}
+  100% {top:84%;}
 }
 
 #icon_dog{
@@ -4817,6 +4827,16 @@ display: none;
   top: 55%;
   left: 77%;
   width: 5%;
+   animation-name: example3;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example3 {
+  0%   {top:55%;}  
+  50%  {top:56%;}
+  100% {top:55%;}
 }
 
 #icon_vo{
@@ -4824,6 +4844,16 @@ display: none;
   top: 36%;
   left: 60%;
   width: 5%;
+   animation-name: example4;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example4 {
+  0%   {top:36%;}  
+  50%  {top:37%;}
+  100% {top:36%;}
 }
 
 #icon_vaso{
@@ -4831,6 +4861,16 @@ display: none;
   top: 23%;
   left: 68%;
   width: 5%;
+   animation-name: example5;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example5 {
+  0%   {top:23%;}  
+  50%  {top:24%;}
+  100% {top:23%;}
 }
 
 #icon_pirulito{
@@ -4838,6 +4878,16 @@ display: none;
   top: 31%;
   left: 41%;
   width: 5%;
+   animation-name: example6;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example6 {
+  0%   {top:31%;}  
+  50%  {top:32%;}
+  100% {top:31%;}
 }
 
 #icon_biscoito{
@@ -4845,6 +4895,16 @@ display: none;
   top: 68%;
   left: 34%;
   width: 5%;
+  animation-name: example7;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes example7 {
+  0%   {top:68%;}  
+  50%  {top:69%;}
+  100% {top:68%;}
 }
 
 #icon_pers_move{
@@ -4941,6 +5001,13 @@ display: none;
 
 .All_collid{
   display: none;
+ 
+}
+
+@keyframes example1 {
+  0%   {top:72%;}  
+  50%  {top:73%;}
+  100% {top:72%;}
 }
 
 #icon_bola{
@@ -4949,7 +5016,12 @@ display: none;
   left: 62%;
   width: 5%;
   display: block;
+  animation-name: example1;
+  animation-duration: 1.2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
 }
+
 
 /*Desafio Monstrnhos Sections-------------------------------------------------------------------*/
 
