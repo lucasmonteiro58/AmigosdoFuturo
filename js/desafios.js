@@ -1257,37 +1257,37 @@
       var totalImgs = $(".imagensEF.imgVisible").length;
       if (totalImgs==5) {
         if(acessibilidadeBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_acessib_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_acessib_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
           posicaoEF++;
         }
         if(pintarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_pintar_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_pintar_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
           posicaoEF++;
         }
         if(arborizarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_arbori_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_arbori_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
           posicaoEF++;
         }
         if(onibusBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_bus_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_bus_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
           posicaoEF++;
         }
         if(parquinhoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_parque_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_parque_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
           posicaoEF++;
         }
         if(hortaBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_horta_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_horta_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
           posicaoEF++;
         }
         if(lixoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_lixo_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_lixo_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
           posicaoEF++;
         }
@@ -2327,6 +2327,7 @@
       if(qntMoedasM==0){
         $('.div_monstrinhos').css('display', 'none');
         alert("*CODIGO PARA PROXIMO DESAFIO");
+        congratsNextLevel(["full", "full", "full"], true)
       } else{
       $('.div_monstrinhos').css('display', 'none');
     }

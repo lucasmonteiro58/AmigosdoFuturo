@@ -109,13 +109,13 @@
   //button.nextF:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}
   button.nextF:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
 
-  button.leiSIM {background-image: url(../img/desafios/governo/prefeitura/op_sim_ativo.png);}
-  button.leiSIM:hover{background-image: url(../img/desafios/governo/prefeitura/op_sim_mouseover.png);}
-  button.leiSIM:active{background-image: url(../img/desafios/governo/prefeitura/op_sim_press.png);}
+  button.leiSIM {background-image: url(../img/desafios/governo/Prefeitura/op_sim_ativo.png);}
+  button.leiSIM:hover{background-image: url(../img/desafios/governo/Prefeitura/op_sim_mouseover.png);}
+  button.leiSIM:active{background-image: url(../img/desafios/governo/Prefeitura/op_sim_press.png);}
 
-  button.leiNAO {background-image: url(../img/desafios/governo/prefeitura/op_nao_ativo.png);}
-  button.leiNAO:hover{background-image: url(../img/desafios/governo/prefeitura/op_nao_mouseover.png);}
-  button.leiNAO:active{background-image: url(../img/desafios/governo/prefeitura/op_nao_press.png);}
+  button.leiNAO {background-image: url(../img/desafios/governo/Prefeitura/op_nao_ativo.png);}
+  button.leiNAO:hover{background-image: url(../img/desafios/governo/Prefeitura/op_nao_mouseover.png);}
+  button.leiNAO:active{background-image: url(../img/desafios/governo/Prefeitura/op_nao_press.png);}
 
   button.prevF {background-image: url(../img/buttons/toggle-arrow-p.png);}
   //button.prevF:hover{background-image: url(../img/buttons/toggle-arrow-hover-p.png);}

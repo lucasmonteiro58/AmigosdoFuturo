@@ -13,6 +13,7 @@ var actual_section = undefined
 var actual_badge = undefined
 var actual_level = -1 //depends on number of levels of each badge
 var level_stars = ["empty","empty","empty"] //empty, half, full
+var answeredFeedback = false
 
 // modal
 var cutscenes_name = undefined
@@ -350,6 +351,7 @@ var helps_texts = {
         },
   "eco_0":{"title": "Cofrinho cheio! Quanto dinheiro você consegue juntar?",
            "text" : "Pegue as moedas verdes e fuja das vermelhas. Use as setas do teclado."
+        },
   "eco_1":{"title": "Coleção de bolinhas!",
            "text" : "Veja o que você ganha se colocar moedas nas máquinas de bolinhas."
         }
