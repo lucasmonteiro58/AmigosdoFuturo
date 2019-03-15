@@ -694,6 +694,11 @@ function submitFeedbackAJAX() {
       resetAllActivesBadges()
       activeAndShowDetails(this) 
     })
+    $(".all-badges img + span").click(function () {
+      resetAllActivesBadges()
+      activeAndShowDetails($(this).prev("img")) 
+    })
+
     $(".robot-certificate .print").click(function () {
       window.print()
     })

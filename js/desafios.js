@@ -2038,7 +2038,7 @@
     var keys = {}
 
     $(document).keydown(function(e) {
-        keys[e.keyCode] = true;  
+        keys[e.keyCode] = true; 
     });
 
     $(document).keyup(function(e) {
@@ -2054,97 +2054,182 @@
         return rangeIntersect(r0.left, r0.right, r1.left, r1.right) && rangeIntersect(r0.top, r0.bottom, r1.top, r1.bottom)
     }
 
-    function movePlane() {
-        for (var direction in keys) {
-            if (!keys.hasOwnProperty(direction)) continue;
-            if (direction == 37) {
-                $("#icon_pers_move").animate({left: "-=5"}, 0);
-            }
-            if (direction == 38) {
-                $("#icon_pers_move").animate({top: "-=5"}, 0);  
-            }
-            if (direction == 39) {
-                $("#icon_pers_move").animate({left: "+=5"}, 0);  
-            }
-            if (direction == 40) {
-                $("#icon_pers_move").animate({top: "+=5"}, 0);  
-            }
+    var CasaBola = false;
+    var CasaDog = false;
+    var CasaVo = false;
+    var CasaBiscoito = false;
 
-            var BBoxA = DivA.getBoundingClientRect()
-            var BBoxB = DivB.getBoundingClientRect()
-            var BBoxC = DivC.getBoundingClientRect()
-            var BBoxD = DivD.getBoundingClientRect()
-            var BBoxE = DivE.getBoundingClientRect()
-            var BBoxF = DivF.getBoundingClientRect()
-            var BBoxG = DivG.getBoundingClientRect()
-            var BBoxH = DivH.getBoundingClientRect()
+    var endlevel = false
 
-            if(rectIntersect(BBoxA, BBoxB)){
-              $('#icon_bola').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
-              $('#txt_maismoedas').css('color','#2BCB8D')
-              qtd_moedas=qtd_moedas+10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-            if(rectIntersect(BBoxA, BBoxC)){
-              $('#icon_bola2').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
-              $('#txt_maismoedas').css('color','#ea493a')
-              qtd_moedas=qtd_moedas-10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-            if(rectIntersect(BBoxA, BBoxD)){
-              $('#icon_dog').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
-              $('#txt_maismoedas').css('color','#2BCB8D')
-              qtd_moedas=qtd_moedas+10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-            if(rectIntersect(BBoxA, BBoxE)){
-              $('#icon_vo').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
-              $('#txt_maismoedas').css('color','#2BCB8D')
-              qtd_moedas=qtd_moedas+10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-            if(rectIntersect(BBoxA, BBoxF)){
-              $('#icon_vaso').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
-              $('#txt_maismoedas').css('color','#ea493a')
-              qtd_moedas=qtd_moedas-10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-            if(rectIntersect(BBoxA, BBoxG)){
-              $('#icon_pirulito').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
-              $('#txt_maismoedas').css('color','#ea493a')
-              qtd_moedas=qtd_moedas-10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-             if(rectIntersect(BBoxA, BBoxH)){
-              $('#icon_biscoito').css('display', 'none');
-              $('#imgtexto_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').css('display', 'block');
-              $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
-              $('#txt_maismoedas').css('color','#2BCB8D')
-              qtd_moedas=qtd_moedas+10;
-              $('#qtd_moeda').text(qtd_moedas);        
-            }
-        }
+    function verificarPegouCB(qtd_m){
+      if (CasaBola && CasaVo && CasaDog && CasaBiscoito && !endlevel){
+        endlevel = true
+
+        alert("Código para ir para proximo desafio")
+        congratsNextLevel(["full", "half", "empty"], false)
+        var qtd_moedass = qtd_m
+        console.log("Total de moedas= "+qtd_moedass)
+        saveInStorage("moedas", qtd_moedass)
+        return qtd_moedass;
+         // passar qtd moedas para proxima fase (Monstrinhos)
+      }
     }
-  }
+
+    function collision($div1, $div2) {
+      if (!endlevel) {
+        var x1 = $div1.offset().left;
+        var y1 = $div1.offset().top;
+        var h1 = $div1.outerHeight(true);
+        var w1 = $div1.outerWidth(true);
+        var b1 = y1 + h1;
+        var r1 = x1 + w1;
+        var x2 = $div2.offset().left;
+        var y2 = $div2.offset().top;
+        var h2 = $div2.outerHeight(true);
+        var w2 = $div2.outerWidth(true);
+        var b2 = y2 + h2;
+        var r2 = x2 + w2;
+      }
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return true;
+      return false;
+    }
+
+    var armazenar1 = false;
+    var armazenar2 = false;
+    var armazenar3 = false;
+    var armazenar4 = false;
+
+    function movePlane() {
+      for (var direction in keys) {
+        if (!keys.hasOwnProperty(direction)) continue;
+      
+        if (endlevel) return
+          
+        if (direction == 37) {
+          armazenar1 = collision($('#icon_pers_move'), $('#divplantacasa1'));
+          if (armazenar1) {
+             $("#icon_pers_move").animate({left: "-=5"}, 0);
+          } 
+        }
+        if (direction == 38) {  
+        armazenar2 = collision($('#icon_pers_move'), $('#divplantacasa2'));
+          if (armazenar2) {  
+            $("#icon_pers_move").animate({top: "-=5"}, 0); 
+          }
+
+        }
+
+        if (direction == 39) {
+           armazenar3 = collision($('#icon_pers_move'), $('#divplantacasa3'));
+          if (armazenar3) { 
+            $("#icon_pers_move").animate({left: "+=5"}, 0); 
+          }
+           
+        }
+        if (direction == 40) {
+          armazenar4 = collision($('#icon_pers_move'), $('#divplantacasa4'));
+          if (armazenar4) { 
+            $("#icon_pers_move").animate({top: "+=5"}, 0); 
+          }
+           
+        }
+
+        var BBoxA = DivA.getBoundingClientRect()
+        var BBoxB = DivB.getBoundingClientRect()
+        var BBoxC = DivC.getBoundingClientRect()
+        var BBoxD = DivD.getBoundingClientRect()
+        var BBoxE = DivE.getBoundingClientRect()
+        var BBoxF = DivF.getBoundingClientRect()
+        var BBoxG = DivG.getBoundingClientRect()
+        var BBoxH = DivH.getBoundingClientRect()
+
+        if(rectIntersect(BBoxA, BBoxB)){
+          $('#icon_bola').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);  
+          $('#icon_bola2').css('display', 'block');
+          $('#icon_dog').css('display', 'block');
+          CasaBola= true;
+          verificarPegouCB(qtd_moedas);    
+        }
+
+        if(rectIntersect(BBoxA, BBoxC)){
+          $('#icon_bola2').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxD)){
+          $('#icon_dog').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+          $('#icon_vo').css('display', 'block'); 
+          CasaDog= true;
+          verificarPegouCB(qtd_moedas);       
+        }
+
+        if(rectIntersect(BBoxA, BBoxE)){
+          $('#icon_vo').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+           $('#icon_vaso').css('display', 'block'); 
+          $('#icon_pirulito').css('display', 'block');
+          $('#icon_biscoito').css('display', 'block'); 
+          CasaVo= true;
+          verificarPegouCB(qtd_moedas);     
+        }
+
+         if(rectIntersect(BBoxA, BBoxF)){
+          $('#icon_vaso').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);
+        }
+
+        if(rectIntersect(BBoxA, BBoxG)){
+          $('#icon_pirulito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);
+        }
+
+         if(rectIntersect(BBoxA, BBoxH)){
+          $('#icon_biscoito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+          CasaBiscoito= true;
+          verificarPegouCB(qtd_moedas);       
+        }
+      }
+    }
+  } 
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
   function eco_1() {
@@ -2153,7 +2238,9 @@
     var cont_bola_edu=1;
     var cont_bola_sau=1;
     var cont_bola_laz=1;
-    var qntMoedasM= 30; //pegar da variavel da fase anterior
+    var qntMoedasM = getFromStorage("moedas"); //pegar da variavel da fase anterior
+
+    $("#qtd_moedaM").text(qntMoedasM)
 
     var addMoedaEdu=true;
     var addMoedaSau=true;
@@ -2175,7 +2262,7 @@
         if(qntMoedasM==0){
 
         } else {
-            qntMoedasM= qntMoedasM-10;
+            qntMoedasM = qntMoedasM-10;
             $('#qtd_moedaM').text(qntMoedasM);
             retirarAddMoeda();
             if(cont_bola_edu==1){
