@@ -44,7 +44,7 @@ if ($("#menu").length) {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-      updateSectionAJAX("form")
+      updateSectionAJAX("cutscene")
     })
   }
 
@@ -513,7 +513,12 @@ if ($("#menu").length) {
               actual_level += 1
               updateSectionAJAX(actual_badge["id"]+"_"+actual_level)
             } else {
-              updateSectionAJAX("feedback")
+              if (!answeredFeedback) {
+                answeredFeedback = true
+                updateSectionAJAX("feedback")
+              } else {
+                updateSectionAJAX("certificate")
+              }
             }
           break
         }      
@@ -707,6 +712,11 @@ function submitFeedbackAJAX() {
       resetAllActivesBadges()
       activeAndShowDetails(this) 
     })
+    $(".all-badges img + span").click(function () {
+      resetAllActivesBadges()
+      activeAndShowDetails($(this).prev("img")) 
+    })
+
     $(".robot-certificate .print").click(function () {
       window.print()
     })

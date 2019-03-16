@@ -657,24 +657,20 @@
         revert: true,
         revertDuration: 600,
          cursor: "grabbing",
-          //snap: true,
-         scroll:false,
+         scroll: false,
          drag: function( event, ui ) {
            $('[data-toggle="popover"]').popover('hide'); },
         stop: function( event, ui ) {
           $(this).css('top','84%');
         }
     });
-
     var contFigA1= 0;
-
     function habilitarNextA1(){
        if (contFigA1==4){
         $("#A1nextPage").css('display', 'block');
         $("#A1nextPageDis").css('display', 'none');
        }
     }
-
     $("#A1figOK1").droppable({
         accept: "#A1fig1",
            over: function( event, ui){          
@@ -688,7 +684,6 @@
           habilitarNextA1();    
             }
       });
-
     $("#A1figOK2").droppable({
         accept: "#A1fig2",
            over: function( event, ui){          
@@ -702,7 +697,6 @@
           habilitarNextA1();      
             }
       });
-
     $("#A1figOK3").droppable({
         accept: "#A1fig3",
            over: function( event, ui){          
@@ -716,7 +710,6 @@
           habilitarNextA1();      
             }
       });
-
     $("#A1figOK4").droppable({
         accept: "#A1fig4",
            over: function( event, ui){          
@@ -728,31 +721,20 @@
           $('#A1fig4').css('display', 'none'); 
           contFigA1++;  
           habilitarNextA1();     
-            }
+          }
       });
-
     $( "#A1nextPage" ).click(function() {
       $('#A1Pg1').css('display', 'none');
       $('#A1Pg2').css('display', 'block');
-
     })
-
     $( "#A2prevPage" ).click(function() {
       $('#A1Pg1').css('display', 'block');
       $('#A1Pg2').css('display', 'none');
-
     })
-
     $( "#A2nextPage" ).click(function() {
-      
-
-
       alert("next desafio")
-
+      congratsNextLevel(["full","empty", "empty"], false)
     })
-
-
-
     $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
         revert: true,
         revertDuration: 600,
@@ -765,18 +747,13 @@
           $(this).css('top','84%');
         }
     });
-
-
     var contFigA2= 0;
-
     function habilitarNextA2(){
        if (contFigA2==4){
         $("#A2nextPage").css('display', 'block');
-       $("#A2nextPageDis").css('display', 'none');
-       
+       $("#A2nextPageDis").css('display', 'none'); 
        }
     }
-
     $("#A2figOK1").droppable({
         accept: "#A2fig1",
            over: function( event, ui){          
@@ -790,7 +767,6 @@
           habilitarNextA2();    
             }
       });
-
     $("#A2figOK2").droppable({
         accept: "#A2fig2",
            over: function( event, ui){          
@@ -804,7 +780,6 @@
           habilitarNextA2();      
             }
       });
-
     $("#A2figOK3").droppable({
         accept: "#A2fig3",
            over: function( event, ui){          
@@ -818,7 +793,6 @@
           habilitarNextA2();      
             }
       });
-
     $("#A2figOK4").droppable({
         accept: "#A2fig4",
            over: function( event, ui){          
@@ -832,27 +806,30 @@
           habilitarNextA2();     
             }
       });
-      
     }
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
+  function laz_1() {
+    setupLevel()
 
-  $( ".checkClick" ).click(function() {
+    $( ".checkClick" ).click(function() {
 
-    var idCheckDIV= $(this).attr('id');
-      var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
+      var idCheckDIV= $(this).attr('id');
+        var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
 
-      if ($(idCheckOK).css('display')=='none'){
-        $(idCheckOK).css('display', 'block');
-      } else {
-        $(idCheckOK).css('display', 'none');
-      }      
+        if ($(idCheckOK).css('display')=='none'){
+          $(idCheckOK).css('display', 'block');
+        } else {
+          $(idCheckOK).css('display', 'none');
+        }      
 
-  })
+    })
 
-  $( "#btnAlbum2" ).click(function() {
-    alert("Next Desafio")
-  })
+    $( "#btnAlbum2" ).click(function() {
+      alert("Next Desafio")
+      congratsNextLevel(["full","full", "empty"], false)
+    })
+  }
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
@@ -1079,136 +1056,185 @@
     var contIndex=1;
     var bilotoLeft = 49.4;
 
-    $( ".alimentosSaudaveis , .alimentosNaoSaudaveis ").draggable({
+    var contAlimPrato=0;
+
+    $( ".alimentosSaudaveis , .alimentosNaoSaudaveis, .alimentosSaudaveisP , .alimentosNaoSaudaveisP ").draggable({
           revert: true,
           revertDuration: 600,
            cursor: "grabbing",
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
-            contIndex++;
+            //contIndex++;
              $('[data-toggle="popover"]').popover('hide');
-             $(this).css("z-index", contIndex);
+            
            }
         });
-    $("#imgPrato").droppable({
-      tolerance: "fit",
-           over: function( event, ui){         
+
+
+     $("#todoespacoP").droppable({      
+           over: function( event, ui){ 
             },
-            out: function( event, ui){ 
-               $(ui.draggable).removeClass('tanoprato');
-              if($(ui.draggable).hasClass('alimentosSaudaveis')){
-                  bilotoLeft = bilotoLeft-1.6;                
-                   $( "#biloto" ).animate({
-                        left: bilotoLeft+"%"                   
-                      })
-                } else{
-                  bilotoLeft = bilotoLeft+8;
-                   $( "#biloto" ).animate({
-                        left: bilotoLeft+"%"                   
-                      })
-                }
+            out: function( event, ui){                      
             },
             drop: function(event,ui) { 
-              if ($(ui.draggable).hasClass('tanoprato')){
-              } else {
-                 $(ui.draggable).draggable({revert:false});
-                //$(ui.draggable).draggable({disabled:true});
-                if($(ui.draggable).hasClass('alimentosSaudaveis')){
-                  bilotoLeft = bilotoLeft+1.6;             
-                    $( "#biloto" ).animate({
-                        left: bilotoLeft+"%"                   
-                      })
-                } else{
-                  bilotoLeft = bilotoLeft-8;
-                   $( "#biloto" ).animate({
-                        left: bilotoLeft+"%"                   
-                      })
-                }
-              }
-              $(ui.draggable).addClass('tanoprato');                  
-              }
+
+              if($(ui.draggable).hasClass('alimentosSaudaveisP') || $(ui.draggable).hasClass('alimentosNaoSaudaveisP')){
+                    var alimentoNoPrato= '#'+$(ui.draggable).attr('id');
+                    var alimentoNoPrato2 = alimentoNoPrato.substr(0,(alimentoNoPrato.length - 2));
+                    $(alimentoNoPrato2).css('display', 'block');
+                    $(ui.draggable).css('display', 'none');
+                    AndarBilotoRemove(alimentoNoPrato2);
+                    contAlimPrato--;
+
+              } else{
+                                            
+               }
+            
+            }
           });
 
+    $("#imgPrato").droppable({      
+           over: function( event, ui){ 
+            },
+            out: function( event, ui){          
+            },
+            drop: function(event,ui) {
+            if (contAlimPrato==5) { 
+              alert("so 5 alimentos");
+            } else{
+              if($(ui.draggable).hasClass('alimentosSaudaveis') || $(ui.draggable).hasClass('alimentosNaoSaudaveis')){
+                
+                    var alimentoNoPrato= '#'+$(ui.draggable).attr('id')+'OK';
+                    $(ui.draggable).css('display', 'none');
+                    $(alimentoNoPrato).css('display', 'block');                   
+                     AndarBilotoAdd(alimentoNoPrato);
+                     contAlimPrato++;
+                            
+                  
+              } 
+            }
+          }
+          });
+
+    function AndarBilotoAdd(alimento){
+      if(alimento=="#P-alfaceOK" || alimento=="#P-bananaOK" || alimento=="#P-carneOK" ){
+        bilotoLeft = bilotoLeft+3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-arrozOK"){
+        bilotoLeft = bilotoLeft+2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
+        bilotoLeft = bilotoLeft+3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if (alimento=="#P-bombomOK" || alimento=="#P-pirulitoOK" ) {
+         bilotoLeft = bilotoLeft-2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+      }
+
+    }
+
+
+    function AndarBilotoRemove(alimento){
+      if(alimento=="#P-alface" || alimento=="#P-banana" || alimento=="#P-carne" ){
+        bilotoLeft = bilotoLeft-3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-arroz"){
+        bilotoLeft = bilotoLeft-2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if(alimento=="#P-feijao" || alimento=="#P-cenoura"){
+        bilotoLeft = bilotoLeft-3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})                 
+      }
+      if (alimento=="#P-bombom" || alimento=="#P-pirulito" ) {
+         bilotoLeft = bilotoLeft+2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+      }
+
+    }
+
     $( "#btn-enviar-prato").click(function() {
-      if (bilotoLeft<=55.7){
-        alert("Seu prato não está saúdavel ainda")
+
+      if (contAlimPrato==5) {
+                  if (bilotoLeft<=55.7){
+                    alert("Seu prato não está saúdavel ainda")
+                  } else{
+                    alert("Prato saúdavel! *enviar*")
+                    congratsNextLevel(['full', 'half', 'empty'], false)
+                  }
       } else{
-        alert("Prato saúdavel! *enviar*")
-        congratsNextLevel(['full', 'half', 'empty'], false)
+        alert("adicione 5 aliment No Prato");
       }
     })
   }
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
+  function sau_1() {
+    setupLevel()
 
-var bilotoP = 49.4;
-var escorregador = false;
-var campinho = false;
-var balanco = false;
-var gangorra = false;
-var tablet = false;
+    var bilotoP = 49.4;
+    var escorregador = false;
+    var campinho = false;
+    var balanco = false;
+    var gangorra = false;
+    var tablet = false;
 
+     $( "#escorregador").click(function() {
+      if (escorregador){
+      } else{
+        bilotoP= bilotoP+4.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        escorregador=true;
+      }})
 
- $( "#escorregador").click(function() {
-  if (escorregador){
-  } else{
-    bilotoP= bilotoP+4.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    escorregador=true;
-  }})
+     $( ".campinho").click(function() {
+      if (campinho){
+      } else{
+        bilotoP= bilotoP+5.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        campinho=true;
+      }})
 
- $( ".campinho").click(function() {
-  if (campinho){
-  } else{
-    bilotoP= bilotoP+5.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    campinho=true;
-  }})
+     $( "#balanco").click(function() {
+      if (balanco){
+      } else{
+        bilotoP= bilotoP+2.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        balanco=true;
+      }})
 
- $( "#balanco").click(function() {
-  if (balanco){
-  } else{
-    bilotoP= bilotoP+2.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    balanco=true;
-  }})
+      $( "#gangorra").click(function() {
+      if (gangorra){
+      } else{
+        bilotoP= bilotoP+3.55;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        gangorra=true;
+      }})
 
-  $( "#gangorra").click(function() {
-  if (gangorra){
-  } else{
-    bilotoP= bilotoP+3.55;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    gangorra=true;
-  }})
+      $( "#tablet").click(function() {
+      if (tablet){
+      } else{
+        bilotoP= bilotoP+0;
+        $( "#bilotoP" ).animate({
+          left: bilotoP+"%"                   
+         })
+        tablet=true;
+      }})
 
-  $( "#tablet").click(function() {
-  if (tablet){
-  } else{
-    bilotoP= bilotoP+0;
-    $( "#bilotoP" ).animate({
-      left: bilotoP+"%"                   
-     })
-    tablet=true;
-  }})
-
-   $( "#btn-enviar-parquinho").click(function() {
-    if (bilotoP==65.6) {
-      alert(" codigo para proximo desafio")
-    } else{
-      alert("brinque mais")
-    }
-   })
-
-
+       $( "#btn-enviar-parquinho").click(function() {
+        if (bilotoP==65.6) {
+          alert(" codigo para proximo desafio")
+          congratsNextLevel(["full", "full", "full"], true)
+        } else{
+          alert("brinque mais")
+        }
+       })
+  }
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
@@ -1231,37 +1257,37 @@ var tablet = false;
       var totalImgs = $(".imagensEF.imgVisible").length;
       if (totalImgs==5) {
         if(acessibilidadeBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_acessib_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_acessib_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
           posicaoEF++;
         }
         if(pintarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_pintar_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_pintar_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
           posicaoEF++;
         }
         if(arborizarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_arbori_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_arbori_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
           posicaoEF++;
         }
         if(onibusBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_bus_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_bus_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
           posicaoEF++;
         }
         if(parquinhoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_parque_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_parque_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
           posicaoEF++;
         }
         if(hortaBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_horta_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_horta_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
           posicaoEF++;
         }
         if(lixoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola fora/bts/bt_lixo_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_lixo_normal.png');
           $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
           posicaoEF++;
         }
@@ -1990,5 +2016,407 @@ var tablet = false;
         $('#icon_luz1').css('display', 'block');
         contCoisasEscolaS--;
         luzBOL= false;
+    })
+  }
+
+// Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
+  function eco_0() {
+    setupLevel()
+  
+    var qtd_moedas= 0;
+    var DivA = document.querySelector("#icon_pers_move")
+    var DivB = document.querySelector("#icon_bola")
+    var DivC = document.querySelector("#icon_bola2")
+    var DivD = document.querySelector("#icon_dog")
+    var DivE = document.querySelector("#icon_vo")
+    var DivF = document.querySelector("#icon_vaso")
+    var DivG = document.querySelector("#icon_pirulito")
+    var DivH = document.querySelector("#icon_biscoito")
+    var DivI = document.querySelector('#divplantacasa')
+
+    setInterval(movePlane, 20);
+    var keys = {}
+
+    $(document).keydown(function(e) {
+        keys[e.keyCode] = true; 
+    });
+
+    $(document).keyup(function(e) {
+        delete keys[e.keyCode];
+    });
+
+    //Função de utilidade
+    var rangeIntersect = function(min0, max0, min1, max1) {
+        return Math.max(min0, max0) >= Math.min(min1, max1) && Math.min(min0, max0) <= Math.max(min1, max1)
+    }
+    //Função para detectar se 2 BoundingClientRect's estão colidindo
+    var rectIntersect = function (r0, r1) {
+        return rangeIntersect(r0.left, r0.right, r1.left, r1.right) && rangeIntersect(r0.top, r0.bottom, r1.top, r1.bottom)
+    }
+
+    var CasaBola = false;
+    var CasaDog = false;
+    var CasaVo = false;
+    var CasaBiscoito = false;
+
+    var endlevel = false
+
+    function verificarPegouCB(qtd_m){
+      if (CasaBola && CasaVo && CasaDog && CasaBiscoito && !endlevel){
+        endlevel = true
+
+        alert("Código para ir para proximo desafio")
+        congratsNextLevel(["full", "half", "empty"], false)
+        var qtd_moedass = qtd_m
+        console.log("Total de moedas= "+qtd_moedass)
+        saveInStorage("moedas", qtd_moedass)
+        return qtd_moedass;
+         // passar qtd moedas para proxima fase (Monstrinhos)
+      }
+    }
+
+    function collision($div1, $div2) {
+      if (!endlevel) {
+        var x1 = $div1.offset().left;
+        var y1 = $div1.offset().top;
+        var h1 = $div1.outerHeight(true);
+        var w1 = $div1.outerWidth(true);
+        var b1 = y1 + h1;
+        var r1 = x1 + w1;
+        var x2 = $div2.offset().left;
+        var y2 = $div2.offset().top;
+        var h2 = $div2.outerHeight(true);
+        var w2 = $div2.outerWidth(true);
+        var b2 = y2 + h2;
+        var r2 = x2 + w2;
+      }
+
+      if (b1 < y2 || y1 > b2 || r1 < x2 || x1 > r2) return true;
+      return false;
+    }
+
+    var armazenar1 = false;
+    var armazenar2 = false;
+    var armazenar3 = false;
+    var armazenar4 = false;
+
+    function movePlane() {
+      for (var direction in keys) {
+        if (!keys.hasOwnProperty(direction)) continue;
+      
+        if (endlevel) return
+          
+        if (direction == 37) {
+          armazenar1 = collision($('#icon_pers_move'), $('#divplantacasa1'));
+          if (armazenar1) {
+             $("#icon_pers_move").animate({left: "-=5"}, 0);
+          } 
+        }
+        if (direction == 38) {  
+        armazenar2 = collision($('#icon_pers_move'), $('#divplantacasa2'));
+          if (armazenar2) {  
+            $("#icon_pers_move").animate({top: "-=5"}, 0); 
+          }
+
+        }
+
+        if (direction == 39) {
+           armazenar3 = collision($('#icon_pers_move'), $('#divplantacasa3'));
+          if (armazenar3) { 
+            $("#icon_pers_move").animate({left: "+=5"}, 0); 
+          }
+           
+        }
+        if (direction == 40) {
+          armazenar4 = collision($('#icon_pers_move'), $('#divplantacasa4'));
+          if (armazenar4) { 
+            $("#icon_pers_move").animate({top: "+=5"}, 0); 
+          }
+           
+        }
+
+        var BBoxA = DivA.getBoundingClientRect()
+        var BBoxB = DivB.getBoundingClientRect()
+        var BBoxC = DivC.getBoundingClientRect()
+        var BBoxD = DivD.getBoundingClientRect()
+        var BBoxE = DivE.getBoundingClientRect()
+        var BBoxF = DivF.getBoundingClientRect()
+        var BBoxG = DivG.getBoundingClientRect()
+        var BBoxH = DivH.getBoundingClientRect()
+
+        if(rectIntersect(BBoxA, BBoxB)){
+          $('#icon_bola').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas);  
+          $('#icon_bola2').css('display', 'block');
+          $('#icon_dog').css('display', 'block');
+          CasaBola= true;
+          verificarPegouCB(qtd_moedas);    
+        }
+
+        if(rectIntersect(BBoxA, BBoxC)){
+          $('#icon_bola2').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);        
+        }
+
+        if(rectIntersect(BBoxA, BBoxD)){
+          $('#icon_dog').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+          $('#icon_vo').css('display', 'block'); 
+          CasaDog= true;
+          verificarPegouCB(qtd_moedas);       
+        }
+
+        if(rectIntersect(BBoxA, BBoxE)){
+          $('#icon_vo').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+           $('#icon_vaso').css('display', 'block'); 
+          $('#icon_pirulito').css('display', 'block');
+          $('#icon_biscoito').css('display', 'block'); 
+          CasaVo= true;
+          verificarPegouCB(qtd_moedas);     
+        }
+
+         if(rectIntersect(BBoxA, BBoxF)){
+          $('#icon_vaso').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);
+        }
+
+        if(rectIntersect(BBoxA, BBoxG)){
+          $('#icon_pirulito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
+          $('#txt_maismoedas').css('color','#ea493a')
+          qtd_moedas=qtd_moedas-10;
+          $('#qtd_moeda').text(qtd_moedas);
+        }
+
+         if(rectIntersect(BBoxA, BBoxH)){
+          $('#icon_biscoito').css('display', 'none');
+          $('#imgtexto_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').css('display', 'block');
+          $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
+          $('#txt_maismoedas').css('color','#2BCB8D')
+          qtd_moedas=qtd_moedas+10;
+          $('#qtd_moeda').text(qtd_moedas); 
+          CasaBiscoito= true;
+          verificarPegouCB(qtd_moedas);       
+        }
+      }
+    }
+  } 
+
+// Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
+  function eco_1() {
+    setupLevel()
+
+    var cont_bola_edu=1;
+    var cont_bola_sau=1;
+    var cont_bola_laz=1;
+    var qntMoedasM = getFromStorage("moedas"); //pegar da variavel da fase anterior
+
+    $("#qtd_moedaM").text(qntMoedasM)
+
+    var addMoedaEdu=true;
+    var addMoedaSau=true;
+    var addMoedaLaz=true;
+
+    function retirarAddMoeda(){
+      addMoedaEdu=false;
+      addMoedaSau=false;
+      addMoedaLaz=false;
+    }
+    function adicionarAddMoeda(){
+      addMoedaEdu=true;
+      addMoedaSau=true;
+      addMoedaLaz=true;
+    }
+
+    $(".addMoedaEdu1").click(function() {
+    if (addMoedaEdu){  
+        if(qntMoedasM==0){
+
+        } else {
+            qntMoedasM = qntMoedasM-10;
+            $('#qtd_moedaM').text(qntMoedasM);
+            retirarAddMoeda();
+            if(cont_bola_edu==1){
+              $('#bolaEduc3').css('display', 'none');
+              $('#bolaEduc1').css('display', 'block');
+              cont_bola_edu=2;
+            } else if(cont_bola_edu==2){
+              $('#bolaEduc1').css('display', 'none');
+              $('#bolaEduc2').css('display', 'block');
+              cont_bola_edu=3
+            } else if(cont_bola_edu==3){
+              $('#bolaEduc2').css('display', 'none');
+              $('#bolaEduc3').css('display', 'block');
+               cont_bola_edu=1;
+            }
+        }
+      }
+    })
+    $(".addMoedaSau1").click(function() { 
+    if(addMoedaSau){  
+         if(qntMoedasM==0){
+
+        } else {
+          qntMoedasM= qntMoedasM-10;
+          $('#qtd_moedaM').text(qntMoedasM);
+          retirarAddMoeda();
+          if(cont_bola_sau==1){
+            $('#bolaSau3').css('display', 'none');
+            $('#bolaSau1').css('display', 'block');
+            cont_bola_sau=2;
+          } else if(cont_bola_sau==2){
+            $('#bolaSau1').css('display', 'none');
+            $('#bolaSau2').css('display', 'block');
+            cont_bola_sau=3
+          } else if(cont_bola_sau==3){
+            $('#bolaSau2').css('display', 'none');
+            $('#bolaSau3').css('display', 'block');
+             cont_bola_sau=1;
+          }
+        }
+      }
+    })
+    $(".addMoedaLaz1").click(function() {   
+      if(addMoedaLaz){
+         if(qntMoedasM==0){
+
+        } else {
+          qntMoedasM= qntMoedasM-10;
+          $('#qtd_moedaM').text(qntMoedasM);
+          retirarAddMoeda();
+          if(cont_bola_laz==1){
+            $('#bolaLaz3').css('display', 'none');
+            $('#bolaLaz1').css('display', 'block');
+            cont_bola_laz=2;
+          } else if(cont_bola_laz==2){
+            $('#bolaLaz1').css('display', 'none');
+            $('#bolaLaz2').css('display', 'block');
+            cont_bola_laz=3
+          } else if(cont_bola_laz==3){
+            $('#bolaLaz2').css('display', 'none');
+            $('#bolaLaz3').css('display', 'block');
+             cont_bola_laz=1;
+          }
+        }
+      }
+    })
+    $("#bolaEduc1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/ciencito_educ.png');
+      $('#nome_monstrinho').text("CIENCITO");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Te dá o poder de fazer invenções incríveis.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaEduc2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/mapamax_educ.png');
+      $('#nome_monstrinho').text("MAPAMAX");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Coloca na sua cabeça o nome de todos os lugares do mundo.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaEduc3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/livrex_educ.png');
+      $('#nome_monstrinho').text("LIVREX");
+      $('#nome_monstrinho').css('color', ' #376DC4');
+      $('#desc_monstrinho').text("Te dar o poder de devorar vários livros em pouco tempo.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/remeldino_saude.png');
+      $('#nome_monstrinho').text("REMELDINO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Te cura sempre que ficar doente.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/higiento_saude.png');
+      $('#nome_monstrinho').text("HIGIENTO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Te deixa sempre limpo e longe de bichinhos.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaSau3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/alimeniro_saude.png');
+      $('#nome_monstrinho').text("ALIMENIRO");
+      $('#nome_monstrinho').css('color', '#E54141');
+      $('#desc_monstrinho').text("Transforma toda a sua comida em coisas saudáveis.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz1").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/aventurim_lazer.png');
+      $('#nome_monstrinho').text("AVENTURIM");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te transporta para dentro dos filmes que você quiser.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz2").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/esportanto_lazer.png');
+      $('#nome_monstrinho').text("ESPORTANTO");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te deixa craque em qualquer esporte.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#bolaLaz3").click(function() {
+      adicionarAddMoeda();
+      $(this).css('display', 'none');  
+      $('#img_monstrinho').attr('src', 'img/desafios/economia/Monstrinhos/dancitar_lazer.png');
+      $('#nome_monstrinho').text("DANCITAR");
+      $('#nome_monstrinho').css('color', '#E8AD2A');
+      $('#desc_monstrinho').text("Te faz um expert em qualquer tipo de dança.");
+      $('.div_monstrinhos').css('display', 'block');
+    })
+    $("#guardar_monstrinhos").click(function() {
+      if(qntMoedasM==0){
+        $('.div_monstrinhos').css('display', 'none');
+        alert("*CODIGO PARA PROXIMO DESAFIO");
+        congratsNextLevel(["full", "full", "full"], true)
+      } else{
+      $('.div_monstrinhos').css('display', 'none');
+    }
     })
   }
