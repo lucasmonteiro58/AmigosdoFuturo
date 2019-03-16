@@ -44,7 +44,7 @@ if ($("#menu").length) {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-      updateSectionAJAX("feedback")
+      updateSectionAJAX("cutscene")
     })
   }
 
@@ -602,7 +602,7 @@ function answerLike(button, answer) {
     }
 
     $.ajax({
-        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
         url         : 'admin/php/controller/save_data.php', // the url where we want to POST
         data        :  data, // our data object
         dataType    : 'json', // what type of data do we expect back from the server

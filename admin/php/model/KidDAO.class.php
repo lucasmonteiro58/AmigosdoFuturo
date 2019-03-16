@@ -31,6 +31,7 @@ class KidDAO {
 	}
 
 	//continue
+	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&like=Sim&feedback=Gostei
 	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
 		//$data = date("Y-m-d H:i:s");
 		$badge_id = $this->search_badge_id($badge);
@@ -89,7 +90,7 @@ class KidDAO {
 		}
 	}
 	public function save_feedback($like, $text){
-		$query = "INSERT INTO feedbacks(liked,`text`) VALUES ('$like', '$feedback')";
+		$query = "INSERT INTO feedbacks(liked,`text`) VALUES ('$like', '$text')";
 		$result = $this->con->query($query) or die ($this->con->error);
 
 		if (!$result){

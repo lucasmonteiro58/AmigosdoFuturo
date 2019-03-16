@@ -1,9 +1,9 @@
 <?php
-	include 'php/model/controleLogin.class.php';
+	include 'php/model/LoginControl.class.php';
 
-	$controleLogin = new ControleLogin();
+	$loginControl = new LoginControl();
 
-	if (!$controleLogin->get_logado()){
+	if (!$loginControl->get_logged()){
 		header('location: login.php');
 	}
 

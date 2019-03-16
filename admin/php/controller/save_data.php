@@ -3,13 +3,13 @@
 
 	session_start();
 
-	$name = $_GET['name'];
-	$age = $_GET['age'];
-	$city = $_GET['city'];
-	$gender = $_GET['gender'];
-	$badge = $_GET['badge'];
-	$like = $_GET['like'];
-	$feedback = $_GET['feedback'];
+	$name = $_POST['name'];
+	$age = $_POST['age'];
+	$city = $_POST['city'];
+	$gender = $_POST['gender'];
+	$badge = $_POST['badge'];
+	$like = $_POST['like'];
+	$feedback = $_POST['feedback'];
 
 	$result = false;
 	
@@ -19,11 +19,9 @@
 	
 
 	if ($result) {
-		//$_SESSION["debug"] = "Sent to server.";
-		header('location: views/mei_0.html');
+		//echo "Sent to server.";
 	} else {
-		//$_SESSION["debug"] = "ERROR to send to server.";
-		header('location: views/mei_1.html');
+		//echo "ERROR to send to server.";
 	}
 
 ?>
