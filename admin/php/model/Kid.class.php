@@ -29,19 +29,19 @@ class Kid {
 		return $this->name;
 	}
 	public function get_gender(){
-		return $this->orientador;
+		return $this->gender;
 	}
 	public function get_age(){
-		return $this->orientador;
+		return $this->age;
 	}
 	public function get_city_id(){
-		return $this->orientador;
+		return $this->city_id;
 	}
 	public function get_badge_id(){
-		return $this->orientador;
+		return $this->badge_id;
 	}
 	public function get_feedback_id(){
-		return $this->orientador;
+		return $this->feedback_id;
 	}
 }
 ?>

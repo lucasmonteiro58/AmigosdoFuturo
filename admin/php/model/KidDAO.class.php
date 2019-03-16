@@ -15,7 +15,7 @@ class KidDAO {
 	public function __destruct(){}
 
 	public function get_kid_by_id($id){
-		$query = "SELECT * FROM Kids WHERE id=".$id;
+		$query = "SELECT * FROM kids WHERE id=".$id;
 
 		$result = $this->con->query($query) or die ($this->con->error);
 
@@ -31,38 +31,28 @@ class KidDAO {
 	}
 
 	//continue
-	public function save_kid($id_petiano, $id_pesquisa, $titulo, $descricao, $conteudo, $capa, $tipo) {
-		$data = date("Y-m-d H:i:s");
-		
-		$query = "INSERT INTO posts(id_pesquisa, id_petiano, titulo, descricao, conteudo, data, tipo, visitas) 
-		VALUES (".$id_pesquisa.", ".$id_petiano.", '".strtoupper($titulo)."', '".$descricao."', '".$conteudo."', '".$data."', '".$tipo."', 0)";
-		$resultado = $this->con->query($query) or die ($this->con->error);
+	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
+		//$data = date("Y-m-d H:i:s");
+		$badge_id = search_badge_id($badge)
+		$city_id = search_city_id($city)
+		$feedback_id = save_feedback($like, $feedback)
 
-		if ($resultado){
-			$atual = $this->get_last_post_by_usuario($id_petiano);
-			$id_post = $atual->get_id();
+		if (!$badge_id || !$city_id || !$feedback_id) {
+			return false
+		}
 
-			//Inserir foto capa no banco
-			$arq = new ArquivoDAO();
-			$retorno = $arq->upload_image($capa, $id_post, true);
+		if ($gender == "Menino") {
+			$gender = "M"
+		} else if ($gender == "Menina") {
+			$gender = "F"
+		}
 
-			if($retorno == 1){
-				//Atualiza caminho da capa no post
-				$foto = $arq->get_last_arquivo_by_post($id_post);
-				$foto = $foto->get_caminho();
-				$atual->set_capa($foto);
+		$query = "INSERT INTO kids(name, gender, age, badge_id, city_id, feedback_id) 
+		VALUES (".$name.", ".$gender.", '".$age."', '".$badge_id."', '".$city_id."', '".$feedback_id.")";
+		$result = $this->con->query($query) or die ($this->con->error);
 
-				$retorno = $this->update_post($atual);
-			}
-
-			$arq->arquivoDAO_close();
-
-			if($retorno){
-				return true;
-			}else{
-				//Deletar post by id
-				return false;
-			}
+		if ($result){
+			return true
 		}else{
 			return false;
 		}		
@@ -70,6 +60,52 @@ class KidDAO {
 
 	public function KidDAO_close(){
 		return $this->con->close();
+	}
+
+	public function search_badge_id($badge_abreviation){
+		$query = "SELECT * FROM badges WHERE abreviation=".$badge_abreviation;
+		$result = $this->con->query($query) or die ($this->con->error);
+		$n = $result->num_rows;
+
+		if ($n){
+			$data = $result->fetch_array();
+			$badge_id = $data['id'];
+			return $badge_id;
+		}else {
+			return false;
+		}
+	}
+	public function search_city_id($city_name){
+		$query = "SELECT * FROM cities WHERE name=".$city_name;
+		$result = $this->con->query($query) or die ($this->con->error);
+		$n = $result->num_rows;
+
+		if ($n){
+			$data = $result->fetch_array();
+			$city_id = $data['id'];
+			return $city_id;
+		}else {
+			return false;
+		}
+	}
+	public function save_feedback($like, $text){
+		$query = "INSERT INTO feedbacks(like,text) 
+		VALUES (".$like.", ".$feedback.")";
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		if (!$result){
+			return false
+		}else {
+			$query = "SELECT * FROM feedback WHERE text=".$text;
+			$result = $this->con->query($query) or die ($this->con->error);
+			$n = $result->num_rows;
+
+			if ($n){
+				$data = $result->fetch_array();
+				$feedback_id = $data['id'];
+				return $feedback_id;
+			}
+		}
 	}
 
 }
