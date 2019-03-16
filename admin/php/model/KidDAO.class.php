@@ -15,7 +15,7 @@ class KidDAO {
 	public function __destruct(){}
 
 	public function get_kid_by_id($id){
-		$query = "SELECT * FROM kids WHERE id=".$id;
+		$query = "SELECT * FROM kids WHERE id = '$id'";
 
 		$result = $this->con->query($query) or die ($this->con->error);
 
@@ -33,26 +33,26 @@ class KidDAO {
 	//continue
 	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
 		//$data = date("Y-m-d H:i:s");
-		$badge_id = search_badge_id($badge)
-		$city_id = search_city_id($city)
-		$feedback_id = save_feedback($like, $feedback)
+		$badge_id = $this->search_badge_id($badge);
+		$city_id = $this->search_city_id($city);
+		$feedback_id = $this->save_feedback($like, $feedback);
 
 		if (!$badge_id || !$city_id || !$feedback_id) {
-			return false
+			return false;
 		}
 
 		if ($gender == "Menino") {
-			$gender = "M"
+			$gender = "M";
 		} else if ($gender == "Menina") {
-			$gender = "F"
+			$gender = "F";
 		}
 
-		$query = "INSERT INTO kids(name, gender, age, badge_id, city_id, feedback_id) 
-		VALUES (".$name.", ".$gender.", '".$age."', '".$badge_id."', '".$city_id."', '".$feedback_id.")";
+		$query = "INSERT INTO kids(name, gender, age, badge_id, city_id, feedback_id) VALUES ('$name', '$gender', '$age', '$badge_id', '$city_id', '$feedback_id')";
+
 		$result = $this->con->query($query) or die ($this->con->error);
 
 		if ($result){
-			return true
+			return true;
 		}else{
 			return false;
 		}		
@@ -63,7 +63,7 @@ class KidDAO {
 	}
 
 	public function search_badge_id($badge_abreviation){
-		$query = "SELECT * FROM badges WHERE abreviation=".$badge_abreviation;
+		$query = "SELECT * FROM badges WHERE abreviation='$badge_abreviation'";
 		$result = $this->con->query($query) or die ($this->con->error);
 		$n = $result->num_rows;
 
@@ -76,7 +76,7 @@ class KidDAO {
 		}
 	}
 	public function search_city_id($city_name){
-		$query = "SELECT * FROM cities WHERE name=".$city_name;
+		$query = "SELECT * FROM cities WHERE name='$city_name'";
 		$result = $this->con->query($query) or die ($this->con->error);
 		$n = $result->num_rows;
 
@@ -89,14 +89,13 @@ class KidDAO {
 		}
 	}
 	public function save_feedback($like, $text){
-		$query = "INSERT INTO feedbacks(like,text) 
-		VALUES (".$like.", ".$feedback.")";
+		$query = "INSERT INTO feedbacks(liked,`text`) VALUES ('$like', '$feedback')";
 		$result = $this->con->query($query) or die ($this->con->error);
 
 		if (!$result){
-			return false
+			return false;
 		}else {
-			$query = "SELECT * FROM feedback WHERE text=".$text;
+			$query = "SELECT * FROM feedbacks WHERE `text`= '$text'";
 			$result = $this->con->query($query) or die ($this->con->error);
 			$n = $result->num_rows;
 
