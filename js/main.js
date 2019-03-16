@@ -44,7 +44,7 @@ if ($("#menu").length) {
   function menu() {
     $("#start-game").click(function () {
       cutscene_name = "start"
-      updateSectionAJAX("cutscene")
+      updateSectionAJAX("feedback")
     })
   }
 
@@ -542,7 +542,7 @@ function feedback() {
     }
 
     saveInStorage("feedback", $("textarea").val())
-    submitFeedbackAJAX()
+    sendAllDataToServer()
     updateSectionAJAX("certificate")
   })
 }
@@ -576,45 +576,9 @@ function answerLike(button, answer) {
         saveInStorage("like", "Não")
       }
     }
-}
-
-function submitFeedbackAJAX() {
-    var data = {}
-    var like = getFromStorage("like")
-    var feedback = getFromStorage("feedback")
-    data["like"] = like
-    data["feedback"] = feedback
-
-    // $.ajax({
-    //     type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
-    //     url         : 'save_feedback.php', // the url where we want to POST
-    //     data        : data, // our data object
-    //     dataType    : 'json', // what type of data do we expect back from the server
-    //     encode       : true
-    // })
-    //   .done(function(data) {
-    //       console.log(data); 
-    //   });
-
-      // // stop the form from submitting the normal way and refreshing the page
-      // event.preventDefault();
-    var obj = JSON.stringify(data)
-    alert(obj)
   }
 
-// Certificate  -----------------------------------------------------------------
-  function certificate() {
-    setupFinishedBadges()
-    activeAndShowDetails("#"+actual_badge["id"])
-
-    setupActionsCertificate()
-
-    generateCertificateImg()
-
-    sendAllDataToServer()
-  }
-
-  function sendAllDataToServer() {
+    function sendAllDataToServer() {
     // Form
     var name = getFromStorage("name")
     var age = getFromStorage("age")
@@ -638,21 +602,27 @@ function submitFeedbackAJAX() {
     }
 
     $.ajax({
-        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : '/admin/php/controller/save_data.php', // the url where we want to POST
-        data        : data, // our data object
+        type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+        url         : 'admin/php/controller/save_data.php', // the url where we want to POST
+        data        :  data, // our data object
         dataType    : 'json', // what type of data do we expect back from the server
         encode       : true
-    })
-      .done(function(data) {
-          console.log(data); 
+    }).done(function(data) {
+        var obj = JSON.stringify(data)
+        alert(obj) 
       });
 
     // stop the form from submitting the normal way and refreshing the page
-    event.preventDefault();
-    
-    var obj = JSON.stringify(data)
-    alert(obj)       
+    //event.preventDefault();       
+  }
+// Certificate  -----------------------------------------------------------------
+  function certificate() {
+    setupFinishedBadges()
+    activeAndShowDetails("#"+actual_badge["id"])
+
+    setupActionsCertificate()
+
+    generateCertificateImg()
   }
 
   function generateCertificateImg() {

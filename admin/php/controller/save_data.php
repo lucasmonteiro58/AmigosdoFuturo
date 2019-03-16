@@ -3,31 +3,27 @@
 
 	session_start();
 
-	if(isset($_POST['name']) AND isset($_POST['age']) AND isset($_POST['city']) AND isset($_POST['gender']) AND isset($_POST['badge']) AND isset($_POST['like']) AND isset($_POST['feedback'])){
+	$name = $_GET['name'];
+	$age = $_GET['age'];
+	$city = $_GET['city'];
+	$gender = $_GET['gender'];
+	$badge = $_GET['badge'];
+	$like = $_GET['like'];
+	$feedback = $_GET['feedback'];
 
-		$name = $_POST['name'];
-		$age = $_POST['age'];
-		$city = $_POST['city'];
-		$gender = $_POST['gender'];
-		$badge = $_POST['badge'];
-		$like = $_POST['like'];
-		$feedback = $_POST['feedback'];
+	$result = false;
+	
+	$kidDAO = new KidDAO();
+	$result = $kidDAO->save_kid($name, $age, $city, $gender, $badge, $like, $feedback);
+	$kidDAO->kidDAO_close();
+	
 
-		$result = false;
-		
-		$kidDAO = new KidDAO();
-		$result = $kidDAO->save_kid($name, $age, $city, $gender, $badge, $like, $feedback);
-		$kidDAO->kidDAO_close();
-		
-
-		if ($result) {
-			echo "Sent to server.";
-		} else {
-			echo "ERROR to send to server.";
-		}
+	if ($result) {
+		//$_SESSION["debug"] = "Sent to server.";
+		header('location: views/mei_0.html');
 	} else {
-		echo "Could not save in server. Missing some fields.";
+		//$_SESSION["debug"] = "ERROR to send to server.";
+		header('location: views/mei_1.html');
 	}
 
-	//header('location: ../../index.php');
 ?>

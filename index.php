@@ -1,3 +1,12 @@
+<?php
+ session_start();
+
+  if(isset($_SESSION["debug"]))
+      $debug = $_SESSION["debug"];
+  else
+      $debug = "No debug";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -48,6 +57,8 @@
 	</div>
 
 	</div>
+
+	<h4>Debug-> <?php echo $debug; ?></h4>
 
 </body>
 
