@@ -35,9 +35,9 @@
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Bem-vindo de votla!</h1>
+                    <h1 class="h4 text-gray-900 mb-4">Bem-vindo de volta!</h1>
                   </div>
-                  <form class="user" method="POST" action="php/controller/setLogin.php">
+                  <form class="user" method="POST" action="php/controller/set_login.php">
                     <div class="form-group">
                       <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" name="email" placeholder="E-mail">
                     </div>

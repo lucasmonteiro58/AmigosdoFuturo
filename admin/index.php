@@ -1,6 +1,7 @@
 <?php
-  session_start();
-
+  // Go to login if not user in session
+  include "php/controller/checks_login.php";
+  
   if(isset($_SESSION["user_first_name"]))
       $user_name = $_SESSION["user_first_name"]." ".$_SESSION["user_last_name"];
   else

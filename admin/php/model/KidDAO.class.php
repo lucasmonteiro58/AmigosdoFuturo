@@ -1,6 +1,9 @@
 <?php
 
 include_once 'Kid.class.php';
+include_once 'FeedbackDAO.class.php';
+include_once 'BadgeDAO.class.php';
+include_once 'CityDAO.class.php';
 include_once 'DatabaseConnection.class.php';
 
 class KidDAO {
@@ -15,7 +18,7 @@ class KidDAO {
 	public function __destruct(){}
 
 	public function get_kid_by_id($id){
-		$query = "SELECT * FROM Kids WHERE id=".$id;
+		$query = "SELECT * FROM kids WHERE id = '$id'";
 
 		$result = $this->con->query($query) or die ($this->con->error);
 
@@ -29,40 +32,54 @@ class KidDAO {
 			return false;
 		}
 	}
+	public function get_all_kids(){
+		$query = "SELECT * FROM kids";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+		if ($n){
+			while($data = $result->fetch_array()){
+				$kids[] = new Kid($data['id'], $data['name'], $data['gender'],$data['age'],$data['city_id'],$data['badge_id'],$data['feedback_id']);
+			}
+			return $kids;
+		} else {
+			return false;
+		}
+	}
 
 	//continue
-	public function save_kid($id_petiano, $id_pesquisa, $titulo, $descricao, $conteudo, $capa, $tipo) {
-		$data = date("Y-m-d H:i:s");
-		
-		$query = "INSERT INTO posts(id_pesquisa, id_petiano, titulo, descricao, conteudo, data, tipo, visitas) 
-		VALUES (".$id_pesquisa.", ".$id_petiano.", '".strtoupper($titulo)."', '".$descricao."', '".$conteudo."', '".$data."', '".$tipo."', 0)";
-		$resultado = $this->con->query($query) or die ($this->con->error);
+	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&like=Sim&feedback=Gostei
+	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
+		//$data = date("Y-m-d H:i:s");
+		$badgeDAO = new BadgeDAO();
+		$badge_id = $badgeDAO->search_badge_id_by_abrev($badge);
+		$badgeDAO->badgeDAO_close();
 
-		if ($resultado){
-			$atual = $this->get_last_post_by_usuario($id_petiano);
-			$id_post = $atual->get_id();
+		$cityDAO = new CityDAO();
+		$city_id = $cityDAO->search_city_id_by_name($city);
+		$cityDAO->cityDAO_close();
 
-			//Inserir foto capa no banco
-			$arq = new ArquivoDAO();
-			$retorno = $arq->upload_image($capa, $id_post, true);
+		$feedbackDAO = new FeedbackDAO();
+		$feedback_id = $feedbackDAO->save_feedback($like, $feedback);
+		$feedbackDAO->feedbackDAO_close();
 
-			if($retorno == 1){
-				//Atualiza caminho da capa no post
-				$foto = $arq->get_last_arquivo_by_post($id_post);
-				$foto = $foto->get_caminho();
-				$atual->set_capa($foto);
+		if (!$badge_id || !$city_id || !$feedback_id) {
+			return false;
+		}
 
-				$retorno = $this->update_post($atual);
-			}
+		if ($gender == "Menino") {
+			$gender = "M";
+		} else if ($gender == "Menina") {
+			$gender = "F";
+		}
 
-			$arq->arquivoDAO_close();
+		$query = "INSERT INTO kids(name, gender, age, badge_id, city_id, feedback_id) VALUES ('$name', '$gender', '$age', '$badge_id', '$city_id', '$feedback_id')";
 
-			if($retorno){
-				return true;
-			}else{
-				//Deletar post by id
-				return false;
-			}
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		if ($result){
+			return true;
 		}else{
 			return false;
 		}		
