@@ -536,7 +536,7 @@ function feedback() {
   })
   $("#submit-feedback").click(function () {
     // Check if all the fields are full
-    if ($("textarea").val() == "" || !(getFromStorage("like"))) {
+    if ($("textarea").val() == "" || !(getFromStorage("liked"))) {
        alert("Preencha todos os campos para continuar.") 
        return false
     }
@@ -550,30 +550,30 @@ function feedback() {
 function answerLike(button, answer) {
   $(button).toggleClass("active")
 
-  var beforeAnswer = getFromStorage("like")
+  var beforeAnswer = getFromStorage("liked")
     // If already answered before
     if (beforeAnswer == "Sim") {
       if (answer == "Sim") {
-        saveInStorage("like", null)
+        saveInStorage("liked", null)
       }
       if (answer == "Não") {
-        saveInStorage("like", "Não")
+        saveInStorage("liked", "Não")
         $("#feedback .yes").toggleClass("active")
       }
     } else if (beforeAnswer == "Não") {
       if (answer == "Não") {
-        saveInStorage("like", null)
+        saveInStorage("liked", null)
       }
       if (answer == "Sim") {
-        saveInStorage("like", "Sim")
+        saveInStorage("liked", "Sim")
         $("#feedback .no").toggleClass("active")
       }
     } else {
       // First time answering
       if (answer == "Sim") {
-        saveInStorage("like", "Sim")
+        saveInStorage("liked", "Sim")
       } else if (answer == "Não") {
-        saveInStorage("like", "Não")
+        saveInStorage("liked", "Não")
       }
     }
   }
@@ -587,7 +587,7 @@ function answerLike(button, answer) {
     // Badge
     var badge = getFromStorage("badge")
     // Feedback
-    var like = getFromStorage("like")
+    var liked = getFromStorage("liked")
     var feedback = getFromStorage("feedback")
 
     // variables
@@ -597,7 +597,7 @@ function answerLike(button, answer) {
       "city" : city,
       "gender" : gender,
       "badge" : badge,
-      "like" : like,
+      "liked" : liked,
       "feedback" : feedback
     }
 

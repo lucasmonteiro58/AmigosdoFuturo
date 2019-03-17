@@ -8,13 +8,13 @@
 	$city = $_POST['city'];
 	$gender = $_POST['gender'];
 	$badge = $_POST['badge'];
-	$like = $_POST['like'];
+	$liked = $_POST['liked'];
 	$feedback = $_POST['feedback'];
 
 	$result = false;
 	
 	$kidDAO = new KidDAO();
-	$result = $kidDAO->save_kid($name, $age, $city, $gender, $badge, $like, $feedback);
+	$result = $kidDAO->save_kid($name, $age, $city, $gender, $badge, $liked, $feedback);
 	$kidDAO->kidDAO_close();
 	
 

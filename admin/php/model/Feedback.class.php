@@ -3,12 +3,12 @@
 class Feedback {
 	
 	private $id;
-	private $like;
+	private $liked;
 	private $text;
 
-	public function __construct ($id, $like, $text){
+	public function __construct ($id, $liked, $text){
 		$this->id = $id;
-		$this->like = $like;
+		$this->liked = $liked;
 		$this->text = $text;
 	}
 
@@ -17,8 +17,8 @@ class Feedback {
 	public function get_id(){
 		return $this->id;
 	}
-	public function get_like(){
-		return $this->like;
+	public function get_liked(){
+		return $this->liked;
 	}
 	public function get_text(){
 		return $this->text;

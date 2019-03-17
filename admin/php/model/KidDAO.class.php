@@ -1,6 +1,9 @@
 <?php
 
 include_once 'Kid.class.php';
+include_once 'FeedbackDAO.class.php';
+include_once 'BadgeDAO.class.php';
+include_once 'CityDAO.class.php';
 include_once 'DatabaseConnection.class.php';
 
 class KidDAO {
@@ -29,14 +32,37 @@ class KidDAO {
 			return false;
 		}
 	}
+	public function get_all_kids(){
+		$query = "SELECT * FROM kids";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+		if ($n){
+			while($data = $result->fetch_array()){
+				$kids[] = new Kid($data['id'], $data['name'], $data['gender'],$data['age'],$data['city_id'],$data['badge_id'],$data['feedback_id']);
+			}
+			return $kids;
+		} else {
+			return false;
+		}
+	}
 
 	//continue
 	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&like=Sim&feedback=Gostei
 	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
 		//$data = date("Y-m-d H:i:s");
-		$badge_id = $this->search_badge_id($badge);
-		$city_id = $this->search_city_id($city);
-		$feedback_id = $this->save_feedback($like, $feedback);
+		$badgeDAO = new BadgeDAO();
+		$badge_id = $badgeDAO->search_badge_id_by_abrev($badge);
+		$badgeDAO->badgeDAO_close();
+
+		$cityDAO = new CityDAO();
+		$city_id = $cityDAO->search_city_id_by_name($city);
+		$cityDAO->cityDAO_close();
+
+		$feedbackDAO = new FeedbackDAO();
+		$feedback_id = $feedbackDAO->save_feedback($like, $feedback);
+		$feedbackDAO->feedbackDAO_close();
 
 		if (!$badge_id || !$city_id || !$feedback_id) {
 			return false;
@@ -61,51 +87,6 @@ class KidDAO {
 
 	public function KidDAO_close(){
 		return $this->con->close();
-	}
-
-	public function search_badge_id($badge_abreviation){
-		$query = "SELECT * FROM badges WHERE abreviation='$badge_abreviation'";
-		$result = $this->con->query($query) or die ($this->con->error);
-		$n = $result->num_rows;
-
-		if ($n){
-			$data = $result->fetch_array();
-			$badge_id = $data['id'];
-			return $badge_id;
-		}else {
-			return false;
-		}
-	}
-	public function search_city_id($city_name){
-		$query = "SELECT * FROM cities WHERE name='$city_name'";
-		$result = $this->con->query($query) or die ($this->con->error);
-		$n = $result->num_rows;
-
-		if ($n){
-			$data = $result->fetch_array();
-			$city_id = $data['id'];
-			return $city_id;
-		}else {
-			return false;
-		}
-	}
-	public function save_feedback($like, $text){
-		$query = "INSERT INTO feedbacks(liked,`text`) VALUES ('$like', '$text')";
-		$result = $this->con->query($query) or die ($this->con->error);
-
-		if (!$result){
-			return false;
-		}else {
-			$query = "SELECT * FROM feedbacks WHERE `text`= '$text'";
-			$result = $this->con->query($query) or die ($this->con->error);
-			$n = $result->num_rows;
-
-			if ($n){
-				$data = $result->fetch_array();
-				$feedback_id = $data['id'];
-				return $feedback_id;
-			}
-		}
 	}
 
 }
