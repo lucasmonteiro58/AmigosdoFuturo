@@ -1,0 +1,11 @@
+<html> 
+<head> 
+<script type='text/javascript' src='jquery.jsmovie.min.js'></script>
+</head> 
+<body> 
+<div id='movie'></div> 
+<div id='play'>play</div>
+<div id='stop'>stop</div>
+<div id='pause'>pause</div>
+</body>
+</html>

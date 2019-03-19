@@ -613,16 +613,33 @@
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
     setupLevel()
+
+    $('#antenaRadio').jsMovie({
+    sequence: 'antenaradio_0000#.png',
+    from: 0,
+    to: 7,
+    fps: 8,
+    width:'60%',
+    height: '100%',
+
+    folder : "img/animation/antenaradio/",
+    playOnLoad:false
+          
+    });
+
+
     var contJornalRua =0;
     $( ".jornalRua" ).click(function() {
      contJornalRua ++;
      var idJornalRua = "#" + $(this).attr('id') + "cesta";
+     
 
      $(idJornalRua).css('display','block');
      $(this).css('display','none');
+      $('#antenaRadio').jsMovie('play',1,8,false, true);
 
      if (contJornalRua==4){
-      alert("Você conseguiu");
+      //alert("Você conseguiu");
       congratsNextLevel(["full", "full", "empty"], false)
      }
     }); 

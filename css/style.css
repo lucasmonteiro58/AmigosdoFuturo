@@ -2720,6 +2720,12 @@ display: none;
 }
 
 #antenaRadio{
+  position: absolute;
+  bottom: 15.4%;
+  left: 12%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(0.75);
 
 }
 
