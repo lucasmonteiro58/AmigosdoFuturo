@@ -302,7 +302,7 @@ var helps_texts = {
         },
   "mei_2":{"title": "Xiii...Sem água!",
           "text" : "Opa, essa casa não tem <a>saneamento básico</a>. Ligue os canos para chegar água na torneira!",
-          "tip"  : "Saneamento básico: sistema de canos por onde a água chega na nossa casa e por onde sai."
+          "tip"  : "Sistema de canos por onde a água chega na nossa casa e por onde sai."
         },
   "gov_0":{"title": "Hora de brincar!",
            "text" : "Você pode ser líder no parquinho e organizar as brincadeiras. Comece separando os times."

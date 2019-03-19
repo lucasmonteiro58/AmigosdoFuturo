@@ -1730,6 +1730,17 @@
 
 }
 
+ #animacaocanos{
+  position: absolute;
+  bottom: -24%;
+  left: 6.75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(0.55);
+  display: none;
+
+}
+
 #cenariocozinha{
   position: absolute;
   width: 100%;

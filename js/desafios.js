@@ -385,6 +385,20 @@
     var verificaCanos = false;
     var verificaLegumesCesta = 0;
 
+
+     $('#animacaocanos').jsMovie({
+      sequence: 'canos_000##.png',
+      from: 1,
+      to: 25,
+      fps: 8,
+      width:'88%',
+      height: '84%',
+      folder : "img/animation/canos/",
+      playOnLoad:false          
+    });
+
+
+
     function verificaLegumesCestaOK(){
       if (verificaLegumesCesta==6 && verificaCanos){
         alert("conseguiu")
@@ -488,6 +502,12 @@
       var totalCanos = $(".pecasCozinha.canoCerto").length;
       if (totalCanos==10){
         $('#cobrirCozinha').css('display', 'none');
+        $('.pecasCozinha').css('display', 'none');
+        $('#animacaocanos').css('display', 'block');
+
+         $('#animacaocanos').jsMovie('play',1,25,false, false);
+
+
         verificaCanos = true;
          alert("Arrasta as coisas pra pia");
          verificaLegumesCestaOK()

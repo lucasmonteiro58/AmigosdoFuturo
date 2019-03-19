@@ -173,7 +173,7 @@
 
                     //add containers
                     $(this).append("<div id='jsMovie_event_overlay'></div>");
-                    $(this).append("<div id='jsMovie_image_preload_container'></div>");
+                    //$(this).append("<div id='jsMovie_image_preload_container'></div>");
 
                     //prepare event container
                     var self = $(this);
