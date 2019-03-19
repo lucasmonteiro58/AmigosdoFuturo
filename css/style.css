@@ -5106,6 +5106,17 @@ display: none;
 
   }
 
+  #animacaoEduc{
+  position: absolute;
+  bottom: -10.6%;
+  left: 31.2%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(2.16);
+  display: none;
+
+}
+
     button.addMoedaEdu {background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press2.png);}
     button.addMoedaEdu:active{background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press.png);}
 

@@ -2279,6 +2279,18 @@
 
     $("#qtd_moedaM").text(qntMoedasM)
 
+    $('#animacaoEduc').jsMovie({
+    sequence: 'maquinaeduc_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinaeduc/",
+    playOnLoad:false
+          
+    });
+
     var addMoedaEdu=true;
     var addMoedaSau=true;
     var addMoedaLaz=true;
@@ -2294,6 +2306,7 @@
       addMoedaLaz=true;
     }
 
+   
     $(".addMoedaEdu1").click(function() {
     if (addMoedaEdu){  
         if(qntMoedasM==0){
@@ -2302,18 +2315,32 @@
             qntMoedasM = qntMoedasM-10;
             $('#qtd_moedaM').text(qntMoedasM);
             retirarAddMoeda();
+            $("#animacaoEduc").css('display','block');
+             $('#animacaoEduc').jsMovie('play',1,15,false,true);
+             // $("#animacaoEduc").css('display','none');
             if(cont_bola_edu==1){
+
+              setTimeout(function () { 
               $('#bolaEduc3').css('display', 'none');
               $('#bolaEduc1').css('display', 'block');
               cont_bola_edu=2;
+             }, 1300);
+              
+              
             } else if(cont_bola_edu==2){
+               setTimeout(function () {
               $('#bolaEduc1').css('display', 'none');
               $('#bolaEduc2').css('display', 'block');
-              cont_bola_edu=3
-            } else if(cont_bola_edu==3){
+              cont_bola_edu=3 
+              
+             }, 1300);
+             
+            } else if(cont_bola_edu==3){              
+               setTimeout(function () {
               $('#bolaEduc2').css('display', 'none');
               $('#bolaEduc3').css('display', 'block');
                cont_bola_edu=1;
+             }, 1300);
             }
         }
       }
