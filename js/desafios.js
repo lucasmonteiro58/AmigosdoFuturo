@@ -1212,14 +1212,59 @@
     var balanco = false;
     var gangorra = false;
     var tablet = false;
+    
+
+    $('#animacaoGangorra').jsMovie({
+    sequence: 'Gangorra_000##.png',
+    from: 0,
+    to: 71,
+    fps: 15,
+    width:'45%',
+    height: '53.5%',
+    folder : "img/animation/FaseLazer/Gangorra/",
+    playOnLoad:false
+          
+    });
+
+    $('#animacaoEscorregador').jsMovie({
+    sequence: 'Tobogã_000##.png',
+    from: 0,
+    to: 23,
+    fps: 15,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/FaseLazer/Toboga/",
+    playOnLoad:false
+          
+    });
+
+
+    $('#animacaoCelular').jsMovie({
+    sequence: 'Celular_000##.png',
+    from: 0,
+    to: 71,
+    fps: 12,
+    width:'43%',
+    height: '60%',
+    folder : "img/animation/FaseLazer/Celular/",
+    playOnLoad:false
+          
+    });
+
+   
 
      $( "#escorregador").click(function() {
       if (escorregador){
       } else{
+        $("#animacaoEscorregador").css('display','block');
+        $('#animacaoEscorregador').jsMovie('play',1,24,false,false);
+          setTimeout(function () {               
+               $("#animacaoEscorregador").css('display','none');
+        }, 1900);
         bilotoP= bilotoP+4.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         },1500)
         escorregador=true;
       }})
 
@@ -1246,16 +1291,28 @@
       $( "#gangorra").click(function() {
       if (gangorra){
       } else{
+        $('#gangorra').css('display', 'none');
+         $("#animacaoGangorra").css('display','block');
+          $('#animacaoGangorra').jsMovie('play',1,72,false,true);
+          setTimeout(function () { 
+               $('#gangorra').css('display', 'block');
+               $("#animacaoGangorra").css('display','none');
+        }, 6300);
         bilotoP= bilotoP+3.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         }, 4000)
         gangorra=true;
       }})
 
       $( "#tablet").click(function() {
       if (tablet){
       } else{
+        $("#animacaoCelular").css('display','block');
+        $('#animacaoCelular').jsMovie('play',1,72,false,false);
+          setTimeout(function () {               
+               $("#animacaoCelular").css('display','none');
+        }, 4500);
         bilotoP= bilotoP+0;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
@@ -2291,6 +2348,29 @@
           
     });
 
+    $('#animacaoSaude').jsMovie({
+    sequence: 'maquinasaude_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinasaude/",
+    playOnLoad:false          
+    });
+
+
+     $('#animacaoLazer').jsMovie({
+    sequence: 'maquinalazer_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinalazer/",
+    playOnLoad:false          
+    });
+
     var addMoedaEdu=true;
     var addMoedaSau=true;
     var addMoedaLaz=true;
@@ -2353,18 +2433,31 @@
           qntMoedasM= qntMoedasM-10;
           $('#qtd_moedaM').text(qntMoedasM);
           retirarAddMoeda();
+          $("#animacaoSaude").css('display','block');
+             $('#animacaoSaude').jsMovie('play',1,15,false,true);
           if(cont_bola_sau==1){
+            setTimeout(function () { 
             $('#bolaSau3').css('display', 'none');
             $('#bolaSau1').css('display', 'block');
             cont_bola_sau=2;
+            }, 1300);
+            
           } else if(cont_bola_sau==2){
+            setTimeout(function () {
             $('#bolaSau1').css('display', 'none');
             $('#bolaSau2').css('display', 'block');
-            cont_bola_sau=3
+            cont_bola_sau=3 
+    
+            }, 1300);
+            
           } else if(cont_bola_sau==3){
-            $('#bolaSau2').css('display', 'none');
+            setTimeout(function () { 
+              $('#bolaSau2').css('display', 'none');
             $('#bolaSau3').css('display', 'block');
              cont_bola_sau=1;
+    
+            }, 1300);
+            
           }
         }
       }
@@ -2377,18 +2470,29 @@
           qntMoedasM= qntMoedasM-10;
           $('#qtd_moedaM').text(qntMoedasM);
           retirarAddMoeda();
+          $("#animacaoLazer").css('display','block');
+          $('#animacaoLazer').jsMovie('play',1,15,false,true);
           if(cont_bola_laz==1){
+            setTimeout(function () {
             $('#bolaLaz3').css('display', 'none');
             $('#bolaLaz1').css('display', 'block');
-            cont_bola_laz=2;
+            cont_bola_laz=2;     
+            }, 1300);
+            
           } else if(cont_bola_laz==2){
+            setTimeout(function () { 
             $('#bolaLaz1').css('display', 'none');
             $('#bolaLaz2').css('display', 'block');
-            cont_bola_laz=3
+            cont_bola_laz=3    
+            }, 1300);
+            
           } else if(cont_bola_laz==3){
+            setTimeout(function () {
             $('#bolaLaz2').css('display', 'none');
             $('#bolaLaz3').css('display', 'block');
-             cont_bola_laz=1;
+             cont_bola_laz=1;     
+            }, 1300);
+            
           }
         }
       }
