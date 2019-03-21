@@ -1251,6 +1251,19 @@
           
     });
 
+    $('#animacaoBalanco').jsMovie({
+    sequence: 'Balanço_000##.png',
+    from: 0,
+    to: 83,
+    fps: 12,
+    width:'43%',
+    height: '64%',
+    folder : "img/animation/FaseLazer/Balanco/",
+    playOnLoad:false
+          
+    });
+
+
    
 
      $( "#escorregador").click(function() {
@@ -1281,10 +1294,19 @@
      $( "#balanco").click(function() {
       if (balanco){
       } else{
+        $('#balanco').css('display','none');
+        $('#balanco1').css('display','block');
+        $("#animacaoBalanco").css('display','block');
+        $('#animacaoBalanco').jsMovie('play',1,84,false,false);
+          setTimeout(function () {               
+               $("#animacaoBalanco").css('display','none');
+               $('#balanco').css('display','block');
+              $('#balanco1').css('display','none');
+        }, 5000);
         bilotoP= bilotoP+2.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         }, 2000)
         balanco=true;
       }})
 
@@ -1308,10 +1330,14 @@
       $( "#tablet").click(function() {
       if (tablet){
       } else{
+        $('#tablet').css('display','none');
+        $('#tablet1').css('display','block');
         $("#animacaoCelular").css('display','block');
         $('#animacaoCelular').jsMovie('play',1,72,false,false);
           setTimeout(function () {               
                $("#animacaoCelular").css('display','none');
+               $('#tablet').css('display','block');
+              $('#tablet1').css('display','none');
         }, 4500);
         bilotoP= bilotoP+0;
         $( "#bilotoP" ).animate({

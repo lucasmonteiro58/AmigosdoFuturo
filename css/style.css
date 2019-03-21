@@ -4836,6 +4836,17 @@ display: none;
 
 }
 
+#animacaoBalanco{
+  position: absolute;
+  bottom: 1%;
+  left: 78%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.15);
+ display: none;
+
+}
+
 #bilotoP{
   position: absolute;
   top: 5.3%;
@@ -4872,6 +4883,15 @@ display: none;
 
 }
 
+#balanco1{
+  position: absolute;
+  left: 74%;
+  top: 35%;
+  width: 22%;
+  display: none;
+
+}
+
 #gangorra{
   position: absolute;
   left: 33%;
@@ -4884,6 +4904,15 @@ display: none;
   left: 70%;
   top: 72%;
   width: 8%;
+  //display: none;
+}
+
+#tablet1{
+  position: absolute;
+  left: 70%;
+  top: 72%;
+  width: 8%;
+  display: none;
 }
 
 /*Desafio Casa Sections-------------------------------------------------------------------*/
