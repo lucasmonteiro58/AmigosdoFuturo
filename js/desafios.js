@@ -1252,13 +1252,13 @@
     });
 
     $('#animacaoBalanco').jsMovie({
-    sequence: 'Balanço_000##.png',
-    from: 0,
+    sequence: 'Balanço 2_000##.png',
+    from: 1,
     to: 83,
     fps: 12,
     width:'43%',
     height: '64%',
-    folder : "img/animation/FaseLazer/Balanco/",
+    folder : "img/animation/FaseLazer/Balanco 2/",
     playOnLoad:false
           
     });
@@ -1295,13 +1295,11 @@
       if (balanco){
       } else{
         $('#balanco').css('display','none');
-        $('#balanco1').css('display','block');
         $("#animacaoBalanco").css('display','block');
-        $('#animacaoBalanco').jsMovie('play',1,84,false,false);
+        $('#animacaoBalanco').jsMovie('play',1,83,false,false);
           setTimeout(function () {               
                $("#animacaoBalanco").css('display','none');
                $('#balanco').css('display','block');
-              $('#balanco1').css('display','none');
         }, 5000);
         bilotoP= bilotoP+2.55;
         $( "#bilotoP" ).animate({
