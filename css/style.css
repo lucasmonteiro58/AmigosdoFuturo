@@ -1730,6 +1730,17 @@
 
 }
 
+ #animacaocanos{
+  position: absolute;
+  bottom: -24%;
+  left: 6.75%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(0.55);
+  display: none;
+
+}
+
 #cenariocozinha{
   position: absolute;
   width: 100%;
@@ -2718,6 +2729,18 @@ display: none;
   background-size: cover;
 
 }
+
+#antenaRadio{
+  position: absolute;
+  bottom: 15.4%;
+  left: 12%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(0.75);
+
+}
+
+
 
 #cestaRadio{
   position: absolute;
@@ -4779,6 +4802,51 @@ display: none;
 
 }
 
+
+#animacaoGangorra{
+  position: absolute;
+  bottom: -12.9%;
+  left: 43.8%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.72);
+  display: none;
+
+}
+
+#animacaoEscorregador{
+  position: absolute;
+  bottom: -0.65%;
+  left: 24%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.81);
+  display: none;
+
+}
+
+#animacaoCelular{
+  position: absolute;
+  bottom: -14.9%;
+  left: 58.5%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.15);
+  display: none;
+
+}
+
+#animacaoBalanco{
+  position: absolute;
+  bottom: 1%;
+  left: 78%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.15);
+ display: none;
+
+}
+
 #bilotoP{
   position: absolute;
   top: 5.3%;
@@ -4810,8 +4878,17 @@ display: none;
 #balanco{
   position: absolute;
   left: 74%;
+  top: 29%;
+  width: 22%;
+
+}
+
+#balanco1{
+  position: absolute;
+  left: 74%;
   top: 35%;
   width: 22%;
+  display: none;
 
 }
 
@@ -4827,6 +4904,15 @@ display: none;
   left: 70%;
   top: 72%;
   width: 8%;
+  //display: none;
+}
+
+#tablet1{
+  position: absolute;
+  left: 70%;
+  top: 72%;
+  width: 8%;
+  display: none;
 }
 
 /*Desafio Casa Sections-------------------------------------------------------------------*/
@@ -5082,6 +5168,39 @@ display: none;
     background-size: cover;
 
   }
+
+  #animacaoEduc{
+  position: absolute;
+  bottom: -10.6%;
+  left: 31.2%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(2.16);
+  display: none;
+
+}
+
+#animacaoSaude{
+  position: absolute;
+  bottom: -10.6%;
+  left: 59.6%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(2.16);
+  display: none;
+
+}
+
+#animacaoLazer{
+  position: absolute;
+  bottom: -10.6%;
+  left: 88.1%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(2.16);
+  display: none;
+
+}
 
     button.addMoedaEdu {background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press2.png);}
     button.addMoedaEdu:active{background-image: url(../img/desafios/economia/Monstrinhos/bt_educ_press.png);}

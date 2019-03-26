@@ -385,6 +385,20 @@
     var verificaCanos = false;
     var verificaLegumesCesta = 0;
 
+
+     $('#animacaocanos').jsMovie({
+      sequence: 'canos_000##.png',
+      from: 1,
+      to: 25,
+      fps: 8,
+      width:'88%',
+      height: '84%',
+      folder : "img/animation/canos/",
+      playOnLoad:false          
+    });
+
+
+
     function verificaLegumesCestaOK(){
       if (verificaLegumesCesta==6 && verificaCanos){
         alert("conseguiu")
@@ -488,6 +502,12 @@
       var totalCanos = $(".pecasCozinha.canoCerto").length;
       if (totalCanos==10){
         $('#cobrirCozinha').css('display', 'none');
+        $('.pecasCozinha').css('display', 'none');
+        $('#animacaocanos').css('display', 'block');
+
+         $('#animacaocanos').jsMovie('play',1,25,false, false);
+
+
         verificaCanos = true;
          alert("Arrasta as coisas pra pia");
          verificaLegumesCestaOK()
@@ -613,16 +633,33 @@
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
     setupLevel()
+
+    $('#antenaRadio').jsMovie({
+    sequence: 'antenaradio_0000#.png',
+    from: 0,
+    to: 7,
+    fps: 8,
+    width:'60%',
+    height: '100%',
+
+    folder : "img/animation/antenaradio/",
+    playOnLoad:false
+          
+    });
+
+
     var contJornalRua =0;
     $( ".jornalRua" ).click(function() {
      contJornalRua ++;
      var idJornalRua = "#" + $(this).attr('id') + "cesta";
+     
 
      $(idJornalRua).css('display','block');
      $(this).css('display','none');
+      $('#antenaRadio').jsMovie('play',1,8,false, true);
 
      if (contJornalRua==4){
-      alert("Você conseguiu");
+      //alert("Você conseguiu");
       congratsNextLevel(["full", "full", "empty"], false)
      }
     }); 
@@ -1175,14 +1212,72 @@
     var balanco = false;
     var gangorra = false;
     var tablet = false;
+    
+
+    $('#animacaoGangorra').jsMovie({
+    sequence: 'Gangorra_000##.png',
+    from: 0,
+    to: 71,
+    fps: 15,
+    width:'45%',
+    height: '53.5%',
+    folder : "img/animation/FaseLazer/Gangorra/",
+    playOnLoad:false
+          
+    });
+
+    $('#animacaoEscorregador').jsMovie({
+    sequence: 'Tobogã_000##.png',
+    from: 0,
+    to: 23,
+    fps: 15,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/FaseLazer/Toboga/",
+    playOnLoad:false
+          
+    });
+
+
+    $('#animacaoCelular').jsMovie({
+    sequence: 'Celular_000##.png',
+    from: 0,
+    to: 71,
+    fps: 12,
+    width:'43%',
+    height: '60%',
+    folder : "img/animation/FaseLazer/Celular/",
+    playOnLoad:false
+          
+    });
+
+    $('#animacaoBalanco').jsMovie({
+    sequence: 'Balanço 2_000##.png',
+    from: 1,
+    to: 83,
+    fps: 12,
+    width:'43%',
+    height: '64%',
+    folder : "img/animation/FaseLazer/Balanco 2/",
+    playOnLoad:false
+          
+    });
+
+
+   
 
      $( "#escorregador").click(function() {
       if (escorregador){
       } else{
+        $("#animacaoEscorregador").css('display','block');
+        $('#animacaoEscorregador').jsMovie('play',1,24,false,false);
+          setTimeout(function () {               
+               $("#animacaoEscorregador").css('display','none');
+        }, 1900);
         bilotoP= bilotoP+4.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         },1500)
         escorregador=true;
       }})
 
@@ -1199,26 +1294,49 @@
      $( "#balanco").click(function() {
       if (balanco){
       } else{
+        $('#balanco').css('display','none');
+        $("#animacaoBalanco").css('display','block');
+        $('#animacaoBalanco').jsMovie('play',1,83,false,false);
+          setTimeout(function () {               
+               $("#animacaoBalanco").css('display','none');
+               $('#balanco').css('display','block');
+        }, 5000);
         bilotoP= bilotoP+2.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         }, 2000)
         balanco=true;
       }})
 
       $( "#gangorra").click(function() {
       if (gangorra){
       } else{
+        $('#gangorra').css('display', 'none');
+         $("#animacaoGangorra").css('display','block');
+          $('#animacaoGangorra').jsMovie('play',1,72,false,true);
+          setTimeout(function () { 
+               $('#gangorra').css('display', 'block');
+               $("#animacaoGangorra").css('display','none');
+        }, 6300);
         bilotoP= bilotoP+3.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         })
+         }, 4000)
         gangorra=true;
       }})
 
       $( "#tablet").click(function() {
       if (tablet){
       } else{
+        $('#tablet').css('display','none');
+        $('#tablet1').css('display','block');
+        $("#animacaoCelular").css('display','block');
+        $('#animacaoCelular').jsMovie('play',1,72,false,false);
+          setTimeout(function () {               
+               $("#animacaoCelular").css('display','none');
+               $('#tablet').css('display','block');
+              $('#tablet1').css('display','none');
+        }, 4500);
         bilotoP= bilotoP+0;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
@@ -2242,6 +2360,41 @@
 
     $("#qtd_moedaM").text(qntMoedasM)
 
+    $('#animacaoEduc').jsMovie({
+    sequence: 'maquinaeduc_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinaeduc/",
+    playOnLoad:false
+          
+    });
+
+    $('#animacaoSaude').jsMovie({
+    sequence: 'maquinasaude_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinasaude/",
+    playOnLoad:false          
+    });
+
+
+     $('#animacaoLazer').jsMovie({
+    sequence: 'maquinalazer_000##.png',
+    from: 0,
+    to: 14,
+    fps: 8,
+    width:'30%',
+    height: '53.5%',
+    folder : "img/animation/maquinalazer/",
+    playOnLoad:false          
+    });
+
     var addMoedaEdu=true;
     var addMoedaSau=true;
     var addMoedaLaz=true;
@@ -2257,6 +2410,7 @@
       addMoedaLaz=true;
     }
 
+   
     $(".addMoedaEdu1").click(function() {
     if (addMoedaEdu){  
         if(qntMoedasM==0){
@@ -2265,18 +2419,32 @@
             qntMoedasM = qntMoedasM-10;
             $('#qtd_moedaM').text(qntMoedasM);
             retirarAddMoeda();
+            $("#animacaoEduc").css('display','block');
+             $('#animacaoEduc').jsMovie('play',1,15,false,true);
+             // $("#animacaoEduc").css('display','none');
             if(cont_bola_edu==1){
+
+              setTimeout(function () { 
               $('#bolaEduc3').css('display', 'none');
               $('#bolaEduc1').css('display', 'block');
               cont_bola_edu=2;
+             }, 1300);
+              
+              
             } else if(cont_bola_edu==2){
+               setTimeout(function () {
               $('#bolaEduc1').css('display', 'none');
               $('#bolaEduc2').css('display', 'block');
-              cont_bola_edu=3
-            } else if(cont_bola_edu==3){
+              cont_bola_edu=3 
+              
+             }, 1300);
+             
+            } else if(cont_bola_edu==3){              
+               setTimeout(function () {
               $('#bolaEduc2').css('display', 'none');
               $('#bolaEduc3').css('display', 'block');
                cont_bola_edu=1;
+             }, 1300);
             }
         }
       }
@@ -2289,18 +2457,31 @@
           qntMoedasM= qntMoedasM-10;
           $('#qtd_moedaM').text(qntMoedasM);
           retirarAddMoeda();
+          $("#animacaoSaude").css('display','block');
+             $('#animacaoSaude').jsMovie('play',1,15,false,true);
           if(cont_bola_sau==1){
+            setTimeout(function () { 
             $('#bolaSau3').css('display', 'none');
             $('#bolaSau1').css('display', 'block');
             cont_bola_sau=2;
+            }, 1300);
+            
           } else if(cont_bola_sau==2){
+            setTimeout(function () {
             $('#bolaSau1').css('display', 'none');
             $('#bolaSau2').css('display', 'block');
-            cont_bola_sau=3
+            cont_bola_sau=3 
+    
+            }, 1300);
+            
           } else if(cont_bola_sau==3){
-            $('#bolaSau2').css('display', 'none');
+            setTimeout(function () { 
+              $('#bolaSau2').css('display', 'none');
             $('#bolaSau3').css('display', 'block');
              cont_bola_sau=1;
+    
+            }, 1300);
+            
           }
         }
       }
@@ -2313,18 +2494,29 @@
           qntMoedasM= qntMoedasM-10;
           $('#qtd_moedaM').text(qntMoedasM);
           retirarAddMoeda();
+          $("#animacaoLazer").css('display','block');
+          $('#animacaoLazer').jsMovie('play',1,15,false,true);
           if(cont_bola_laz==1){
+            setTimeout(function () {
             $('#bolaLaz3').css('display', 'none');
             $('#bolaLaz1').css('display', 'block');
-            cont_bola_laz=2;
+            cont_bola_laz=2;     
+            }, 1300);
+            
           } else if(cont_bola_laz==2){
+            setTimeout(function () { 
             $('#bolaLaz1').css('display', 'none');
             $('#bolaLaz2').css('display', 'block');
-            cont_bola_laz=3
+            cont_bola_laz=3    
+            }, 1300);
+            
           } else if(cont_bola_laz==3){
+            setTimeout(function () {
             $('#bolaLaz2').css('display', 'none');
             $('#bolaLaz3').css('display', 'block');
-             cont_bola_laz=1;
+             cont_bola_laz=1;     
+            }, 1300);
+            
           }
         }
       }
