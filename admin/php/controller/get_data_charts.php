@@ -1,5 +1,5 @@
 <?php
-	include 'php/model/postDAO.class.php';
+	include 'php/model/KidDAO.class.php';
 	
 	if(isset($_GET['pagina'])){
 		$pagina = $_GET['pagina'];
