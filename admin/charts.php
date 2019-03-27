@@ -7,9 +7,9 @@
   else
       $user_name = "No user";
 
-  $kidDAO = new KidDAO();
+ /* $kidDAO = new KidDAO();
   $dataChart1 = kidDAO->get_quantity_per_badges(); //Quantity per Badges JSON
-  $kidDAO->kidDAO_close();
+  $kidDAO->kidDAO_close();*/
 
 ?>
 

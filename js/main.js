@@ -526,95 +526,95 @@ if ($("#menu").length) {
     }
 
 // Feedback ----------------------------------------------------------------
+  function feedback() {
+    $("#feedback .yes").click(function () {
+      answerLike(this, "Sim")
+    })
+    $("#feedback .no").click(function () {
+      answerLike(this, "Não")
+    })
+    $("#submit-feedback").click(function () {
+      // Check if all the fields are full
+      if ($("textarea").val() == "" || !(getFromStorage("liked"))) {
+         alert("Preencha todos os campos para continuar.") 
+         return false
+      }
 
-function feedback() {
-  $("#feedback .yes").click(function () {
-    answerLike(this, "Sim")
-  })
-  $("#feedback .no").click(function () {
-    answerLike(this, "Não")
-  })
-  $("#submit-feedback").click(function () {
-    // Check if all the fields are full
-    if ($("textarea").val() == "" || !(getFromStorage("liked"))) {
-       alert("Preencha todos os campos para continuar.") 
-       return false
-    }
-
-    saveInStorage("feedback", $("textarea").val())
-    sendAllDataToServer()
-    updateSectionAJAX("certificate")
-  })
-}
-
-function answerLike(button, answer) {
-  $(button).toggleClass("active")
-
-  var beforeAnswer = getFromStorage("liked")
-    // If already answered before
-    if (beforeAnswer == "Sim") {
-      if (answer == "Sim") {
-        saveInStorage("liked", null)
-      }
-      if (answer == "Não") {
-        saveInStorage("liked", "Não")
-        $("#feedback .yes").toggleClass("active")
-      }
-    } else if (beforeAnswer == "Não") {
-      if (answer == "Não") {
-        saveInStorage("liked", null)
-      }
-      if (answer == "Sim") {
-        saveInStorage("liked", "Sim")
-        $("#feedback .no").toggleClass("active")
-      }
-    } else {
-      // First time answering
-      if (answer == "Sim") {
-        saveInStorage("liked", "Sim")
-      } else if (answer == "Não") {
-        saveInStorage("liked", "Não")
-      }
-    }
+      saveInStorage("feedback", $("textarea").val())
+      sendAllDataToServer()
+      updateSectionAJAX("certificate")
+    })
   }
 
-    function sendAllDataToServer() {
-    // Form
-    var name = getFromStorage("name")
-    var age = getFromStorage("age")
-    var city = getFromStorage("city")
-    var gender = getFromStorage("gender")
-    // Badge
-    var badge = getFromStorage("badge")
-    // Feedback
-    var liked = getFromStorage("liked")
-    var feedback = getFromStorage("feedback")
+  function answerLike(button, answer) {
+    $(button).toggleClass("active")
 
-    // variables
-    var data = {
-      "name" : name,
-      "age" : age,
-      "city" : city,
-      "gender" : gender,
-      "badge" : badge,
-      "liked" : liked,
-      "feedback" : feedback
+    var beforeAnswer = getFromStorage("liked")
+      // If already answered before
+      if (beforeAnswer == "Sim") {
+        if (answer == "Sim") {
+          saveInStorage("liked", null)
+        }
+        if (answer == "Não") {
+          saveInStorage("liked", "Não")
+          $("#feedback .yes").toggleClass("active")
+        }
+      } else if (beforeAnswer == "Não") {
+        if (answer == "Não") {
+          saveInStorage("liked", null)
+        }
+        if (answer == "Sim") {
+          saveInStorage("liked", "Sim")
+          $("#feedback .no").toggleClass("active")
+        }
+      } else {
+        // First time answering
+        if (answer == "Sim") {
+          saveInStorage("liked", "Sim")
+        } else if (answer == "Não") {
+          saveInStorage("liked", "Não")
+        }
+      }
     }
 
-    $.ajax({
-        type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
-        url         : 'admin/php/controller/save_data.php', // the url where we want to POST
-        data        :  data, // our data object
-        dataType    : 'json', // what type of data do we expect back from the server
-        encode       : true
-    }).done(function(data) {
-        var obj = JSON.stringify(data)
-        alert(obj) 
-      });
+      function sendAllDataToServer() {
+      // Form
+      var name = getFromStorage("name")
+      var age = getFromStorage("age")
+      var city = getFromStorage("city")
+      var gender = getFromStorage("gender")
+      // Badge
+      var badge = getFromStorage("badge")
+      // Feedback
+      var liked = getFromStorage("liked")
+      var feedback = getFromStorage("feedback")
 
-    // stop the form from submitting the normal way and refreshing the page
-    //event.preventDefault();       
-  }
+      // variables
+      var data = {
+        "name" : name,
+        "age" : age,
+        "city" : city,
+        "gender" : gender,
+        "badge" : badge,
+        "liked" : liked,
+        "feedback" : feedback
+      }
+
+      $.ajax({
+          type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+          url         : 'admin/php/controller/save_data.php', // the url where we want to POST
+          data        :  data, // our data object
+          dataType    : 'json', // what type of data do we expect back from the server
+          encode       : true
+      }).done(function(data) {
+          var obj = JSON.stringify(data)
+          alert(obj) 
+        });
+
+      // stop the form from submitting the normal way and refreshing the page
+      //event.preventDefault();       
+    }
+
 // Certificate  -----------------------------------------------------------------
   function certificate() {
     setupFinishedBadges()
@@ -791,8 +791,10 @@ function answerLike(button, answer) {
     var ajax_load = "<img class='centeredX' src='img/loading.gif' alt='Carregando...' />";
 
     var loadUrl = "views/"+name+".html";
+
     $("#main-div-content").html(ajax_load).load(loadUrl, function(){
      $(this).hide().fadeIn('slow');
+     
      window[name](arguments)
 
      // Sound things

@@ -3,13 +3,13 @@
 
 	session_start();
 
-	$name = $_POST['name'];
-	$age = $_POST['age'];
-	$city = $_POST['city'];
-	$gender = $_POST['gender'];
-	$badge = $_POST['badge'];
-	$liked = $_POST['liked'];
-	$feedback = $_POST['feedback'];
+	$name = $_GET['name'];
+	$age = $_GET['age'];
+	$city = $_GET['city'];
+	$gender = $_GET['gender'];
+	$badge = $_GET['badge'];
+	$liked = $_GET['liked'];
+	$feedback = $_GET['feedback'];
 
 	$result = false;
 	

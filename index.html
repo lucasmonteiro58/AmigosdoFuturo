@@ -1,12 +1,3 @@
-<?php
- session_start();
-
-  if(isset($_SESSION["debug"]))
-      $debug = $_SESSION["debug"];
-  else
-      $debug = "No debug";
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,6 +10,9 @@
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.structure.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.theme.min.css">
+
+	<script type="text/javascript" src="vendor/jsmovie/jquery.jsmovie.1.4.4.js"></script>
+
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
@@ -57,9 +51,6 @@
 	</div>
 
 	</div>
-
-	<h4>Debug-> <?php echo $debug; ?></h4>
-
 </body>
 
 <script type="text/javascript" src="vendor/jquery/jquery-3.3.1.min.js"></script>
