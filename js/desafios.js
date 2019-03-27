@@ -399,6 +399,7 @@
 
 
 
+
     function verificaLegumesCestaOK(){
       if (verificaLegumesCesta==6 && verificaCanos){
         alert("conseguiu")
