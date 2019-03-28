@@ -642,7 +642,6 @@
     fps: 8,
     width:'60%',
     height: '100%',
-
     folder : "img/animation/antenaradio/",
     playOnLoad:false
           
@@ -661,6 +660,7 @@
 
      if (contJornalRua==4){
       //alert("Você conseguiu");
+      $("#antenaRadio").jsMovie("destroy");
       congratsNextLevel(["full", "full", "empty"], false)
      }
     }); 
@@ -1216,13 +1216,13 @@
     
 
     $('#animacaoGangorra').jsMovie({
-    sequence: 'Gangorra_000##.png',
-    from: 0,
+    sequence: 'Gangorra_2_000##.png',
+    from: 1,
     to: 71,
     fps: 15,
     width:'45%',
     height: '53.5%',
-    folder : "img/animation/FaseLazer/Gangorra/",
+    folder : "img/animation/FaseLazer/Gangorra2/",
     playOnLoad:false
           
     });
@@ -1253,13 +1253,13 @@
     });
 
     $('#animacaoBalanco').jsMovie({
-    sequence: 'Balanço 2_000##.png',
+    sequence: 'Balanco_2_000##.png',
     from: 1,
     to: 83,
     fps: 12,
     width:'43%',
     height: '64%',
-    folder : "img/animation/FaseLazer/Balanco 2/",
+    folder : "img/animation/FaseLazer/Balanco2/",
     playOnLoad:false
           
     });
@@ -1297,11 +1297,11 @@
       } else{
         $('#balanco').css('display','none');
         $("#animacaoBalanco").css('display','block');
-        $('#animacaoBalanco').jsMovie('play',1,83,false,false);
+        $('#animacaoBalanco').jsMovie('play',1,83,false,true);
           setTimeout(function () {               
                $("#animacaoBalanco").css('display','none');
                $('#balanco').css('display','block');
-        }, 5000);
+        }, 4500);
         bilotoP= bilotoP+2.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
@@ -1314,7 +1314,7 @@
       } else{
         $('#gangorra').css('display', 'none');
          $("#animacaoGangorra").css('display','block');
-          $('#animacaoGangorra').jsMovie('play',1,72,false,true);
+          $('#animacaoGangorra').jsMovie('play',1,71,false,true);
           setTimeout(function () { 
                $('#gangorra').css('display', 'block');
                $("#animacaoGangorra").css('display','none');
@@ -1322,7 +1322,7 @@
         bilotoP= bilotoP+3.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"                   
-         }, 4000)
+         }, 3500)
         gangorra=true;
       }})
 
