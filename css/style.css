@@ -4,6 +4,16 @@
 }*/
 
 /*Fonts ----------------------------------------------------------*/
+
+:root {
+  --cursor-padrao: url(../img/Pointers/pointerverde.png), auto;
+  --cursor-click: url(../img/Pointers/pointerclick.png), pointer;
+  --cursor-block: url(../img/Pointers/pointerblock.png), not-allowed;
+  --cursor-text: url(../img/Pointers/pointertext.png), text;
+  --cursor-arrastavel: url(../img/Pointers/pointerdrag.png), grab; 
+  --cursor-arrastando: url(../img/Pointers/pointermove.png), grabbing;
+}
+
   @font-face {
      font-family: bungee;
      src: url(../fonts/Bungee-Regular.otf);
@@ -35,6 +45,8 @@
     overflow:hidden;
   	margin: 0px;
   	list-style: none;
+    cursor:  var(--cursor-padrao);
+
   }
 
   .centered {
@@ -75,15 +87,20 @@
     outline: 0;
     padding-bottom: -5px;
     transition: 0.1s;
+    cursor: var(--cursor-click);
+  }
+
+  input[type="text"], input[type="number"]{
+     cursor: var(--cursor-text);
   }
   button:active:not(:disabled), input[type="button"]:not(:disabled) {
     border: 0px solid #fff !important;
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
   button:hover:not(:disabled), input[type="button"]:not(:disabled) {
     box-shadow: 0px 0px 0px #fff;
     transform: scale(1.05);
-    cursor: pointer;
+    cursor: var(--cursor-click); 
   }
   .action.blue {background-image: url(../img/buttons/action-blue.png);}
   .action.blue:hover{background-image: url(../img/buttons/action-hover-blue.png);}
@@ -196,13 +213,51 @@
   }
   button.toggle:disabled{
     filter: opacity(0.5);
-    cursor: not-allowed;
+    cursor: var(--cursor-block);
   }
   button.toggle#prev {
     margin-right: 5%;
     transform: scaleX(-1);
   }
 
+  .prevF:disabled{
+     cursor: var(--cursor-block);
+  }
+
+  .nextF:disabled{
+     cursor: var(--cursor-block);
+  }
+
+  .ui-draggable{
+   cursor: var(--cursor-arrastavel); 
+  }
+
+  .checkClick{
+    cursor: var(--cursor-click);
+  }
+  .pecasforacarro{
+     cursor: var(--cursor-click);
+  }
+
+  .pecasCozinha{
+    cursor: var(--cursor-click);
+  }
+
+  .all_bolinhas{
+     cursor: var(--cursor-click);
+  }
+
+  #cenouraONG, #alfaceONG, #bananaONG, #tomateONG{
+    cursor: var(--cursor-click);
+  }
+
+  #escorregador, #campinho_futebol, #balanco, #gangorra, #tablet{
+    cursor: var(--cursor-click);
+  }
+
+  .jornalRua{
+     cursor: var(--cursor-click);
+  }
 /*Menu Section ----------------------------------------------------------*/
   #menu {
      position: relative;
@@ -213,6 +268,7 @@
      background-repeat: no-repeat;
      background-size: contain;
      background-position: center;
+
   }
   .menu-content {
   	width: 40%;
@@ -249,6 +305,7 @@
   }
 
   #counter {
+
   	background-image: url(../img/menu/counter.png);
     background-repeat: no-repeat;
     background-size: contain;
@@ -277,6 +334,7 @@
   }
   select {
     text-align-last:center;
+    cursor: var(--cursor-click);
   }
   #form, #feedback {
     background-color: #305882;
@@ -330,6 +388,9 @@
     background-position: center;
   }
 
+.divErros{
+  cursor: var(--cursor-click);
+}
   .form-question .content form input[type="text"],
   .form-question .content form input[type="number"],
   .form-question .content form select {
@@ -365,12 +426,13 @@
   }
   .form-question label:active {
     border: 0px solid #fff !important;
-    cursor: pointer;
+    cursor: var(--cursor-click);
+   
   }
   .form-question label:hover {
     box-shadow: 0px 0px 0px #fff;
     transform: scale(1.05);
-    cursor: pointer;
+     cursor: var(--cursor-click);
   }
 
 
@@ -442,12 +504,12 @@
   .all-badges li img:hover {
   	transform: scale(1.05);
   	filter: opacity(1.0);
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
   .all-badges li img .active {
   	transform: scale(1.05);
   	filter: opacity(1.0);
-      cursor: pointer;
+       cursor: var(--cursor-click);
   }
   .badges-about .content .single-badge {
   	height: 56%;
@@ -535,12 +597,12 @@
   }
   .quiz-question label:active {
     border: 0px solid #fff !important;
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
   .quiz-question label:hover {
     box-shadow: 0px 0px 0px #fff;
     transform: scale(1.05);
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
 
   #question-content .center-title{ 
@@ -736,7 +798,7 @@
     margin-left: 5%;
   }
   #robot-help-mini img:hover {
-    cursor: pointer;
+   cursor: var(--cursor-click);
   }
 
   .robot-help .content p {
@@ -745,7 +807,7 @@
     line-height: 1.5vw;
   }
   .robot-help .content p a:hover{
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
   .robot-help .content h4{
     font-family: bungee;
@@ -1082,12 +1144,12 @@
   .other-badges .all-badges li .finished + span:hover {
     transform: scale(1.05);
     filter: opacity(1.0);
-    cursor: pointer;
+   cursor: var(--cursor-click);
   }
   .other-badges .all-badges li .active {
     transform: scale(1.05);
     filter: opacity(1.0);
-    cursor: pointer;
+    cursor: var(--cursor-click);
   }
 
   .other-badges .exit {
@@ -1153,6 +1215,10 @@
 
 .pecasnamesa:hover{
   transform: scale(1.1);
+}
+
+.pecasnamesa{
+  cursor: var(--cursor-arrastavel);
 }
 
 #backgroundmapa{

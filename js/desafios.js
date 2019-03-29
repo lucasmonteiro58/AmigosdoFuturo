@@ -12,11 +12,13 @@
     $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
          revert: true,
           revertDuration: 600,
-         cursor: "grabbing",
+         //cursor: "img/Pointers/pointermove.png",
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
+           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
           $('[data-toggle="popover"]').popover('hide');
+          //$(this).css('cursor', 'url(../img/Pointers/pointermove.png)');
          }
       });
 
@@ -109,10 +111,11 @@
     $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
         revert: true,
         revertDuration: 600,
-         cursor: "grabbing",
+        // cursor: "grabbing",
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
+           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
            $('[data-toggle="popover"]').popover('hide'); }
       });
 
@@ -410,11 +413,12 @@
     $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").draggable({
           revert: true,
           revertDuration: 600,
-          cursor: "grabbing",
+          //cursor: "url(img/Pointers/pointermove.png), grabbing",
           containment: '#moverlegumes',
             //snap: true,
            scroll:false,
-           drag: function( event, ui ) {    
+           drag: function( event, ui ) { 
+           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');   
            }
         });
 
@@ -428,12 +432,15 @@
               // $(ui.draggable).css(' z-index','1');      
               if (draggableId=='"#C_tomatecesta2"' || draggableId=='"#C_tomatecesta1"'){ 
                   $(ui.draggable).css('top','42%');
+                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
               }  
                if (draggableId=='"#C_alfacecesta2"' || draggableId=='"#C_alfacecesta1"'){ 
                   $(ui.draggable).css('top','40%');
+                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
               }  
                if (draggableId=='"#C_cenouracesta2"' || draggableId=='"#C_cenouracesta1"'){ 
                   $(ui.draggable).css('top','35%');
+                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
               }    
               qntLegumesPia++;
                 if (qntLegumesPia==6){
@@ -530,11 +537,12 @@
     $( ".criancaAmarela , .criancaVermelha").draggable({
           //revert: true,
           revertDuration: 600,
-           cursor: "grabbing",
+           //cursor: "grabbing",
            containment: "#gramadotodo",
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
+             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
             contIndexC++;
              $('[data-toggle="popover"]').popover('hide');
              $(this).css("z-index", contIndexC);
@@ -694,9 +702,10 @@
   $( "#A1fig1, #A1fig2, #A1fig3, #A1fig4 ").draggable({
         revert: true,
         revertDuration: 600,
-         cursor: "grabbing",
+         //cursor: "grabbing",
          scroll: false,
          drag: function( event, ui ) {
+           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
            $('[data-toggle="popover"]').popover('hide'); },
         stop: function( event, ui ) {
           $(this).css('top','84%');
@@ -776,10 +785,11 @@
     $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
         revert: true,
         revertDuration: 600,
-         cursor: "grabbing",
+         //cursor: "grabbing",
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
+           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
            $('[data-toggle="popover"]').popover('hide'); },
         stop: function( event, ui ) {
           $(this).css('top','84%');
@@ -896,10 +906,11 @@
     $( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
           revert: true,
           revertDuration: 600,
-           cursor: "grabbing",
+           //cursor: "grabbing",
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
+             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
              $('[data-toggle="popover"]').popover('hide');
             
            }
@@ -1099,10 +1110,11 @@
     $( ".alimentosSaudaveis , .alimentosNaoSaudaveis, .alimentosSaudaveisP , .alimentosNaoSaudaveisP ").draggable({
           revert: true,
           revertDuration: 600,
-           cursor: "grabbing",
+           //cursor: "grabbing",
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
+             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
             //contIndex++;
              $('[data-toggle="popover"]').popover('hide');
             
