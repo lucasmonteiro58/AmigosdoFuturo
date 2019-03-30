@@ -1,28 +1,19 @@
 <?php
 	include 'php/model/KidDAO.class.php';
 	
-	if(isset($_GET['pagina'])){
-		$pagina = $_GET['pagina'];
+	if(isset($_GET['type'])){
+		$type = $_GET['type']
+		$kidDAO = new KidDAO();
 
-		$p = new PostDAO();
-		
-		$posts = $p->get_posts_by_page($pagina);
-		$qtd = $p->get_qtd_all_pages();
-
-		$p->postDAO_close();
-
-	}
-	elseif (isset($_GET['busca'])) {
-		$chave = $_GET['busca'];
-
-		$p = new PostDAO();
-
-		$posts = $p->get_posts_by_search($chave);		
-		$qtd = $p->get_qtd_pages_by_search($chave);
-	
-		$p->postDAO_close();
-	}
-	else{
-		//Erro
+		switch ($type) {
+			case 'bar':
+				$data = $kidDAO->get_data_chart_bar();
+				echo $data;
+				break;
+			default:
+				# code...
+				break;
+		}
+		$kidDAO->kidDAO_close();
 	}
 ?>

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 15/03/2019 às 14:11
--- Versão do servidor: 10.1.38-MariaDB
--- Versão do PHP: 7.3.2
+-- Host: 127.0.0.1
+-- Generation Time: 28-Mar-2019 às 01:28
+-- Versão do servidor: 10.1.28-MariaDB
+-- PHP Version: 7.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,52 +19,53 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `amigos_do_futuro`
+-- Database: `amigos_do_futuro`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Badges`
+-- Estrutura da tabela `badges`
 --
 
-CREATE TABLE `Badges` (
+CREATE TABLE `badges` (
   `id` int(11) NOT NULL,
   `name` varchar(111) COLLATE utf8_bin NOT NULL,
   `description` varchar(111) COLLATE utf8_bin NOT NULL,
-  `img` varchar(111) COLLATE utf8_bin NOT NULL
+  `img` varchar(111) COLLATE utf8_bin NOT NULL,
+  `abreviation` varchar(3) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `Badges`
+-- Extraindo dados da tabela `badges`
 --
 
-INSERT INTO `Badges` (`id`, `name`, `description`, `img`) VALUES
-(1, 'Amigo da Saúde', 'Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável.', 'img/quiz/sau-badge-2x.png'),
-(2, 'Amigo do Lazer', 'É muito divertido e adora conhecer lugares novos.', 'img/quiz/laz-badge-2x.png'),
-(3, 'Amigo da Economia', 'Ama números e sabe bem como vender algo para juntar dinheiro.', 'img/quiz/eco-badge-2x.png'),
-(4, 'Amigo da Sustentabilidade', 'Respeita a natureza e está sempre ajudando outras pessoas.', 'img/quiz/mei-badge-2x.png'),
-(5, 'Amigo do Governo', 'Gosta muito de falar com as pessoas. É responsável e organizado.', 'img/quiz/gov-badge-2x.png'),
-(6, 'Amigo da Educação', 'Está sempre lendo livros, revistas e quadrinhos. Também adora ensinar os amigos.', 'img/quiz/edu-badge-2x.png'),
-(7, 'Amigo da Inovação', 'Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas.', 'img/quiz/ino-badge-2x.png');
+INSERT INTO `badges` (`id`, `name`, `description`, `img`, `abreviation`) VALUES
+(1, 'Amigo da Saúde', 'Adora cuidar de outras pessoas, tem muita coragem para salvar vidas e é muito amável.', 'img/quiz/sau-badge-2x.png', 'sau'),
+(2, 'Amigo do Lazer', 'É muito divertido e adora conhecer lugares novos.', 'img/quiz/laz-badge-2x.png', 'laz'),
+(3, 'Amigo da Economia', 'Ama números e sabe bem como vender algo para juntar dinheiro.', 'img/quiz/eco-badge-2x.png', 'eco'),
+(4, 'Amigo da Sustentabilidade', 'Respeita a natureza e está sempre ajudando outras pessoas.', 'img/quiz/mei-badge-2x.png', 'mei'),
+(5, 'Amigo do Governo', 'Gosta muito de falar com as pessoas. É responsável e organizado.', 'img/quiz/gov-badge-2x.png', 'gov'),
+(6, 'Amigo da Educação', 'Está sempre lendo livros, revistas e quadrinhos. Também adora ensinar os amigos.', 'img/quiz/edu-badge-2x.png', 'edu'),
+(7, 'Amigo da Inovação', 'Criatividade é o seu ponto forte. Observa tudo à sua volta e não desiste fácil das coisas.', 'img/quiz/ino-badge-2x.png', 'ino');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Cities`
+-- Estrutura da tabela `cities`
 --
 
-CREATE TABLE `Cities` (
+CREATE TABLE `cities` (
   `id` int(11) NOT NULL,
   `name` varchar(111) COLLATE utf8_bin NOT NULL,
   `region` varchar(111) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `Cities`
+-- Extraindo dados da tabela `cities`
 --
 
-INSERT INTO `Cities` (`id`, `name`, `region`) VALUES
+INSERT INTO `cities` (`id`, `name`, `region`) VALUES
 (1, 'Acarapé', 'Maçico de Baturité'),
 (2, 'Aracoiaba', 'Maçico de Baturité'),
 (3, 'Aratuba', 'Maçico de Baturité'),
@@ -253,22 +254,40 @@ INSERT INTO `Cities` (`id`, `name`, `region`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Feedbacks`
+-- Estrutura da tabela `feedbacks`
 --
 
-CREATE TABLE `Feedbacks` (
+CREATE TABLE `feedbacks` (
   `id` int(11) NOT NULL,
-  `liked` tinyint(1) NOT NULL,
+  `liked` varchar(3) COLLATE utf8_bin NOT NULL,
   `text` varchar(300) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Extraindo dados da tabela `feedbacks`
+--
+
+INSERT INTO `feedbacks` (`id`, `liked`, `text`) VALUES
+(5, 'Sim', 'Gostei'),
+(6, 'Não', 'Incrivel!!'),
+(7, 'Sim', 'Muito bommm'),
+(8, 'Não', 'Muito besta'),
+(9, 'Sim', 'todo mundo podia fazer isso'),
+(12, 'Sim', 'Ameiiii<3'),
+(18, 'Não', 'Normal'),
+(24, 'Sim', 'muito legal mesmo'),
+(30, 'Sim', 'muitooooooooooooooooooo'),
+(34, 'Sim', 'Amei Tudo'),
+(36, 'Sim', 'achei massa'),
+(37, 'Sim', 'Muito legal');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Kids`
+-- Estrutura da tabela `kids`
 --
 
-CREATE TABLE `Kids` (
+CREATE TABLE `kids` (
   `name` varchar(111) COLLATE utf8_bin NOT NULL,
   `gender` varchar(11) COLLATE utf8_bin NOT NULL,
   `age` int(11) NOT NULL,
@@ -278,13 +297,31 @@ CREATE TABLE `Kids` (
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
+--
+-- Extraindo dados da tabela `kids`
+--
+
+INSERT INTO `kids` (`name`, `gender`, `age`, `city_id`, `badge_id`, `feedback_id`, `id`) VALUES
+('Deb', 'F', 9, 171, 3, 5, 1),
+('Junior', 'M', 10, 5, 5, 6, 2),
+('Joaquim', 'M', 1, 27, 3, 7, 3),
+('Priscila Sousa', 'F', 6, 148, 7, 8, 4),
+('Myla', 'F', 11, 171, 4, 9, 5),
+('Margarete', 'F', 10, 175, 1, 12, 6),
+('Marcos Mateus', 'M', 12, 64, 7, 18, 8),
+('ana julia', 'F', 7, 168, 7, 24, 18),
+('henrique', 'M', 9, 34, 7, 30, 20),
+('Dalia Albuqeurque', 'F', 9, 171, 4, 34, 22),
+('Isabele', 'F', 8, 169, 1, 36, 26),
+('Luana', 'F', 11, 28, 1, 37, 27);
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Users`
+-- Estrutura da tabela `users`
 --
 
-CREATE TABLE `Users` (
+CREATE TABLE `users` (
   `first_name` varchar(111) COLLATE utf8_bin NOT NULL,
   `last_name` varchar(111) COLLATE utf8_bin NOT NULL,
   `email` varchar(111) COLLATE utf8_bin NOT NULL,
@@ -293,62 +330,96 @@ CREATE TABLE `Users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Despejando dados para a tabela `Users`
+-- Extraindo dados da tabela `users`
 --
 
-INSERT INTO `Users` (`first_name`, `last_name`, `email`, `password`, `id`) VALUES
-('Lucas', 'Monteiro', 'lucas.monteiro58@gmail.com', '12345', 0),
-('Debora', 'Moura', 'deboramour4@gmail.com', '12345', 1),
-('Usuario', 'Qualquer', 'email@email.com', 'senha', 2);
+INSERT INTO `users` (`first_name`, `last_name`, `email`, `password`, `id`) VALUES
+('Lucas', 'Monteiro', 'lucas.monteiro58@gmail.com', '12345', 1),
+('Débora', 'Moura', 'deboramour4@gmail.com', '12345', 2),
+('Amigos', 'do Futuro', 'email@amigosdofuturo.com', '12345', 3);
 
 --
--- Índices de tabelas apagadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices de tabela `Badges`
+-- Indexes for table `badges`
 --
-ALTER TABLE `Badges`
+ALTER TABLE `badges`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `Cities`
+-- Indexes for table `cities`
 --
-ALTER TABLE `Cities`
+ALTER TABLE `cities`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `Feedbacks`
+-- Indexes for table `feedbacks`
 --
-ALTER TABLE `Feedbacks`
+ALTER TABLE `feedbacks`
   ADD PRIMARY KEY (`id`);
 
 --
--- Índices de tabela `Kids`
+-- Indexes for table `kids`
 --
-ALTER TABLE `Kids`
+ALTER TABLE `kids`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `kidFeedback_feedbackId` (`feedback_id`),
-  ADD KEY `kidCity_CityId` (`city_id`),
-  ADD KEY `kidBadge_bagdeId` (`badge_id`);
+  ADD KEY `KidCity_CityID` (`city_id`),
+  ADD KEY `KidBadge_BadgeID` (`badge_id`),
+  ADD KEY `KidFeedback_FeedbackID` (`feedback_id`);
 
 --
--- Índices de tabela `Users`
+-- Indexes for table `users`
 --
-ALTER TABLE `Users`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- Restrições para dumps de tabelas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- Restrições para tabelas `Kids`
+-- AUTO_INCREMENT for table `badges`
 --
-ALTER TABLE `Kids`
-  ADD CONSTRAINT `kidBadge_bagdeId` FOREIGN KEY (`badge_id`) REFERENCES `Badges` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `kidCity_CityId` FOREIGN KEY (`city_id`) REFERENCES `Cities` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  ADD CONSTRAINT `kidFeedback_feedbackId` FOREIGN KEY (`feedback_id`) REFERENCES `Feedbacks` (`id`) ON DELETE CASCADE;
+ALTER TABLE `badges`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `cities`
+--
+ALTER TABLE `cities`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=185;
+
+--
+-- AUTO_INCREMENT for table `feedbacks`
+--
+ALTER TABLE `feedbacks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `kids`
+--
+ALTER TABLE `kids`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Limitadores para a tabela `kids`
+--
+ALTER TABLE `kids`
+  ADD CONSTRAINT `KidBadge_BadgeID` FOREIGN KEY (`badge_id`) REFERENCES `badges` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `KidCity_CityID` FOREIGN KEY (`city_id`) REFERENCES `cities` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  ADD CONSTRAINT `KidFeedback_FeedbackID` FOREIGN KEY (`feedback_id`) REFERENCES `feedbacks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

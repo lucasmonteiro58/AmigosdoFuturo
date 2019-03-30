@@ -47,6 +47,39 @@ class KidDAO {
 			return false;
 		}
 	}
+	// crianças por emblema
+	public function get_kids_with_badge(){
+		$badgeDAO = new BadgeDAO();
+		$all_badges = $badgeDAO->get_all_badges();
+		$badgeDAO->badgeDAO_close();
+
+		foreach ($all_badges as $badge) {
+			$b->abreviation = $badge->get_abreviation();
+			$b->id = $badge->get_id();
+
+			$myJSON = json_encode($myObj);
+
+
+		}
+		
+		$all_kids = $this->get_all_kids()
+
+
+
+		foreach ($all_kids as $kid) {
+			$id = $kid->$badge_id
+
+		}
+		$n = $result->num_rows;
+		if ($n){
+			while($data = $result->fetch_array()){
+				$kids[] = new Kid($data['id'], $data['name'], $data['gender'],$data['age'],$data['city_id'],$data['badge_id'],$data['feedback_id']);
+			}
+			return $kids;
+		} else {
+			return false;
+		}
+	}
 
 	//continue
 	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&like=Sim&feedback=Gostei
