@@ -6,12 +6,14 @@ class Badge {
 	private $name;
 	private $description;
 	private $img;
+	private $abreviation;
 
-	public function __construct ($id, $name, $description, $img){
+	public function __construct ($id, $name, $description, $img, $abreviation){
 		$this->id = $id;
 		$this->name = $name;
 		$this->description = $description;
 		$this->img = $img;
+		$this->abreviation = $abreviation;
 	}
 
 	public function __destruct(){}
@@ -27,6 +29,9 @@ class Badge {
 	}
 	public function get_img(){
 		return $this->img;
+	}
+	public function get_abreviation(){
+		return $this->abreviation;
 	}
 }
 ?>

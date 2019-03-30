@@ -30,6 +30,22 @@ class BadgeDAO {
 		}
 	}
 
+	public function get_all_badges(){
+		$query = "SELECT * FROM badges";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+		if ($n){
+			while($data = $result->fetch_array()){
+				$badges[] = new Badge($data['id'], $data['name'], $data['description'], $data['img']);
+			}
+			return $badges;
+		} else {
+			return false;
+		}
+	}
+
 	public function search_badge_id_by_abrev($badge_abreviation){
 		$query = "SELECT * FROM badges WHERE abreviation='$badge_abreviation'";
 		$result = $this->con->query($query) or die ($this->con->error);
