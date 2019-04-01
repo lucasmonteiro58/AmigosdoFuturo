@@ -220,6 +220,10 @@
     transform: scaleX(-1);
   }
 
+  #feedback-text{
+    cursor: var(--cursor-text); 
+  }
+
   .prevF:disabled{
      cursor: var(--cursor-block);
   }
@@ -232,6 +236,13 @@
    cursor: var(--cursor-arrastavel); 
   }
 
+  .criancaVermelha{
+    cursor: var(--cursor-arrastavel); 
+  }
+
+  .criancaAmarela{
+     cursor: var(--cursor-arrastavel); 
+  }
   .checkClick{
     cursor: var(--cursor-click);
   }
@@ -257,6 +268,10 @@
 
   .jornalRua{
      cursor: var(--cursor-click);
+  }
+
+  a{
+    cursor: var(--cursor-click); 
   }
 /*Menu Section ----------------------------------------------------------*/
   #menu {
@@ -290,9 +305,12 @@
   	top: 3%;
   	left: 3%;
     width: 15%;
+    cursor: var(--cursor-click);
+
   }
   .ceara2050-btn img {
     width: 100%;
+    cursor: var(--cursor-click);
   }
   .sound-btn {
   	position: absolute;

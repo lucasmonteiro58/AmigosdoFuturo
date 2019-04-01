@@ -788,7 +788,7 @@ if ($("#menu").length) {
         cache: false
     });
     // Image while loading
-    var ajax_load = "<img class='centeredX' src='img/loading.gif' alt='Carregando...' />";
+    var ajax_load = "<img class='centeredX' style='background-color: #EFEFEF;' src='img/loading.gif' alt='Carregando...' />";
 
     var loadUrl = "views/"+name+".html";
 

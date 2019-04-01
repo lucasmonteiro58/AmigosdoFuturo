@@ -532,17 +532,26 @@
   function gov_0() {
     setupLevel()
 
+
+
     var contIndexC=1;
+    var totalCriancaVermelha = 0;
+    var totalCriancaAmarela =0;
+
+       $("#robot-help-mini").click(function() {
+        contIndexC++;        
+       $('.robot-help').css("z-index", contIndexC);
+       })
 
     $( ".criancaAmarela , .criancaVermelha").draggable({
-          //revert: true,
+         // revert: true,
           revertDuration: 600,
            //cursor: "grabbing",
            containment: "#gramadotodo",
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
-             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+            // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
             contIndexC++;
              $('[data-toggle="popover"]').popover('hide');
              $(this).css("z-index", contIndexC);
@@ -562,26 +571,37 @@
             out: function( event, ui){ 
 
             $(ui.draggable).removeClass('tanocampo'); 
+            totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
+            vermelhoTrue =false;
+             console.log("V: "+totalCriancaVermelha);
+
 
             },
 
             drop: function(event,ui) {   
-             
-                var totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
+              
+                $(ui.draggable).addClass('tanocampo'); 
+             totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
+              //console.log("V: "+totalCriancaVermelha);
+                
+               
+                if($(ui.draggable).hasClass('tanocampo')){ 
 
-                if($(ui.draggable).hasClass('tanocampo')){             
-
-                    } else{            
-                      if (totalCriancaVermelha==2) {
+                 if (totalCriancaVermelha==3) {
                         vermelhoTrue =true;
                           if (vermelhoTrue && amareloTrue){
                             alert("ta tudo organizado")
                             congratsNextLevel(["full","empty","empty"], false)
                           }
-                      }
+                      }            
+
+                    } else{            
+                     
                       
                      }
-             $(ui.draggable).addClass('tanocampo');        
+          
+
+
                       
             }
     });
@@ -593,26 +613,37 @@
             },
 
             out: function( event, ui){ 
-            $(ui.draggable).removeClass('tanocampo');  
+            $(ui.draggable).removeClass('tanocampo');               
+             totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
+            amareloTrue=false; 
+             //console.log("A: "+totalCriancaAmarela);
+
             },
 
-            drop: function(event,ui) {        
-            var totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
-            if($(ui.draggable).hasClass('tanocampo')){            
+            drop: function(event,ui) {    
 
-                } else{
+            $(ui.draggable).addClass('tanocampo');   
+            totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
+            console.log("A: "+totalCriancaAmarela);   
+            
+            
+            if($(ui.draggable).hasClass('tanocampo')){  
 
-                  if (totalCriancaAmarela==2) {
+              if (totalCriancaAmarela==3) {
                     amareloTrue=true;
 
                     if (vermelhoTrue && amareloTrue){
                       alert("ta tudo organizado")
                       congratsNextLevel(["full","empty","empty"], false)
                     }
-                  }              
+                  }          
+
+                } else{
+
+                              
                 } 
 
-            $(ui.draggable).addClass('tanocampo');         
+                 
                       
             }
     });
