@@ -9,7 +9,6 @@ $.ajax({
     {
         chartBar = data
         getMaxValue(chartBar)
-        console.log(chartBarMax);
     },
     error:function(jqXHR, textStatus, errorThrown){
         alert('Erro ao carregar');
@@ -27,3 +26,5 @@ function getMaxValue(json) {
         }
     }
 }
+
+$("#number_access").text()

@@ -46,6 +46,35 @@ if ($("#menu").length) {
       cutscene_name = "start"
       updateSectionAJAX("cutscene")
     })
+
+    countAccess()
+
+    function countAccess() {
+      $.ajax({
+        type: 'GET',
+        url: "admin/php/controller/count_access.php",
+        dataType: 'json',
+        contentType: 'application/json',
+        crossDomain: true,
+        cache:false,
+        success: function(data)
+        {
+           leftPad(data["access"], 6)
+        },
+        error:function(jqXHR, textStatus, errorThrown){
+            alert('Erro ao carregar');
+            console.log(errorThrown);
+        }
+      });
+    }
+
+    function leftPad(number, targetLength) {
+        var output = number + '';
+        while (output.length < targetLength) {
+            output = '0' + output;
+        }
+        $('#counter').text(output)
+    }
   }
 
 // Form  -----------------------------------------------------------------
@@ -601,7 +630,7 @@ if ($("#menu").length) {
       }
 
       $.ajax({
-          type        : 'GET', // define the type of HTTP verb we want to use (POST for our form)
+          type        : 'POST', // define the type of HTTP verb we want to use (POST for our form)
           url         : 'admin/php/controller/save_data.php', // the url where we want to POST
           data        :  data, // our data object
           dataType    : 'json', // what type of data do we expect back from the server

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28-Mar-2019 às 01:28
+-- Generation Time: 01-Abr-2019 às 22:53
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -280,6 +280,24 @@ INSERT INTO `feedbacks` (`id`, `liked`, `text`) VALUES
 (34, 'Sim', 'Amei Tudo'),
 (36, 'Sim', 'achei massa'),
 (37, 'Sim', 'Muito legal');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `general`
+--
+
+CREATE TABLE `general` (
+  `number_access` int(11) NOT NULL,
+  `year` int(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `general`
+--
+
+INSERT INTO `general` (`number_access`, `year`) VALUES
+(6, 2019);
 
 -- --------------------------------------------------------
 

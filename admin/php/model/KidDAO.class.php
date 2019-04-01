@@ -48,6 +48,23 @@ class KidDAO {
 		}
 	}
 
+	public function get_number_of_kids(){
+		$query = "SELECT * FROM kids";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+		if ($n){
+			$number_kids = 0;
+			while($data = $result->fetch_array()){
+				$number_kids += 1;
+			}
+			return $number_kids;
+		} else {
+			return false;
+		}
+	}
+
 	//continue
 	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&liked=Sim&feedback=Gostei
 	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {

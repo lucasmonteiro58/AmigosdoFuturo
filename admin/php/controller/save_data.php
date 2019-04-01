@@ -3,13 +3,13 @@
 
 	session_start();
 
-	$name = $_GET['name'];
-	$age = $_GET['age'];
-	$city = $_GET['city'];
-	$gender = $_GET['gender'];
-	$badge = $_GET['badge'];
-	$liked = $_GET['liked'];
-	$feedback = $_GET['feedback'];
+	$name = $_POST['name'];
+	$age = $_POST['age'];
+	$city = $_POST['city'];
+	$gender = $_POST['gender'];
+	$badge = $_POST['badge'];
+	$liked = $_POST['liked'];
+	$feedback = $_POST['feedback'];
 
 	$result = false;
 	
@@ -19,9 +19,9 @@
 	
 
 	if ($result) {
-		//echo "Sent to server.";
+		echo "Sent to server.";
 	} else {
-		//echo "ERROR to send to server.";
+		echo "ERROR to send to server.";
 	}
 
 ?>
