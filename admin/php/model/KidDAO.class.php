@@ -47,42 +47,26 @@ class KidDAO {
 			return false;
 		}
 	}
-	// crianças por emblema
-	public function get_kids_with_badge(){
-		$badgeDAO = new BadgeDAO();
-		$all_badges = $badgeDAO->get_all_badges();
-		$badgeDAO->badgeDAO_close();
 
-		foreach ($all_badges as $badge) {
-			$b->abreviation = $badge->get_abreviation();
-			$b->id = $badge->get_id();
+	public function get_number_of_kids(){
+		$query = "SELECT * FROM kids";
 
-			$myJSON = json_encode($myObj);
+		$result = $this->con->query($query) or die ($this->con->error);
 
-
-		}
-		
-		$all_kids = $this->get_all_kids()
-
-
-
-		foreach ($all_kids as $kid) {
-			$id = $kid->$badge_id
-
-		}
 		$n = $result->num_rows;
 		if ($n){
+			$number_kids = 0;
 			while($data = $result->fetch_array()){
-				$kids[] = new Kid($data['id'], $data['name'], $data['gender'],$data['age'],$data['city_id'],$data['badge_id'],$data['feedback_id']);
+				$number_kids += 1;
 			}
-			return $kids;
+			return $number_kids;
 		} else {
 			return false;
 		}
 	}
 
 	//continue
-	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&like=Sim&feedback=Gostei
+	//http://localhost/AmigosdoFuturo/admin/php/controller/save_data.php?name=Deb&age=9&gender=Menina&city=Fortaleza&badge=eco&liked=Sim&feedback=Gostei
 	public function save_kid($name, $age, $city, $gender, $badge, $like, $feedback) {
 		//$data = date("Y-m-d H:i:s");
 		$badgeDAO = new BadgeDAO();
@@ -120,6 +104,42 @@ class KidDAO {
 
 	public function KidDAO_close(){
 		return $this->con->close();
+	}
+
+
+	//JSON Charts function
+	// crianças por emblema
+	public function get_kids_with_badge(){
+		$badges_qnts = '{ 
+			"edu" : 0,
+			"laz" : 0,
+			"eco" : 0,
+			"gov" : 0, 
+			"mei" : 0, 
+	 		"ino" : 0, 
+		    "sau" : 0
+		}';
+
+		$badges_qnts_array = json_decode($badges_qnts, true);
+
+		$all_kids = $this->get_all_kids();
+
+		$badgeDAO = new BadgeDAO();
+
+		foreach ($all_kids as $kid) {
+			$badge_id = $kid->get_badge_id();
+			$kid_badge = $badgeDAO->get_badge_by_id($badge_id);
+			$kid_badge_abrev = $kid_badge->get_abreviation();
+
+			$actual_qnt = $badges_qnts_array[$kid_badge_abrev];
+			$badges_qnts_array[$kid_badge_abrev] = $actual_qnt+1;
+		}
+
+		$badgeDAO->badgeDAO_close();
+
+		$badges_qnts_JSON = json_encode($badges_qnts_array);
+
+		return $badges_qnts_JSON;
 	}
 
 }

@@ -27,7 +27,7 @@
           <canvas id="badgesQuantity-Bar"></canvas>
         </div>
         <hr>
-        Styling for the bar chart can be found in the <code>/js/demo/chart-bar-demo.js</code> file.
+       Gráfico com a quantidade de crianças de cada um dos 7 emblemas.
       </div>
     </div>
 

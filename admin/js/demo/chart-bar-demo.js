@@ -43,7 +43,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [10, 19, 15, 9, 12, 3, 11],
+      data: [chartBar["eco"], chartBar["edu"], chartBar["ino"], chartBar["gov"], chartBar["laz"], chartBar["sau"], chartBar["mei"]],
     }],
   },
   options: {
@@ -73,7 +73,7 @@ var myBarChart = new Chart(ctx, {
       yAxes: [{
         ticks: {
           min: 0,
-          max: 20,
+          max: chartBarMax,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
