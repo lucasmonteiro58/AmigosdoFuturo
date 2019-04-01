@@ -103,6 +103,9 @@
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
+  <script src="js/variables.js"></script>
+  <script src="js/get-chart-data.js"></script>
+  
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
   <script src="js/demo/chart-pie-demo.js"></script>

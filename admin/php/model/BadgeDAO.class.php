@@ -23,7 +23,7 @@ class BadgeDAO {
 
 		if ($n){
 			$data = $result->fetch_array();
-			$b = new Badge($data['id'], $data['name'], $data['description'], $data['img']);
+			$b = new Badge($data['id'], $data['name'], $data['description'], $data['img'],$data['abreviation']);
 			return $b;
 		}else {
 			return false;
