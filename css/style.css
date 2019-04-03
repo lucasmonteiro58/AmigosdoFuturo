@@ -14,6 +14,8 @@
   --cursor-arrastando: url(../img/Pointers/pointermove.png), grabbing;
 }
 
+
+
   @font-face {
      font-family: bungee;
      src: url(../fonts/Bungee-Regular.otf);
@@ -47,7 +49,20 @@
   	list-style: none;
     cursor:  var(--cursor-padrao);
 
+
+  
   }
+
+  img {
+  user-drag: none; 
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
 
   .centered {
   	position: absolute;          
@@ -324,7 +339,7 @@
 
   #counter {
 
-  	background-image: url(../img/menu/counter.png);
+  	//background-image: url(../img/menu/counter.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -337,6 +352,15 @@
     line-height: 7.5vw;
     font-weight: bold;
     font-family: norwester;
+  }
+
+  #counter2{
+  	position: absolute;
+  	background-repeat: no-repeat;
+  	background-size: cover;
+  	bottom: -8.5%;
+  	left: 28%;
+  	transform: scale(0.7);
   }
 
 
@@ -1231,6 +1255,16 @@
 
 }
 
+#destaquePecaMapa{
+  position: absolute;
+  //background-color: white;
+  width: 11%;
+  height: 20%;
+  top: 28.5%;
+  left: 31%; 
+  outline: 50000px solid rgba(0,0,0,0.4);
+}
+
 .pecasnamesa:hover{
   transform: scale(1.1);
 }
@@ -1814,6 +1848,17 @@
 
 }
 
+ #animacaoTorneiraPia{
+  position: absolute;
+  bottom: 27%;
+  left: 46.65%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(1.16);
+ //display: none;
+
+}
+
  #animacaocanos{
   position: absolute;
   bottom: -24%;
@@ -2313,6 +2358,15 @@
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+#animacaoPingando{
+ position: absolute;
+ background-repeat: no-repeat;
+ background-size: cover;
+ bottom: -15.5%;
+ left: 42.8%;
+ transform: scale(0.75);
 }
 
 

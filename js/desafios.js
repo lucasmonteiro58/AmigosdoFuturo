@@ -4,6 +4,8 @@
 // Se passar de Fase
 // congratsNextLevel(["full","full","full"], false) //true se tiver terminado
 
+ 
+
 // Mapa -------------------------------------------------------------------------------------------------------------
   function map() {
     createInvokeHelp(helps_texts["map"])
@@ -23,6 +25,8 @@
       });
 
    var contagemPecaMapa = 0;
+
+   
 
    function verificaPecaMapa() {
     if(contagemPecaMapa == 7){
@@ -123,8 +127,12 @@
 
     function verificaLixo() {
       if (contagemLixoDrop == 10){
-        alert("conseguiu")
-        congratsNextLevel(["full", "empty", "empty"], false)
+
+        setTimeout(function () {               
+         alert("conseguiu")
+        congratsNextLevel(["full", "empty", "empty"], false)      
+        }, 300);
+        
       }
     }
 
@@ -240,8 +248,12 @@
 
     function verificaLegumesOK(){
       if (verificaLegumes==6){
+
+        setTimeout(function () {             
         alert("conseguiu")
-        congratsNextLevel(["full", "full", "empty"], false)
+        congratsNextLevel(["full", "full", "empty"], false)       
+      }, 300);
+        
       }
     }
 
@@ -384,6 +396,18 @@
   function mei_2() {
     setupLevel()
 
+    $('#animacaoTorneiraPia').jsMovie({
+      sequence: 'torneira_0000#.png',
+      from: 0,
+      to: 9,
+      fps: 8,
+      width:'28%',
+      height: '47%',
+      folder : "img/animation/torneira/",
+      playOnLoad:false        
+    });
+
+
     document.getElementById('C_cestavazia3').draggable = false;
     var verificaCanos = false;
     var verificaLegumesCesta = 0;
@@ -405,8 +429,12 @@
 
     function verificaLegumesCestaOK(){
       if (verificaLegumesCesta==6 && verificaCanos){
-        alert("conseguiu")
-        congratsNextLevel(["full", "full", "full"], true)
+
+        setTimeout(function () {               
+           alert("conseguiu")
+        congratsNextLevel(["full", "full", "full"], true)     
+        }, 300);
+       
       }
     }
 
@@ -444,7 +472,13 @@
               }    
               qntLegumesPia++;
                 if (qntLegumesPia==6){
-                  alert("Agora CLICA nos legumes para tirar da pia")
+
+        $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
+
+                  setTimeout(function () {               
+         alert("Agora CLICA nos legumes para tirar da pia")       
+  }, 1600);
+                 
                   $(".legumesCesta").addClass("legumesCestaClick");             
                   $( ".legumesCestaClick").click(function() {
                      $(this).css('display', 'none');
@@ -513,11 +547,15 @@
         $('.pecasCozinha').css('display', 'none');
         $('#animacaocanos').css('display', 'block');
 
-         $('#animacaocanos').jsMovie('play',1,25,false, false);
+        
 
 
         verificaCanos = true;
-         alert("Arrasta as coisas pra pia");
+        setTimeout(function () {               
+         alert("Arrasta as coisas pra pia"); 
+          $('#animacaocanos').jsMovie('play',1,25,false, false);      
+  }, 300);
+        
          verificaLegumesCestaOK()
       } else {
         $('#cobrirCozinha').css('display', 'block');
@@ -590,8 +628,11 @@
                  if (totalCriancaVermelha==3) {
                         vermelhoTrue =true;
                           if (vermelhoTrue && amareloTrue){
-                            alert("ta tudo organizado")
+                            setTimeout(function () {               
+                 alert("ta tudo organizado")
                             congratsNextLevel(["full","empty","empty"], false)
+                  }, 300);
+                           
                           }
                       }            
 
@@ -633,8 +674,12 @@
                     amareloTrue=true;
 
                     if (vermelhoTrue && amareloTrue){
-                      alert("ta tudo organizado")
-                      congratsNextLevel(["full","empty","empty"], false)
+
+                      setTimeout(function () {               
+       alert("ta tudo organizado")
+                      congratsNextLevel(["full","empty","empty"], false)         
+  }, 300);
+                     
                     }
                   }          
 
@@ -663,8 +708,11 @@
      $(this).css('display','none');
 
      if (contAlimentoRua==4){
-      alert("Você conseguiu");
-      congratsNextLevel(["full", "half","empty"], false)
+      setTimeout(function () {               
+        alert("Você conseguiu");
+      congratsNextLevel(["full", "half","empty"], false)        
+  }, 400);
+     
      }
 
     });
@@ -699,8 +747,11 @@
 
      if (contJornalRua==4){
       //alert("Você conseguiu");
-      $("#antenaRadio").jsMovie("destroy");
-      congratsNextLevel(["full", "full", "empty"], false)
+      setTimeout(function () {               
+       $("#antenaRadio").jsMovie("destroy");
+      congratsNextLevel(["full", "full", "empty"], false)         
+  }, 300);
+     
      }
     }); 
   }
@@ -720,8 +771,11 @@
         $('#textolei').text("Pode ser preso aquele que não der bom dia ao porteiro.");
         contLei++;
       } else{
+        setTimeout(function () {               
         alert("terminou");
-        congratsNextLevel(["full","full","full"], true)
+        congratsNextLevel(["full","full","full"], true)        
+  }, 200);
+       
       }
     });               
   }
@@ -810,8 +864,11 @@
       $('#A1Pg2').css('display', 'none');
     })
     $( "#A2nextPage" ).click(function() {
-      alert("next desafio")
-      congratsNextLevel(["full","empty", "empty"], false)
+      setTimeout(function () {               
+        alert("next desafio")
+      congratsNextLevel(["full","empty", "empty"], false)        
+  }, 100);
+     
     })
     $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
         revert: true,
@@ -905,8 +962,11 @@
     })
 
     $( "#btnAlbum2" ).click(function() {
-      alert("Next Desafio")
-      congratsNextLevel(["full","full", "empty"], false)
+      setTimeout(function () {               
+        alert("Next Desafio")
+      congratsNextLevel(["full","full", "empty"], false)        
+  }, 100);
+     
     })
   }
 
@@ -924,8 +984,11 @@
       contErros++;
       $('#txtContador0').text(contErros);
       if(contErros==7){
-        alert("PROXIMO DEAFIO");
-        congratsNextLevel(["full","full","full"], true)
+        setTimeout(function () {               
+         alert("PROXIMO DEAFIO");
+        congratsNextLevel(["full","full","full"], true)       
+  }, 400);
+       
       }
     })
   }
@@ -933,6 +996,18 @@
 // Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
   function ino_0() {
     setupLevel()
+
+
+    $('#animacaoPingando').jsMovie({
+      sequence: 'bebedouro_000##.png',
+      from: 0,
+      to: 10,
+      fps: 8,
+      width:'31%',
+      height: '65%',
+      folder : "img/animation/bebedouro/",
+      playOnLoad:true         
+    });
 
     $( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
           revert: true,
@@ -958,8 +1033,13 @@
             drop: function( event, ui ) {      
               $("#imgBalde").css("display", "none");
               $("#imgBaldeOK").css("display", "block");
-                alert("conseguiu");
+              $('#animacaoPingando').css("display", "none");
+               setTimeout(function () {
+
+               alert("conseguiu");
                 congratsNextLevel(["full", "empty", "empty"], false)
+               }, 400);
+               
               }
           });               
 
@@ -981,8 +1061,11 @@
     $( ".next3").click(function() { if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
     $( "#btn-lancar .action").click(function() {
-      alert("lançou")
-      congratsNextLevel(['full','full','empty'], false)
+      setTimeout(function () {               
+       alert("lançou")
+      congratsNextLevel(['full','full','empty'], false)        
+  }, 100);
+      
     });
 
 
@@ -1059,8 +1142,11 @@
     })
 
     $( "#btnOKcarro" ).click(function() {
-      alert("proximo desafio");
-      congratsNextLevel(['full','full','full'], true)
+      setTimeout(function () {               
+       alert("proximo desafio");
+      congratsNextLevel(['full','full','full'], true)        
+  }, 100);
+      
     })
 
     $( "#btnOKcarroNAO" ).click(function() {
@@ -1237,7 +1323,7 @@
                   if (bilotoLeft<=55.7){
                     alert("Seu prato não está saúdavel ainda")
                   } else{
-                    alert("Prato saúdavel! *enviar*")
+                             alert("Prato saúdavel! *enviar*")
                     congratsNextLevel(['full', 'half', 'empty'], false)
                   }
       } else{
@@ -2227,8 +2313,12 @@
       if (CasaBola && CasaVo && CasaDog && CasaBiscoito && !endlevel){
         endlevel = true
 
-        alert("Código para ir para proximo desafio")
-        congratsNextLevel(["full", "half", "empty"], false)
+
+setTimeout(function () {               
+     alert("Código para ir para proximo desafio")
+        congratsNextLevel(["full", "half", "empty"], false)           
+  }, 300);
+       
         var qtd_moedass = qtd_m
         console.log("Total de moedas= "+qtd_moedass)
         saveInStorage("moedas", qtd_moedass)

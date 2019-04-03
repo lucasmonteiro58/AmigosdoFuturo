@@ -817,7 +817,7 @@ if ($("#menu").length) {
         cache: false
     });
     // Image while loading
-    var ajax_load = "<img class='centeredX' style='background-color: #EFEFEF;' src='img/loading.gif' alt='Carregando...' />";
+    var ajax_load = "<img class='centeredX' style='background-color: #EFEFEF; width: 100%;' src='img/loading.gif' alt='Carregando...' />";
 
     var loadUrl = "views/"+name+".html";
 
@@ -845,3 +845,19 @@ if ($("#menu").length) {
     }
     updateSectionAJAX("congrats")
   } 
+
+
+  //Contador
+
+$('#counter2').jsMovie({
+      sequence: 'contador_000##.png',
+      from: 0,
+      to: 10,
+      fps: 8,
+      width:'60%',
+      height: '47%',
+      folder : "img/animation/contador/",
+      playOnLoad:false         
+    });
+
+$('#counter2').jsMovie('play',1,10,false, true);
