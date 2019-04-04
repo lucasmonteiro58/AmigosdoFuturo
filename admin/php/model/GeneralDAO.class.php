@@ -63,6 +63,17 @@ class GeneralDAO {
 		return false;
 	}
 
+	public function count_access(){
+		$actual_year = date("Y");
+
+		$number_access_actual_year = $this->get_number_access_by_year($actual_year);
+
+		if ($number_access_actual_year){
+			return $number_access_actual_year;
+		}
+		return false;
+	}
+
 	public function generalDAO_close(){
 		return $this->con->close();
 	}

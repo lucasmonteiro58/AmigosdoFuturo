@@ -29,6 +29,9 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Estilo sobreposto ao template -->
+  <link rel="stylesheet" type="text/css" href="css/custom.css">
+
 </head>
 
 <body id="page-top">
@@ -102,6 +105,11 @@
 
   <!-- Page level TABLE custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+
+  <script type="text/javascript">
+  $("#general-tab").addClass("active")  
+  $("#index-tab").removeClass("active")    
+  </script>
 
 </body>
 

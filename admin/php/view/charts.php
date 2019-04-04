@@ -38,7 +38,7 @@
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Donut Chart</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Amigos por idade</h6>
       </div>
       <!-- Card Body -->
       <div class="card-body">
@@ -46,7 +46,7 @@
           <canvas id="myPieChart"></canvas>
         </div>
         <hr>
-        Styling for the donut chart can be found in the <code>/js/demo/chart-pie-demo.js</code> file.
+        A quantidade de amigos do futuro que participaram, por idade.
       </div>
     </div>
   </div>

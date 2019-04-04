@@ -1,3 +1,4 @@
+//Gráfico com os amigos por emblema
 $.ajax({
     type: 'GET',
     url: "php/controller/get_data_charts.php?type=bar",
@@ -5,26 +6,31 @@ $.ajax({
     contentType: 'application/json',
     crossDomain: true,
     cache:false,
-    success: function(data)
-    {
+    success: function(data) {
         chartBar = data
-        getMaxValue(chartBar)
+        getMaxValue(chartBar) },
+    error:function(jqXHR, textStatus, errorThrown){
+        alert('Erro ao carregar');
+        console.log(errorThrown); } });
+function getMaxValue(json) {
+    var all = ["edu","laz","eco","gov","mei","ino","sau"]
+    for (var i = 0; i <= all.length - 1; i++) {
+        var abrev = all[i]
+        if (json[abrev] > chartBarMax) { chartBarMax = json[abrev] } } }
+
+//Número total de acessos
+$.ajax({
+    type: 'GET',
+    url: "php/controller/count_access.php",
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    cache:false,
+    success: function(data) {
+       $("#number_access").text(data["total_access"])
     },
     error:function(jqXHR, textStatus, errorThrown){
         alert('Erro ao carregar');
         console.log(errorThrown);
     }
 });
-
-function getMaxValue(json) {
-    var all = ["edu","laz","eco","gov","mei","ino","sau"]
-
-    for (var i = 0; i <= all.length - 1; i++) {
-        var abrev = all[i]
-        if (json[abrev] > chartBarMax) {
-            chartBarMax = json[abrev]
-        }
-    }
-}
-
-$("#number_access").text()

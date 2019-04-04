@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 01-Abr-2019 às 22:53
+-- Generation Time: 04-Abr-2019 às 03:40
 -- Versão do servidor: 10.1.28-MariaDB
 -- PHP Version: 7.1.10
 
@@ -279,7 +279,8 @@ INSERT INTO `feedbacks` (`id`, `liked`, `text`) VALUES
 (30, 'Sim', 'muitooooooooooooooooooo'),
 (34, 'Sim', 'Amei Tudo'),
 (36, 'Sim', 'achei massa'),
-(37, 'Sim', 'Muito legal');
+(37, 'Sim', 'Muito legal'),
+(38, 'Sim', 'Divertidooooooo!');
 
 -- --------------------------------------------------------
 
@@ -297,7 +298,7 @@ CREATE TABLE `general` (
 --
 
 INSERT INTO `general` (`number_access`, `year`) VALUES
-(6, 2019);
+(7, 2019);
 
 -- --------------------------------------------------------
 
@@ -331,7 +332,8 @@ INSERT INTO `kids` (`name`, `gender`, `age`, `city_id`, `badge_id`, `feedback_id
 ('henrique', 'M', 9, 34, 7, 30, 20),
 ('Dalia Albuqeurque', 'F', 9, 171, 4, 34, 22),
 ('Isabele', 'F', 8, 169, 1, 36, 26),
-('Luana', 'F', 11, 28, 1, 37, 27);
+('Luana', 'F', 11, 28, 1, 37, 27),
+('sds', 'F', 9, 55, 4, 38, 28);
 
 -- --------------------------------------------------------
 
@@ -413,13 +415,13 @@ ALTER TABLE `cities`
 -- AUTO_INCREMENT for table `feedbacks`
 --
 ALTER TABLE `feedbacks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `kids`
 --
 ALTER TABLE `kids`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `users`
