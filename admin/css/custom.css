@@ -1,0 +1,9 @@
+.sidebar-brand-icon {
+	background-image: url(../img/robot.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	color: transparent;
+}
+.sidebar-brand-icon i {
+	font-size: 3.5rem !important;
+}

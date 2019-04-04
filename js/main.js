@@ -9,7 +9,7 @@ if ($("#menu").length) {
     toggleSoundSetup()
 
     // Toggle fullscreen
-   // $('#myModal').modal('show')
+    $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
       openFullscreen()
       $('#myModal').modal('hide')
@@ -47,19 +47,18 @@ if ($("#menu").length) {
       updateSectionAJAX("cutscene")
     })
 
-    countAccess()
+    incrementAccess()
 
-    function countAccess() {
+    function incrementAccess() {
       $.ajax({
         type: 'GET',
-        url: "admin/php/controller/count_access.php",
+        url: "admin/php/controller/increment_access.php",
         dataType: 'json',
         contentType: 'application/json',
         crossDomain: true,
         cache:false,
-        success: function(data)
-        {
-           leftPad(data["access"], 6)
+        success: function(data) {
+           leftPad(data["total_access"], 6)
         },
         error:function(jqXHR, textStatus, errorThrown){
             alert('Erro ao carregar');
