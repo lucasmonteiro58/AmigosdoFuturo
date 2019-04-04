@@ -1259,15 +1259,6 @@
 
 }
 
-#destaquePecaMapa{
-  position: absolute;
-  //background-color: white;
-  width: 11%;
-  height: 20%;
-  top: 28.5%;
-  left: 31%; 
-  outline: 50000px solid rgba(0,0,0,0.4);
-}
 
 .pecasnamesa:hover{
   transform: scale(1.1);
