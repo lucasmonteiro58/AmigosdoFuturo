@@ -18,3 +18,5 @@
 @import "login.scss";
 @import "error.scss";
 @import "footer.scss";
+
+sass --watch admin/scss/sb-admin-2.scss:admin/css/sb-admin-2.css

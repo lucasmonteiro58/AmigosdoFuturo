@@ -6,8 +6,12 @@
 
 		$kidDAO = new KidDAO();
 		switch ($type) {
-			case 'bar':
+			case 'user_badges':
 				$data = $kidDAO->get_kids_with_badge();
+				echo $data;
+				break;
+			case 'gender':
+				$data = $kidDAO->get_gender_data();
 				echo $data;
 				break;
 			default:
