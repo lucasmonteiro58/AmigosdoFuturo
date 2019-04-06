@@ -142,5 +142,27 @@ class KidDAO {
 		return $badges_qnts_JSON;
 	}
 
+	public function get_gender_data(){
+		$gender_qnts = '{ 
+			"F" : 0,
+			"M" : 0
+		}';
+
+		$gender_qnts_array = json_decode($gender_qnts, true);
+
+		$all_kids = $this->get_all_kids();
+
+		foreach ($all_kids as $kid) {
+			$kid_gender = $kid->get_gender();
+
+			$actual_qnt = $gender_qnts_array[$kid_gender];
+			$gender_qnts_array[$kid_gender] = $actual_qnt+1;
+		}
+
+		$gender_qnts_JSON = json_encode($gender_qnts_array);
+
+		return $gender_qnts_JSON;
+	}
+
 }
 ?>

@@ -54,6 +54,7 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
+
           <?php include "php/view/resume.php"; ?>
 
           <?php include "php/view/charts.php"; ?>
@@ -88,6 +89,8 @@
   <!-- Include logout_modal -->
   <?php include "php/view/logout_modal.php"; ?>
 
+ <script src="js/variables.js"></script>
+
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -101,13 +104,13 @@
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
 
-  <script src="js/variables.js"></script>
   <script src="js/get-chart-data.js"></script>
   
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>
-  <script src="js/demo/chart-bar-demo.js"></script>
+  <script src="js/demo/chart-age-polar.js"></script>
+  <script src="js/demo/chart-badges-bar.js"></script>
+  <script src="js/demo/chart-gender-pie.js"></script>
 
   <script type="text/javascript">
   $("#general-tab").removeClass("active")  

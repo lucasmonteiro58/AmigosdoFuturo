@@ -6,7 +6,8 @@
 /*Fonts ----------------------------------------------------------*/
 
 :root {
-  --cursor-padrao: url(../img/Pointers/pointerverde.png), auto;
+  --cursor-padrao: url(../img/Pointers/pointerverde.png), default;
+  --cursor-auto: url(../img/Pointers/pointerverde.png), auto;
   --cursor-click: url(../img/Pointers/pointerclick.png), pointer;
   --cursor-block: url(../img/Pointers/pointerblock.png), not-allowed;
   --cursor-text: url(../img/Pointers/pointertext.png), text;
@@ -48,9 +49,6 @@
   	margin: 0px;
   	list-style: none;
     cursor:  var(--cursor-padrao);
-
-
-  
   }
 
   img {
@@ -61,8 +59,6 @@
     -webkit-user-select: none;
     -ms-user-select: none;
 }
-
-
 
   .centered {
   	position: absolute;          
