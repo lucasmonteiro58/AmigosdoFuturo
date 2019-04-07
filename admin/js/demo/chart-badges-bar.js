@@ -74,7 +74,6 @@ var badges_bar = new Chart(ctx, {
       borderWidth: 1,
       xPadding: 15,
       yPadding: 15,
-      displayColors: false,
       caretPadding: 10,
       callbacks: {
         label: function(tooltipItem, chart) {

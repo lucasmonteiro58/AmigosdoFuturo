@@ -1,3 +1,37 @@
+//Número total de acessos
+$.ajax({
+    type: 'GET',
+    url: "php/controller/count_access.php",
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    cache:false,
+    success: function(data) {
+       $("#number_access").text(data["total_access"])
+    },
+    error:function(jqXHR, textStatus, errorThrown){
+        alert('Erro ao carregar');
+        console.log(errorThrown);
+    }
+});
+
+//Número total de acessos
+$.ajax({
+    type: 'GET',
+    url: "php/controller/get_data_charts.php?type=total_users",
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    cache:false,
+    success: function(data) {
+       $("#number_users").text(data)
+    },
+    error:function(jqXHR, textStatus, errorThrown){
+        alert('Erro ao carregar');
+        console.log(errorThrown);
+    }
+});
+
 //Gráfico com os amigos por emblema
 $.ajax({
     type: 'GET',
@@ -18,22 +52,6 @@ function getMaxValue(json) {
         var abrev = all[i]
         if (json[abrev] > chartBarMax) { chartBarMax = json[abrev] } } }
 
-//Número total de acessos
-$.ajax({
-    type: 'GET',
-    url: "php/controller/count_access.php",
-    dataType: 'json',
-    contentType: 'application/json',
-    crossDomain: true,
-    cache:false,
-    success: function(data) {
-       $("#number_access").text(data["total_access"])
-    },
-    error:function(jqXHR, textStatus, errorThrown){
-        alert('Erro ao carregar');
-        console.log(errorThrown);
-    }
-});
 
 //Número total de acessos por genero
 $.ajax({
@@ -49,5 +67,21 @@ $.ajax({
     error:function(jqXHR, textStatus, errorThrown){
         alert('Erro ao carregar');
         console.log(errorThrown);
+    }
+});
+
+//Número total de usuarios grupo por idade
+$.ajax({
+    type: 'GET',
+    url: "php/controller/get_data_charts.php?type=age",
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    cache:false,
+    success: function(data) {
+       age_groups = data["ages_data"]
+    },
+    error:function(jqXHR, textStatus, errorThrown){
+        alert('Erro ao carregar');
     }
 });
