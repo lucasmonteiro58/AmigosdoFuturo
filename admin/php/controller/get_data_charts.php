@@ -14,6 +14,14 @@
 				$data = $kidDAO->get_gender_data();
 				echo $data;
 				break;
+			case 'age':
+				$data = $kidDAO->get_age_data();
+				echo $data;
+				break;
+			case 'total_users':
+				$data = $kidDAO->get_number_of_kids();
+				echo $data;
+				break;
 			default:
 				break;
 		}

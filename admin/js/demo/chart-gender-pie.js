@@ -2,8 +2,9 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
-var config = {
-  type: 'pie',
+var ctx = document.getElementById('gender-pie').getContext('2d');
+window.gender_pie = new Chart(ctx, {
+  type: 'polarArea',
   data: {
     datasets: [{
       data: gender_quantities,
@@ -22,14 +23,8 @@ var config = {
         borderWidth: 1,
         xPadding: 15,
         yPadding: 15,
-        displayColors: false,
         caretPadding: 10,
       },
       cutoutPercentage: 50,
     }
-  }
-
-window.onload = function() {
-  var ctx = document.getElementById('gender-pie').getContext('2d');
-  window.gender_pie = new Chart(ctx, config);
-};
+  })

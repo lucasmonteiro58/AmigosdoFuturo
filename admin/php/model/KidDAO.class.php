@@ -164,5 +164,44 @@ class KidDAO {
 		return $gender_qnts_JSON;
 	}
 
+	//['Menos de 3','3 a 6','7 a 10', '11 a 14', 'Mais de 14']
+	public function get_age_data(){
+		$age_qnts = '{ 
+			"ages_data" : [0,0,0,0,0]
+		}';
+
+		$age_qnts_array = json_decode($age_qnts, true);
+
+		$all_kids = $this->get_all_kids();
+
+		foreach ($all_kids as $kid) {
+			$kid_age = $kid->get_age();
+
+			if ($kid_age <= 14) {
+				//menor q 14
+				if ($kid_age >= 3){
+					if ($kid_age <= 6) {
+						// entre 3 e 6
+						$age_qnts_array["ages_data"][1] += 1;
+					} else if ($kid_age <= 10) {
+						// entre 6 e 10
+						$age_qnts_array["ages_data"][2] += 1;
+					} else {
+						// entre 10 e 14
+						$age_qnts_array["ages_data"][3] += 1;
+					}
+				} else {
+					//menor que 3
+					$age_qnts_array["ages_data"][0] += 1;
+				}
+			} else {
+				//maior q 14
+				$age_qnts_array["ages_data"][4] += 1;
+			}
+		}
+		$age_qnts_JSON = json_encode($age_qnts_array);
+
+		return $age_qnts_JSON;
+	}
 }
 ?>
