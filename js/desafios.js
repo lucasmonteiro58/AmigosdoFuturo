@@ -2257,7 +2257,7 @@
         luzBOL= true;
       }
     })
-    $( "#icon_lixeira2" ).click(function() {
+    $( "#icon_luz2" ).click(function() {
         $(this).css('display', 'none');
         $('#SalaLuz').css('display', 'none');
         $('#SalaLuz').removeClass('imgVisibleS')
