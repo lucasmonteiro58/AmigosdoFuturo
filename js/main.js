@@ -3,6 +3,9 @@ if ($("#menu").length) {
   menu()
 }
 
+
+  
+
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
 
@@ -11,6 +14,10 @@ if ($("#menu").length) {
     // Toggle fullscreen
     $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
+    
+
+
+      
       openFullscreen()
       $('#myModal').modal('hide')
     })
@@ -373,6 +380,8 @@ if ($("#menu").length) {
       var region = searchForRegion()
       if (region) {
         createCommentRegion(comments_texts[comment_name], region)
+        //tocar musica
+        //"music/"+region["id"]+".mp3"
       }
     } else {
       createComment(comments_texts[comment_name])

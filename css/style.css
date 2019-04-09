@@ -4343,6 +4343,16 @@ button.btnLuz2:hover{background-image: url(../img/buttons/es/bt_lampada_menos.pn
 
 }
 
+
+#AnimacaoClick7erros{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  bottom: 3%;  
+  left: 50%; 
+  transform: scale(0.3);
+}
+
 #erroX1{
   position: absolute;
   top: 42%;

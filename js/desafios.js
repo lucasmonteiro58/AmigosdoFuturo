@@ -974,8 +974,22 @@
   function laz_2() {
     setupLevel()
 
+  $('#AnimacaoClick7erros').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+  
+
     var contErros=0;
     $(".divErros" ).click(function() {
+
+       $("#AnimacaoClick7erros").css("display", "none");
       //alert('aaaa');
       $(this).css('display', 'none');
       var id7erros= $(this).attr('id');
