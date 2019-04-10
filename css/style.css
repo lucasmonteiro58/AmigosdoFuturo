@@ -821,6 +821,7 @@
     width: 50vw;
     text-align: left;
     padding: 8% 4% 6% 18%;
+    z-index: 2;
 
     background-image: url(../img/help/box-robot-help.png);
     background-repeat: no-repeat;
@@ -2351,6 +2352,28 @@
 
 }
 
+#AnimacaoArrastBebedouro{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 48%;  
+  left: 6%; 
+  transform: scale(0.4) ;
+}
+
+
+#AnimacaoArrastBebedouro2{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 50%;  
+  left: 28%; 
+  transform: scale(0.35) scaleX(-1);
+  display: none;
+}
+
+
+
 #animacaoPingando{
  position: absolute;
  background-repeat: no-repeat;
@@ -2630,6 +2653,15 @@ display: none;
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+#AnimacaoArrastarCamp{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 23%;  
+  left: 18%; 
+  transform: scale(0.4) rotate(30deg) ;
 }
 
 #gramado{
@@ -3051,6 +3083,15 @@ display: none;
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+#AnimClickCarrinho{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: -8%;  
+  left: 14%; 
+  transform: scale(0.4);
 }
 
 #carcaca_carro{
@@ -4516,6 +4557,19 @@ display: none;
 
 }
 
+ 
+  #AnimacaoArrastarAlbum1{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 44%;  
+  left: 4%; 
+ 
+ z-index: 1;
+  transform: scale(0.4) rotate(-45deg);
+}
+
+
 #paginaAlbum1{
   position: absolute;
   width: 100%;
@@ -4789,6 +4843,17 @@ display: none;
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+
+
+#AnimacaoClickAlbum2{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 15%;  
+  left: 39%; 
+  transform: scale(0.3);
 }
 
 #check1{
@@ -5065,6 +5130,17 @@ display: none;
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+
+#AnimacTecladoCasa{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 30%;  
+  left: 40%; 
+  transform: scale(1);
+  opacity: 0.7;
 }
 
 #plantacasa{

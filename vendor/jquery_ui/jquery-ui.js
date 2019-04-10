@@ -15218,7 +15218,7 @@ var widgetsSortable = $.widget( "ui.sortable", $.ui.mouse, {
 		axis: false,
 		connectWith: false,
 		containment: false,
-		cursor: "auto",
+		cursor: "",
 		cursorAt: false,
 		dropOnEmpty: true,
 		forcePlaceholderSize: false,

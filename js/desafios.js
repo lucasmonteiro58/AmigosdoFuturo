@@ -18,7 +18,7 @@
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
-           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+         //  $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
           $('[data-toggle="popover"]').popover('hide');
           //$(this).css('cursor', 'url(../img/Pointers/pointermove.png)');
          }
@@ -119,7 +119,7 @@
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
-           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+        //   $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
            $('[data-toggle="popover"]').popover('hide'); }
       });
 
@@ -446,7 +446,7 @@
             //snap: true,
            scroll:false,
            drag: function( event, ui ) { 
-           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');   
+           //$(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');   
            }
         });
 
@@ -571,6 +571,18 @@
     setupLevel()
 
 
+ $('#AnimacaoArrastarCamp').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
+
 
     var contIndexC=1;
     var totalCriancaVermelha = 0;
@@ -582,7 +594,7 @@
        })
 
     $( ".criancaAmarela , .criancaVermelha").draggable({
-         // revert: true,
+         //revert: true,
           revertDuration: 600,
            //cursor: "grabbing",
            containment: "#gramadotodo",
@@ -593,6 +605,7 @@
             contIndexC++;
              $('[data-toggle="popover"]').popover('hide');
              $(this).css("z-index", contIndexC);
+             $('#AnimacaoArrastarCamp').css('display', 'none');
 
             
            }
@@ -616,7 +629,9 @@
 
             },
 
-            drop: function(event,ui) {   
+            drop: function(event,ui) { 
+
+              $( "#bandeiraV" ).effect( "shake" );  
               
                 $(ui.draggable).addClass('tanocampo'); 
              totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
@@ -661,7 +676,9 @@
 
             },
 
-            drop: function(event,ui) {    
+            drop: function(event,ui) {  
+
+             $( "#bandeiraA" ).effect( "shake" );    
 
             $(ui.draggable).addClass('tanocampo');   
             totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
@@ -784,14 +801,26 @@
   function laz_0() {
     setupLevel()
 
+      $('#AnimacaoArrastarAlbum1').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
   $( "#A1fig1, #A1fig2, #A1fig3, #A1fig4 ").draggable({
         revert: true,
         revertDuration: 600,
          //cursor: "grabbing",
          scroll: false,
          drag: function( event, ui ) {
-           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
-           $('[data-toggle="popover"]').popover('hide'); },
+          // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+           $('[data-toggle="popover"]').popover('hide');
+           $('#AnimacaoArrastarAlbum1').css('display', 'none') },
         stop: function( event, ui ) {
           $(this).css('top','84%');
         }
@@ -877,7 +906,7 @@
           //snap: true,
          scroll:false,
          drag: function( event, ui ) {
-           $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+          // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
            $('[data-toggle="popover"]').popover('hide'); },
         stop: function( event, ui ) {
           $(this).css('top','84%');
@@ -948,7 +977,27 @@
   function laz_1() {
     setupLevel()
 
+      $('#AnimacaoClickAlbum2').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 12,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
+      $( "#AnimacaoClickAlbum2" ).click(function() {
+        $(this).css('display', 'none');
+        $('#check3').css('display', 'block');
+
+      })
+
     $( ".checkClick" ).click(function() {
+
+      $('#AnimacaoClickAlbum2').css('display', 'none');
 
       var idCheckDIV= $(this).attr('id');
         var idCheckOK = "#" + idCheckDIV.substr(3,(idCheckDIV.length - 0));
@@ -1011,6 +1060,30 @@
   function ino_0() {
     setupLevel()
 
+     $('#AnimacaoArrastBebedouro').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
+       $('#AnimacaoArrastBebedouro2').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
+
+
 
     $('#animacaoPingando').jsMovie({
       sequence: 'bebedouro_000##.png',
@@ -1023,21 +1096,32 @@
       playOnLoad:true         
     });
 
+    var contTetativasBebedouro= 0;
+
     $( "#imgVaso, #imgGarrafao, #imgBalde").draggable({
           revert: true,
           revertDuration: 600,
-           //cursor: "grabbing",
+        
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
-             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+            // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
              $('[data-toggle="popover"]').popover('hide');
-            
+             $('#AnimacaoArrastBebedouro').css('display', 'none')  
+             $('#AnimacaoArrastBebedouro2').css('display', 'none')            
+           },
+           stop: function( event, ui ) {
+              contTetativasBebedouro++;
+              if (contTetativasBebedouro==3) {
+                //alert("aaa");
+                $('#AnimacaoArrastBebedouro2').css('display','block');
+              }
            }
         });
 
     $("#aceitaBalde").droppable({
           accept: "#imgBalde",
+
            over: function( event, ui){         
             },
 
@@ -1123,8 +1207,23 @@
   function ino_2() {
     setupLevel()
 
+     $('#AnimClickCarrinho').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
+
     var liberarBotaoCarrinho= false;
     $( ".pecasforacarro").click(function() {
+
+      $('#AnimClickCarrinho').css('display', 'none');
      
      var idPecaCarro = "#" + $(this).attr('id') + "dentro";
 
@@ -1245,7 +1344,7 @@
             //snap: true,
            scroll:false,
            drag: function( event, ui ) {
-             $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
+            // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
             //contIndex++;
              $('[data-toggle="popover"]').popover('hide');
             
@@ -2284,6 +2383,19 @@
 // Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
   function eco_0() {
     setupLevel()
+
+
+     $('#AnimacTecladoCasa').jsMovie({
+      sequence: 'keyboard_000##.png',
+      from: 0,
+      to: 39,
+      fps: 10,
+      width:'55%',
+      height: '60%',
+      folder : "img/animation/cursor/keyboard/",
+      playOnLoad:true         
+    });
+
   
     var qtd_moedas= 0;
     var DivA = document.querySelector("#icon_pers_move")
@@ -2367,6 +2479,7 @@ setTimeout(function () {
     var armazenar4 = false;
 
     function movePlane() {
+
       for (var direction in keys) {
         if (!keys.hasOwnProperty(direction)) continue;
       
@@ -2376,12 +2489,14 @@ setTimeout(function () {
           armazenar1 = collision($('#icon_pers_move'), $('#divplantacasa1'));
           if (armazenar1) {
              $("#icon_pers_move").animate({left: "-=5"}, 0);
+              $('#AnimacTecladoCasa').css('display', 'none');
           } 
         }
         if (direction == 38) {  
         armazenar2 = collision($('#icon_pers_move'), $('#divplantacasa2'));
           if (armazenar2) {  
             $("#icon_pers_move").animate({top: "-=5"}, 0); 
+             $('#AnimacTecladoCasa').css('display', 'none');
           }
 
         }
@@ -2390,13 +2505,15 @@ setTimeout(function () {
            armazenar3 = collision($('#icon_pers_move'), $('#divplantacasa3'));
           if (armazenar3) { 
             $("#icon_pers_move").animate({left: "+=5"}, 0); 
+             $('#AnimacTecladoCasa').css('display', 'none');
           }
            
         }
         if (direction == 40) {
           armazenar4 = collision($('#icon_pers_move'), $('#divplantacasa4'));
           if (armazenar4) { 
-            $("#icon_pers_move").animate({top: "+=5"}, 0); 
+            $("#icon_pers_move").animate({top: "+=5"}, 0);
+             $('#AnimacTecladoCasa').css('display', 'none'); 
           }
            
         }
