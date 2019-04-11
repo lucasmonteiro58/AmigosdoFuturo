@@ -396,6 +396,41 @@
   function mei_2() {
     setupLevel()
 
+    $('#AnimacaoClickCanos').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+ $('#AnimacaoClickLegumesCesta').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
+  $('#AnimacaoClickLegumesPia').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
     $('#animacaoTorneiraPia').jsMovie({
       sequence: 'torneira_0000#.png',
       from: 0,
@@ -438,49 +473,32 @@
       }
     }
 
-    $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").draggable({
-          revert: true,
-          revertDuration: 600,
-          //cursor: "url(img/Pointers/pointermove.png), grabbing",
-          containment: '#moverlegumes',
-            //snap: true,
-           scroll:false,
-           drag: function( event, ui ) { 
-           //$(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');   
-           }
-        });
+  var contLegumesCesta=0;
 
-    var qntLegumesPia = 0;
+   $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").click(function() {
 
-    $("#droplegumes").droppable({
-            drop: function( event, ui ) {       
-              var draggableId = ui.draggable.attr("id");
-              draggableId= '"#'+ draggableId+'"';
-             // $(this).css('z-index', '1000'); 
-              // $(ui.draggable).css(' z-index','1');      
-              if (draggableId=='"#C_tomatecesta2"' || draggableId=='"#C_tomatecesta1"'){ 
-                  $(ui.draggable).css('top','42%');
-                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
-              }  
-               if (draggableId=='"#C_alfacecesta2"' || draggableId=='"#C_alfacecesta1"'){ 
-                  $(ui.draggable).css('top','40%');
-                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
-              }  
-               if (draggableId=='"#C_cenouracesta2"' || draggableId=='"#C_cenouracesta1"'){ 
-                  $(ui.draggable).css('top','35%');
-                  $(ui.draggable).css('cursor',' url(img/Pointers/pointerclick.png), pointer');
-              }    
-              qntLegumesPia++;
-                if (qntLegumesPia==6){
 
-        $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
+    $('#AnimacaoClickLegumesCesta').css('display', 'none');
+   var legumeclicado = "#"+ this.id+'C';
 
-                  setTimeout(function () {               
-         alert("Agora CLICA nos legumes para tirar da pia")       
-  }, 1600);
-                 
-                  $(".legumesCesta").addClass("legumesCestaClick");             
+   $(this).css('display', 'none');
+   $(legumeclicado).css('display', 'block');
+   contLegumesCesta++;
+
+     if(contLegumesCesta==6){
+              $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
+
+                          setTimeout(function () {               
+                 alert("Agora CLICA nos legumes para tirar da pia") 
+                 $('#AnimacaoClickLegumesPia').css('display', 'block');      
+          }, 1600);
+
+
+                  $(".legumesAgua").addClass("legumesCestaClick");
+
+
                   $( ".legumesCestaClick").click(function() {
+                     $('#AnimacaoClickLegumesPia').css('display', 'none'); 
                      $(this).css('display', 'none');
                      var legumeaparecer= '#'+this.id +'B';
                     // alert(this.id +"B");
@@ -488,17 +506,18 @@
                      verificaLegumesCesta++;
                      verificaLegumesCestaOK()
                   });
-                }       
-              $(ui.draggable).draggable({revert:false});
-            $(ui.draggable).draggable({disabled:true});
-              }
-          });
+     }
+   })
+
+    
 
     var graus1 =90;
     var graus2 =0;
     var ultClickID = undefined;
 
     $( ".pecasCozinha").click(function() {
+
+      $('#AnimacaoClickCanos').css('display', 'none');
       if (this.id == ultClickID){   
       } else {
         ultClickID=this.id;
@@ -544,6 +563,7 @@
       var totalCanos = $(".pecasCozinha.canoCerto").length;
       if (totalCanos==10){
         $('#cobrirCozinha').css('display', 'none');
+        $('#AnimacaoClickLegumesCesta').css('display', 'block');
         $('.pecasCozinha').css('display', 'none');
         $('#animacaocanos').css('display', 'block');
 
@@ -552,7 +572,7 @@
 
         verificaCanos = true;
         setTimeout(function () {               
-         alert("Arrasta as coisas pra pia"); 
+         alert("Clica nos legumes"); 
           $('#animacaocanos').jsMovie('play',1,25,false, false);      
   }, 300);
         
@@ -1827,6 +1847,17 @@
   function edu_1() {
     setupLevel()
 
+      $('#AnimacaoClickEscolaDentro').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
     var posicaoSalaVazia1=true;
     var posicaoSalaVazia2=true;
     var posicaoSalaVazia3=true;
@@ -1905,6 +1936,10 @@
         posicaoSalaVazia5=true;
       }
     }
+
+    $( ".iconNormalD" ).click(function() {
+      $('#AnimacaoClickEscolaDentro').css('display', 'none');
+    })
 
     var idImgSala="";
     var todasSalasOcupadas= false;

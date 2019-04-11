@@ -261,6 +261,15 @@
   .checkClick{
     cursor: var(--cursor-click);
   }
+
+  .legumesCesta{
+     cursor: var(--cursor-click);
+  }
+
+  .legumesCestaClick{
+    cursor: var(--cursor-click);
+  }
+
   .pecasforacarro{
      cursor: var(--cursor-click);
   }
@@ -1840,6 +1849,38 @@
 
 }
 
+#AnimacaoClickCanos{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 52%;  
+  left: 52%; 
+  transform: scale(0.4) ;
+}
+
+
+#AnimacaoClickLegumesCesta{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 9%;  
+  left: 10%; 
+  transform: scale(0.4) ;
+  display: none;
+}
+
+
+#AnimacaoClickLegumesPia{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 22%;  
+  left:43%; 
+  transform: scale(0.4) ;
+  display: none;
+}
+
+
  #animacaoTorneiraPia{
   position: absolute;
   bottom: 27%;
@@ -1974,7 +2015,69 @@
 }
 
 
-#C_cenouracesta1B{
+
+
+#C_cenouracesta1C{
+  position: absolute;
+  top: 35%;
+  left: 27%;
+  width: 11%;
+
+ 
+}
+
+#C_cenouracesta2C{
+  position: absolute;
+  top: 35%;
+  left: 35%;
+  width: 11%;
+ 
+}
+
+#C_tomatecesta1C{
+  position: absolute;
+  top: 42%;
+  left: 37%;
+  width: 4.3%;
+
+}
+
+#C_tomatecesta2C{
+  position: absolute;
+  top: 42%;
+  left: 49%;
+  width: 3.5%;
+ 
+}
+
+#C_alfacecesta1C{
+   position: absolute;
+  top: 40%;
+  left: 43%;
+  width: 7%;
+ 
+}
+
+#C_alfacecesta2C{
+ position: absolute;
+  top: 40%;
+  left: 53%;
+  width: 6%;
+ 
+}
+
+.legumesAgua{
+  display: none;
+}
+
+
+
+
+
+
+
+
+#C_cenouracesta1CB{
   position: absolute;
   top: 30%;
   right: 26%;
@@ -1984,7 +2087,7 @@
  
 }
 
-#C_cenouracesta2B{
+#C_cenouracesta2CB{
   position: absolute;
   top: 30%;
   right: 24%;
@@ -1993,7 +2096,7 @@
  
 }
 
-#C_tomatecesta1B{
+#C_tomatecesta1CB{
   position: absolute;
   top: 36%;
   right: 22%;
@@ -2002,7 +2105,7 @@
 
 }
 
-#C_tomatecesta2B{
+#C_tomatecesta2CB{
   position: absolute;
   top: 38%;
   right: 20%;
@@ -2011,7 +2114,7 @@
  
 }
 
-#C_alfacecesta1B{
+#C_alfacecesta1CB{
    position: absolute;
   top: 33%;
   right: 19%;
@@ -2020,7 +2123,7 @@
  
 }
 
-#C_alfacecesta2B{
+#C_alfacecesta2CB{
  position: absolute;
   top: 35%;
   right: 15%;
@@ -3721,6 +3824,16 @@ button.btnLixo2:hover{background-image: url(../img/buttons/ef/bt_lixo_menos.png)
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+#AnimacaoClickEscolaDentro{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 67%;  
+  left: 64%; 
+  transform: scale(0.4) ;
+  //display: none;
 }
 
 #escoladentro_antes{
