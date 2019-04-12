@@ -28,10 +28,28 @@
 
    
 
+var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav');
+
+
+
+
+
    function verificaPecaMapa() {
     if(contagemPecaMapa == 7){
       comment_name = "start_quiz"
-      createComment(comments_texts[comment_name])
+      createComment(comments_texts[comment_name])  
+      $("button.toggle.repeat").click(function() {
+          audioParabensMapa.load();
+           audioParabensMapa.play();        
+        }); 
+
+
+         $("button#go-comment.action.blue").click(function() {
+          audioParabensMapa.load();
+        });  
+
+
+      audioParabensMapa.play();
       $(".robot-comment").fadeIn(300)
     }
    }
@@ -130,7 +148,9 @@
 
         setTimeout(function () {               
          alert("conseguiu")
-        congratsNextLevel(["full", "empty", "empty"], false)      
+         var audio_lixo = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+        congratsNextLevel(["full", "empty", "empty"], false, audio_lixo) 
+
         }, 300);
         
       }
@@ -251,7 +271,8 @@
 
         setTimeout(function () {             
         alert("conseguiu")
-        congratsNextLevel(["full", "full", "empty"], false)       
+        var audio_plantar = new Audio('sounds/desafios/sustentabilidade desafio 2.wav') ;
+        congratsNextLevel(["full", "full", "empty"], false, audio_plantar)       
       }, 300);
         
       }
@@ -467,7 +488,8 @@
 
         setTimeout(function () {               
            alert("conseguiu")
-        congratsNextLevel(["full", "full", "full"], true)     
+            var audio_cozinha = new Audio('sounds/desafios/sustentabilidade desafio 3.wav') ;
+        congratsNextLevel(["full", "full", "full"], true, audio_cozinha)     
         }, 300);
        
       }
@@ -664,8 +686,9 @@
                         vermelhoTrue =true;
                           if (vermelhoTrue && amareloTrue){
                             setTimeout(function () {               
-                 alert("ta tudo organizado")
-                            congratsNextLevel(["full","empty","empty"], false)
+                 
+                      var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                            congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
                            
                           }
@@ -713,10 +736,11 @@
                     if (vermelhoTrue && amareloTrue){
 
                       setTimeout(function () {               
-       alert("ta tudo organizado")
-                      congratsNextLevel(["full","empty","empty"], false)         
-  }, 300);
-                     
+                 
+                      var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                            congratsNextLevel(["full","empty","empty"], false, audio_campinho)
+                  }, 300);
+
                     }
                   }          
 
@@ -747,7 +771,8 @@
      if (contAlimentoRua==4){
       setTimeout(function () {               
         alert("Você conseguiu");
-      congratsNextLevel(["full", "half","empty"], false)        
+         var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav') ;
+      congratsNextLevel(["full", "half","empty"], false, audio_ong)        
   }, 400);
      
      }
@@ -786,7 +811,8 @@
       //alert("Você conseguiu");
       setTimeout(function () {               
        $("#antenaRadio").jsMovie("destroy");
-      congratsNextLevel(["full", "full", "empty"], false)         
+       var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav') ;
+      congratsNextLevel(["full", "full", "empty"], false, audio_radio)         
   }, 300);
      
      }
@@ -810,7 +836,8 @@
       } else{
         setTimeout(function () {               
         alert("terminou");
-        congratsNextLevel(["full","full","full"], true)        
+         var audio_prefeitura = new Audio('sounds/desafios/governo desafio 3.wav') ;
+        congratsNextLevel(["full","full","full"], true, audio_prefeitura);        
   }, 200);
        
       }

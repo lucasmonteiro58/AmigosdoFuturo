@@ -3,11 +3,14 @@ if ($("#menu").length) {
   menu()
 }
 
-
+ var atualSom1 = new Audio('');
   
 
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
+
+
+   
 
     toggleSoundSetup()
 
@@ -377,9 +380,23 @@ if ($("#menu").length) {
 // Comment  -------------------------------------------------------------
   function comment() {
     if (comment_name == "about_region") {
+
+      
       var region = searchForRegion()
       if (region) {
+        var audio_regiao = new Audio('sounds/regiao/'+region["id"]+'.wav');
         createCommentRegion(comments_texts[comment_name], region)
+        audio_regiao.play();
+
+        $("button.toggle.repeat").click(function() {
+           audio_regiao.load();
+           audio_regiao.play();        
+        });
+
+        $("button#go-comment.toggle.next").click(function() {
+          audio_regiao.load();
+        });  
+
         //tocar musica
         //"music/"+region["id"]+".mp3"
       }
@@ -514,6 +531,10 @@ if ($("#menu").length) {
     if (congrats_name == "badge") {
       congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
       $(".robot-congrats #text-comment p").addClass("badge-text-format")
+
+    
+
+
     }
 
       $(".robot-congrats #text-comment p").html(congrats["text"])
@@ -533,6 +554,8 @@ if ($("#menu").length) {
         starsHTML += "<li><img src='img/congrats/star-"+level_stars[i]+".png'></li>"
       }
       $('.robot-congrats .content-right #stars').html(starsHTML)
+
+
 
       // Action for button clicked
       congratsButtonClicked()
@@ -845,13 +868,36 @@ if ($("#menu").length) {
   }
 
 
-  function congratsNextLevel(stars, ended) {
+  function congratsNextLevel(stars, ended, sound) {
     congrats_name = actual_badge["id"]+"_"+actual_level
     level_stars = stars
+
+    sound.play();
+
+    
+
+
     if (ended) {
       actual_badge["finished"] = true //ended badge
     }
     updateSectionAJAX("congrats")
+
+    setTimeout(function () {           
+        
+    $("button.toggle.repeat" ).click(function() {
+      console.log('aaaaaaaaaa');
+      sound.load();
+      sound.play();
+    });
+
+     $("button#go-congrats.toggle.next" ).click(function() {
+      sound.load();
+    });
+
+        }, 500);
+
+
+
   } 
 
 
