@@ -8,8 +8,6 @@
 
 // Mapa -------------------------------------------------------------------------------------------------------------
 
-var xxcvv = 0;
-var jgshdjh = 2;
   function map() {
     createInvokeHelp(helps_texts["map"])
     $('[data-toggle="popover"]').popover({html:true})
@@ -1203,17 +1201,51 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     var meio = 0;
     var rabo = 0;
 
-    $( ".prev1").click(function() { if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
-    $( ".next1").click(function() { if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
-    $( ".prev2").click(function() { if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
-    $( ".next2").click(function() { if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
-    $( ".prev3").click(function() { if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
-    $( ".next3").click(function() { if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
+
+    $('#AnimacaoClickFoguete').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+    $('#AnimacaoFoguete').jsMovie({
+      sequence: 'Lançamento###.png',
+      from: 0,
+      to: 217,
+      fps: 24,
+      width:'100%',
+      height: '100%',
+      folder : "img/animation/foguete/",
+      playOnLoad:false        
+    });
+
+
+    function A_off(){
+      $('#AnimacaoClickFoguete').css('display', 'none');
+    }
+
+
+    $( ".prev1").click(function() { A_off(); if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
+    $( ".next1").click(function() { A_off(); if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
+    $( ".prev2").click(function() { A_off(); if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
+    $( ".next2").click(function() { A_off(); if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
+    $( ".prev3").click(function() { A_off(); if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
+    $( ".next3").click(function() { A_off(); if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
     $( "#btn-lancar .action").click(function() {
       setTimeout(function () {               
-       alert("lançou")
-      congratsNextLevel(['full','full','empty'], false)        
+       $('#AnimacaoFoguete').css('display', 'block');
+       $('#AnimacaoFoguete').jsMovie('play',1,218,false,false);
+               setTimeout(function () {  
+               alert('lançou');     
+              congratsNextLevel(['full','full','empty'], false)        
+            }, 9000);
+
   }, 100);
       
     });
@@ -1653,6 +1685,17 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
   function edu_0 () {
     setupLevel()
 
+     $('#AnimacaoClickEscolaFora').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
     var acessibilidadeBOL= false;
     var pintarBOL= false;
     var arborizarBOL= false;
@@ -1665,6 +1708,11 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     var habilitarBtnPF=false;
 
     var posicaoEF=1;
+
+    $( ".iconNormalF" ).click(function() {
+      $('#AnimacaoClickEscolaFora').css('display', 'none');
+    })
+    
 
     $( "#btnNextEscola" ).click(function() {
       var totalImgs = $(".imagensEF.imgVisible").length;
@@ -2224,6 +2272,21 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 // Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
   function edu_2() {
     setupLevel()
+
+    $('#AnimacaoClickEscolaSala').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+    $( ".iconNormalS" ).click(function() {
+      $('#AnimacaoClickEscolaSala').css('display', 'none');
+    })
 
     var cadeirasBOL=false;
     var livrosBOL=false;

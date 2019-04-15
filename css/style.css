@@ -2247,6 +2247,28 @@
 
 }
 
+#AnimacaoFoguete{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 0%;  
+  left: 0%; 
+  transform: scale(1) ;
+  display: none;
+  z-index: 4;
+}
+
+
+#AnimacaoClickFoguete{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 9%;  
+  left: 54%; 
+  transform: scale(0.4) ;
+  //display: none;
+}
+
 #btn-lancar{
   position: absolute;
   bottom: 5%;
@@ -3448,6 +3470,16 @@ display: none;
 
 }
 
+#AnimacaoClickEscolaFora{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 67%;  
+  left: 64%; 
+  transform: scale(0.4) ;
+  //display: none;
+}
+
 #escolafora_antes{
   position: absolute;
   bottom: 34%;
@@ -4148,6 +4180,16 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+#AnimacaoClickEscolaSala{
+ position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 69%;  
+  left: 63%; 
+  transform: scale(0.4) ;
+  //display: none;
 }
 
 #SalaCadeiras{
