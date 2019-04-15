@@ -7,6 +7,9 @@
  
 
 // Mapa -------------------------------------------------------------------------------------------------------------
+
+var xxcvv = 0;
+var jgshdjh = 2;
   function map() {
     createInvokeHelp(helps_texts["map"])
     $('[data-toggle="popover"]').popover({html:true})
@@ -25,6 +28,8 @@
       });
 
    var contagemPecaMapa = 0;
+
+
 
    
 
