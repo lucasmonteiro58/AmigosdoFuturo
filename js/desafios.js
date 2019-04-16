@@ -10,7 +10,22 @@
 
   function map() {
     createInvokeHelp(helps_texts["map"])
+
+
     $('[data-toggle="popover"]').popover({html:true})
+
+
+ $('#AnimacaoArrastarMapa').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
 
     $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
          revert: true,
@@ -21,9 +36,16 @@
          drag: function( event, ui ) {
          //  $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
           $('[data-toggle="popover"]').popover('hide');
+          $('#AnimacaoArrastarMapa').css('display', 'none');
           //$(this).css('cursor', 'url(../img/Pointers/pointermove.png)');
          }
       });
+
+
+    
+
+
+      
 
    var contagemPecaMapa = 0;
 
@@ -133,6 +155,17 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
   function mei_0() {
     setupLevel()
 
+     $('#AnimacaoArrastarLixos').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
     $( "#papel1, #metal1, #plastico1, #vidro1, #organico1, #papel2, #metal2, #plastico2, #vidro2, #organico2").draggable({
         revert: true,
         revertDuration: 600,
@@ -141,7 +174,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
          scroll:false,
          drag: function( event, ui ) {
         //   $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
-           $('[data-toggle="popover"]').popover('hide'); }
+           $('[data-toggle="popover"]').popover('hide');
+           $('#AnimacaoArrastarLixos').css('display', 'none') }
       });
 
     var contagemLixoDrop = 0;
@@ -269,6 +303,17 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     var verificaLegumes = 0;
 
+      $('#animacaoClickPlantar').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
     function verificaLegumesOK(){
       if (verificaLegumes==6){
 
@@ -282,6 +327,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     }
 
     $('#buraco1').click(function(){
+      $('#animacaoClickPlantar').css('display', 'none');
       if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
         $("#buraco1").attr('src', "");  
         $("#buraco1").attr('src',"img/desafios/sustentabilidade/cenoura1.png");
@@ -305,6 +351,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }  
     });
     $('#buraco2').click(function(){
+       $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco2").attr('src', ""); 
           $("#buraco2").attr('src',"img/desafios/sustentabilidade/cenoura1.png");
@@ -327,6 +374,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }
     });
     $('#buraco3').click(function(){
+       $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco3").attr('src', ""); 
           $("#buraco3").attr('src',"img/desafios/sustentabilidade/tomate1.png");
@@ -349,6 +397,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }
     });
     $('#buraco4').click(function(){
+       $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco4").attr('src', ""); 
           $("#buraco4").attr('src',"img/desafios/sustentabilidade/tomate1.png");
@@ -371,6 +420,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }
     });
     $('#buraco5').click(function(){
+       $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco5").attr('src', ""); 
           $("#buraco5").attr('src',"img/desafios/sustentabilidade/alface1.png");
@@ -393,6 +443,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }
     });
     $('#buraco6').click(function(){
+       $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco6").attr('src', ""); 
           $("#buraco6").attr('src',"img/desafios/sustentabilidade/alface1.png");
@@ -762,8 +813,21 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
   function gov_1() {
     setupLevel()
 
+      $('#AnimacaoClickONG').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
     var contAlimentoRua =0;
     $( ".alimentosRua" ).click(function() {
+      $('#AnimacaoClickONG').css('display', 'none');
      contAlimentoRua ++;
      var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
      //alert(idAlimentoRua);
@@ -773,7 +837,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
      if (contAlimentoRua==4){
       setTimeout(function () {               
-        alert("Você conseguiu");
+      
          var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav') ;
       congratsNextLevel(["full", "half","empty"], false, audio_ong)        
   }, 400);
@@ -786,6 +850,18 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
     setupLevel()
+
+      $('#AnimacaoClickRadio').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
 
     $('#antenaRadio').jsMovie({
     sequence: 'antenaradio_0000#.png',
@@ -802,6 +878,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     var contJornalRua =0;
     $( ".jornalRua" ).click(function() {
+       $('#AnimacaoClickRadio').css('display', 'none');
      contJornalRua ++;
      var idJornalRua = "#" + $(this).attr('id') + "cesta";
      
@@ -826,8 +903,21 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
   function gov_3() {
     setupLevel()
 
+      $('#AnimacaoClickPrefeitura').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
+
     var contLei=0;
     $( ".btnLei" ).click(function() {
+       $('#AnimacaoClickPrefeitura').css('display', 'none')
       if (contLei==0) {
         $('#titulolei').text("Lei 456");
         $('#textolei').text("Todos devem plantar uma árvore e dar um nome a ela.");
@@ -838,7 +928,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
         contLei++;
       } else{
         setTimeout(function () {               
-        alert("terminou");
+       
          var audio_prefeitura = new Audio('sounds/desafios/governo desafio 3.wav') ;
         congratsNextLevel(["full","full","full"], true, audio_prefeitura);        
   }, 200);
@@ -943,10 +1033,17 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       $('#A1Pg2').css('display', 'none');
     })
     $( "#A2nextPage" ).click(function() {
-      setTimeout(function () {               
-        alert("next desafio")
-      congratsNextLevel(["full","empty", "empty"], false)        
-  }, 100);
+
+
+       setTimeout(function () {               
+        
+         var audio_ambum1 = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+        congratsNextLevel(["full", "empty", "empty"], false, audio_ambum1) 
+
+        }, 300);
+        
+
+      
      
     })
     $( "#A2fig1, #A2fig2, #A2fig3, #A2fig4 ").draggable({
@@ -1061,10 +1158,13 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     })
 
     $( "#btnAlbum2" ).click(function() {
-      setTimeout(function () {               
-        alert("Next Desafio")
-      congratsNextLevel(["full","full", "empty"], false)        
-  }, 100);
+       setTimeout(function () {               
+        
+         var audio_album2 = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+        congratsNextLevel(["full", "full", "empty"], false,  audio_album2) 
+
+        }, 300);
+        
      
     })
   }
@@ -1097,10 +1197,12 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       contErros++;
       $('#txtContador0').text(contErros);
       if(contErros==7){
-        setTimeout(function () {               
-         alert("PROXIMO DEAFIO");
-        congratsNextLevel(["full","full","full"], true)       
-  }, 400);
+      setTimeout(function () {               
+        
+         var audio_7erros = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+        congratsNextLevel(["full", "full", "full"], false,  audio_7erros) 
+
+        }, 300);   
        
       }
     })
@@ -1182,11 +1284,12 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
               $("#imgBalde").css("display", "none");
               $("#imgBaldeOK").css("display", "block");
               $('#animacaoPingando').css("display", "none");
-               setTimeout(function () {
+                setTimeout(function () {               
+         
+         var audio_bebedouro = new Audio('sounds/desafios/inovação desafio 1.wav') ;
+        congratsNextLevel(["full", "empty", "empty"], false,  audio_bebedouro) 
 
-               alert("conseguiu");
-                congratsNextLevel(["full", "empty", "empty"], false)
-               }, 400);
+        }, 300);
                
               }
           });               
@@ -1214,10 +1317,10 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     });
 
     $('#AnimacaoFoguete').jsMovie({
-      sequence: 'Lançamento###.png',
+      sequence: 'Lancamento###.png',
       from: 0,
       to: 217,
-      fps: 24,
+      fps: 26,
       width:'100%',
       height: '100%',
       folder : "img/animation/foguete/",
@@ -1241,10 +1344,12 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       setTimeout(function () {               
        $('#AnimacaoFoguete').css('display', 'block');
        $('#AnimacaoFoguete').jsMovie('play',1,218,false,false);
-               setTimeout(function () {  
-               alert('lançou');     
-              congratsNextLevel(['full','full','empty'], false)        
-            }, 9000);
+                setTimeout(function () {               
+         
+         var audio_foguete = new Audio('sounds/desafios/Inovação desafio 2.wav') ;
+        congratsNextLevel(["full", "full", "empty"], false,  audio_foguete) 
+
+        }, 9000);
 
   }, 100);
       
@@ -1340,8 +1445,9 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     $( "#btnOKcarro" ).click(function() {
       setTimeout(function () {               
-       alert("proximo desafio");
-      congratsNextLevel(['full','full','full'], true)        
+      
+       var audio_carro = new Audio('sounds/desafios/Inovação desafio 3.wav') ;    
+      congratsNextLevel(['full','full','full'], true, audio_carro)        
   }, 100);
       
     })
@@ -1416,6 +1522,17 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
   function sau_0() {
     setupLevel()
 
+    $('#AnimacaoArrastarPrato').jsMovie({
+      sequence: 'drag_000##.png',
+      from: 0,
+      to: 29,
+      fps: 10,
+      width:'67%',
+      height: '60%',
+      folder : "img/animation/cursor/drag/",
+      playOnLoad:true         
+    });
+
     var contIndex=1;
     var bilotoLeft = 49.4;
 
@@ -1431,6 +1548,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
             // $(this).css('cursor',' url(img/Pointers/pointerverde.png), auto');  
             //contIndex++;
              $('[data-toggle="popover"]').popover('hide');
+              $('#AnimacaoArrastarPrato').css('display', 'none');
             
            }
         });
@@ -1520,8 +1638,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
                   if (bilotoLeft<=55.7){
                     alert("Seu prato não está saúdavel ainda")
                   } else{
-                             alert("Prato saúdavel! *enviar*")
-                    congratsNextLevel(['full', 'half', 'empty'], false)
+                  var audio_prato = new Audio('sounds/desafios/Inovação desafio 2.wav') ;    
+                    congratsNextLevel(['full', 'half', 'empty'], false, audio_prato)
                   }
       } else{
         alert("adicione 5 aliment No Prato");
@@ -1539,6 +1657,18 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
     var balanco = false;
     var gangorra = false;
     var tablet = false;
+
+     $('#AnimacaoClickParquinho').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
     
 
     $('#animacaoGangorra').jsMovie({
@@ -1594,6 +1724,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
    
 
      $( "#escorregador").click(function() {
+       $('#AnimacaoClickParquinho').css('display', 'none');
       if (escorregador){
       } else{
         $("#animacaoEscorregador").css('display','block');
@@ -1609,6 +1740,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }})
 
      $( ".campinho").click(function() {
+      $('#AnimacaoClickParquinho').css('display', 'none');
       if (campinho){
       } else{
         bilotoP= bilotoP+5.55;
@@ -1619,6 +1751,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }})
 
      $( "#balanco").click(function() {
+      $('#AnimacaoClickParquinho').css('display', 'none');
       if (balanco){
       } else{
         $('#balanco').css('display','none');
@@ -1636,6 +1769,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }})
 
       $( "#gangorra").click(function() {
+        $('#AnimacaoClickParquinho').css('display', 'none');
       if (gangorra){
       } else{
         $('#gangorra').css('display', 'none');
@@ -1653,6 +1787,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       }})
 
       $( "#tablet").click(function() {
+        $('#AnimacaoClickParquinho').css('display', 'none');
       if (tablet){
       } else{
         $('#tablet').css('display','none');
@@ -1674,7 +1809,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
        $( "#btn-enviar-parquinho").click(function() {
         if (bilotoP==65.6) {
           alert(" codigo para proximo desafio")
-          congratsNextLevel(["full", "full", "full"], true)
+          var audio_parquinho = new Audio('sounds/desafios/Inovação desafio 2.wav') ;    
+          congratsNextLevel(["full", "full", "full"], true, audio_parquinho)
         } else{
           alert("brinque mais")
         }
@@ -1770,7 +1906,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     $("#btnSalvarEF" ).click(function() {
       alert('*INSIRA* código para o proximo desafio')
-      congratsNextLevel(['full','empty','empty'], false)
+      var audio_escolaFora = new Audio('sounds/desafios/Inovação desafio 2.wav') ;    
+      congratsNextLevel(['full','empty','empty'], false, audio_escolaFora)
     })
 
     $( "#icon_acessibilidade1" ).click(function() {
@@ -2265,7 +2402,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     $("#btnSalvarED" ).click(function() {
       alert('*INSIRA* código para o proximo desafio')
-      congratsNextLevel(['full','full','empty'], false)
+      var audio_escolaDentro = new Audio('sounds/desafios/Inovação desafio 2.wav') ;    
+      congratsNextLevel(['full','full','empty'], false, audio_escolaDentro)
     }) 
   }
 
@@ -2363,7 +2501,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     $("#btnSalvarES" ).click(function() {
       alert('*INSIRA* código para o proximo desafio')
-      congratsNextLevel(['full','full','full'],true)
+      var audio_escolaSala = new Audio('sounds/desafios/Inovação desafio 2.wav') ;    
+      congratsNextLevel(['full','full','full'],true, audio_escolaSala)
     })
 
     $( "#icon_cadeiras1" ).click(function() {
@@ -2572,7 +2711,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
 setTimeout(function () {               
      alert("Código para ir para proximo desafio")
-        congratsNextLevel(["full", "half", "empty"], false)           
+     var audio_casa = new Audio('sounds/desafios/economia desafio 1.wav') ;    
+        congratsNextLevel(["full", "half", "empty"], false, audio_casa)           
   }, 300);
        
         var qtd_moedass = qtd_m
@@ -2755,6 +2895,17 @@ setTimeout(function () {
 
     $("#qtd_moedaM").text(qntMoedasM)
 
+      $('#AnimacaoClickMonstrinhos').jsMovie({
+      sequence: 'click_000##.png',
+      from: 0,
+      to: 19,
+      fps: 10,
+      width:'45%',
+      height: '60%',
+      folder : "img/animation/cursor/click/",
+      playOnLoad:true         
+    });
+
     $('#animacaoEduc').jsMovie({
     sequence: 'maquinaeduc_000##.png',
     from: 0,
@@ -2807,6 +2958,7 @@ setTimeout(function () {
 
    
     $(".addMoedaEdu1").click(function() {
+      $('#AnimacaoClickMonstrinhos').css('display', 'none');
     if (addMoedaEdu){  
         if(qntMoedasM==0){
 
@@ -2844,7 +2996,8 @@ setTimeout(function () {
         }
       }
     })
-    $(".addMoedaSau1").click(function() { 
+    $(".addMoedaSau1").click(function() {
+     $('#AnimacaoClickMonstrinhos').css('display', 'none'); 
     if(addMoedaSau){  
          if(qntMoedasM==0){
 
@@ -2881,7 +3034,8 @@ setTimeout(function () {
         }
       }
     })
-    $(".addMoedaLaz1").click(function() {   
+    $(".addMoedaLaz1").click(function() { 
+     $('#AnimacaoClickMonstrinhos').css('display', 'none');  
       if(addMoedaLaz){
          if(qntMoedasM==0){
 
@@ -3000,8 +3154,9 @@ setTimeout(function () {
     $("#guardar_monstrinhos").click(function() {
       if(qntMoedasM==0){
         $('.div_monstrinhos').css('display', 'none');
-        alert("*CODIGO PARA PROXIMO DESAFIO");
-        congratsNextLevel(["full", "full", "full"], true)
+        
+        var audio_monstrinhos = new Audio('sounds/desafios/economia desafio 2.wav') ;    
+        congratsNextLevel(["full", "full", "full"], true, audio_monstrinhos)
       } else{
       $('.div_monstrinhos').css('display', 'none');
     }

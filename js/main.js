@@ -547,7 +547,9 @@ if ($("#menu").length) {
         $('[data-toggle="popover"]').popover({html:true})
       }
 
+
       $(".robot-congrats .content-right img").attr("src", "img/congrats/"+actual_badge["id"]+".png")
+       console.log(actual_badge["id"]);
 
       var starsHTML = ""
       for (var i = 0; i < level_stars.length; i++) {

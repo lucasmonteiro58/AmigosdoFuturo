@@ -1266,6 +1266,17 @@
 }
 
 
+  #AnimacaoArrastarMapa{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 37%;  
+  left: 10%; 
+  transform: scale(0.4) ;
+}
+
+
+
 .pecasnamesa:hover{
   transform: scale(1.1);
 }
@@ -1505,6 +1516,16 @@
 
 }
 
+  #AnimacaoArrastarLixos{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 48%;  
+  left: -7%; 
+  transform: scale(0.4) rotate(30deg) ;
+}
+
+
 .fontlixos:hover{
   transform: scale(1.1);
 }
@@ -1706,6 +1727,16 @@
 	background-size: cover;
 
 }
+
+  #animacaoClickPlantar{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 58%;  
+  left: 40%; 
+  transform: scale(0.4) ;
+}
+
 
 #buraco1{
 	position: absolute;
@@ -2579,6 +2610,16 @@
 
 }
 
+ #AnimacaoArrastarPrato{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 28%;  
+  left: 2%; 
+  transform: scale(0.4) ;
+}
+
+
 .alimentosSaudaveis:hover{
   transform: scale(1.1);
 }
@@ -2885,6 +2926,15 @@ display: none;
 
 }
 
+ #AnimacaoClickONG{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 48%;  
+  left: 10%; 
+  transform: scale(0.4) ;
+}
+
 #alfaceONG{
   position: absolute;
   bottom: 23.5%;
@@ -3014,6 +3064,15 @@ display: none;
   background-repeat: no-repeat;
   background-size: cover;
 
+}
+
+ #AnimacaoClickRadio{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 48%;  
+  left: 10%; 
+  transform: scale(0.4) ;
 }
 
 #antenaRadio{
@@ -3157,6 +3216,17 @@ display: none;
   background-size: cover;
 
 }
+
+
+  #AnimacaoClickPrefeitura{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 35%;  
+  left: 30%; 
+  transform: scale(0.4) ;
+}
+
 
 #titulolei{
   position: absolute;
@@ -5162,6 +5232,15 @@ display: none;
 }
 
 
+ #AnimacaoClickParquinho{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: 40%;  
+  left: 8%; 
+  transform: scale(0.4) ;
+}
+
 #animacaoGangorra{
   position: absolute;
   bottom: -23.8%;
@@ -5538,6 +5617,16 @@ display: none;
     background-size: cover;
 
   }
+
+    #AnimacaoClickMonstrinhos{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover; 
+  top: -4%;  
+  left: 9%; 
+  transform: scale(0.4) ;
+}
+
 
   #animacaoEduc{
   position: absolute;
