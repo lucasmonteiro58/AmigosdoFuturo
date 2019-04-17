@@ -375,6 +375,26 @@ if ($("#menu").length) {
     //Next section
     congrats_name = "badge"
     updateSectionAJAX("congrats")
+
+     setTimeout(function () {               
+          var audio_categoria = new Audio("sounds/desafios/"+actual_badge['id']+".wav");
+           audio_categoria.play(); 
+
+        $("button.toggle.repeat").click(function () { 
+           audio_categoria.load(); 
+          audio_categoria.play(); 
+        })
+
+
+      $("button#go-congrats.toggle.next").click(function () {
+        audio_categoria.load(); 
+      }
+
+        }, 300);
+
+        
+
+      
   }
 
 // Comment  -------------------------------------------------------------
@@ -549,7 +569,10 @@ if ($("#menu").length) {
 
 
       $(".robot-congrats .content-right img").attr("src", "img/congrats/"+actual_badge["id"]+".png")
-       console.log(actual_badge["id"]);
+
+   
+
+       //console.log(actual_badge["id"]);
 
       var starsHTML = ""
       for (var i = 0; i < level_stars.length; i++) {
