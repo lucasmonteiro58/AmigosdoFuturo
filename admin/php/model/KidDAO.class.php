@@ -106,6 +106,33 @@ class KidDAO {
 		return $this->con->close();
 	}
 
+	// crianças por reião
+	public function get_region_data(){
+		$badges_qnts = '{ 
+			"edu" : 0
+		}';
+
+		$badges_qnts_array = json_decode($badges_qnts, true);
+
+		$all_kids = $this->get_all_kids();
+
+		$badgeDAO = new BadgeDAO();
+
+		foreach ($all_kids as $kid) {
+			$badge_id = $kid->get_badge_id();
+			$kid_badge = $badgeDAO->get_badge_by_id($badge_id);
+			$kid_badge_abrev = $kid_badge->get_abreviation();
+
+			$actual_qnt = $badges_qnts_array[$kid_badge_abrev];
+			$badges_qnts_array[$kid_badge_abrev] = $actual_qnt+1;
+		}
+
+		$badgeDAO->badgeDAO_close();
+
+		$badges_qnts_JSON = json_encode($badges_qnts_array);
+
+		return $badges_qnts_JSON;
+	}
 
 	//JSON Charts function
 	// crianças por emblema
