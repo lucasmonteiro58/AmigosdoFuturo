@@ -22,6 +22,10 @@
 				$data = $kidDAO->get_number_of_kids();
 				echo $data;
 				break;
+			case 'region_users':
+				$data = $kidDAO->get_region_data();
+				echo $data;
+				break;
 			default:
 				break;
 		}
