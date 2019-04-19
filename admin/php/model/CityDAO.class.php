@@ -23,9 +23,25 @@ class CityDAO {
 
 		if ($n){
 			$data = $result->fetch_array();
-			$c = new City($data['id'], $data['name'], $data['region']);
+			$c = new City($data['id'], $data['name'], $data['region'], $data['region_abrev']);
 			return $c;
 		}else {
+			return false;
+		}
+	}
+
+	public function get_all_cities(){
+		$query = "SELECT * FROM cities";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+		if ($n){
+			while($data = $result->fetch_array()){
+				$cities[] = new City($data['id'], $data['name'], $data['region'],$data['region_abrev']);
+			}
+			return $cities;
+		} else {
 			return false;
 		}
 	}

@@ -20,7 +20,7 @@
   <link rel="shortcut icon" type="image/png" href="../img/favicon.ico"/>
 
 
-  <title>Dashboard - Amigos do Futuro - Ceará 2050</title>
+  <title>Resumo - Amigos do Futuro - Ceará 2050</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,6 +32,7 @@
   <!-- Estilo sobreposto ao template -->
   <link rel="stylesheet" type="text/css" href="css/custom.css">
 
+  <script src="js/variables.js"></script>
 </head>
 
 <body id="page-top">
@@ -89,7 +90,6 @@
   <!-- Include logout_modal -->
   <?php include "php/view/logout_modal.php"; ?>
 
- <script src="js/variables.js"></script>
 
   <!-- Bootstrap core JavaScript-->
   <script src="vendor/jquery/jquery.min.js"></script>
@@ -101,20 +101,26 @@
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
 
+  <!-- Page level TABLE plugins -->
+  <script src="vendor/datatables/jquery.dataTables.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
   <!-- Page level plugins -->
   <script src="vendor/chart.js/Chart.min.js"></script>
-
-  <script src="js/get-chart-data.js"></script>
   
-  <!-- Page level custom scripts -->
-  <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-age-polar.js"></script>
+  <!-- Page level custom scripts  
+  <script src="js/demo/chart-area-demo.js"></script> -->
+  <script src="js/demo/chart-ages-pie.js"></script>
+  <script src="js/demo/chart-city-ages-pie.js"></script>
   <script src="js/demo/chart-badges-bar.js"></script>
+  <script src="js/demo/chart-regions-bar.js"></script>
   <script src="js/demo/chart-gender-pie.js"></script>
 
+  <script src="js/get-chart-data.js"></script>
+
   <script type="text/javascript">
-  $("#general-tab").removeClass("active")  
-  $("#index-tab").addClass("active")    
+    $("#general-tab").removeClass("active")  
+    $("#index-tab").addClass("active") 
   </script>
 </body>
 

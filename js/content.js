@@ -208,6 +208,7 @@ var comments_texts = {
       }
 }
 
+
 var map_regions_texts = [
     { "id" : "macico_de_baturite",
       "name": "Maçico de Baturité",
@@ -258,7 +259,7 @@ var map_regions_texts = [
       "name": "Sertão dos Inhamuns",
       "info" : "Sertão dos Inhamuns<br>5 cidades<br>população: +130.000",
       "cities": ["Aiuaba","Arneiroz","Parambu","Quiterianópolis","Tauá"]
-    },
+    }, 
     { "id" : "sertao_dos_crateus",
       "name": "Sertão dos Crateús",
       "info" : "Sertão dos Crateús<br>13 cidades<br>população: +340.000",

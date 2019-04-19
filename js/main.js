@@ -388,7 +388,7 @@ if ($("#menu").length) {
 
       $("button#go-congrats.toggle.next").click(function () {
         audio_categoria.load(); 
-      }
+      })
 
         }, 300);
 
