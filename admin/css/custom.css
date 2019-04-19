@@ -7,3 +7,20 @@
 .sidebar-brand-icon i {
 	font-size: 3.5rem !important;
 }
+
+.bg-login-image {
+    background-image: url("../img/login.png");
+}
+
+#city-name {
+	font-weight: bold;
+}
+#city-empty {
+	display: none;
+}
+	
+@media print {
+   .to-screen {
+       display: none !important;
+    }
+}

@@ -32,6 +32,22 @@ class KidDAO {
 			return false;
 		}
 	}
+	public function get_kids_by_city_id($city_id){
+		$query = "SELECT * FROM kids WHERE city_id = '$city_id'";
+
+		$result = $this->con->query($query) or die ($this->con->error);
+
+		$n = $result->num_rows;
+
+		if ($n){
+			while($data = $result->fetch_array()){
+				$kids[] = new Kid($data['id'], $data['name'], $data['gender'],$data['age'],$data['city_id'],$data['badge_id'],$data['feedback_id']);
+			}
+			return $kids;
+		}else {
+			return false;
+		}
+	}
 	public function get_all_kids(){
 		$query = "SELECT * FROM kids";
 
@@ -106,35 +122,79 @@ class KidDAO {
 		return $this->con->close();
 	}
 
-	// crianças por reião
-	public function get_region_data(){
-		$badges_qnts = '{ 
-			"edu" : 0
+	// crianças por região
+	public function get_kids_in_region(){
+		$regions_qnts = '{ 
+			"macico_de_baturite" : 0,
+			"litoral_oeste" : 0,
+			"cariri" : 0,
+			"centro_sul" : 0, 
+			"sertao_central" : 0, 
+	 		"serra_da_ibiapaba" : 0, 
+		    "sertao_de_sobral" : 0,
+		    "litoral_norte" : 0,
+			"sertao_dos_inhamuns" : 0,
+			"sertao_dos_crateus" : 0,
+			"sertao_de_caninde" : 0, 
+			"vale_do_jaguaribe" : 0, 
+	 		"litoral_leste" : 0, 
+		    "grande_fortaleza" : 0
 		}';
 
-		$badges_qnts_array = json_decode($badges_qnts, true);
+		$regions_qnts_array = json_decode($regions_qnts, true);
 
 		$all_kids = $this->get_all_kids();
 
-		$badgeDAO = new BadgeDAO();
+		$cityDAO = new CityDAO();
 
 		foreach ($all_kids as $kid) {
-			$badge_id = $kid->get_badge_id();
-			$kid_badge = $badgeDAO->get_badge_by_id($badge_id);
-			$kid_badge_abrev = $kid_badge->get_abreviation();
+			$city_id = $kid->get_city_id();
+			$kid_city = $cityDAO->get_city_by_id($city_id);
+			$kid_region_abrev = $kid_city->get_region_abrev();
 
-			$actual_qnt = $badges_qnts_array[$kid_badge_abrev];
-			$badges_qnts_array[$kid_badge_abrev] = $actual_qnt+1;
+			$actual_qnt = $regions_qnts_array[$kid_region_abrev];
+			$regions_qnts_array[$kid_region_abrev] = $actual_qnt+1;
 		}
 
-		$badgeDAO->badgeDAO_close();
+		$cityDAO->cityDAO_close();
 
-		$badges_qnts_JSON = json_encode($badges_qnts_array);
+		$regions_qnts_JSON = json_encode($regions_qnts_array);
 
-		return $badges_qnts_JSON;
+		return $regions_qnts_JSON;
 	}
 
-	//JSON Charts function
+	// crianças por cidade
+	public function get_kids_in_city(){
+		$cities_qnts = "{}";
+
+		$cities_qnts_array = json_decode($cities_qnts,  true, 512, JSON_UNESCAPED_UNICODE);
+
+		$all_kids = $this->get_all_kids();
+
+		$cityDAO = new CityDAO();
+
+		foreach ($all_kids as $kid) {
+			$city_id = $kid->get_city_id();
+
+			$kid_city = $cityDAO->get_city_by_id($city_id);
+			$kid_city_name = $kid_city->get_name();
+
+			if (isset($cities_qnts_array[$kid_city_name])) {
+				$actual_qnt = $cities_qnts_array[$kid_city_name];
+				$cities_qnts_array[$kid_city_name] = $actual_qnt+1;
+			} else {
+				
+				$cities_qnts_array[$kid_city_name] = 1;
+			}
+		}
+
+		$cityDAO->cityDAO_close();
+
+		$cities_qnts_JSON = json_encode($cities_qnts_array, JSON_UNESCAPED_UNICODE);
+
+		return $cities_qnts_JSON;
+	}
+
 	// crianças por emblema
 	public function get_kids_with_badge(){
 		$badges_qnts = '{ 
@@ -192,7 +252,7 @@ class KidDAO {
 	}
 
 	//['Menos de 3','3 a 6','7 a 10', '11 a 14', 'Mais de 14']
-	public function get_age_data(){
+	public function get_ages_data(){
 		$age_qnts = '{ 
 			"ages_data" : [0,0,0,0,0]
 		}';
@@ -229,6 +289,55 @@ class KidDAO {
 		$age_qnts_JSON = json_encode($age_qnts_array);
 
 		return $age_qnts_JSON;
+	}
+
+
+	//['Menos de 3','3 a 6','7 a 10', '11 a 14', 'Mais de 14']
+	public function get_city_ages_data($city){
+		$age_qnts = '{ 
+			"ages_data" : [0,0,0,0,0]
+		}';
+
+		$age_qnts_array = json_decode($age_qnts, true);
+
+		$cityDAO = new CityDAO();
+		$city_id = $cityDAO->search_city_id_by_name($city);
+		$cityDAO->cityDAO_close();
+
+		$all_kids = $this->get_kids_by_city_id($city_id);	
+
+		if (sizeof($all_kids) == 0) {
+			return false;
+		} else {
+			foreach ($all_kids as $kid) {
+				$kid_age = $kid->get_age();
+
+				if ($kid_age <= 14) {
+					//menor q 14
+					if ($kid_age >= 3){
+						if ($kid_age <= 6) {
+							// entre 3 e 6
+							$age_qnts_array["ages_data"][1] += 1;
+						} else if ($kid_age <= 10) {
+							// entre 6 e 10
+							$age_qnts_array["ages_data"][2] += 1;
+						} else {
+							// entre 10 e 14
+							$age_qnts_array["ages_data"][3] += 1;
+						}
+					} else {
+						//menor que 3
+						$age_qnts_array["ages_data"][0] += 1;
+					}
+				} else {
+					//maior q 14
+					$age_qnts_array["ages_data"][4] += 1;
+				}
+			}
+			$age_qnts_JSON = json_encode($age_qnts_array);
+
+			return $age_qnts_JSON;
+		}
 	}
 }
 ?>

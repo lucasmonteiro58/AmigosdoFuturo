@@ -1,4 +1,4 @@
-function badges_bar(data, maximum) {
+function regions_bar(data, maximum) {
   // Set new default font family and font color to mimic Bootstrap's default styling
   Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
   Chart.defaults.global.defaultFontColor = '#858796';
@@ -9,49 +9,45 @@ function badges_bar(data, maximum) {
   }
 
   // Bar Chart Example
-  var ctx = document.getElementById("badges-bar");
-  var badges_bar = new Chart(ctx, {
+  var ctx = document.getElementById("regions-bar");
+  var regions_bar = new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: ["Economia", "Educação", "Inovação", "Governo", "Lazer", "Saúde", "Sustentabilidade"],
+      labels: ["Maçico de Baturité", "Litoral Oeste", "Cariri", "Centro Sul", "Sertão Central", "Serra da Ibiapaba", "Sertão de Sobral","Litoral Norte", "Sertão dos Inhamuns", "Sertão dos Crateús", "Sertão de Canindé", "Vale do Jaguaribe", "Litoral Leste", "Grande Fortaleza"],
       datasets: [{
         label: "Quantidade",
-        backgroundColor: "#4e73df",
-        hoverBackgroundColor: "#2e59d9",
-        borderColor: "#4e73df",
-        data: [data["eco"], data["edu"], data["ino"], data["gov"], data["laz"], data["sau"], data["mei"]],
+        backgroundColor: '#F28F15',
+        hoverBackgroundColor: '#C16E14',
+        borderColor: '#F28F15',
+        data: [data["macico_de_baturite"], data["litoral_oeste"], data["cariri"], data["centro_sul"], data["sertao_central"], data["serra_da_ibiapaba"], data["sertao_de_sobral"],data["litoral_norte"], data["sertao_dos_inhamuns"], data["sertao_dos_crateus"], data["sertao_de_caninde"], data["vale_do_jaguaribe"], data["litoral_leste"], data["grande_fortaleza"]],
       }],
     },
     options: {
       maintainAspectRatio: false,
-      layout: {
+     layout: {
         padding: {
-          left: 10,
+          left: 0,
           right: 25,
           top: 25,
           bottom: 0
         }
-      },
+      }, 
       scales: {
         xAxes: [{
-          time: {
-            unit: 'unit'
-          },
+          //time: { unit: 'unit' },
           gridLines: {
             display: false,
             drawBorder: false
           },
-          ticks: {
-            maxTicksLimit: 6
-          },
-          maxBarThickness: 25,
+          ticks: { maxTicksLimit: 20 },
+          maxBarThickness: 15,
         }],
         yAxes: [{
           ticks: {
             min: 0,
             max: maximum,
-            maxTicksLimit: 5,
-            padding: 10,
+            maxTicksLimit: 15,
+            //padding: 10,
           },
           gridLines: {
             color: "rgb(234, 236, 244)",
