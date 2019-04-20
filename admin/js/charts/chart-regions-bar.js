@@ -34,7 +34,6 @@ function regions_bar(data, maximum) {
       }, 
       scales: {
         xAxes: [{
-          //time: { unit: 'unit' },
           gridLines: {
             display: false,
             drawBorder: false
@@ -47,7 +46,6 @@ function regions_bar(data, maximum) {
             min: 0,
             max: maximum,
             maxTicksLimit: 15,
-            //padding: 10,
           },
           gridLines: {
             color: "rgb(234, 236, 244)",
