@@ -12,10 +12,10 @@
     background-image: url("../img/login.png");
 }
 
-#city-name {
+#city-name, #region-name  {
 	font-weight: bold;
 }
-#city-empty {
+#city-empty, #region-empty  {
 	display: none;
 }
 	

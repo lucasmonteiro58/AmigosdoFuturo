@@ -1,6 +1,7 @@
 // Call the dataTables jQuery plugin
 $(document).ready(function() {
     createSelectCity()
+    createSelectRegion()
 
     $('#citiesTable').DataTable();
 
@@ -201,5 +202,73 @@ function createSelectCity() {
 
     $('#cities-select').change(function() {
         getCityAgesData($(this).val());
+    });
+}
+
+
+
+
+//Número total de usuarios grupo por idade por regiao
+var config_region_ages = {}
+$.ajax({
+    type: 'GET',
+    url: "php/controller/get_data_charts.php?type=region_ages&region=Grande Fortaleza",
+    dataType: 'json',
+    contentType: 'application/json',
+    crossDomain: true,
+    cache:false,
+    success: function(data) {
+       region_ages_pie(data["ages_data"])
+    },
+    error:function(jqXHR, textStatus, errorThrown){
+        alert('Erro ao carregar');
+    }
+});
+function getRegionAgesData(region) {
+    $.ajax({
+        type: 'GET',
+        url: "php/controller/get_data_charts.php?type=region_ages&region="+region,
+        dataType: 'json',
+        contentType: 'application/json',
+        crossDomain: true,
+        cache:false,
+        success: function(data) {  
+            $("#region-name").text(region)
+            $("#region-empty").css("display", "none")
+            $(".chart-region-ages").css("display", "block")
+            updateRegionAgesChart(data["ages_data"])
+        },
+        error:function(jqXHR, textStatus, errorThrown){
+            $("#region-name").text(region)
+            $("#region-empty").css("display", "block")
+            $(".chart-region-ages").css("display", "none")
+        }
+    });
+}
+function updateRegionAgesChart(data) {
+    config_region_ages.data.datasets.forEach(function(dataset) {
+        dataset.data = data;
+    });
+
+    window.region_ages_pie.update();
+}
+function createSelectRegion() {
+    var available_regions = ["Maçico de Baturité", "Litoral Oeste", "Cariri", "Centro Sul", "Sertão Central", "Serra da Ibiapaba", "Sertão de Sobral", "Litoral Norte", "Sertão dos Inhamuns", "Sertão dos Crateús", "Sertão de Canindé", "Vale do Jaguaribe", "Litoral Leste", "Grande Fortaleza"]
+
+    var questionHTML = ""
+   
+    var selectOptions = "<option value='' disabled>Selecione uma região</option>"
+    for (var i = 0; i < available_regions.length; i++) {
+       row = available_regions[i];
+       if (row == "Grande Fortaleza") { selectOptions += '<option value="'+row+'" selected>'+row+'</option>' }
+        else { selectOptions += '<option value="'+row+'">'+row+'</option>' }
+    }
+
+    questionHTML = "<form><select id='regions-select' name='region' class='custom-select'>"+selectOptions+"</select></form>"
+
+    $("#regions-select-div").html(questionHTML)
+
+    $('#regions-select').change(function() {
+        getRegionAgesData($(this).val());
     });
 }

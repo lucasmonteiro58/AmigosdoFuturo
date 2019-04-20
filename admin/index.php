@@ -32,7 +32,6 @@
   <!-- Estilo sobreposto ao template -->
   <link rel="stylesheet" type="text/css" href="css/custom.css">
 
-  <script src="js/variables.js"></script>
 </head>
 
 <body id="page-top">
@@ -110,11 +109,12 @@
   
   <!-- Page level custom scripts  
   <script src="js/demo/chart-area-demo.js"></script> -->
-  <script src="js/demo/chart-ages-pie.js"></script>
-  <script src="js/demo/chart-city-ages-pie.js"></script>
-  <script src="js/demo/chart-badges-bar.js"></script>
-  <script src="js/demo/chart-regions-bar.js"></script>
-  <script src="js/demo/chart-gender-pie.js"></script>
+  <script src="js/charts/chart-ages-pie.js"></script>
+  <script src="js/charts/chart-city-ages-pie.js"></script>
+  <script src="js/charts/chart-region-ages-pie.js"></script>
+  <script src="js/charts/chart-badges-bar.js"></script>
+  <script src="js/charts/chart-regions-bar.js"></script>
+  <script src="js/charts/chart-gender-pie.js"></script>
 
   <script src="js/get-chart-data.js"></script>
 

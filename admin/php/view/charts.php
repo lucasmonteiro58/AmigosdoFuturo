@@ -22,24 +22,6 @@
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Amigos por gênero</h6>
-      </div>
-      <!-- Card Body -->
-      <div class="card-body">
-        <div class="chart-pie pt-4">
-          <canvas id="gender-pie"></canvas>
-        </div>
-        <hr>
-        A quantidade de amigos do futuro que participaram, por gênero.
-      </div>
-    </div>
-  </div>
-
-  <!-- Donut Chart -->
-  <div class="col-xl-4 col-lg-4">
-    <div class="card shadow mb-4">
-      <!-- Card Header - Dropdown -->
-      <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Amigos por idade</h6>
       </div>
       <!-- Card Body -->
@@ -53,9 +35,9 @@
     </div>
   </div>
 
-  <div class="col-xl-8 col-lg-8">
+  <div class="col-xl-12 col-lg-12">
     <!-- Area Chart -->
-    <div class="card shadow mb-8">
+    <div class="card shadow mb-12">
       <div class="card-header py-3">
         <h6 class="m-0 font-weight-bold text-primary">Quantidade por região</h6>
       </div>
@@ -69,6 +51,46 @@
     </div>
   </div>
 
+
+  <!-- Por idade por cidade -->
+  <div class="col-xl-6 col-lg-6 pt-4">
+    <div class="card shadow mb-5">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Amigos por idade : <span id="city-name">Fortaleza</span></h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <div id="cities-select-div"></div>
+        <div class="chart-pie chart-city-ages pt-4">
+          <canvas id="city-ages-pie"></canvas>
+        </div>
+        <div id="city-empty" class="pt-4"><b>Esta cidade ainda não possui amigos. Selecione outra cidade.</b></div>
+        <hr>
+        A quantidade de amigos do futuro que participaram em cada cidade, por grupos de idades.
+      </div>
+    </div>
+  </div>
+
+  <!-- Por idade por região -->
+  <div class="col-xl-6 col-lg-6 pt-4">
+    <div class="card shadow mb-5">
+      <!-- Card Header - Dropdown -->
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Amigos por idade : <span id="region-name">Grande Fortaleza</span></h6>
+      </div>
+      <!-- Card Body -->
+      <div class="card-body">
+        <div id="regions-select-div"></div>
+        <div class="chart-pie chart-region-ages pt-4">
+          <canvas id="region-ages-pie"></canvas>
+        </div>
+        <div id="region-empty" class="pt-4"><b>Esta região ainda não possui amigos. Selecione outra região.</b></div>
+        <hr>
+        A quantidade de amigos do futuro que participaram em cada região, por grupos de idades.
+      </div>
+    </div>
+  </div>
 
 <?php
   include_once "php/model/KidDAO.class.php";
@@ -86,8 +108,8 @@
 ?>
 
 <!-- Tables Kids por cidade -->
-<div class="col-xl-6 col-lg-6">
-  <div class="card shadow mb-6">
+<div class="col-xl-8 col-lg-8">
+  <div class="card shadow mb-7">
     <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Quantidade por cidade</h6>
   </div>
@@ -140,26 +162,23 @@
   </div>
 </div>
 
-<!-- Por idade por região -->
+<!-- Donut Chart -->
   <div class="col-xl-4 col-lg-4">
     <div class="card shadow mb-4">
       <!-- Card Header - Dropdown -->
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Amigos por idade : <span id="city-name">Fortaleza</span></h6>
+        <h6 class="m-0 font-weight-bold text-primary">Amigos por gênero</h6>
       </div>
       <!-- Card Body -->
       <div class="card-body">
-        <div id="cities-select-div"></div>
-        <div class="chart-pie chart-city-ages pt-4">
-          <canvas id="city-ages-pie"></canvas>
+        <div class="chart-pie pt-4">
+          <canvas id="gender-pie"></canvas>
         </div>
-        <div id="city-empty" class="pt-4"><b>Esta cidade ainda não possui amigos. Selecione outra cidade.</b></div>
         <hr>
-        A quantidade de amigos do futuro que participaram em cada cidade, por grupos de idades.
+        A quantidade de amigos do futuro que participaram, por gênero.
       </div>
     </div>
   </div>
-
 
 
 

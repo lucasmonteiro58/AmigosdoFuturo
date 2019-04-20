@@ -37,6 +37,13 @@
 					echo $data;
 				}
 				break;
+			case 'region_ages':
+				if(isset($_GET['region'])){
+					$region = $_GET['region'];
+					$data = $kidDAO->get_region_ages_data($region);
+					echo $data;
+				}
+				break;
 			default:
 				break;
 		}
