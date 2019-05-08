@@ -1874,37 +1874,37 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       var totalImgs = $(".imagensEF.imgVisible").length;
       if (totalImgs==5) {
         if(acessibilidadeBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_acessib_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/acessib_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Facilidade para quem usa cadeira de rodas");
           posicaoEF++;
         }
         if(pintarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_pintar_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/tinta_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Cores bonitas");
           posicaoEF++;
         }
         if(arborizarBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_arbori_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/arvore_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais sombra e ar fresco");
           posicaoEF++;
         }
         if(onibusBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_bus_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/onibus_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Mais aulas pela cidade");
           posicaoEF++;
         }
         if(parquinhoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_parque_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/parque_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Um recreio divertido");
           posicaoEF++;
         }
         if(hortaBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_horta_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/horta_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Alimentos colhidos da horta");
           posicaoEF++;
         }
         if(lixoBOL){
-          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escola Fora/bts/bt_lixo_normal.png');
+          $("#imgEscolaFora"+posicaoEF).attr('src', 'img/desafios/educacao/Escolafora/itens/lixo_save.png');
           $("#TxtEscolaFora"+posicaoEF).text("Lixo separadinho");
           posicaoEF++;
         }
@@ -2363,37 +2363,37 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       todosOcupados();
      if (habilitarBtnProximo){
        if(bibliotecaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_livros_1.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/biblioteca_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Muito conhecimento");
           posicaoED++;
         }
         if(teatroBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_teatro.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/teatro_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Peças teatrais feitas pelos meus amigos");
           posicaoED++;
         }
         if(cantinaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_cantina.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/cantina_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Comidas muito gostosas");
           posicaoED++;
         }
         if(musicaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_musica.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/musica_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Muitos músicos");
           posicaoED++;
         }
         if(informaticaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_informatica.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/info_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Um mundo digital");
           posicaoED++;
         }
         if(quimicaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_quimica.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/quimica_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Um lugar para fazer experimentos");
           posicaoED++;
         }
         if(dancaBOL){
-          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/buttons/ed/bt_danca.png');
+          $("#imgEscolaDentro"+posicaoED).attr('src', 'img/desafios/educacao/Escoladentro/itens/danca_save.png');
           $("#TxtEscolaDentro"+posicaoED).text("Muitos dançarinos");
           posicaoED++;
         }
@@ -2464,39 +2464,39 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       //alert(totalImgsS );
       if (totalImgsS==5) {
         if(cadeirasBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_carteira.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/cadeira_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Lugares confortáveis para escrever");
           posicaoES++;
 
         }
         if(livrosBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_livros.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/livros_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Livros com muitas aventuras");
           posicaoES++;
         }
        if(lapisBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lapis.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/lapis_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Lápis de todas as cores");
           posicaoES++;
         }
         if(quadroBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_quadro.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/quadro_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Onde o professor escrever");
           posicaoES++;
         }
         if(globoBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_globo.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/globo_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Onde ver todos os países");
           posicaoES++;
         }
         if(lixeiraBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lixo.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/lixeira_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Chão limpo sempre");
           posicaoES++;
         }
        
         if(luzBOL){
-          $("#imgEscolaSala"+posicaoES).attr('src', 'img/buttons/es/bt_lampada.png');
+          $("#imgEscolaSala"+posicaoES).attr('src', 'img/desafios/educacao/Sala/itens/luz_save.png');
           $("#TxtEscolaSala"+posicaoES).text("Iluminação boa");
           posicaoES++;
         }

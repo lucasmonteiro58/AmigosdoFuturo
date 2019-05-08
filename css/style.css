@@ -959,17 +959,31 @@
     width: 60%;
     text-align: center;
     object-fit: contain;
+    margin-left: 20%;
+   margin-top: -35%;
   }
-  .robot-congrats .content .content-right #stars {
+  .robot-congrats .content .content-right  {
     width: 50%;
     display: flex;
     margin: 0px auto;
+
+
   }
-  .robot-congrats .content .content-right #stars li {
+  .robot-congrats .content .content-right  li {
     margin: 0px -10%;
   }
-  .robot-congrats .content .content-right #stars li:nth-child(2) {
+  .robot-congrats .content .content-right li:nth-child(2) {
     margin-top: 10%;
+  }
+
+  #stars{
+   position: absolute;
+    width: 36%;
+    /* margin-left: 30%; */
+    display: flex;
+    left: 30%;
+    bottom: 15%;
+    transform: scale(1.3);
   }
 
   .robot-congrats .content .content-right #about-region p {
@@ -3798,35 +3812,35 @@ button.btnLixo2:hover{background-image: url(../img/buttons/ef/bt_lixo_menos.png)
   position: absolute;
   bottom: 54%;
   left: 16%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaFora2{
   position: absolute;
  bottom: 54%;
   left: 31%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaFora3{
   position: absolute;
   bottom: 54%;
   left: 46%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaFora4{
   position: absolute;
   bottom: 54%;
   left: 61%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaFora5{
   position: absolute;
  bottom: 54%;
-  left: 77%;
-   width: 7.5%;
+  left: 75%;
+   width: 8%;
 }
 
 #TxtEscolaFora1{
@@ -4121,37 +4135,37 @@ button.btnDanca2:hover{background-image: url(../img/buttons/ed/bt_danca_menos.pn
 
 #imgEscolaDentro1{
   position: absolute;
-  bottom: 58%;
-  left: 16%;
-  width: 7.5%;
+  bottom: 56%;
+  left: 15%;
+  width: 8%;
 }
 
 #imgEscolaDentro2{
   position: absolute;
-  bottom: 58%;
+  bottom: 56%;
   left: 31%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaDentro3{
   position: absolute;
- bottom: 58%;
+ bottom: 56%;
   left: 46%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaDentro4{
   position: absolute;
-  bottom: 58%;
+  bottom: 56%;
   left: 61%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaDentro5{
   position: absolute;
-  bottom: 58%;
+  bottom: 56%;
   left: 77%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #TxtEscolaDentro1{
@@ -4480,35 +4494,35 @@ button.btnLuz2:hover{background-image: url(../img/buttons/es/bt_lampada_menos.pn
   position: absolute;
   bottom: 54%;
   left: 16%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaSala2{
   position: absolute;
  bottom: 54%;
-  left: 31%;
-   width: 7.5%;
+  left: 30.3%;
+   width: 8%;
 }
 
 #imgEscolaSala3{
   position: absolute;
   bottom: 54%;
-  left: 46%;
-   width: 7.5%;
+  left: 45%;
+   width: 8%;
 }
 
 #imgEscolaSala4{
   position: absolute;
   bottom: 54%;
   left: 61%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #imgEscolaSala5{
   position: absolute;
  bottom: 54%;
   left: 77%;
-   width: 7.5%;
+   width: 8%;
 }
 
 #TxtEscolaSala1{
