@@ -4,6 +4,7 @@ if ($("#menu").length) {
 }
 
  var atualSom1 = new Audio('');
+
   
 
 // General  ---------------------------------------------------------------------
@@ -13,6 +14,7 @@ if ($("#menu").length) {
    
 
     toggleSoundSetup()
+    toggleMusicSetup()
 
     // Toggle fullscreen
     $('#myModal').modal('show')
@@ -34,6 +36,17 @@ if ($("#menu").length) {
       console.log("Inserir logica de mutar o som, aqui!")
     })
   }
+
+
+   function toggleMusicSetup() {
+    // Toggle sound
+    $(".music").click(function () {
+      $(this).toggleClass("music")
+      $(this).toggleClass("muteMusic")
+      console.log("Inserir logica de mutar o som, aqui!")
+    })
+  }
+
 
 
 // Modal fulscreen --------------------------------------------------------
@@ -883,7 +896,9 @@ if ($("#menu").length) {
      window[name](arguments)
 
      // Sound things
+     
      toggleSoundSetup()
+     toggleMusicSetup()
     });
   }
 

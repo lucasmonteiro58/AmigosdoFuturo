@@ -193,6 +193,10 @@
   button.toggle.mute:hover{background-image: url(../img/buttons/toggle-mute-hover.png);}
   button.toggle.mute:active{background-image: url(../img/buttons/toggle-mute-active.png);}
 
+  button.toggle.muteMusic {background-image: url(../img/buttons/btmusicoff_ativo.png);}
+  button.toggle.muteMusic:hover{background-image: url(../img/buttons/btmusicoff_mouseover.png);}
+  button.toggle.muteMusic:active{background-image: url(../img/buttons/btmusicoff_press.png);}
+
   button.ok {background-image: url(../img/buttons/toggle-ok.png);}
   button.ok:hover{background-image: url(../img/buttons/toggle-ok-hover.png);}
   button.ok:active{background-image: url(../img/buttons/toggle-ok-active.png);}
@@ -221,6 +225,10 @@
   button.toggle.sound {background-image: url(../img/buttons/toggle-sound.png);}
   button.toggle.sound:hover{background-image: url(../img/buttons/toggle-sound-hover.png);}
   button.toggle.sound:active{background-image: url(../img/buttons/toggle-sound-active.png);}
+
+  button.toggle.music {background-image: url(../img/buttons/btmusic_ativo.png);}
+  button.toggle.music:hover{background-image: url(../img/buttons/btmusic_mouseover.png);}
+  button.toggle.music:active{background-image: url(../img/buttons/btmusic_press.png);}
 
   button.toggle {
     padding: 2em 2em;
@@ -336,12 +344,24 @@
     width: 100%;
     cursor: var(--cursor-click);
   }
+
   .sound-btn {
   	position: absolute;
-  	top: 3%;
-  	right: 3%;
+  	top: 0.4%;
+  	right: 0.3%;
   	z-index: 999;
+    transform: scale(0.7);
   }
+
+  .music-btn {
+    position: absolute;
+    top: 0.4%;
+    right: 5.4%;
+    z-index: 999;
+    transform: scale(0.7);
+  }
+
+
   .play-btn {
   	margin-bottom: 5%;
   }
