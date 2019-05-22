@@ -351,12 +351,33 @@
   	right: 0.3%;
   	z-index: 999;
     transform: scale(0.7);
+    //display: none;
   }
 
   .music-btn {
     position: absolute;
     top: 0.4%;
     right: 5.4%;
+    z-index: 999;
+    transform: scale(0.7);
+    //display: none;
+  }
+
+
+  .sound-btnX {
+    position: relative;
+    top: 5%;
+    right: 0.3%;
+    z-index: 999;
+    margin-top: -5%;
+    transform: scale(0.7);
+  }
+
+  .music-btnX {
+    position: relative;
+    padding-top: 10%;
+    right: 5.4%;
+    margin-top: -5%;
     z-index: 999;
     transform: scale(0.7);
   }

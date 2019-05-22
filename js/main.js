@@ -6,12 +6,14 @@ if ($("#menu").length) {
  var atualSom1 = new Audio('');
 
   
-
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
 
+ 
+  sessionStorage.setItem("sound", "on");
+  sessionStorage.setItem("music", "on");
 
-   
+  
 
     toggleSoundSetup()
     toggleMusicSetup()
@@ -19,9 +21,6 @@ if ($("#menu").length) {
     // Toggle fullscreen
     $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
-    
-
-
       
       openFullscreen()
       $('#myModal').modal('hide')
@@ -29,21 +28,82 @@ if ($("#menu").length) {
   });
 
   function toggleSoundSetup() {
+    var soundstage = sessionStorage.getItem('sound');
+      if (soundstage=="on"){
+         $('.sound').removeClass("mute")
+         $('.sound').addClass("sound")
+      }else{
+        $(".sound").addClass("mute")
+        $(".sound").removeClass("sound")
+        
+      }
+
     // Toggle sound
-    $(".sound").click(function () {
+     $(".sound").click(function () {
       $(this).toggleClass("sound")
       $(this).toggleClass("mute")
-      console.log("Inserir logica de mutar o som, aqui!")
-    })
-  }
+    
+    if($(this).hasClass('mute')){
+       sessionStorage.setItem("sound", "off");      
+    } else{       
+      sessionStorage.setItem("sound", "on");
+
+      }
+     
+     })
+
+     $(".mute").click(function () {
+      $(this).toggleClass("sound")
+      $(this).toggleClass("mute")
+    
+    if($(this).hasClass('mute')){
+       sessionStorage.setItem("sound", "off");      
+    } else{       
+      sessionStorage.setItem("sound", "on");
+
+      }
+     
+     })
+    }
+  
 
 
    function toggleMusicSetup() {
+    var musicstage = sessionStorage.getItem('music');
+
+    if (musicstage=="on"){
+         $('.music').removeClass("muteMusic")
+         $('.music').addClass("music")
+      }else{
+        $(".music").addClass("muteMusic")
+        $(".music").removeClass("music")
+        
+      }
     // Toggle sound
     $(".music").click(function () {
       $(this).toggleClass("music")
       $(this).toggleClass("muteMusic")
-      console.log("Inserir logica de mutar o som, aqui!")
+
+      if($(this).hasClass('muteMusic')){
+       sessionStorage.setItem("music", "off");      
+    } else{       
+      sessionStorage.setItem("music", "on");
+
+      }
+     
+    })
+
+    $(".muteMusic").click(function () {
+      $(this).toggleClass("music")
+      $(this).toggleClass("muteMusic")
+
+      if($(this).hasClass('muteMusic')){
+       sessionStorage.setItem("music", "off");      
+    } else{       
+      sessionStorage.setItem("music", "on");
+
+      }
+     
     })
   }
 
