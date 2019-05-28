@@ -66,8 +66,10 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
       comment_name = "start_quiz"
       createComment(comments_texts[comment_name])  
       $("button.toggle.repeat").click(function() {
+         if(sessionStorage.getItem('sound')=='on'){
           audioParabensMapa.load();
-           audioParabensMapa.play();        
+          audioParabensMapa.play();     
+          }   
         }); 
 
 
@@ -75,8 +77,9 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
           audioParabensMapa.load();
         });  
 
-
+ if(sessionStorage.getItem('sound')=='on'){
       audioParabensMapa.play();
+    }
 
       $(".robot-comment").fadeIn(300);
       $("#AnimacaoArrastarMapa").jsMovie("destroy");
@@ -574,8 +577,9 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
      if(contLegumesCesta==6){
               $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
 
-                          setTimeout(function () {               
-                 alert("Agora CLICA nos legumes para tirar da pia") 
+                          setTimeout(function () { 
+                          $('#modalSust1').modal('show')              
+                 //alert("Agora CLICA nos legumes para tirar da pia") 
                  $('#AnimacaoClickLegumesPia').css('display', 'block');      
           }, 1600);
 
@@ -657,8 +661,10 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
 
         verificaCanos = true;
-        setTimeout(function () {               
-         alert("Clica nos legumes"); 
+        setTimeout(function () { 
+
+          $('#modalSust2').modal('show')             
+        // alert("Clica nos legumes"); 
           $('#animacaocanos').jsMovie('play',1,25,false, false);      
   }, 300);
         

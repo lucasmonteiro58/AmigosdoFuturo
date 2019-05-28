@@ -1,9 +1,16 @@
 //First page
+
+
+
+
 if ($("#menu").length) {
   menu()
 }
 
  var atualSom1 = new Audio('');
+
+
+
 
   
 // General  ---------------------------------------------------------------------
@@ -18,6 +25,21 @@ if ($("#menu").length) {
     toggleSoundSetup()
     toggleMusicSetup()
 
+    //fecharmodalquiz
+    $("#modalQuestClose").click(function () {
+      $('#modalQuest').modal('hide')
+    })
+
+
+    $("#modalSust1C").click(function () {
+      $('#modalSust1').modal('hide')
+    })
+
+    $("#modalSust2C").click(function () {
+      $('#modalSust2').modal('hide')
+    })
+
+
     // Toggle fullscreen
     $('#myModal').modal('show')
     $("#openFullscreen").click(function () {
@@ -26,6 +48,11 @@ if ($("#menu").length) {
       $('#myModal').modal('hide')
     })
   });
+
+
+  
+
+   
 
   function toggleSoundSetup() {
     var soundstage = sessionStorage.getItem('sound');
@@ -38,13 +65,22 @@ if ($("#menu").length) {
         
       }
 
+
+
+
     // Toggle sound
      $(".sound").click(function () {
       $(this).toggleClass("sound")
       $(this).toggleClass("mute")
-    
+
+   
     if($(this).hasClass('mute')){
-       sessionStorage.setItem("sound", "off");      
+       sessionStorage.setItem("sound", "off");
+    
+
+
+      
+
     } else{       
       sessionStorage.setItem("sound", "on");
 
@@ -183,12 +219,17 @@ if ($("#menu").length) {
   function nextQuestion() {
     if (questions_array[question_number]["type"] == "options") {
       if (!$("input:checked").val()) {
-          alert("Preencha todos os campos para continuar.")
+
+        $('#modalQuest').modal('show')
+       
+          //alert("Preencha todos os campos para continuar.")
           return false
       }
     } else {
       if ($("input").val() == "") {
-        alert("Preencha todos os campos para continuar.")
+          $('#modalQuest').modal('show')
+          // alert('aaaaaa')
+        //alert("Preencha todos os campos para continuar.")
         return false
       }
     }
@@ -451,11 +492,20 @@ if ($("#menu").length) {
 
      setTimeout(function () {               
           var audio_categoria = new Audio("sounds/desafios/"+actual_badge['id']+".wav");
+
+         
+
+          if(sessionStorage.getItem('sound')=='on'){
+            
            audio_categoria.play(); 
+          }
 
         $("button.toggle.repeat").click(function () { 
-           audio_categoria.load(); 
-          audio_categoria.play(); 
+           if(sessionStorage.getItem('sound')=='on'){
+            
+             audio_categoria.load();            
+            audio_categoria.play(); 
+          }
         })
 
 
@@ -479,11 +529,15 @@ if ($("#menu").length) {
       if (region) {
         var audio_regiao = new Audio('sounds/regiao/'+region["id"]+'.wav');
         createCommentRegion(comments_texts[comment_name], region)
+         if(sessionStorage.getItem('sound')=='on'){
         audio_regiao.play();
+      }
 
         $("button.toggle.repeat").click(function() {
+           if(sessionStorage.getItem('sound')=='on'){
            audio_regiao.load();
-           audio_regiao.play();        
+           audio_regiao.play();
+           }        
         });
 
         $("button#go-comment.toggle.next").click(function() {
@@ -694,7 +748,9 @@ if ($("#menu").length) {
     $("#submit-feedback").click(function () {
       // Check if all the fields are full
       if ($("textarea").val() == "" || !(getFromStorage("liked"))) {
-         alert("Preencha todos os campos para continuar.") 
+
+        $('#modalQuest').modal('show')
+        //alert("Preencha todos os campos para continuar.") 
          return false
       }
 
@@ -971,8 +1027,10 @@ if ($("#menu").length) {
   function congratsNextLevel(stars, ended, sound) {
     congrats_name = actual_badge["id"]+"_"+actual_level
     level_stars = stars
+     if(sessionStorage.getItem('sound')=='on'){
 
     sound.play();
+  }
 
     
 
@@ -986,8 +1044,10 @@ if ($("#menu").length) {
         
     $("button.toggle.repeat" ).click(function() {
       console.log('aaaaaaaaaa');
+       if(sessionStorage.getItem('sound')=='on'){
       sound.load();
       sound.play();
+    }
     });
 
      $("button#go-congrats.toggle.next" ).click(function() {
