@@ -1337,7 +1337,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
     $('#AnimacaoFoguete').jsMovie({
       sequence: 'Lancamento###.png',
-      from: 0,
+      from: 75,
       to: 217,
       fps: 26,
       width:'100%',
