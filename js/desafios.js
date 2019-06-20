@@ -56,7 +56,7 @@
    
 
 var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav');
-
+PauseSond(audioParabensMapa);
 
 
 
@@ -71,6 +71,7 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
           audioParabensMapa.play();     
           }   
         }); 
+
 
 
          $("button#go-comment.action.blue").click(function() {
@@ -1603,7 +1604,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
             },
             drop: function(event,ui) {
             if (contAlimPrato==5) { 
-              alert("so 5 alimentos");
+              $('#modalSaude1').modal('show')  
+              //alert("so 5 alimentos");
             } else{
               if($(ui.draggable).hasClass('alimentosSaudaveis') || $(ui.draggable).hasClass('alimentosNaoSaudaveis')){
                 
@@ -1656,14 +1658,16 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
 
       if (contAlimPrato==5) {
                   if (bilotoLeft<=55.7){
-                    alert("Seu prato não está saúdavel ainda")
+                    $('#modalSaude2').modal('show')  
+                    //alert("Seu prato não está saúdavel ainda")
                   } else{
                      $('#AnimacaoArrastarPrato').jsMovie('destroy');
                   var audio_prato = new Audio('sounds/desafios/saude desafio 1.wav') ;    
                     congratsNextLevel(['full', 'half', 'empty'], false, audio_prato)
                   }
       } else{
-        alert("adicione 5 aliment No Prato");
+         $('#modalSaude3').modal('show') 
+       // alert("adicione 5 aliment No Prato");
       }
     })
   }
@@ -1838,7 +1842,9 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
           var audio_parquinho = new Audio('sounds/desafios/saude desafio 2.wav') ;    
           congratsNextLevel(["full", "full", "full"], true, audio_parquinho)
         } else{
-          alert("brinque mais")
+          $('#modalSaude4').modal('show')  
+
+         // alert("brinque mais")
         }
        })
   }
@@ -1916,7 +1922,9 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
         }
          $('.popoverEF').css('display', 'block');
       } else{
-        alert("selecione ate 5")
+
+        $('#modalEscola1').modal('show')  
+       //alert("selecione ate 5")
       }
     })
 
@@ -2405,7 +2413,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
         }
         $('.popoverED').css('display', 'block'); //alert("entou");
      } else {
-        alert("selecione 5");
+       $('#modalEscola1').modal('show')
+       // alert("selecione 5");
      }
     })
 
@@ -2511,7 +2520,8 @@ var audioParabensMapa = new Audio('sounds/desafios/fala que concluiu o mapa.wav'
           
 
       } else{
-        alert("selecione ate 5")
+         $('#modalEscola1').modal('show')
+        //alert("selecione ate 5")
       }
     })
 

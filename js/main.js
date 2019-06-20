@@ -7,7 +7,8 @@ if ($("#menu").length) {
   menu()
 }
 
- var atualSom1 = new Audio('');
+ var nenhumSom = new Audio();
+
 
 
 
@@ -25,6 +26,8 @@ if ($("#menu").length) {
     toggleSoundSetup()
     toggleMusicSetup()
 
+
+
     //fecharmodalquiz
     $("#modalQuestClose").click(function () {
       $('#modalQuest').modal('hide')
@@ -41,7 +44,10 @@ if ($("#menu").length) {
 
 
     // Toggle fullscreen
-    $('#myModal').modal('show')
+    $('#myModal').modal({
+        show: true,
+        backdrop: 'static'
+      })
     $("#openFullscreen").click(function () {
       
       openFullscreen()
@@ -65,42 +71,77 @@ if ($("#menu").length) {
         
       }
 
-
-
-
-    // Toggle sound
-     $(".sound").click(function () {
+    $(".sound").click(function () {
       $(this).toggleClass("sound")
-      $(this).toggleClass("mute")
+      $(this).toggleClass("mute") 
 
-   
-    if($(this).hasClass('mute')){
+      if($(this).hasClass('mute')){
        sessionStorage.setItem("sound", "off");
-    
+       console.log('desligou o som')
+       
 
+       } else{       
+      sessionStorage.setItem("sound", "on");
+      console.log('ligou o som')
+      }
+     
+    })
+
+
+     
+     
+    
 
       
 
-    } else{       
-      sessionStorage.setItem("sound", "on");
+    // Toggle sound
+      /* $(".sound").click(function () {
+        $(this).toggleClass("sound")
+        $(this).toggleClass("mute")
 
-      }
      
-     })
+        if($(this).hasClass('mute')){
+         sessionStorage.setItem("sound", "off");
+         console.log('desligou o som')
+        
 
-     $(".mute").click(function () {
+         } else{       
+        sessionStorage.setItem("sound", "on");
+        console.log('ligou o som')
+        }
+       
+       })*/
+
+        $(".mute").click(function () {
       $(this).toggleClass("sound")
       $(this).toggleClass("mute")
     
-    if($(this).hasClass('mute')){
+      if($(this).hasClass('mute')){
        sessionStorage.setItem("sound", "off");      
-    } else{       
+       } else{       
       sessionStorage.setItem("sound", "on");
 
       }
-     
      })
+
+    
     }
+
+
+    function PauseSond(som){
+    $(".sound").click(function () {
+        
+         
+       som.load();
+        
+     
+    })
+
+
+   
+     
+    }
+
   
 
 
@@ -343,7 +384,8 @@ if ($("#menu").length) {
         saveInputInStorage()
 
         //Next section
-        comment_name = "start_game"
+        //comment_name = "start_game"
+        comment_name = "about_region"
         updateSectionAJAX("comment")
       }
   }
@@ -492,6 +534,7 @@ if ($("#menu").length) {
 
      setTimeout(function () {               
           var audio_categoria = new Audio("sounds/desafios/"+actual_badge['id']+".wav");
+           PauseSond(audio_categoria);
 
          
 
@@ -499,6 +542,8 @@ if ($("#menu").length) {
             
            audio_categoria.play(); 
           }
+
+         
 
         $("button.toggle.repeat").click(function () { 
            if(sessionStorage.getItem('sound')=='on'){
@@ -532,6 +577,8 @@ if ($("#menu").length) {
          if(sessionStorage.getItem('sound')=='on'){
         audio_regiao.play();
       }
+
+      PauseSond(audio_regiao);
 
         $("button.toggle.repeat").click(function() {
            if(sessionStorage.getItem('sound')=='on'){
@@ -967,6 +1014,22 @@ if ($("#menu").length) {
       updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
     })
 
+
+    $(".toggle.sound" ).click(function() {
+       var cutscene_video = document.getElementById("cutscene_video"); 
+
+        if($(this).hasClass('sound')){
+       cutscene_video.muted=true; 
+       
+
+       } else{       
+         cutscene_video.muted=false;
+      }
+   
+    });
+
+
+
     // Play and pause actions
     $("#cutscene .play").click(function () {
       play()
@@ -988,11 +1051,17 @@ if ($("#menu").length) {
   }
   function play() { 
     var cutscene_video = document.getElementById("cutscene_video"); 
+    
     cutscene_video.play(); 
+    if(sessionStorage.getItem('sound')=='off'){
+      cutscene_video.muted=true; 
+    }
+   
   }  
   function pause() { 
     var cutscene_video = document.getElementById("cutscene_video"); 
     cutscene_video.pause(); 
+   
   }
 
 // AJAX ----------------------------------------------------------------
@@ -1029,7 +1098,9 @@ if ($("#menu").length) {
     level_stars = stars
      if(sessionStorage.getItem('sound')=='on'){
 
+    
     sound.play();
+   PauseSond(sound); 
   }
 
     
@@ -1049,6 +1120,8 @@ if ($("#menu").length) {
       sound.play();
     }
     });
+
+    PauseSond(sound);
 
      $("button#go-congrats.toggle.next" ).click(function() {
       sound.load();

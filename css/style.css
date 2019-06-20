@@ -161,6 +161,10 @@
   button.toggle.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
   button.toggle.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
 
+  button.infoC {background-image: url(../img/buttons/btinfo_ativo.png);}
+  button.infoC:hover{background-image: url(../img/buttons/btinfo_mouseover.png);}
+  button.infoC:active{background-image: url(../img/buttons/btinfo_press.png);}
+
   button.next {background-image: url(../img/buttons/toggle-next.png);}
   button.next:hover{background-image: url(../img/buttons/toggle-next-hover.png);}
   button.next:active{background-image: url(../img/buttons/toggle-next-active.png);}
