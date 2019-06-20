@@ -9,6 +9,9 @@ if ($("#menu").length) {
 
  var nenhumSom = new Audio();
 
+window.onload = function() {
+$('.loader').hide();
+};
 
 
 
@@ -16,6 +19,7 @@ if ($("#menu").length) {
   
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
+
 
  
   sessionStorage.setItem("sound", "on");
