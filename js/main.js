@@ -225,7 +225,7 @@ $('.loader').hide();
            leftPad(data["total_access"], 6)
         },
         error:function(jqXHR, textStatus, errorThrown){
-            alert('Erro ao carregar');
+            //alert('Erro ao carregar');
             console.log(errorThrown);
         }
       });

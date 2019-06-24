@@ -14,6 +14,7 @@ class DatabaseConnection {
 		$this->password = '';
 		$this->database = 'amigos_do_futuro';
 		$this->port = 3306;
+		
 	}
 
 	public function __destruct(){}
