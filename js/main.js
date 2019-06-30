@@ -16,7 +16,7 @@ window.onload = function() {
 $('.loader').hide();
 };
 
-var audio_botaoClick = new Audio('sounds/feedback/Botão 02.wav');
+var audio_botaoClick = new Audio('sounds/feedback/Botão 01.wav');
 
 function playAudioButton(){
     if(sessionStorage.getItem('sound')=='on'){                  
@@ -272,13 +272,33 @@ function playAudioButton(){
   }
 
 // Form  -----------------------------------------------------------------
+
+
+
   function form() {
     questions_array = questions_texts
 
     actual_section = "form"
     createQuestion(questions_array[question_number])
-  
+
+
+    
     configPrevNext()
+
+     $('#AnimacaoRoboForm').jsMovie({
+      sequence: 'Fala_1_Circulo_2_000##.png',
+      from: 0,
+      to: 39,
+      fps: 10,
+      width:'71%',
+      height: '61%',
+      folder : "img/animation/robo_circulo/",
+      playOnLoad:false         
+    });
+
+     $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
+    $('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
+
   }
 
   function configPrevNext() {
@@ -287,11 +307,16 @@ function playAudioButton(){
       prevNextDisable()
       previousQuestion()
       playAudioButton();
+    $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
+    //$('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
     })
     $("#next").click(function () {
       prevNextDisable()
       nextQuestion()
       playAudioButton();
+    $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
+   // $('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
+
     })
   }
   function nextQuestion() {
@@ -394,6 +419,7 @@ function playAudioButton(){
   } 
 
   function enterKeydown(end) {
+
     $('form').on('keyup keypress', function(e) {
       var keyCode = e.keyCode || e.which;
       if (keyCode === 13) { 
@@ -425,7 +451,10 @@ function playAudioButton(){
         //Next section
         //comment_name = "start_game"
         comment_name = "about_region"
+         $('#AnimacaoRoboForm').jsMovie("destroy");
         updateSectionAJAX("comment")
+
+
         letraMaiuscula();
 
       }
@@ -480,13 +509,33 @@ function playAudioButton(){
     question_number = 0
     questions_array = quiz_texts
     actual_section = "quiz"
+
+    $('#animacaoRoboQuiz').jsMovie({
+      sequence: 'Fala_1_Circulo_2_000##.png',
+      from: 0,
+      to: 39,
+      fps: 10,
+      width:'71%',
+      height: '82%',
+      folder : "img/animation/robo_circulo/",
+      playOnLoad:false         
+    });
+
+     $('#animacaoRoboQuiz').jsMovie('play',1,40,false,false);
+    $('#animacaoRoboQuiz').jsMovie('play',27,40,true,false);
+
     createQuestion(questions_array[question_number])
+
 
     configPrevNext()
     emptyBadgeDetails()
 
     badgeDetailsToggle()
+
+      
+
   }
+
   function badgeDetailsToggle() {
       $(".all-badges img").mouseenter(function () {
         $(this).toggleClass("active")
@@ -621,6 +670,18 @@ function playAudioButton(){
   function comment() {
     if (comment_name == "about_region") {
 
+       $('#AnimacaoRoboComment').jsMovie({
+        sequence: 'Fala_Completo_8f_2_000##.png',
+        from: 0,
+        to: 55,
+        fps: 10,
+        width:'71%',
+        height: '61%',
+        folder : "img/animation/robo_inteiro/",
+        playOnLoad:false      
+      });
+
+$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
       
       var region = searchForRegion()
       if (region) {
@@ -650,7 +711,20 @@ function playAudioButton(){
         //"music/"+region["id"]+".mp3"
       }
     } else {
+
       createComment(comments_texts[comment_name])
+      $('#AnimacaoRoboComment').jsMovie({
+        sequence: 'Fala_Completo_8f_2_000##.png',
+        from: 0,
+        to: 55,
+        fps: 10,
+        width:'71%',
+        height: '61%',
+        folder : "img/animation/robo_inteiro/",
+        playOnLoad:false      
+      });
+
+$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
     }
   }
 
@@ -695,6 +769,7 @@ function playAudioButton(){
     $("#go-comment").click(function () { 
       switch (comment_name) {
         case "about_region":
+        $('#AnimacaoRoboComment').jsMovie('destroy');
           updateSectionAJAX("map")
         break
         case "start_game":
@@ -702,9 +777,11 @@ function playAudioButton(){
           updateSectionAJAX("comment")
         break
         case "start_quiz":
+         $('#AnimacaoRoboCommentMapa').jsMovie('destroy');
           updateSectionAJAX("quiz")
         break
         case "start_challenge":
+        $('#AnimacaoRoboComment').jsMovie('destroy');
           actual_level = 0
           console.log(actual_badge)
           console.log(actual_level)
@@ -841,6 +918,23 @@ function playAudioButton(){
 
 // Feedback ----------------------------------------------------------------
   function feedback() {
+
+     $('#AnimacaoRoboFeedback').jsMovie({
+      sequence: 'Fala_1_Circulo_2_000##.png',
+      from: 0,
+      to: 39,
+      fps: 10,
+      width:'71%',
+      height: '65%',
+      folder : "img/animation/robo_circulo/",
+      playOnLoad:false         
+    });
+
+     $('#AnimacaoRoboFeedback').jsMovie('play',1,40,false,false);
+    $('#AnimacaoRoboFeedback').jsMovie('play',27,40,true,false);
+
+  
+
     $("#feedback .yes").click(function () {
       answerLike(this, "Sim")
     })
@@ -849,7 +943,7 @@ function playAudioButton(){
     })
     $("#submit-feedback").click(function () {
       // Check if all the fields are full
-      if ($("textarea").val() == "" || !(getFromStorage("liked"))) {
+      if (!(getFromStorage("liked"))) {
 
         $('#modalQuest').modal('show')
         //alert("Preencha todos os campos para continuar.") 
@@ -858,6 +952,7 @@ function playAudioButton(){
 
       saveInStorage("feedback", $("textarea").val())
       sendAllDataToServer()
+      $('#AnimacaoRoboFeedback').jsMovie('destroy');
       updateSectionAJAX("certificate")
     })
   }
@@ -1089,12 +1184,12 @@ function playAudioButton(){
     // Play and pause actions
     $("#cutscene .play").click(function () {
       play()
-      playAudioButton()
+    playAudioButton()
       $("#cutscene .play").fadeOut(300)
     })
     $("#cutscene .pause").click(function () {
       pause()
-      playAudioButton()
+     playAudioButton()
       $("#cutscene .play").fadeIn(100)
     })
 

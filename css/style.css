@@ -263,6 +263,10 @@
   /*button.toggle.arrow:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}*/
   button.toggle.arrow:active{background-image: url(../img/buttons/toggle-arrow-active.png);}
 
+  button.toggle.arrow2 {background-image: url(../img/buttons/toggle-arrow-p.png);}
+  /*button.toggle.arrow:hover{background-image: url(../img/buttons/toggle-arrow-hover.png);}*/
+  button.toggle.arrow2:active{background-image: url(../img/buttons/toggle-arrow-active-p.png);}
+
   button.toggle.sound {background-image: url(../img/buttons/toggle-sound.png);}
   button.toggle.sound:hover{background-image: url(../img/buttons/toggle-sound-hover.png);}
   button.toggle.sound:active{background-image: url(../img/buttons/toggle-sound-active.png);}
@@ -279,9 +283,15 @@
     filter: opacity(0.5);
     cursor: var(--cursor-block);
   }
+
   button.toggle#prev {
     margin-right: 5%;
     transform: scaleX(-1);
+  }
+
+  button.toggle#next {
+     transform: scaleX(-1);
+    
   }
 
   #feedback-text{
@@ -449,7 +459,7 @@
     margin: 0px auto;
     margin-bottom: 2%;
     font-size: 4.5vw;
-    line-height: 7.5vw;
+    line-height: 5.5vw;
     font-weight: bold;
     font-family: norwester;
   }
@@ -502,6 +512,10 @@
   .robot-arrows .content li, .robot-question .content li {
     margin-bottom: 10%;
   }
+
+  
+
+
   .form-question {
     position: absolute;
     right: 0;
@@ -587,6 +601,15 @@
       visibility:hidden;
   }
 
+  #AnimacaoRoboForm{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 29%;
+  left: 42%;  
+  transform: scale(2.2) ;
+}
+
 /*Quiz Section ----------------------------------------------------------*/
   #quiz {
     background-color: #305882;
@@ -594,6 +617,16 @@
     width: 100%;
     padding-top: 56.25%; /* 16:9 Aspect Ratio */
   }
+
+  #animacaoRoboQuiz{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: -8%;
+  left: 22.5%;  
+  transform: scale(0.7) ;
+}
+
   .badges-about {
     position: absolute;
     left: 0;
@@ -698,6 +731,7 @@
   }
   .quiz-question #prev-next img {
     width: 40%;
+    margin-left: -6%;
   }
   .quiz-question #prev-next{
     margin-bottom: 2%;
@@ -762,6 +796,16 @@
   }
 
 /*Comment Section ----------------------------------------------------------*/
+
+
+#AnimacaoRoboComment{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 32%;
+  left: 42%;  
+  transform: scale(2.2) ;
+}
   .red-gradient {
     background-color: #FB4F10;
     background-image: linear-gradient(to right, #FB4F10 , #C4390E); 
@@ -1101,6 +1145,15 @@
 
 /*Feedback Section ----------------------------------------------------------*/
 
+  #AnimacaoRoboFeedback{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 12%;
+  left: 33%;  
+  transform: scale(1.45) ;
+}
+
  .robot-question img {
     width: 70%;
   }
@@ -1368,6 +1421,15 @@
   padding-top: 56.25%;
   
 
+}
+
+#AnimacaoRoboCommentMapa{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 32%;
+  left: 42%;  
+  transform: scale(2.2) ;
 }
 
 
@@ -2663,14 +2725,14 @@
   position: absolute;
   top: 66%;
   left: 68%;
-  width: 10%;
+  width: 16%;
 }
 
 #imgBaldeOK{
   position: absolute;
   top: 72%;
   left: 45%;
-  width: 10%;
+  width: 16%;
   display: none;
 }
 

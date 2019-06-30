@@ -27,6 +27,8 @@
     });
 
 
+
+
     $( "#pecaMesa1, #pecaMesa2, #pecaMesa3, #pecaMesa4, #pecaMesa5, #pecaMesa6, #pecaMesa7").draggable({
          revert: true,
           revertDuration: 600,
@@ -44,7 +46,16 @@
       });
 
 
-    
+    $('#AnimacaoRoboCommentMapa').jsMovie({
+        sequence: 'Fala_Completo_8f_2_000##.png',
+        from: 0,
+        to: 55,
+        fps: 10,
+        width:'71%',
+        height: '61%',
+        folder : "img/animation/robo_inteiro/",
+        playOnLoad:false      
+      });
 
 
       
@@ -83,6 +94,11 @@ PauseSond(audioParabensMapa);
     }
 
       $(".robot-comment").fadeIn(300);
+
+       
+
+  $('#AnimacaoRoboCommentMapa').jsMovie('play',1,56,false, false);
+
       $("#AnimacaoArrastarMapa").jsMovie("destroy");
        //$("#AnimacaoArrastarMapa").jsMovie("throwError",1);
 
@@ -1528,6 +1544,8 @@ PauseSond(audioParabensMapa);
     var bilotoLeft = 49.4;
 
     var contAlimPrato=0;
+    var NS_b = false;
+    var NS_p = false;
 
     $( ".alimentosSaudaveis , .alimentosNaoSaudaveis, .alimentosSaudaveisP , .alimentosNaoSaudaveisP ").draggable({
           revert: true,
@@ -1559,6 +1577,13 @@ PauseSond(audioParabensMapa);
                     $(ui.draggable).css('display', 'none');
                     AndarBilotoRemove(alimentoNoPrato2);
                     contAlimPrato--;
+                       if ($(ui.draggable).hasClass('NSPbombom')){
+                       NS_b= false;                      
+                       }
+                       if   ($(ui.draggable).hasClass('NSPpirulito')){
+                        NS_p=false;
+                       } 
+
 
               } else{
                                             
@@ -1584,7 +1609,12 @@ PauseSond(audioParabensMapa);
                     $(alimentoNoPrato).css('display', 'block');                   
                      AndarBilotoAdd(alimentoNoPrato);
                      contAlimPrato++;
-                            
+                       if ($(ui.draggable).hasClass('NSbombom')){
+                       NS_b= true;                      
+                       }
+                       if   ($(ui.draggable).hasClass('NSpirulito')){
+                        NS_p=true;
+                       }   
                   
               } 
             }
@@ -1630,14 +1660,19 @@ PauseSond(audioParabensMapa);
                   if (bilotoLeft<=55.7){
                     $('#modalSaude2').modal('show')  
                     //alert("Seu prato não está saúdavel ainda")
+                  } 
+
+                  if (NS_b || NS_b){
+                    $('#modalSaude5').modal('show') 
+                   // alert("tem animento não sauável no seu prato");
                   } else{
                      $('#AnimacaoArrastarPrato').jsMovie('destroy');
                   var audio_prato = new Audio('sounds/desafios/saude desafio 1.wav') ;    
                     congratsNextLevel(['full', 'half', 'empty'], false, audio_prato)
                   }
       } else{
-         $('#modalSaude3').modal('show') 
-       // alert("adicione 5 aliment No Prato");
+        $('#modalSaude3').modal('show') 
+       //alert("adicione 5 aliment No Prato");
       }
     })
   }

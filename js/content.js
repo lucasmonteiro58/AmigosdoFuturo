@@ -196,7 +196,7 @@ var comments_texts = {
       },
   "start_quiz":
       { "color" : "sunshine",
-         "text": "Bom trabalho! Agora, precisamos saber com o que você vai trabalhar. Responda as perguntas!"
+         "text": "Bom trabalho! Agora, precisamos saber que tipo de amigo você é. Responda as perguntas!"
       },
   "start_challenge":
       { "color" : "blue",
@@ -299,7 +299,7 @@ var helps_texts = {
         },
   "mei_1":{"title": "Vamos plantar!",
           "text" : "Podemos deixar o lugar melhor ainda. Que tal fazer uma <a>horta comunitária</a>?",
-          "tip"  : "Horta comunitária: lugar onde todo mundo pode plantar e colher alimentos."
+          "tip"  : "Lugar onde todo mundo pode plantar e colher alimentos."
         },
   "mei_2":{"title": "Xiii...Sem água!",
           "text" : "Opa, essa casa não tem <a>saneamento básico</a>. Ligue os canos para chegar água na torneira!",
@@ -402,7 +402,7 @@ var congrats_texts = {
   "eco_0":{"text" : "Parabéns! Você juntou seu próprio dinheiro!"
           },
   "eco_1":{"text" : "Maravilha! Você <a>investiu</a> seu dinheiro em coisas muito legais.",
-           "tip"  : "Investir: ..."
+           "tip"  : "Dar o seu dinheiro em troca de algo melhor pra você."
           }
 }
 
