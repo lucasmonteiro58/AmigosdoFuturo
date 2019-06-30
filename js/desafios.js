@@ -707,7 +707,7 @@ PauseSond(audioParabensMapa);
        })
 
     $( ".criancaAmarela , .criancaVermelha").draggable({
-         //revert: true,
+         revert: true,
           revertDuration: 600,
            //cursor: "grabbing",
            containment: "#gramadotodo",
@@ -723,8 +723,11 @@ PauseSond(audioParabensMapa);
             
            }
         });
-    var amareloTrue = false;
-    var vermelhoTrue = false;
+
+       
+
+    var QntAmarelo = 0;
+    var QntVermelho = 0;
 
     $("#campinhoVermelho").droppable({
        accept: ".criancaVermelha",
@@ -734,47 +737,29 @@ PauseSond(audioParabensMapa);
 
             out: function( event, ui){ 
 
-            $(ui.draggable).removeClass('tanocampo'); 
-            totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
-            vermelhoTrue =false;
-             console.log("V: "+totalCriancaVermelha);
-
-
             },
 
             drop: function(event,ui) { 
 
-              $( "#bandeiraV" ).effect( "shake" );  
+            $( "#bandeiraV" ).effect( "shake" );  
               
-                $(ui.draggable).addClass('tanocampo'); 
-             totalCriancaVermelha = $(".criancaVermelha.tanocampo").length;
-              //console.log("V: "+totalCriancaVermelha);
+            $(ui.draggable).css("display", "none");
+             var criancaAtual = "#"+ $(ui.draggable).attr('id')+"ok";
+             $(criancaAtual).css("display", "block");
+            QntVermelho++;        
                 
-               
-                if($(ui.draggable).hasClass('tanocampo')){ 
-
-                 if (totalCriancaVermelha==3) {
-                        vermelhoTrue =true;
-                          if (vermelhoTrue && amareloTrue){
-                            setTimeout(function () {               
-                            $('#AnimacaoArrastarCamp').jsMovie('destroy');
+             if(QntVermelho==3 && QntAmarelo===3){
+               setTimeout(function () {               
+                      $('#AnimacaoArrastarCamp').jsMovie('destroy');
                       var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
-                            congratsNextLevel(["full","empty","empty"], false, audio_campinho)
+                      congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
-                           
-                          }
-                      }            
 
-                    } else{            
-                     
-                      
-                     }
-          
-
-
-                      
-            }
-    });
+             }                           
+           }
+                                  
+})                    
+             
 
     $("#campinhoAmarelo").droppable({
        accept: ".criancaAmarela",
@@ -783,42 +768,27 @@ PauseSond(audioParabensMapa);
             },
 
             out: function( event, ui){ 
-            $(ui.draggable).removeClass('tanocampo');               
-             totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
-            amareloTrue=false; 
-             //console.log("A: "+totalCriancaAmarela);
-
             },
 
             drop: function(event,ui) {  
 
              $( "#bandeiraA" ).effect( "shake" );    
-
-            $(ui.draggable).addClass('tanocampo');   
-            totalCriancaAmarela = $(".criancaAmarela.tanocampo").length;
-            console.log("A: "+totalCriancaAmarela);   
-            
-            
-            if($(ui.draggable).hasClass('tanocampo')){  
-
-              if (totalCriancaAmarela==3) {
-                    amareloTrue=true;
-
-                    if (vermelhoTrue && amareloTrue){
-
-                      setTimeout(function () {               
-                 
+             $(ui.draggable).css("display", "none");
+             var criancaAtual = "#"+ $(ui.draggable).attr('id')+"ok";
+             $(criancaAtual).css("display", "block");
+               QntAmarelo++;        
+                
+             if(QntVermelho==3 && QntAmarelo===3){
+               setTimeout(function () {               
+                      $('#AnimacaoArrastarCamp').jsMovie('destroy');
                       var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
-                            congratsNextLevel(["full","empty","empty"], false, audio_campinho)
+                      congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
 
-                    }
-                  }          
-
-                } else{
-
-                              
-                } 
+             } 
+            
+            
+           
 
                  
                       
@@ -991,14 +961,14 @@ PauseSond(audioParabensMapa);
        }
     }
     $("#A1figOK1").droppable({
-        accept: "#A1fig1",
+        accept: "#A1fig3",
            over: function( event, ui){          
           },
           out: function( event, ui){
           },
           drop: function( event, ui ) {
           $(this).css('visibility','visible'); 
-          $('#A1fig1').css('display', 'none'); 
+          $('#A1fig3').css('display', 'none'); 
           contFigA1++;  
           habilitarNextA1();    
             }
@@ -1017,14 +987,14 @@ PauseSond(audioParabensMapa);
             }
       });
     $("#A1figOK3").droppable({
-        accept: "#A1fig3",
+        accept: "#A1fig1",
            over: function( event, ui){          
           },
           out: function( event, ui){
           },
           drop: function( event, ui ) {
           $(this).css('visibility','visible'); 
-          $('#A1fig3').css('display', 'none'); 
+          $('#A1fig1').css('display', 'none'); 
           contFigA1++; 
           habilitarNextA1();      
             }
@@ -1085,19 +1055,32 @@ PauseSond(audioParabensMapa);
        }
     }
     $("#A2figOK1").droppable({
-        accept: "#A2fig1",
+        accept: "#A2fig3",
            over: function( event, ui){          
           },
           out: function( event, ui){
           },
           drop: function( event, ui ) {
           $(this).css('visibility','visible'); 
-          $('#A2fig1').css('display', 'none'); 
+          $('#A2fig3').css('display', 'none'); 
           contFigA2++;  
           habilitarNextA2();    
             }
       });
     $("#A2figOK2").droppable({
+        accept: "#A2fig4",
+           over: function( event, ui){          
+          },
+          out: function( event, ui){
+          },
+          drop: function( event, ui ) {
+          $(this).css('visibility','visible'); 
+          $('#A2fig4').css('display', 'none'); 
+          contFigA2++; 
+          habilitarNextA2();      
+            }
+      });
+    $("#A2figOK3").droppable({
         accept: "#A2fig2",
            over: function( event, ui){          
           },
@@ -1110,28 +1093,15 @@ PauseSond(audioParabensMapa);
           habilitarNextA2();      
             }
       });
-    $("#A2figOK3").droppable({
-        accept: "#A2fig3",
-           over: function( event, ui){          
-          },
-          out: function( event, ui){
-          },
-          drop: function( event, ui ) {
-          $(this).css('visibility','visible'); 
-          $('#A2fig3').css('display', 'none'); 
-          contFigA2++; 
-          habilitarNextA2();      
-            }
-      });
     $("#A2figOK4").droppable({
-        accept: "#A2fig4",
+        accept: "#A2fig1",
            over: function( event, ui){          
           },
           out: function( event, ui){
           },
           drop: function( event, ui ) {
           $(this).css('visibility','visible'); 
-          $('#A2fig4').css('display', 'none'); 
+          $('#A2fig1').css('display', 'none'); 
           contFigA2++;  
           habilitarNextA2();     
             }
@@ -2981,6 +2951,8 @@ setTimeout(function () {
     var addMoedaSau=true;
     var addMoedaLaz=true;
 
+    var semMonstrinho=true;
+
     function retirarAddMoeda(){
       addMoedaEdu=false;
       addMoedaSau=false;
@@ -2994,116 +2966,132 @@ setTimeout(function () {
 
    
     $(".addMoedaEdu1").click(function() {
-      $('#AnimacaoClickMonstrinhos').css('display', 'none');
-    if (addMoedaEdu){  
-        if(qntMoedasM==0){
 
-        } else {
-            qntMoedasM = qntMoedasM-10;
-            $('#qtd_moedaM').text(qntMoedasM);
-            retirarAddMoeda();
-            $("#animacaoEduc").css('display','block');
-             $('#animacaoEduc').jsMovie('play',1,15,false,true);
-             // $("#animacaoEduc").css('display','none');
-            if(cont_bola_edu==1){
+      if(semMonstrinho){
+          $('#AnimacaoClickMonstrinhos').css('display', 'none');
+          semMonstrinho=false;
+           if (addMoedaEdu){  
+            if(qntMoedasM==0){
 
-              setTimeout(function () { 
-              $('#bolaEduc3').css('display', 'none');
-              $('#bolaEduc1').css('display', 'block');
-              cont_bola_edu=2;
-             }, 1300);
-              
-              
-            } else if(cont_bola_edu==2){
-               setTimeout(function () {
-              $('#bolaEduc1').css('display', 'none');
-              $('#bolaEduc2').css('display', 'block');
-              cont_bola_edu=3 
-              
-             }, 1300);
-             
-            } else if(cont_bola_edu==3){              
-               setTimeout(function () {
-              $('#bolaEduc2').css('display', 'none');
-              $('#bolaEduc3').css('display', 'block');
-               cont_bola_edu=1;
-             }, 1300);
+            } else {
+                qntMoedasM = qntMoedasM-10;
+                $('#qtd_moedaM').text(qntMoedasM);
+                retirarAddMoeda();
+                $("#animacaoEduc").css('display','block');
+                 $('#animacaoEduc').jsMovie('play',1,15,false,true);
+                 // $("#animacaoEduc").css('display','none');
+                if(cont_bola_edu==1){
+
+                  setTimeout(function () { 
+                  $('#bolaEduc3').css('display', 'none');
+                  $('#bolaEduc1').css('display', 'block');
+                  cont_bola_edu=2;
+                 }, 1300);
+                  
+                  
+                } else if(cont_bola_edu==2){
+                   setTimeout(function () {
+                  $('#bolaEduc1').css('display', 'none');
+                  $('#bolaEduc2').css('display', 'block');
+                  cont_bola_edu=3 
+                  
+                 }, 1300);
+                 
+                } else if(cont_bola_edu==3){              
+                   setTimeout(function () {
+                  $('#bolaEduc2').css('display', 'none');
+                  $('#bolaEduc3').css('display', 'block');
+                   cont_bola_edu=1;
+                 }, 1300);
+                }
             }
+          }
+        } else{
+           $('#modalMonstrinhos').modal('show')
         }
-      }
     })
     $(".addMoedaSau1").click(function() {
-     $('#AnimacaoClickMonstrinhos').css('display', 'none'); 
-    if(addMoedaSau){  
-         if(qntMoedasM==0){
+      if(semMonstrinho){
+             $('#AnimacaoClickMonstrinhos').css('display', 'none'); 
+             semMonstrinho=false;
+            if(addMoedaSau){  
+                 if(qntMoedasM==0){
 
-        } else {
-          qntMoedasM= qntMoedasM-10;
-          $('#qtd_moedaM').text(qntMoedasM);
-          retirarAddMoeda();
-          $("#animacaoSaude").css('display','block');
-             $('#animacaoSaude').jsMovie('play',1,15,false,true);
-          if(cont_bola_sau==1){
-            setTimeout(function () { 
-            $('#bolaSau3').css('display', 'none');
-            $('#bolaSau1').css('display', 'block');
-            cont_bola_sau=2;
-            }, 1300);
+                } else {
+                  qntMoedasM= qntMoedasM-10;
+                  $('#qtd_moedaM').text(qntMoedasM);
+                  retirarAddMoeda();
+                  $("#animacaoSaude").css('display','block');
+                     $('#animacaoSaude').jsMovie('play',1,15,false,true);
+                  if(cont_bola_sau==1){
+                    setTimeout(function () { 
+                    $('#bolaSau3').css('display', 'none');
+                    $('#bolaSau1').css('display', 'block');
+                    cont_bola_sau=2;
+                    }, 1300);
+                    
+                  } else if(cont_bola_sau==2){
+                    setTimeout(function () {
+                    $('#bolaSau1').css('display', 'none');
+                    $('#bolaSau2').css('display', 'block');
+                    cont_bola_sau=3 
             
-          } else if(cont_bola_sau==2){
-            setTimeout(function () {
-            $('#bolaSau1').css('display', 'none');
-            $('#bolaSau2').css('display', 'block');
-            cont_bola_sau=3 
-    
-            }, 1300);
+                    }, 1300);
+                    
+                  } else if(cont_bola_sau==3){
+                    setTimeout(function () { 
+                      $('#bolaSau2').css('display', 'none');
+                    $('#bolaSau3').css('display', 'block');
+                     cont_bola_sau=1;
             
-          } else if(cont_bola_sau==3){
-            setTimeout(function () { 
-              $('#bolaSau2').css('display', 'none');
-            $('#bolaSau3').css('display', 'block');
-             cont_bola_sau=1;
-    
-            }, 1300);
-            
-          }
-        }
-      }
+                    }, 1300);
+                    
+                  }
+                }
+              }
+            } else{
+             $('#modalMonstrinhos').modal('show')
+            }
     })
     $(".addMoedaLaz1").click(function() { 
-     $('#AnimacaoClickMonstrinhos').css('display', 'none');  
-      if(addMoedaLaz){
-         if(qntMoedasM==0){
+      if(semMonstrinho){
+       $('#AnimacaoClickMonstrinhos').css('display', 'none'); 
+       semMonstrinho=false; 
+        if(addMoedaLaz){
+           if(qntMoedasM==0){
 
-        } else {
-          qntMoedasM= qntMoedasM-10;
-          $('#qtd_moedaM').text(qntMoedasM);
-          retirarAddMoeda();
-          $("#animacaoLazer").css('display','block');
-          $('#animacaoLazer').jsMovie('play',1,15,false,true);
-          if(cont_bola_laz==1){
-            setTimeout(function () {
-            $('#bolaLaz3').css('display', 'none');
-            $('#bolaLaz1').css('display', 'block');
-            cont_bola_laz=2;     
-            }, 1300);
-            
-          } else if(cont_bola_laz==2){
-            setTimeout(function () { 
-            $('#bolaLaz1').css('display', 'none');
-            $('#bolaLaz2').css('display', 'block');
-            cont_bola_laz=3    
-            }, 1300);
-            
-          } else if(cont_bola_laz==3){
-            setTimeout(function () {
-            $('#bolaLaz2').css('display', 'none');
-            $('#bolaLaz3').css('display', 'block');
-             cont_bola_laz=1;     
-            }, 1300);
-            
+          } else {
+            qntMoedasM= qntMoedasM-10;
+            $('#qtd_moedaM').text(qntMoedasM);
+            retirarAddMoeda();
+            $("#animacaoLazer").css('display','block');
+            $('#animacaoLazer').jsMovie('play',1,15,false,true);
+            if(cont_bola_laz==1){
+              setTimeout(function () {
+              $('#bolaLaz3').css('display', 'none');
+              $('#bolaLaz1').css('display', 'block');
+              cont_bola_laz=2;     
+              }, 1300);
+              
+            } else if(cont_bola_laz==2){
+              setTimeout(function () { 
+              $('#bolaLaz1').css('display', 'none');
+              $('#bolaLaz2').css('display', 'block');
+              cont_bola_laz=3    
+              }, 1300);
+              
+            } else if(cont_bola_laz==3){
+              setTimeout(function () {
+              $('#bolaLaz2').css('display', 'none');
+              $('#bolaLaz3').css('display', 'block');
+               cont_bola_laz=1;     
+              }, 1300);
+              
+            }
           }
         }
+      } else{
+         $('#modalMonstrinhos').modal('show')
       }
     })
     $("#bolaEduc1").click(function() {
@@ -3188,6 +3176,7 @@ setTimeout(function () {
       $('.div_monstrinhos').css('display', 'block');
     })
     $("#guardar_monstrinhos").click(function() {
+      semMonstrinho=true;
       if(qntMoedasM==0){
         $('.div_monstrinhos').css('display', 'none');
          $('#AnimacaoClickMonstrinhos').jsMovie('destroy');
@@ -3200,4 +3189,8 @@ setTimeout(function () {
       $('.div_monstrinhos').css('display', 'none');
     }
     })
+
+    $("#BmodalMonstrinhos").click(function() {
+       $('#modalMonstrinhos').modal('hide')
+     })
   }

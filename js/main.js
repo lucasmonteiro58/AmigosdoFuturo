@@ -7,30 +7,40 @@ if ($("#menu").length) {
   menu()
 }
 
- var nenhumSom = new Audio();
+
+
+
+
 
 window.onload = function() {
 $('.loader').hide();
 };
 
+var audio_botaoClick = new Audio('sounds/feedback/Botão 02.wav');
+
+function playAudioButton(){
+    if(sessionStorage.getItem('sound')=='on'){                  
+        audio_botaoClick.play(); 
+      }
+}
 
 
 
-  
 // General  ---------------------------------------------------------------------
   $(document).ready(function() {
 
 
  
   sessionStorage.setItem("sound", "on");
-  sessionStorage.setItem("music", "on");
+  sessionStorage.setItem("music", "off");
 
   
 
     toggleSoundSetup()
     toggleMusicSetup()
 
-
+   
+    
 
     //fecharmodalquiz
     $("#modalQuestClose").click(function () {
@@ -161,14 +171,30 @@ $('.loader').hide();
         
       }
     // Toggle sound
+
+
+    var audio_backgrounMusic = new Audio("sounds/fundo/Josefina.mp3");
+    audio_backgrounMusic.volume = 0.1;
+
+
+    
+
+
+
+   
+    
     $(".music").click(function () {
       $(this).toggleClass("music")
       $(this).toggleClass("muteMusic")
 
       if($(this).hasClass('muteMusic')){
-       sessionStorage.setItem("music", "off");      
+       sessionStorage.setItem("music", "off"); 
+       audio_backgrounMusic.pause();
+      audio_backgrounMusic.load();      
     } else{       
       sessionStorage.setItem("music", "on");
+      audio_backgrounMusic.play(); 
+      
 
       }
      
@@ -179,9 +205,13 @@ $('.loader').hide();
       $(this).toggleClass("muteMusic")
 
       if($(this).hasClass('muteMusic')){
-       sessionStorage.setItem("music", "off");      
+       sessionStorage.setItem("music", "off");
+       audio_backgrounMusic.pause();   
+      audio_backgrounMusic.load();    
     } else{       
       sessionStorage.setItem("music", "on");
+      audio_backgrounMusic.play(); 
+      
 
       }
      
@@ -207,9 +237,10 @@ $('.loader').hide();
 // Menu  -----------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
-      cutscene_name = "start"
-      updateSectionAJAX("cutscene")
-    })
+        playAudioButton();
+        cutscene_name = "start"
+        updateSectionAJAX("cutscene")
+      })
 
     incrementAccess()
 
@@ -255,10 +286,12 @@ $('.loader').hide();
     $("#prev").click(function () {
       prevNextDisable()
       previousQuestion()
+      playAudioButton();
     })
     $("#next").click(function () {
       prevNextDisable()
       nextQuestion()
+      playAudioButton();
     })
   }
   function nextQuestion() {
@@ -352,9 +385,11 @@ $('.loader').hide();
     if (question_number >= questions_array.length-1) {
       $(selector).click(function () { submitButtonClick() })
       enterKeydown(true)
+      playAudioButton();
     } else {
       $(selector).click(function () { doneButtonClick() })
       enterKeydown(false)
+      playAudioButton();
     }
   } 
 
@@ -391,6 +426,8 @@ $('.loader').hide();
         //comment_name = "start_game"
         comment_name = "about_region"
         updateSectionAJAX("comment")
+        letraMaiuscula();
+
       }
   }
   function saveInputInStorage(selector) {
@@ -409,6 +446,7 @@ $('.loader').hide();
       var value = $("input").val()
     }
     saveInStorage(inputName,value)
+
   }
   function saveInStorage(name, value) {
     if (typeof(Storage) !== "undefined") {
@@ -416,6 +454,12 @@ $('.loader').hide();
     } else {
       alert("Seu navegador não permite salvar dados na sessão.")
     }
+  }
+
+  function letraMaiuscula(){
+    var nomeTemp = sessionStorage.getItem("name");
+    nomeTemp = nomeTemp.toLowerCase().replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    sessionStorage.setItem("name", nomeTemp);
   }
   function getFromStorage(name) {
     return sessionStorage.getItem(name);
@@ -536,9 +580,13 @@ $('.loader').hide();
     congrats_name = "badge"
     updateSectionAJAX("congrats")
 
+
      setTimeout(function () {               
           var audio_categoria = new Audio("sounds/desafios/"+actual_badge['id']+".wav");
            PauseSond(audio_categoria);
+           playAudioButton();
+
+
 
          
 
@@ -578,6 +626,7 @@ $('.loader').hide();
       if (region) {
         var audio_regiao = new Audio('sounds/regiao/'+region["id"]+'.wav');
         createCommentRegion(comments_texts[comment_name], region)
+        playAudioButton()
          if(sessionStorage.getItem('sound')=='on'){
         audio_regiao.play();
       }
@@ -585,6 +634,7 @@ $('.loader').hide();
       PauseSond(audio_regiao);
 
         $("button.toggle.repeat").click(function() {
+          playAudioButton()
            if(sessionStorage.getItem('sound')=='on'){
            audio_regiao.load();
            audio_regiao.play();
@@ -593,6 +643,7 @@ $('.loader').hide();
 
         $("button#go-comment.toggle.next").click(function() {
           audio_regiao.load();
+          playAudioButton()
         });  
 
         //tocar musica
@@ -1022,6 +1073,7 @@ $('.loader').hide();
     $(".toggle.sound" ).click(function() {
        var cutscene_video = document.getElementById("cutscene_video"); 
 
+
         if($(this).hasClass('sound')){
        cutscene_video.muted=true; 
        
@@ -1037,10 +1089,12 @@ $('.loader').hide();
     // Play and pause actions
     $("#cutscene .play").click(function () {
       play()
+      playAudioButton()
       $("#cutscene .play").fadeOut(300)
     })
     $("#cutscene .pause").click(function () {
       pause()
+      playAudioButton()
       $("#cutscene .play").fadeIn(100)
     })
 
