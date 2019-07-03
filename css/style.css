@@ -69,6 +69,10 @@
      font-family: norwester;
      src: url(../fonts/Norwester.otf);
   }
+   @font-face {
+     font-family: front;
+     src: url(../fonts/Front.otf);
+  }
 
 /*General ----------------------------------------------------------*/
   html{
@@ -368,6 +372,51 @@
      background-position: center;
 
   }
+
+  .title-info{
+    font-family: bungee;
+    color: #4573B8;
+    position: absolute;
+    font-size: 4vw;
+    top: 12%;
+    left: 34%;
+  }
+
+  .ceara2050-info{
+    font-family: exo-bold;
+    //color: black;
+    position: absolute;
+    top:31%;
+    left: 53%;
+    font-size: 1.2vw;
+    text-align: left;
+  }
+
+   .amigos-info{
+    font-family: exo-bold;
+   // color: black;
+    position: absolute;
+    top:53%;
+    left: 53%;
+    font-size: 1.2vw;
+    text-align: left;
+  }
+
+  .img-ceara2050{
+    position: absolute;
+    width: 30%;
+    top: 32%;
+    left: 19%;
+  }
+
+   .img-amigos{
+    position: absolute;
+    width: 28%;
+    top: 53%;
+    left: 22%;
+  }
+
+
   .menu-content {
   	width: 40%;
   	list-style: none;
@@ -5762,7 +5811,7 @@ visibility: hidden;
   position: absolute;
   left: 14%;
   top: 2%;
-  font-family: norwester;
+  font-family: front;
   font-size: 3.1vw;
   width: 50%;
  //background-color: red;

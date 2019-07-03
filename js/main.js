@@ -260,6 +260,15 @@ function playAudioButton(){
             console.log(errorThrown);
         }
       });
+
+      $(".infoCE").click(function () {
+        $("#info-menu").fadeIn(300)
+      })
+
+        $("#fechar-info").click(function () {
+        $("#info-menu").fadeOut(300);
+      })
+
     }
 
     function leftPad(number, targetLength) {
@@ -532,7 +541,8 @@ function playAudioButton(){
 
     badgeDetailsToggle()
 
-      
+     
+    
 
   }
 
@@ -608,6 +618,7 @@ function playAudioButton(){
   // Result of quiz
   function resultQuiz() {
     //ver qual [é o maior elemento do array]
+
     var max_point = -4
     var badges_possible = [] 
     for (f in final_pont) {
@@ -627,6 +638,7 @@ function playAudioButton(){
 
     //Next section
     congrats_name = "badge"
+  $('#animacaoRoboQuiz').jsMovie("destroy");
     updateSectionAJAX("congrats")
 
 
