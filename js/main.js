@@ -19,6 +19,7 @@ paceOptions = {
 
 window.onload = function() {
 $('.loader').hide();
+$('.pace').hide();
 };
 
 var audio_botaoClick = new Audio('sounds/feedback/Botão 01.wav');

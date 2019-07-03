@@ -26,50 +26,39 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
+}
 
-  z-index: 2000;
-  position: fixed;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 5px;
-  width: 200px;
-  background: #fff;
-  border: 1px solid #fa1205;
-
-  overflow: hidden;
+.pace.pace-inactive .pace-progress {
+  display: none;
 }
 
 .pace .pace-progress {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  -o-box-sizing: border-box;
-  box-sizing: border-box;
-
-  -webkit-transform: translate3d(0, 0, 0);
-  -moz-transform: translate3d(0, 0, 0);
-  -ms-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
-  transform: translate3d(0, 0, 0);
-
-  max-width: 200px;
   position: fixed;
-  z-index: 2000;
+  z-index: 99999;
+  top: 42%;
+  left: 52%;
+  height: 5rem;
+  width: 5rem;
+
+  -webkit-transform: translate3d(0, 0, 0) !important;
+  -ms-transform: translate3d(0, 0, 0) !important;
+  transform: translate3d(0, 0, 0) !important;
+}
+
+.pace .pace-progress:after {
   display: block;
   position: absolute;
   top: 0;
-  right: 100%;
-  height: 100%;
-  width: 100%;
-  background: #fa1205;
+  right: .5rem;
+  content: attr(data-progress-text);
+  font-family: bungee;
+  font-weight: 100;
+  font-size: 6rem;
+  line-height: 1;
+  text-align: right;
+  color: #4573B8;
 }
 
-.pace.pace-inactive {
-  display: none;
-}
 
 @media screen and (min-width: 768px) { 
   .modal:before {
@@ -93,7 +82,7 @@
     top: 0px;
     width: 100%;
     height: 100%;
-    z-index: 9999;
+    z-index: 9998;
     background: url('../img/loading.gif') 50% 50% no-repeat #EFEFEF;
 
 }
