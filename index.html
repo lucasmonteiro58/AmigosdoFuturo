@@ -1,8 +1,486 @@
-<html> 
-<head> 
-<title>Amigos do Futuro - Ceará 2050</title> 
-<META HTTP-EQUIV="REFRESH" CONTENT="0;URL=index.php"> 
-</head> 
-<body> 
-</body> 
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amigos do Futuro - Ceará 2050</title>
+	<meta charset="utf-8">
+	<link rel="shortcut icon" type="image/png" href="img/favicon.ico"/>
+	<!-- Bootstrap -->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+	<!-- Jquery UI CSS -->
+	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.structure.min.css">
+	<link rel="stylesheet" type="text/css" href="vendor/jquery_ui/jquery-ui.theme.min.css">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.0.2/pace.js"></script>
+	
+	<script data-pace-options='{ "ajax": false }' src='pace.js'></script>
+
+
+
+	
+
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+	
+
+	<div id="main-div-content">
+		
+		<div id="loader" class="loader"></div>
+		
+
+	<section id="menu"> 
+		<div class="sound-btn" title="Ligar/Desligar os sons"><button class="toggle sound"></button></div>
+	  <div class="music-btn" title="Ligar/Desligar a música de fundo"><button class="toggle music"></button></div>
+	  <div class="infoCE-btn"><button class="infoCE"></button></div>
+	  <!--<div class="ceara2050-btn"><a href="http://www.ceara2050.ce.gov.br/" target="_blank"></a></div>-->
+	 	
+	  <div id="counter2"></div>
+	  <ul class="centered menu-content">
+		<li><img src="img/menu/logo.png" class="menu-img" alt="Amigos do futuro logo" title="Amigos do Futuro"></li>
+
+		<li><button id="start-game" class="play-btn start"></button></li>
+
+
+		<li><div id="counter">000000</div></li>
+
+
+		<li><p>Aqui é a quantidade de Amigos do Futuro que já passaram por aqui.</p></li>
+		</ul>
+
+
+		<div id="info-menu" class="robot-comment other-badges dark-gradient" style="display: none">
+		<div class="content centered">
+			<button id="fechar-info" class="toggle exit"></button>
+			<h1 class="title-info">Créditos</h1>
+			<a href="http://www.ceara2050.ce.gov.br/" target="_blank"><img class="img-ceara2050" src="img/menu/logoceara2050.png"></a>
+			<img class="img-amigos" src="img/menu/logo.png">
+			<ul class="ceara2050-info">
+				<li>Nome - Cargo</li>
+				<li>Nome - Cargo</li>
+				<li>Nome - Cargo</li>
+				<li>Nome - Cargo</li>
+			</ul>
+			<ul class="amigos-info">
+				<li>Débora - Programação</li>
+				<li>Lucas - Programação</li>
+				<li>Gabriel -Ilustração/Animação</li>
+				<li>Raissa - Design de Interface/Animação</li>
+				<li>Samuel - Ilustração/Animação</li>
+				<li>Vitória - Gestão de Projetos/Conteúdo</li>
+			</ul>
+
+			
+			
+			<div class="single-badge centeredX" id="single-badge-details">
+	        
+			</div>
+			
+		</div>
+	</div>
+
+	</section>
+
+	<!-- Fullscreen Modal -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	       <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Oi amigo! Você quer iniciar o modo tela cheia?</h4>
+	      </div>
+	      <div class="modal-footer">
+	       <!-- <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>-->
+	        <button id="openFullscreen" type="button" class="btn btn-primary">SIM</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+
+
+<div id="allButtonCache" style="display: none;">	
+	<img src="img/menu/start-hover.png">
+	<img src="img/menu/start-active.png">
+	<img src="img/buttons/btinfo_mouseover.png">
+	<img src="img/buttons/action-active-blue.png">		
+	<img src="img/buttons/action-active-orange.png">		
+	<img src="img/buttons/action-active-white.png">		
+	<img src="img/buttons/action-blue.png">		
+	<img src="img/buttons/action-hover-blue.png">		
+	<img src="img/buttons/action-hover-orange.png">		
+	<img src="img/buttons/action-hover-white.png">		
+	<img src="img/buttons/action-orange.png">		
+	<img src="img/buttons/action-white.png">
+	<img src="img/buttons/btmusic_ativo.png">		
+	<img src="img/buttons/btmusic_mouseover.png">		
+	<img src="img/buttons/btmusic_press.png">	
+	<img src="img/buttons/btmusicoff_ativo.png">
+	<img src="img/buttons/btmusicoff_mouseover.png">		
+	<img src="img/buttons/btmusicoff_press.png">		
+	<img src="img/buttons/btrepetirinativo_.png">		
+	<img src="img/buttons/btrepetirinativo_mouseover.png">
+	<img src="img/buttons/btrepetirinativo_press.png">		
+	<img src="img/buttons/op-no.png">
+	<img src="img/buttons/op-no-active.png">		
+	<img src="img/buttons/op-no-hover.png">		
+	<img src="img/buttons/op-yes.png">		
+	<img src="img/buttons/op-yes-active.png">		
+	<img src="img/buttons/op-yes-hover.png">		
+	<img src="img/buttons/toggle-arrow.png">		
+	<img src="img/buttons/toggle-arrow-active.png">		
+	<img src="img/buttons/toggle-arrow-active-p.png">		
+	<img src="img/buttons/toggle-arrow-hover.png">		
+	<img src="img/buttons/toggle-arrow-hover-p.png">		
+	<img src="img/buttons/toggle-arrow-p.png">		
+	<img src="img/buttons/toggle-close.png">		
+	<img src="img/buttons/toggle-close-active.png">		
+	<img src="img/buttons/toggle-close-hover.png">		
+	<img src="img/buttons/toggle-download.png">		
+	<img src="img/buttons/toggle-download-active.png">		
+	<img src="img/buttons/toggle-download-hover.png">		
+	<img src="img/buttons/toggle-home.png">		
+	<img src="img/buttons/toggle-home-active.png">		
+	<img src="img/buttons/toggle-home-hover.png">		
+	<img src="img/buttons/toggle-info.png">		
+	<img src="img/buttons/toggle-info-active.png">		
+	<img src="img/buttons/toggle-info-hover.png">		
+	<img src="img/buttons/toggle-mute.png">		
+	<img src="img/buttons/toggle-mute-active.png">		
+	<img src="img/buttons/toggle-mute-hover.png">		
+	<img src="img/buttons/toggle-next.png">		
+	<img src="img/buttons/toggle-next-active.png">		
+	<img src="img/buttons/toggle-next-hover.png">		
+	<img src="img/buttons/toggle-ok.png">		
+	<img src="img/buttons/toggle-ok-active.png">		
+	<img src="img/buttons/toggle-ok-hover.png">		
+	<img src="img/buttons/toggle-pause.png">		
+	<img src="img/buttons/toggle-pause-active.png">		
+	<img src="img/buttons/toggle-pause-hover.png">
+	<img src="img/buttons/toggle-play.png">		
+	<img src="img/buttons/toggle-play-active.png">		
+	<img src="img/buttons/toggle-play-hover.png">		
+	<img src="img/buttons/toggle-print.png">		
+	<img src="img/buttons/toggle-print-active.png">		
+	<img src="img/buttons/toggle-print-hover.png">		
+	<img src="img/buttons/toggle-repeat.png">		
+	<img src="img/buttons/toggle-repeat-active.png">		
+	<img src="img/buttons/toggle-repeat-hover.png">		
+	<img src="img/buttons/toggle-sound.png">		
+	<img src="img/buttons/toggle-sound-active.png">		
+	<img src="img/buttons/toggle-sound-hover.png">
+	<!----------------------------------------------------------->	
+
+	<img src="img/buttons/ed/bt_cantina_add.png">			
+	<img src="img/buttons/ed/bt_cantina_check.png">			
+	<img src="img/buttons/ed/bt_cantina_menos.png">			
+	<img src="img/buttons/ed/bt_danca_add.png">			
+	<img src="img/buttons/ed/bt_danca_check.png">			
+	<img src="img/buttons/ed/bt_danca_menos.png">			
+	<img src="img/buttons/ed/bt_informatica_add.png">			
+	<img src="img/buttons/ed/bt_informatica_check.png">			
+	<img src="img/buttons/ed/bt_informatica_menos.png">			
+	<img src="img/buttons/ed/bt_livros_add.png">			
+	<img src="img/buttons/ed/bt_livros_check_1.png">			
+	<img src="img/buttons/ed/bt_livros_menos_1.png">			
+	<img src="img/buttons/ed/bt_musica_add.png">			
+	<img src="img/buttons/ed/bt_musica_check.png">			
+	<img src="img/buttons/ed/bt_musica_menos.png">			
+	<img src="img/buttons/ed/bt_quimica_add.png">			
+	<img src="img/buttons/ed/bt_quimica_check.png">			
+	<img src="img/buttons/ed/bt_quimica_menos.png">			
+	<img src="img/buttons/ed/bt_teatro_add.png">			
+	<img src="img/buttons/ed/bt_teatro_check.png">			
+	<img src="img/buttons/ed/bt_teatro_menos.png">
+	<!----------------------------------------------------------->			
+
+	<img src="img/buttons/ef/bt_acessib_add.png">
+	<img src="img/buttons/ef/bt_acessib_check.png">
+	<img src="img/buttons/ef/bt_acessib_menos.png">
+	<img src="img/buttons/ef/bt_arbori_add.png">
+	<img src="img/buttons/ef/bt_arbori_check.png">
+	<img src="img/buttons/ef/bt_arbori_menos.png">
+	<img src="img/buttons/ef/bt_bus_add.png">
+	<img src="img/buttons/ef/bt_bus_check.png">
+	<img src="img/buttons/ef/bt_bus_menos.png">
+	<img src="img/buttons/ef/bt_horta_add.png">
+	<img src="img/buttons/ef/bt_horta_check.png">
+	<img src="img/buttons/ef/bt_horta_menos.png">
+	<img src="img/buttons/ef/bt_lixo_add.png">
+	<img src="img/buttons/ef/bt_lixo_check.png">
+	<img src="img/buttons/ef/bt_lixo_menos.png">
+	<img src="img/buttons/ef/bt_parque_add.png">
+	<img src="img/buttons/ef/bt_parque_check.png">
+	<img src="img/buttons/ef/bt_parque_menos.png">
+	<img src="img/buttons/ef/bt_pintar_add.png">
+	<img src="img/buttons/ef/bt_pintar_check.png">
+	<img src="img/buttons/ef/bt_pintar_menos.png">
+	<!----------------------------------------------------------->
+
+	<img src="img/buttons/es/bt_carteira_add.png">
+	<img src="img/buttons/es/bt_carteira_check.png">
+	<img src="img/buttons/es/bt_carteira_menos.png">
+	<img src="img/buttons/es/bt_globo_add.png">
+	<img src="img/buttons/es/bt_globo_check.png">
+	<img src="img/buttons/es/bt_globo_menos.png">
+	<img src="img/buttons/es/bt_lampada_add.png">
+	<img src="img/buttons/es/bt_lampada_check.png">
+	<img src="img/buttons/es/bt_lampada_menos.png">
+	<img src="img/buttons/es/bt_lapis_add.png">
+	<img src="img/buttons/es/bt_lapis_check.png">
+	<img src="img/buttons/es/bt_lapis_menos.png">
+	<img src="img/buttons/es/bt_livros_add.png">
+	<img src="img/buttons/es/bt_livros_check.png">
+	<img src="img/buttons/es/bt_livros_menos.png">
+	<img src="img/buttons/es/bt_lixo_add_1.png">
+	<img src="img/buttons/es/bt_lixo_check_1.png">
+	<img src="img/buttons/es/bt_lixo_menos_1.png">
+	<img src="img/buttons/es/bt_quadro_add.png">
+	<img src="img/buttons/es/bt_quadro_check.png">
+	<img src="img/buttons/es/bt_quadro_menos.png">
+</div>
+
+<div id="allAnimationCache" style="display: none;">
+	<!---Animacao Circulo Laranja------------------------->
+	<img src='img/animation/robo_circulo/Fala_1_Circulo_2_00000.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00001.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00002.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00003.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00004.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00005.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00006.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00007.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00008.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00009.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00010.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00011.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00012.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00013.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00014.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00015.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00016.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00017.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00018.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00019.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00020.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00021.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00022.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00023.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00024.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00025.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00026.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00027.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00028.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00029.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00030.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00031.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00032.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00033.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00034.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00035.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00036.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00037.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00038.png'><img src='img/animation/robo_circulo/Fala_1_Circulo_2_00039.png'>
+
+	<!---Animacao Circulo Contador------------------------->
+	<img src='img/animation/contador/contador_00000.png'><img src='img/animation/contador/contador_00001.png'><img src='img/animation/contador/contador_00002.png'><img src='img/animation/contador/contador_00003.png'><img src='img/animation/contador/contador_00004.png'><img src='img/animation/contador/contador_00005.png'><img src='img/animation/contador/contador_00006.png'><img src='img/animation/contador/contador_00007.png'><img src='img/animation/contador/contador_00008.png'><img src='img/animation/contador/contador_00009.png'><img src='img/animation/contador/contador_00010.png'>
+
+	<!---Animacao Circulo Boneco inteiro------------------------->
+	<img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00000.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00001.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00002.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00003.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00004.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00005.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00006.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00007.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00008.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00009.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00010.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00011.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00012.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00013.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00014.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00015.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00016.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00017.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00018.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00019.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00020.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00021.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00022.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00023.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00024.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00025.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00026.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00027.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00028.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00029.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00030.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00031.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00032.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00033.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00034.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00035.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00036.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00037.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00038.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00039.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00040.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00041.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00042.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00043.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00044.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00045.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00046.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00047.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00048.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00049.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00050.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00051.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00052.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00053.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00054.png'><img src='img/animation/robo_inteiro/Fala_Completo_8f_2_00055.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/cursor/drag/drag_00000.png'><img src='img/animation/cursor/drag/drag_00001.png'><img src='img/animation/cursor/drag/drag_00002.png'><img src='img/animation/cursor/drag/drag_00003.png'><img src='img/animation/cursor/drag/drag_00004.png'><img src='img/animation/cursor/drag/drag_00005.png'><img src='img/animation/cursor/drag/drag_00006.png'><img src='img/animation/cursor/drag/drag_00007.png'><img src='img/animation/cursor/drag/drag_00008.png'><img src='img/animation/cursor/drag/drag_00009.png'><img src='img/animation/cursor/drag/drag_00010.png'><img src='img/animation/cursor/drag/drag_00011.png'><img src='img/animation/cursor/drag/drag_00012.png'><img src='img/animation/cursor/drag/drag_00013.png'><img src='img/animation/cursor/drag/drag_00014.png'><img src='img/animation/cursor/drag/drag_00015.png'><img src='img/animation/cursor/drag/drag_00016.png'><img src='img/animation/cursor/drag/drag_00017.png'><img src='img/animation/cursor/drag/drag_00018.png'><img src='img/animation/cursor/drag/drag_00019.png'><img src='img/animation/cursor/drag/drag_00020.png'><img src='img/animation/cursor/drag/drag_00021.png'><img src='img/animation/cursor/drag/drag_00022.png'><img src='img/animation/cursor/drag/drag_00023.png'><img src='img/animation/cursor/drag/drag_00024.png'><img src='img/animation/cursor/drag/drag_00025.png'><img src='img/animation/cursor/drag/drag_00026.png'><img src='img/animation/cursor/drag/drag_00027.png'><img src='img/animation/cursor/drag/drag_00028.png'><img src='img/animation/cursor/drag/drag_00029.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/cursor/click/click_00000.png'><img src='img/animation/cursor/click/click_00001.png'><img src='img/animation/cursor/click/click_00002.png'><img src='img/animation/cursor/click/click_00003.png'><img src='img/animation/cursor/click/click_00004.png'><img src='img/animation/cursor/click/click_00005.png'><img src='img/animation/cursor/click/click_00006.png'><img src='img/animation/cursor/click/click_00007.png'><img src='img/animation/cursor/click/click_00008.png'><img src='img/animation/cursor/click/click_00009.png'><img src='img/animation/cursor/click/click_00010.png'><img src='img/animation/cursor/click/click_00011.png'><img src='img/animation/cursor/click/click_00012.png'><img src='img/animation/cursor/click/click_00013.png'><img src='img/animation/cursor/click/click_00014.png'><img src='img/animation/cursor/click/click_00015.png'><img src='img/animation/cursor/click/click_00016.png'><img src='img/animation/cursor/click/click_00017.png'><img src='img/animation/cursor/click/click_00018.png'><img src='img/animation/cursor/click/click_00019.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/antenaradio/antenaradio_00000.png'><img src='img/animation/antenaradio/antenaradio_00001.png'><img src='img/animation/antenaradio/antenaradio_00002.png'><img src='img/animation/antenaradio/antenaradio_00003.png'><img src='img/animation/antenaradio/antenaradio_00004.png'><img src='img/animation/antenaradio/antenaradio_00005.png'><img src='img/animation/antenaradio/antenaradio_00006.png'><img src='img/animation/antenaradio/antenaradio_00007.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00001.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00002.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00003.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00004.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00005.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00006.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00007.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00008.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00009.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00010.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00011.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00012.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00013.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00014.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00015.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00016.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00017.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00018.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00019.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00020.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00021.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00022.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00023.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00024.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00025.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00026.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00027.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00028.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00029.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00030.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00031.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00032.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00033.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00034.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00035.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00036.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00037.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00038.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00039.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00040.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00041.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00042.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00043.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00044.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00045.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00046.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00047.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00048.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00049.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00050.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00051.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00052.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00053.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00054.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00055.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00056.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00057.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00058.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00059.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00060.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00061.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00062.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00063.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00064.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00065.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00066.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00067.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00068.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00069.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00070.png'><img src='img/animation/FaseLazer/Gangorra2/Gangorra_2_00071.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/FaseLazer/Toboga/Toboga_00000.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00001.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00002.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00003.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00004.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00005.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00006.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00007.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00008.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00009.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00010.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00011.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00012.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00013.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00014.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00015.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00016.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00017.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00018.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00019.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00020.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00021.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00022.png'><img src='img/animation/FaseLazer/Toboga/Toboga_00023.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/FaseLazer/Celular/Celular_00000.png'><img src='img/animation/FaseLazer/Celular/Celular_00001.png'><img src='img/animation/FaseLazer/Celular/Celular_00002.png'><img src='img/animation/FaseLazer/Celular/Celular_00003.png'><img src='img/animation/FaseLazer/Celular/Celular_00004.png'><img src='img/animation/FaseLazer/Celular/Celular_00005.png'><img src='img/animation/FaseLazer/Celular/Celular_00006.png'><img src='img/animation/FaseLazer/Celular/Celular_00007.png'><img src='img/animation/FaseLazer/Celular/Celular_00008.png'><img src='img/animation/FaseLazer/Celular/Celular_00009.png'><img src='img/animation/FaseLazer/Celular/Celular_00010.png'><img src='img/animation/FaseLazer/Celular/Celular_00011.png'><img src='img/animation/FaseLazer/Celular/Celular_00012.png'><img src='img/animation/FaseLazer/Celular/Celular_00013.png'><img src='img/animation/FaseLazer/Celular/Celular_00014.png'><img src='img/animation/FaseLazer/Celular/Celular_00015.png'><img src='img/animation/FaseLazer/Celular/Celular_00016.png'><img src='img/animation/FaseLazer/Celular/Celular_00017.png'><img src='img/animation/FaseLazer/Celular/Celular_00018.png'><img src='img/animation/FaseLazer/Celular/Celular_00019.png'><img src='img/animation/FaseLazer/Celular/Celular_00020.png'><img src='img/animation/FaseLazer/Celular/Celular_00021.png'><img src='img/animation/FaseLazer/Celular/Celular_00022.png'><img src='img/animation/FaseLazer/Celular/Celular_00023.png'><img src='img/animation/FaseLazer/Celular/Celular_00024.png'><img src='img/animation/FaseLazer/Celular/Celular_00025.png'><img src='img/animation/FaseLazer/Celular/Celular_00026.png'><img src='img/animation/FaseLazer/Celular/Celular_00027.png'><img src='img/animation/FaseLazer/Celular/Celular_00028.png'><img src='img/animation/FaseLazer/Celular/Celular_00029.png'><img src='img/animation/FaseLazer/Celular/Celular_00030.png'><img src='img/animation/FaseLazer/Celular/Celular_00031.png'><img src='img/animation/FaseLazer/Celular/Celular_00032.png'><img src='img/animation/FaseLazer/Celular/Celular_00033.png'><img src='img/animation/FaseLazer/Celular/Celular_00034.png'><img src='img/animation/FaseLazer/Celular/Celular_00035.png'><img src='img/animation/FaseLazer/Celular/Celular_00036.png'><img src='img/animation/FaseLazer/Celular/Celular_00037.png'><img src='img/animation/FaseLazer/Celular/Celular_00038.png'><img src='img/animation/FaseLazer/Celular/Celular_00039.png'><img src='img/animation/FaseLazer/Celular/Celular_00040.png'><img src='img/animation/FaseLazer/Celular/Celular_00041.png'><img src='img/animation/FaseLazer/Celular/Celular_00042.png'><img src='img/animation/FaseLazer/Celular/Celular_00043.png'><img src='img/animation/FaseLazer/Celular/Celular_00044.png'><img src='img/animation/FaseLazer/Celular/Celular_00045.png'><img src='img/animation/FaseLazer/Celular/Celular_00046.png'><img src='img/animation/FaseLazer/Celular/Celular_00047.png'><img src='img/animation/FaseLazer/Celular/Celular_00048.png'><img src='img/animation/FaseLazer/Celular/Celular_00049.png'><img src='img/animation/FaseLazer/Celular/Celular_00050.png'><img src='img/animation/FaseLazer/Celular/Celular_00051.png'><img src='img/animation/FaseLazer/Celular/Celular_00052.png'><img src='img/animation/FaseLazer/Celular/Celular_00053.png'><img src='img/animation/FaseLazer/Celular/Celular_00054.png'><img src='img/animation/FaseLazer/Celular/Celular_00055.png'><img src='img/animation/FaseLazer/Celular/Celular_00056.png'><img src='img/animation/FaseLazer/Celular/Celular_00057.png'><img src='img/animation/FaseLazer/Celular/Celular_00058.png'><img src='img/animation/FaseLazer/Celular/Celular_00059.png'><img src='img/animation/FaseLazer/Celular/Celular_00060.png'><img src='img/animation/FaseLazer/Celular/Celular_00061.png'><img src='img/animation/FaseLazer/Celular/Celular_00062.png'><img src='img/animation/FaseLazer/Celular/Celular_00063.png'><img src='img/animation/FaseLazer/Celular/Celular_00064.png'><img src='img/animation/FaseLazer/Celular/Celular_00065.png'><img src='img/animation/FaseLazer/Celular/Celular_00066.png'><img src='img/animation/FaseLazer/Celular/Celular_00067.png'><img src='img/animation/FaseLazer/Celular/Celular_00068.png'><img src='img/animation/FaseLazer/Celular/Celular_00069.png'><img src='img/animation/FaseLazer/Celular/Celular_00070.png'><img src='img/animation/FaseLazer/Celular/Celular_00071.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/FaseLazer/Balanco2/Balanco_2_00001.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00002.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00003.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00004.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00005.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00006.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00007.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00008.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00009.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00010.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00011.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00012.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00013.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00014.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00015.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00016.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00017.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00018.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00019.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00020.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00021.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00022.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00023.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00024.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00025.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00026.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00027.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00028.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00029.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00030.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00031.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00032.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00033.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00034.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00035.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00036.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00037.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00038.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00039.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00040.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00041.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00042.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00043.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00044.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00045.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00046.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00047.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00048.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00049.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00050.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00051.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00052.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00053.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00054.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00055.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00056.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00057.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00058.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00059.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00060.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00061.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00062.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00063.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00064.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00065.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00066.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00067.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00068.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00069.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00070.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00071.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00072.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00073.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00074.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00075.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00076.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00077.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00078.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00079.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00080.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00081.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00082.png'><img src='img/animation/FaseLazer/Balanco2/Balanco_2_00083.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/bebedouro/bebedouro_00001.png'><img src='img/animation/bebedouro/bebedouro_00002.png'><img src='img/animation/bebedouro/bebedouro_00003.png'><img src='img/animation/bebedouro/bebedouro_00004.png'><img src='img/animation/bebedouro/bebedouro_00005.png'><img src='img/animation/bebedouro/bebedouro_00006.png'><img src='img/animation/bebedouro/bebedouro_00007.png'><img src='img/animation/bebedouro/bebedouro_00008.png'><img src='img/animation/bebedouro/bebedouro_00009.png'><img src='img/animation/bebedouro/bebedouro_00010.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/foguete/Lancamento075.png'><img src='img/animation/foguete/Lancamento076.png'><img src='img/animation/foguete/Lancamento077.png'><img src='img/animation/foguete/Lancamento078.png'><img src='img/animation/foguete/Lancamento079.png'><img src='img/animation/foguete/Lancamento080.png'><img src='img/animation/foguete/Lancamento081.png'><img src='img/animation/foguete/Lancamento082.png'><img src='img/animation/foguete/Lancamento083.png'><img src='img/animation/foguete/Lancamento084.png'><img src='img/animation/foguete/Lancamento085.png'><img src='img/animation/foguete/Lancamento086.png'><img src='img/animation/foguete/Lancamento087.png'><img src='img/animation/foguete/Lancamento088.png'><img src='img/animation/foguete/Lancamento089.png'><img src='img/animation/foguete/Lancamento090.png'><img src='img/animation/foguete/Lancamento091.png'><img src='img/animation/foguete/Lancamento092.png'><img src='img/animation/foguete/Lancamento093.png'><img src='img/animation/foguete/Lancamento094.png'><img src='img/animation/foguete/Lancamento095.png'><img src='img/animation/foguete/Lancamento096.png'><img src='img/animation/foguete/Lancamento097.png'><img src='img/animation/foguete/Lancamento098.png'><img src='img/animation/foguete/Lancamento099.png'><img src='img/animation/foguete/Lancamento100.png'><img src='img/animation/foguete/Lancamento101.png'><img src='img/animation/foguete/Lancamento102.png'><img src='img/animation/foguete/Lancamento103.png'><img src='img/animation/foguete/Lancamento104.png'><img src='img/animation/foguete/Lancamento105.png'><img src='img/animation/foguete/Lancamento106.png'><img src='img/animation/foguete/Lancamento107.png'><img src='img/animation/foguete/Lancamento108.png'><img src='img/animation/foguete/Lancamento109.png'><img src='img/animation/foguete/Lancamento110.png'><img src='img/animation/foguete/Lancamento111.png'><img src='img/animation/foguete/Lancamento112.png'><img src='img/animation/foguete/Lancamento113.png'><img src='img/animation/foguete/Lancamento114.png'><img src='img/animation/foguete/Lancamento115.png'><img src='img/animation/foguete/Lancamento116.png'><img src='img/animation/foguete/Lancamento117.png'><img src='img/animation/foguete/Lancamento118.png'><img src='img/animation/foguete/Lancamento119.png'><img src='img/animation/foguete/Lancamento120.png'><img src='img/animation/foguete/Lancamento121.png'><img src='img/animation/foguete/Lancamento122.png'><img src='img/animation/foguete/Lancamento123.png'><img src='img/animation/foguete/Lancamento124.png'><img src='img/animation/foguete/Lancamento125.png'><img src='img/animation/foguete/Lancamento126.png'><img src='img/animation/foguete/Lancamento127.png'><img src='img/animation/foguete/Lancamento128.png'><img src='img/animation/foguete/Lancamento129.png'><img src='img/animation/foguete/Lancamento130.png'><img src='img/animation/foguete/Lancamento131.png'><img src='img/animation/foguete/Lancamento132.png'><img src='img/animation/foguete/Lancamento133.png'><img src='img/animation/foguete/Lancamento134.png'><img src='img/animation/foguete/Lancamento135.png'><img src='img/animation/foguete/Lancamento136.png'><img src='img/animation/foguete/Lancamento137.png'><img src='img/animation/foguete/Lancamento138.png'><img src='img/animation/foguete/Lancamento139.png'><img src='img/animation/foguete/Lancamento140.png'><img src='img/animation/foguete/Lancamento141.png'><img src='img/animation/foguete/Lancamento142.png'><img src='img/animation/foguete/Lancamento143.png'><img src='img/animation/foguete/Lancamento144.png'><img src='img/animation/foguete/Lancamento145.png'><img src='img/animation/foguete/Lancamento146.png'><img src='img/animation/foguete/Lancamento147.png'><img src='img/animation/foguete/Lancamento148.png'><img src='img/animation/foguete/Lancamento149.png'><img src='img/animation/foguete/Lancamento150.png'><img src='img/animation/foguete/Lancamento151.png'><img src='img/animation/foguete/Lancamento152.png'><img src='img/animation/foguete/Lancamento153.png'><img src='img/animation/foguete/Lancamento154.png'><img src='img/animation/foguete/Lancamento155.png'><img src='img/animation/foguete/Lancamento156.png'><img src='img/animation/foguete/Lancamento157.png'><img src='img/animation/foguete/Lancamento158.png'><img src='img/animation/foguete/Lancamento159.png'><img src='img/animation/foguete/Lancamento160.png'><img src='img/animation/foguete/Lancamento161.png'><img src='img/animation/foguete/Lancamento162.png'><img src='img/animation/foguete/Lancamento163.png'><img src='img/animation/foguete/Lancamento164.png'><img src='img/animation/foguete/Lancamento165.png'><img src='img/animation/foguete/Lancamento166.png'><img src='img/animation/foguete/Lancamento167.png'><img src='img/animation/foguete/Lancamento168.png'><img src='img/animation/foguete/Lancamento169.png'><img src='img/animation/foguete/Lancamento170.png'><img src='img/animation/foguete/Lancamento171.png'><img src='img/animation/foguete/Lancamento172.png'><img src='img/animation/foguete/Lancamento173.png'><img src='img/animation/foguete/Lancamento174.png'><img src='img/animation/foguete/Lancamento175.png'><img src='img/animation/foguete/Lancamento176.png'><img src='img/animation/foguete/Lancamento177.png'><img src='img/animation/foguete/Lancamento178.png'><img src='img/animation/foguete/Lancamento179.png'><img src='img/animation/foguete/Lancamento180.png'><img src='img/animation/foguete/Lancamento181.png'><img src='img/animation/foguete/Lancamento182.png'><img src='img/animation/foguete/Lancamento183.png'><img src='img/animation/foguete/Lancamento184.png'><img src='img/animation/foguete/Lancamento185.png'><img src='img/animation/foguete/Lancamento186.png'><img src='img/animation/foguete/Lancamento187.png'><img src='img/animation/foguete/Lancamento188.png'><img src='img/animation/foguete/Lancamento189.png'><img src='img/animation/foguete/Lancamento190.png'><img src='img/animation/foguete/Lancamento191.png'><img src='img/animation/foguete/Lancamento192.png'><img src='img/animation/foguete/Lancamento193.png'><img src='img/animation/foguete/Lancamento194.png'><img src='img/animation/foguete/Lancamento195.png'><img src='img/animation/foguete/Lancamento196.png'><img src='img/animation/foguete/Lancamento197.png'><img src='img/animation/foguete/Lancamento198.png'><img src='img/animation/foguete/Lancamento199.png'><img src='img/animation/foguete/Lancamento200.png'><img src='img/animation/foguete/Lancamento201.png'><img src='img/animation/foguete/Lancamento202.png'><img src='img/animation/foguete/Lancamento203.png'><img src='img/animation/foguete/Lancamento204.png'><img src='img/animation/foguete/Lancamento205.png'><img src='img/animation/foguete/Lancamento206.png'><img src='img/animation/foguete/Lancamento207.png'><img src='img/animation/foguete/Lancamento208.png'><img src='img/animation/foguete/Lancamento209.png'><img src='img/animation/foguete/Lancamento210.png'><img src='img/animation/foguete/Lancamento211.png'><img src='img/animation/foguete/Lancamento212.png'><img src='img/animation/foguete/Lancamento213.png'><img src='img/animation/foguete/Lancamento214.png'><img src='img/animation/foguete/Lancamento215.png'><img src='img/animation/foguete/Lancamento216.png'><img src='img/animation/foguete/Lancamento217.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/torneira/torneira_00001.png'><img src='img/animation/torneira/torneira_00002.png'><img src='img/animation/torneira/torneira_00003.png'><img src='img/animation/torneira/torneira_00004.png'><img src='img/animation/torneira/torneira_00005.png'><img src='img/animation/torneira/torneira_00006.png'><img src='img/animation/torneira/torneira_00007.png'><img src='img/animation/torneira/torneira_00008.png'><img src='img/animation/torneira/torneira_00009.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/canos/canos_00001.png'><img src='img/animation/canos/canos_00002.png'><img src='img/animation/canos/canos_00003.png'><img src='img/animation/canos/canos_00004.png'><img src='img/animation/canos/canos_00005.png'><img src='img/animation/canos/canos_00006.png'><img src='img/animation/canos/canos_00007.png'><img src='img/animation/canos/canos_00008.png'><img src='img/animation/canos/canos_00009.png'><img src='img/animation/canos/canos_00010.png'><img src='img/animation/canos/canos_00011.png'><img src='img/animation/canos/canos_00012.png'><img src='img/animation/canos/canos_00013.png'><img src='img/animation/canos/canos_00014.png'><img src='img/animation/canos/canos_00015.png'><img src='img/animation/canos/canos_00016.png'><img src='img/animation/canos/canos_00017.png'><img src='img/animation/canos/canos_00018.png'><img src='img/animation/canos/canos_00019.png'><img src='img/animation/canos/canos_00020.png'><img src='img/animation/canos/canos_00021.png'><img src='img/animation/canos/canos_00022.png'><img src='img/animation/canos/canos_00023.png'><img src='img/animation/canos/canos_00024.png'><img src='img/animation/canos/canos_00025.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/cursor/keyboard/keyboard_00000.png'><img src='img/animation/cursor/keyboard/keyboard_00001.png'><img src='img/animation/cursor/keyboard/keyboard_00002.png'><img src='img/animation/cursor/keyboard/keyboard_00003.png'><img src='img/animation/cursor/keyboard/keyboard_00004.png'><img src='img/animation/cursor/keyboard/keyboard_00005.png'><img src='img/animation/cursor/keyboard/keyboard_00006.png'><img src='img/animation/cursor/keyboard/keyboard_00007.png'><img src='img/animation/cursor/keyboard/keyboard_00008.png'><img src='img/animation/cursor/keyboard/keyboard_00009.png'><img src='img/animation/cursor/keyboard/keyboard_00010.png'><img src='img/animation/cursor/keyboard/keyboard_00011.png'><img src='img/animation/cursor/keyboard/keyboard_00012.png'><img src='img/animation/cursor/keyboard/keyboard_00013.png'><img src='img/animation/cursor/keyboard/keyboard_00014.png'><img src='img/animation/cursor/keyboard/keyboard_00015.png'><img src='img/animation/cursor/keyboard/keyboard_00016.png'><img src='img/animation/cursor/keyboard/keyboard_00017.png'><img src='img/animation/cursor/keyboard/keyboard_00018.png'><img src='img/animation/cursor/keyboard/keyboard_00019.png'><img src='img/animation/cursor/keyboard/keyboard_00020.png'><img src='img/animation/cursor/keyboard/keyboard_00021.png'><img src='img/animation/cursor/keyboard/keyboard_00022.png'><img src='img/animation/cursor/keyboard/keyboard_00023.png'><img src='img/animation/cursor/keyboard/keyboard_00024.png'><img src='img/animation/cursor/keyboard/keyboard_00025.png'><img src='img/animation/cursor/keyboard/keyboard_00026.png'><img src='img/animation/cursor/keyboard/keyboard_00027.png'><img src='img/animation/cursor/keyboard/keyboard_00028.png'><img src='img/animation/cursor/keyboard/keyboard_00029.png'><img src='img/animation/cursor/keyboard/keyboard_00030.png'><img src='img/animation/cursor/keyboard/keyboard_00031.png'><img src='img/animation/cursor/keyboard/keyboard_00032.png'><img src='img/animation/cursor/keyboard/keyboard_00033.png'><img src='img/animation/cursor/keyboard/keyboard_00034.png'><img src='img/animation/cursor/keyboard/keyboard_00035.png'><img src='img/animation/cursor/keyboard/keyboard_00036.png'><img src='img/animation/cursor/keyboard/keyboard_00037.png'><img src='img/animation/cursor/keyboard/keyboard_00038.png'><img src='img/animation/cursor/keyboard/keyboard_00039.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/maquinaeduc/maquinaeduc_00000.png'><img src='img/animation/maquinaeduc/maquinaeduc_00001.png'><img src='img/animation/maquinaeduc/maquinaeduc_00002.png'><img src='img/animation/maquinaeduc/maquinaeduc_00003.png'><img src='img/animation/maquinaeduc/maquinaeduc_00004.png'><img src='img/animation/maquinaeduc/maquinaeduc_00005.png'><img src='img/animation/maquinaeduc/maquinaeduc_00006.png'><img src='img/animation/maquinaeduc/maquinaeduc_00007.png'><img src='img/animation/maquinaeduc/maquinaeduc_00008.png'><img src='img/animation/maquinaeduc/maquinaeduc_00009.png'><img src='img/animation/maquinaeduc/maquinaeduc_00010.png'><img src='img/animation/maquinaeduc/maquinaeduc_00011.png'><img src='img/animation/maquinaeduc/maquinaeduc_00012.png'><img src='img/animation/maquinaeduc/maquinaeduc_00013.png'><img src='img/animation/maquinaeduc/maquinaeduc_00014.png'>
+
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/maquinasaude/maquinasaude_00000.png'><img src='img/animation/maquinasaude/maquinasaude_00001.png'><img src='img/animation/maquinasaude/maquinasaude_00002.png'><img src='img/animation/maquinasaude/maquinasaude_00003.png'><img src='img/animation/maquinasaude/maquinasaude_00004.png'><img src='img/animation/maquinasaude/maquinasaude_00005.png'><img src='img/animation/maquinasaude/maquinasaude_00006.png'><img src='img/animation/maquinasaude/maquinasaude_00007.png'><img src='img/animation/maquinasaude/maquinasaude_00008.png'><img src='img/animation/maquinasaude/maquinasaude_00009.png'><img src='img/animation/maquinasaude/maquinasaude_00010.png'><img src='img/animation/maquinasaude/maquinasaude_00011.png'><img src='img/animation/maquinasaude/maquinasaude_00012.png'><img src='img/animation/maquinasaude/maquinasaude_00013.png'><img src='img/animation/maquinasaude/maquinasaude_00014.png'>
+
+	<!------------------------------------------------------------->
+
+	<img src='img/animation/maquinalazer/maquinalazer_00000.png'><img src='img/animation/maquinalazer/maquinalazer_00001.png'><img src='img/animation/maquinalazer/maquinalazer_00002.png'><img src='img/animation/maquinalazer/maquinalazer_00003.png'><img src='img/animation/maquinalazer/maquinalazer_00004.png'><img src='img/animation/maquinalazer/maquinalazer_00005.png'><img src='img/animation/maquinalazer/maquinalazer_00006.png'><img src='img/animation/maquinalazer/maquinalazer_00007.png'><img src='img/animation/maquinalazer/maquinalazer_00008.png'><img src='img/animation/maquinalazer/maquinalazer_00009.png'><img src='img/animation/maquinalazer/maquinalazer_00010.png'><img src='img/animation/maquinalazer/maquinalazer_00011.png'><img src='img/animation/maquinalazer/maquinalazer_00012.png'><img src='img/animation/maquinalazer/maquinalazer_00013.png'><img src='img/animation/maquinalazer/maquinalazer_00014.png'>
+
+
+
+</div>
+
+
+
+	<div class="modal fade" id="modalQuest" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Epa, responda a pergunta primeiro!</h4>
+	      </div>
+	      <div class="modal-footer">
+	      
+	        <button id="modalQuestClose" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<div class="modal fade" id="modalSust1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel"><b>Clique</b> nos legumes para tirá-los da pia!</h4>
+	      </div>
+	      <div class="modal-footer">
+	      
+	        <button id="modalSust1C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalSust2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel"><b>Clique</b> nos legumes para lavá-los!</h4>
+	      </div>
+	      <div class="modal-footer">
+	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalSaude1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Você pode escolher até 5 alimentos.</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalSaude2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Seu prato não está saudável ainda.</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+		<div class="modal fade" id="modalSaude3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Coloque 5 alimentos no prato!</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalSaude4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Ainda tem energia sobrando. Brinque mais!</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalSaude5" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Tem alimento não saúdavel no seu prato.</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+	<div class="modal fade" id="modalEscola1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Selecione 5 coisas para sua escola!</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="modalSust2C" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<div class="modal fade" id="modalMonstrinhos" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog modal-sm" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Primeiro, veja o monstrinho que você ganhou.</h4>
+	      </div>
+	      <div class="modal-footer">	      
+	        <button id="BmodalMonstrinhos" type="button" class="btn btn-primary">Entendi!</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+</body>
+
+<script type="text/javascript" src="vendor/jquery/jquery-3.4.0.min.js"></script>
+<script type="text/javascript" src="vendor/jquery_ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="vendor/jsmovie/jquery.jsmovie.1.4.4.js"></script>
+
+<script type="text/javascript" src="vendor/playSong/jquery.playSound.js"></script>
+<script type="text/javascript" src="vendor/howler/howler.core.js"></script>
+
+<script type="text/javascript" src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="vendor/html2canvas/html2canvas.min.js"></script>
+<script type="text/javascript" src="js/content.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+<script type="text/javascript" src="js/desafios.js"></script>
 </html>
+
