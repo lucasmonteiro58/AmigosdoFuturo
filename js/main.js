@@ -1,6 +1,8 @@
 //First page
 
-
+$(function(){
+        $("#includedContent").load("links.html"); 
+    });
 
 
 if ($("#menu").length) {

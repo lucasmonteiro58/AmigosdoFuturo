@@ -1714,7 +1714,7 @@ PauseSond(audioParabensMapa);
     });
 
     $('#animacaoEscorregador').jsMovie({
-    sequence: 'Tobogã_000##.png',
+    sequence: 'Toboga_000##.png',
     from: 0,
     to: 23,
     fps: 15,
