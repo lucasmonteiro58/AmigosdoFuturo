@@ -35,7 +35,7 @@
 .pace .pace-progress {
   position: fixed;
   z-index: 99999;
-  top: 33%;
+  top: 42%;
   left: 54%;
   height: 5rem;
   width: 5rem;
@@ -83,7 +83,8 @@
     width: 100%;
     height: 100%;
     z-index: 9998;
-    background: url('../img/loading.gif') 50% 50% no-repeat #EFEFEF;
+    background-color:  #EFEFEF;
+    
 
 }
 
@@ -695,9 +696,9 @@
   position: absolute; 
   background-repeat: no-repeat;  
   background-size: cover;
-  top: 29%;
-  left: 42%;  
-  transform: scale(2.2) ;
+  top: 25%;
+  left: 36%;  
+  transform: scale(2.1) ;
 }
 
 /*Quiz Section ----------------------------------------------------------*/
@@ -712,9 +713,9 @@
   position: absolute; 
   background-repeat: no-repeat;  
   background-size: cover;
-  top: -8%;
-  left: 22.5%;  
-  transform: scale(0.7) ;
+  top: 21%;
+  left: 46%;  
+  transform: scale(1.5) ;
 }
 
   .badges-about {
@@ -1239,9 +1240,9 @@
   position: absolute; 
   background-repeat: no-repeat;  
   background-size: cover;
-  top: 12%;
-  left: 33%;  
-  transform: scale(1.45) ;
+  top: 6%;
+  left: 30%;  
+  transform: scale(1.2) ;
 }
 
  .robot-question img {

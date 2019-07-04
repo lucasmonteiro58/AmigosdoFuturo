@@ -47,14 +47,14 @@
 
 
     $('#AnimacaoRoboCommentMapa').jsMovie({
-        sequence: 'Fala_Completo_8f_2_000##.png',
+        sequence: 'Robo_Fala_Completo_000##.png',
         from: 0,
-        to: 55,
+        to: 79,
         fps: 10,
         width:'71%',
         height: '61%',
-        folder : "img/animation/robo_inteiro/",
-        playOnLoad:false      
+        folder : "img/animation/robo/Robo_Fala_Completo/",
+        playOnLoad:false       
       });
 
 
@@ -97,7 +97,9 @@ PauseSond(audioParabensMapa);
 
        
 
-  $('#AnimacaoRoboCommentMapa').jsMovie('play',1,56,false, false);
+ // $('#AnimacaoRoboCommentMapa').jsMovie('play',1,56,false, false);
+  $('#AnimacaoRoboCommentMapa').jsMovie('play',1,80,false,false);
+  $('#AnimacaoRoboCommentMapa').jsMovie('play',65,80,true,false);
 
       $("#AnimacaoArrastarMapa").jsMovie("destroy");
        //$("#AnimacaoArrastarMapa").jsMovie("throwError",1);

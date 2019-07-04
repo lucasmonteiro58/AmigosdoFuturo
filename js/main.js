@@ -61,8 +61,34 @@ function playAudioButton(){
     })
 
     $("#modalSust2C").click(function () {
-      $('#modalSust2').modal('hide')
+      $('#modalSust2', '#modalEscola1').modal('hide')
     })
+
+    $("#modalSaude1C").click(function () {
+      $('#modalSaude1').modal('hide')
+    })
+
+     $("#modalSaude2C").click(function () {
+      $('#modalSaude2').modal('hide')
+    })
+
+      $("#modalSaude3C").click(function () {
+      $('#modalSaude3').modal('hide')
+    })
+
+     $("#modalSaude4C").click(function () {
+      $('#modalSaude4').modal('hide')
+    })
+
+      $("#modalSaude5C").click(function () {
+      $('#modalSaude5').modal('hide')
+    })
+
+        $("#modalEscola1C").click(function () {
+      $('#modalEscola1').modal('hide')
+    })
+   
+
 
 
     // Toggle fullscreen
@@ -242,12 +268,13 @@ function playAudioButton(){
     }
   }
 
-// Menu  -----------------------------------------------------------------
+// Menu  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
   function menu() {
     $("#start-game").click(function () {
         playAudioButton();
         cutscene_name = "start"
         updateSectionAJAX("cutscene")
+        //updateSectionAJAX("feedback")
       })
 
     incrementAccess()
@@ -303,13 +330,13 @@ function playAudioButton(){
     configPrevNext()
 
      $('#AnimacaoRoboForm').jsMovie({
-      sequence: 'Fala_1_Circulo_2_000##.png',
+      sequence: 'Robo_Fala_1_000##.png',
       from: 0,
       to: 39,
       fps: 10,
-      width:'71%',
-      height: '61%',
-      folder : "img/animation/robo_circulo/",
+      width:'75%',
+      height: '65%',
+      folder : "img/animation/robo/Robo_Fala_1/",
       playOnLoad:false         
     });
 
@@ -528,13 +555,13 @@ function playAudioButton(){
     actual_section = "quiz"
 
     $('#animacaoRoboQuiz').jsMovie({
-      sequence: 'Fala_1_Circulo_2_000##.png',
+      sequence: 'Robo_Fala_1_000##.png',
       from: 0,
       to: 39,
       fps: 10,
-      width:'71%',
-      height: '82%',
-      folder : "img/animation/robo_circulo/",
+      width:'48%',
+      height: '55%',
+      folder : "img/animation/robo/Robo_Fala_1/",
       playOnLoad:false         
     });
 
@@ -691,17 +718,21 @@ function playAudioButton(){
     if (comment_name == "about_region") {
 
        $('#AnimacaoRoboComment').jsMovie({
-        sequence: 'Fala_Completo_8f_2_000##.png',
+        sequence: 'Robo_Fala_Completo_000##.png',
         from: 0,
-        to: 55,
+        to: 79,
         fps: 10,
         width:'71%',
         height: '61%',
-        folder : "img/animation/robo_inteiro/",
+        folder : "img/animation/robo/Robo_Fala_Completo/",
         playOnLoad:false      
       });
 
-$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
+
+ $('#AnimacaoRoboComment').jsMovie('play',1,80,false,false);
+  $('#AnimacaoRoboComment').jsMovie('play',65,80,true,false);
+
+//$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
       
       var region = searchForRegion()
       if (region) {
@@ -733,18 +764,20 @@ $('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
     } else {
 
       createComment(comments_texts[comment_name])
-      $('#AnimacaoRoboComment').jsMovie({
-        sequence: 'Fala_Completo_8f_2_000##.png',
+     $('#AnimacaoRoboComment').jsMovie({
+        sequence: 'Robo_Fala_Completo_000##.png',
         from: 0,
-        to: 55,
+        to: 79,
         fps: 10,
         width:'71%',
         height: '61%',
-        folder : "img/animation/robo_inteiro/",
+        folder : "img/animation/robo/Robo_Fala_Completo/",
         playOnLoad:false      
       });
 
-$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
+
+  $('#AnimacaoRoboComment').jsMovie('play',1,80,false,false);
+  $('#AnimacaoRoboComment').jsMovie('play',65,80,true,false);
     }
   }
 
@@ -940,14 +973,14 @@ $('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
   function feedback() {
 
      $('#AnimacaoRoboFeedback').jsMovie({
-      sequence: 'Fala_1_Circulo_2_000##.png',
+     sequence: 'Robo_Fala_1_000##.png',
       from: 0,
       to: 39,
       fps: 10,
-      width:'71%',
-      height: '65%',
-      folder : "img/animation/robo_circulo/",
-      playOnLoad:false         
+      width:'75%',
+      height: '70%',
+      folder : "img/animation/robo/Robo_Fala_1/",
+      playOnLoad:false              
     });
 
      $('#AnimacaoRoboFeedback').jsMovie('play',1,40,false,false);
