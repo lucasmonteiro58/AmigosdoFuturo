@@ -713,9 +713,9 @@
   position: absolute; 
   background-repeat: no-repeat;  
   background-size: cover;
-  top: 21%;
-  left: 46%;  
-  transform: scale(1.5) ;
+  top: 19%;
+  left: 44%;  
+  transform: scale(1.4) ;
 }
 
   .badges-about {

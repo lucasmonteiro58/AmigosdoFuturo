@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+
+<p id="xxx"></p>
+<p id="demo"></p>
+
+<script>
+
+
+
+var string = "img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_000"
+
+var inicio= 0
+var fim = 39
+
+var text= "";
+for (var i = inicio; i <=fim; i++) {
+
+	//http://localhost:8080/Amigos%20do%20Futuro/img/animation/contador/contador_00000.png
+
+	if (i<10){
+
+		text+="<img src='"+string+"0"+i+".png'>"  
+	} else {
+
+		 text+="<img src='"+string+i+".png'>"
+	}
+ 
+  
+}
+
+document.getElementById("xxx").innerText = "<!------------------------------------------------------------->";
+document.getElementById("demo").innerText = text; 
+
+</script>
+
+</body>
+</html>

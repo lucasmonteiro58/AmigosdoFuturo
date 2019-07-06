@@ -329,20 +329,8 @@ function playAudioButton(){
     
     configPrevNext()
 
-     $('#AnimacaoRoboForm').jsMovie({
-      sequence: 'Robo_Fala_1_000##.png',
-      from: 0,
-      to: 39,
-      fps: 10,
-      width:'75%',
-      height: '65%',
-      folder : "img/animation/robo/Robo_Fala_1/",
-      playOnLoad:false         
-    });
-
-     $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
-    $('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
-
+    A_RoboLaranja1_create('#AnimacaoRoboForm')
+    A_RoboLaranja1_play('#AnimacaoRoboForm')
   }
 
   function configPrevNext() {
@@ -350,17 +338,12 @@ function playAudioButton(){
     $("#prev").click(function () {
       prevNextDisable()
       previousQuestion()
-      playAudioButton();
-    $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
-    //$('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
+      playAudioButton()
     })
     $("#next").click(function () {
       prevNextDisable()
       nextQuestion()
-      playAudioButton();
-    $('#AnimacaoRoboForm').jsMovie('play',1,40,false,false);
-   // $('#AnimacaoRoboForm').jsMovie('play',27,40,true,false);
-
+      playAudioButton()
     })
   }
   function nextQuestion() {
@@ -390,11 +373,23 @@ function playAudioButton(){
   function goToQuestion(number) {
     if (number == questions_array.length-1) {
       createQuestion(questions_array[number])
+       if (actual_section=="form"){
+         A_RoboLaranja1_again('#AnimacaoRoboForm')
+       }     
     } else {
       createQuestion(questions_array[number])
+       if (actual_section=="form"){
+          A_RoboLaranja1_again('#AnimacaoRoboForm')
+         }
+     
     }
   }
   function createQuestion(question) {
+
+    if (actual_section=="quiz"){
+      A_RoboQuiz_again("#animacaoRoboQuiz");
+    }
+     
     //Form reusable div
     var questionHTML = ""
     if (question["type"] == "options") {
@@ -481,6 +476,7 @@ function playAudioButton(){
    if (actual_section == 'quiz') {
         calculateInputQuiz()
     }
+
     saveInputInStorage()
     nextQuestion()
   }
@@ -495,7 +491,7 @@ function playAudioButton(){
         //Next section
         //comment_name = "start_game"
         comment_name = "about_region"
-         $('#AnimacaoRoboForm').jsMovie("destroy");
+        destroyAnimation('#AnimacaoRoboForm')
         updateSectionAJAX("comment")
 
 
@@ -554,19 +550,10 @@ function playAudioButton(){
     questions_array = quiz_texts
     actual_section = "quiz"
 
-    $('#animacaoRoboQuiz').jsMovie({
-      sequence: 'Robo_Fala_1_000##.png',
-      from: 0,
-      to: 39,
-      fps: 10,
-      width:'48%',
-      height: '55%',
-      folder : "img/animation/robo/Robo_Fala_1/",
-      playOnLoad:false         
-    });
 
-     $('#animacaoRoboQuiz').jsMovie('play',1,40,false,false);
-    $('#animacaoRoboQuiz').jsMovie('play',27,40,true,false);
+    A_RoboQuiz_create('#animacaoRoboQuiz')
+    A_RoboQuiz_play('#animacaoRoboQuiz')
+
 
     createQuestion(questions_array[question_number])
 
@@ -613,6 +600,7 @@ function playAudioButton(){
     $("#single-badge-details").html(badgeHTML)  
   }
   function quizYesOrNo() {
+
     var inputName = $("input").attr("name")
     var value = $("input[name='"+inputName+"']:checked").val()
     return value
@@ -717,22 +705,10 @@ function playAudioButton(){
   function comment() {
     if (comment_name == "about_region") {
 
-       $('#AnimacaoRoboComment').jsMovie({
-        sequence: 'Robo_Fala_Completo_000##.png',
-        from: 0,
-        to: 79,
-        fps: 10,
-        width:'71%',
-        height: '61%',
-        folder : "img/animation/robo/Robo_Fala_Completo/",
-        playOnLoad:false      
-      });
+      A_RoboInteiro_create('#AnimacaoRoboComment')
+      A_RoboInteiro_play('#AnimacaoRoboComment')
 
 
- $('#AnimacaoRoboComment').jsMovie('play',1,80,false,false);
-  $('#AnimacaoRoboComment').jsMovie('play',65,80,true,false);
-
-//$('#AnimacaoRoboComment').jsMovie('play',1,56,false, false);
       
       var region = searchForRegion()
       if (region) {
@@ -750,6 +726,7 @@ function playAudioButton(){
            if(sessionStorage.getItem('sound')=='on'){
            audio_regiao.load();
            audio_regiao.play();
+           A_RoboInteiro_again('#AnimacaoRoboComment')
            }        
         });
 
@@ -764,20 +741,28 @@ function playAudioButton(){
     } else {
 
       createComment(comments_texts[comment_name])
-     $('#AnimacaoRoboComment').jsMovie({
-        sequence: 'Robo_Fala_Completo_000##.png',
-        from: 0,
-        to: 79,
-        fps: 10,
-        width:'71%',
-        height: '61%',
-        folder : "img/animation/robo/Robo_Fala_Completo/",
-        playOnLoad:false      
-      });
 
 
-  $('#AnimacaoRoboComment').jsMovie('play',1,80,false,false);
-  $('#AnimacaoRoboComment').jsMovie('play',65,80,true,false);
+
+      A_RoboInteiro_create('#AnimacaoRoboComment')
+      A_RoboInteiro_play('#AnimacaoRoboComment')
+
+       $("button.toggle.repeat").click(function() {
+          playAudioButton()
+           if(sessionStorage.getItem('sound')=='on'){
+          A_RoboInteiro_again('#AnimacaoRoboComment')
+           audio_regiao.load();
+           audio_regiao.play();
+         
+           }        
+        });
+
+        $("button#go-comment.toggle.next").click(function() {
+          audio_regiao.load();
+          playAudioButton()
+        }); 
+
+
     }
   }
 
@@ -972,19 +957,25 @@ function playAudioButton(){
 // Feedback ----------------------------------------------------------------
   function feedback() {
 
-     $('#AnimacaoRoboFeedback').jsMovie({
-     sequence: 'Robo_Fala_1_000##.png',
-      from: 0,
-      to: 39,
-      fps: 10,
-      width:'75%',
-      height: '70%',
-      folder : "img/animation/robo/Robo_Fala_1/",
-      playOnLoad:false              
-    });
+    A_RoboFeedback_create('#AnimacaoRoboFeedback');
+    A_RoboFeedback_play('#AnimacaoRoboFeedback');
 
-     $('#AnimacaoRoboFeedback').jsMovie('play',1,40,false,false);
-    $('#AnimacaoRoboFeedback').jsMovie('play',27,40,true,false);
+     $("button.toggle.repeat").click(function() {
+          playAudioButton()
+           if(sessionStorage.getItem('sound')=='on'){
+          A_RoboFeedback_again('#AnimacaoRoboFeedback')
+          // audio_regiao.load();
+          // audio_regiao.play();
+         
+           }        
+        });
+
+        $("button#go-comment.toggle.next").click(function() {
+         // audio_regiao.load();
+          playAudioButton()
+        }); 
+     
+
 
   
 
