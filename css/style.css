@@ -1058,10 +1058,20 @@
     padding: 8% 4% 6% 18%;
     z-index: 2;
 
-    background-image: url(../img/help/box-robot-help.png);
+    background-image: url(../img/help/box-robot-help2.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+  }
+
+  #AnimacaoRoboHelp{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 23%;
+  left: 13.5%;  
+  transform: scale(1.45) ;
+
   }
 
   #robot-help-mini {
@@ -1112,6 +1122,16 @@
     position: relative;
     width: 100%;
     padding-top: 56.25%;
+  }
+
+   #AnimacaoRoboCongrats{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 12%;
+  left: 28%;  
+  transform: scale(1.45) ;
+
   }
 
   .robot-congrats {

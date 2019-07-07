@@ -14,6 +14,9 @@
 
     $('[data-toggle="popover"]').popover({html:true})
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
 
  $('#AnimacaoArrastarMapa').jsMovie({
       sequence: 'drag_000##.png',
@@ -46,16 +49,9 @@
       });
 
 
-    $('#AnimacaoRoboCommentMapa').jsMovie({
-        sequence: 'Robo_Fala_Completo_000##.png',
-        from: 0,
-        to: 79,
-        fps: 10,
-        width:'71%',
-        height: '61%',
-        folder : "img/animation/robo/Robo_Fala_Completo/",
-        playOnLoad:false       
-      });
+
+    A_RoboInteiro_create('#AnimacaoRoboCommentMapa');
+   
 
 
       
@@ -75,9 +71,11 @@ PauseSond(audioParabensMapa);
    function verificaPecaMapa() {
     if(contagemPecaMapa == 7){
       comment_name = "start_quiz"
+      destroyAnimation('#AnimacaoRoboHelp');
       createComment(comments_texts[comment_name])  
       $("button.toggle.repeat").click(function() {
          if(sessionStorage.getItem('sound')=='on'){
+          A_RoboInteiro_again('#AnimacaoRoboCommentMapa');
           audioParabensMapa.load();
           audioParabensMapa.play();     
           }   
@@ -98,9 +96,8 @@ PauseSond(audioParabensMapa);
        
 
  // $('#AnimacaoRoboCommentMapa').jsMovie('play',1,56,false, false);
-  $('#AnimacaoRoboCommentMapa').jsMovie('play',1,80,false,false);
-  $('#AnimacaoRoboCommentMapa').jsMovie('play',65,80,true,false);
 
+   A_RoboInteiro_play('#AnimacaoRoboCommentMapa');
       $("#AnimacaoArrastarMapa").jsMovie("destroy");
        //$("#AnimacaoArrastarMapa").jsMovie("throwError",1);
 
@@ -183,6 +180,9 @@ PauseSond(audioParabensMapa);
   function mei_0() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
      $('#AnimacaoArrastarLixos').jsMovie({
       sequence: 'drag_000##.png',
       from: 0,
@@ -215,6 +215,7 @@ PauseSond(audioParabensMapa);
         setTimeout(function () {               
          $('#AnimacaoArrastarLixos').jsMovie("destroy");
          var audio_lixo = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false, audio_lixo) 
 
         }, 300);
@@ -330,6 +331,9 @@ PauseSond(audioParabensMapa);
   function mei_1() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
     var verificaLegumes = 0;
 
       $('#animacaoClickPlantar').jsMovie({
@@ -349,6 +353,7 @@ PauseSond(audioParabensMapa);
         setTimeout(function () {             
          $('#animacaoClickPlantar').jsMovie('destroy');
         var audio_plantar = new Audio('sounds/desafios/sustentabilidade desafio 2.wav') ;
+        destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false, audio_plantar)       
       }, 300);
         
@@ -500,6 +505,9 @@ PauseSond(audioParabensMapa);
   function mei_2() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
     $('#AnimacaoClickCanos').jsMovie({
       sequence: 'click_000##.png',
       from: 0,
@@ -575,6 +583,7 @@ PauseSond(audioParabensMapa);
               $('#AnimacaoClickLegumesPia').jsMovie('destroy');
               $('#animacaoTorneiraPia').jsMovie('destroy');
             var audio_cozinha = new Audio('sounds/desafios/sustentabilidade desafio 3.wav') ;
+            destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "full"], true, audio_cozinha)     
         }, 300);
        
@@ -701,6 +710,9 @@ PauseSond(audioParabensMapa);
   function gov_0() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
 
  $('#AnimacaoArrastarCamp').jsMovie({
       sequence: 'drag_000##.png',
@@ -722,6 +734,7 @@ PauseSond(audioParabensMapa);
        $("#robot-help-mini").click(function() {
         contIndexC++;        
        $('.robot-help').css("z-index", contIndexC);
+
        })
 
     $( ".criancaAmarela , .criancaVermelha").draggable({
@@ -770,6 +783,7 @@ PauseSond(audioParabensMapa);
                setTimeout(function () {               
                       $('#AnimacaoArrastarCamp').jsMovie('destroy');
                       var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                      destroyAnimation('#AnimacaoRoboHelp')
                       congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
 
@@ -800,6 +814,7 @@ PauseSond(audioParabensMapa);
                setTimeout(function () {               
                       $('#AnimacaoArrastarCamp').jsMovie('destroy');
                       var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                      destroyAnimation('#AnimacaoRoboHelp')
                       congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
 
@@ -817,6 +832,9 @@ PauseSond(audioParabensMapa);
 // Desafio gov_1 ONG --------------------------------------------------------------------------------------
   function gov_1() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickONG').jsMovie({
       sequence: 'click_000##.png',
@@ -844,6 +862,7 @@ PauseSond(audioParabensMapa);
       setTimeout(function () {               
       $('#AnimacaoClickONG').jsMovie('destroy');
          var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(["full", "half","empty"], false, audio_ong)        
   }, 400);
      
@@ -855,6 +874,9 @@ PauseSond(audioParabensMapa);
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickRadio').jsMovie({
       sequence: 'click_000##.png',
@@ -898,6 +920,7 @@ PauseSond(audioParabensMapa);
        $("#antenaRadio").jsMovie("destroy");
         $('#AnimacaoClickRadio').jsMovie('destroy');
        var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav') ;
+       destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(["full", "full", "empty"], false, audio_radio)         
   }, 300);
      
@@ -909,6 +932,8 @@ PauseSond(audioParabensMapa);
   function gov_3() {
     setupLevel()
 
+A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
       $('#AnimacaoClickPrefeitura').jsMovie({
       sequence: 'click_000##.png',
       from: 0,
@@ -936,6 +961,7 @@ PauseSond(audioParabensMapa);
         setTimeout(function () {               
         $('#AnimacaoClickPrefeitura').jsMovie('destroy');
          var audio_prefeitura = new Audio('sounds/desafios/governo desafio 4.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full","full","full"], true, audio_prefeitura);        
   }, 200);
        
@@ -946,6 +972,9 @@ PauseSond(audioParabensMapa);
 // Desafio laz_0 Album 1 --------------------------------------------------------------------------------------
   function laz_0() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoArrastarAlbum1').jsMovie({
       sequence: 'drag_000##.png',
@@ -1044,6 +1073,7 @@ PauseSond(audioParabensMapa);
        setTimeout(function () {               
          $('#AnimacaoArrastarAlbum1').jsMovie('destroy');
          var audio_ambum1 = new Audio('sounds/desafios/lazer desafio 1.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false, audio_ambum1) 
 
         }, 300);
@@ -1130,6 +1160,9 @@ PauseSond(audioParabensMapa);
   function laz_1() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
+
       $('#AnimacaoClickAlbum2').jsMovie({
       sequence: 'click_000##.png',
       from: 0,
@@ -1167,6 +1200,7 @@ PauseSond(audioParabensMapa);
        setTimeout(function () {               
          $('#AnimacaoClickAlbum2').jsMovie('destroy');
          var audio_album2 = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_album2) 
 
         }, 300);
@@ -1178,6 +1212,9 @@ PauseSond(audioParabensMapa);
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
   $('#AnimacaoClick7erros').jsMovie({
       sequence: 'click_000##.png',
@@ -1206,6 +1243,7 @@ PauseSond(audioParabensMapa);
       setTimeout(function () {               
         $('#AnimacaoClick7erros').jsMovie('destroy');
          var audio_7erros = new Audio('sounds/desafios/lazer desafio 2.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "full"], false,  audio_7erros) 
 
         }, 300);   
@@ -1217,6 +1255,9 @@ PauseSond(audioParabensMapa);
 // Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
   function ino_0() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacaoArrastBebedouro').jsMovie({
       sequence: 'drag_000##.png',
@@ -1295,6 +1336,7 @@ PauseSond(audioParabensMapa);
           $('#AnimacaoArrastBebedouro2').jsMovie('destroy');
           $('#animacaoPingando').jsMovie('destroy');
          var audio_bebedouro = new Audio('sounds/desafios/inovação desafio 1.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false,  audio_bebedouro) 
 
         }, 300);
@@ -1307,6 +1349,9 @@ PauseSond(audioParabensMapa);
 // Desafio ino_1 Foguete ---------------------------------------------------------------------------------
   function ino_1() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
       
     var bico = 0;
     var meio = 0;
@@ -1356,6 +1401,7 @@ PauseSond(audioParabensMapa);
                 setTimeout(function () {               
            $('#AnimacaoFoguete').jsMovie('destroy');
          var audio_foguete = new Audio('sounds/desafios/Inovação desafio 2.wav') ;
+         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_foguete) 
 
         }, 9000);
@@ -1404,6 +1450,9 @@ PauseSond(audioParabensMapa);
 // Desafio ino_2 carrinho --------------------------------------------------------------------------------------
   function ino_2() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimClickCarrinho').jsMovie({
       sequence: 'click_000##.png',
@@ -1455,7 +1504,8 @@ PauseSond(audioParabensMapa);
     $( "#btnOKcarro" ).click(function() {
       setTimeout(function () {               
       $('#AnimClickCarrinho').jsMovie('destroy');
-       var audio_carro = new Audio('sounds/desafios/Inovação desafio 3.wav') ;    
+       var audio_carro = new Audio('sounds/desafios/Inovação desafio 3.wav') ;  
+       destroyAnimation('#AnimacaoRoboHelp')  
       congratsNextLevel(['full','full','full'], true, audio_carro)        
   }, 100);
       
@@ -1530,6 +1580,9 @@ PauseSond(audioParabensMapa);
 // Desafio sau_0 Prato ---------------------------------------------------------------------------------
   function sau_0() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
     $('#AnimacaoArrastarPrato').jsMovie({
       sequence: 'drag_000##.png',
@@ -1669,7 +1722,8 @@ PauseSond(audioParabensMapa);
                    // alert("tem animento não sauável no seu prato");
                   } else{
                      $('#AnimacaoArrastarPrato').jsMovie('destroy');
-                  var audio_prato = new Audio('sounds/desafios/saude desafio 1.wav') ;    
+                  var audio_prato = new Audio('sounds/desafios/saude desafio 1.wav') ;
+                  destroyAnimation('#AnimacaoRoboHelp')    
                     congratsNextLevel(['full', 'half', 'empty'], false, audio_prato)
                   }
       } else{
@@ -1682,6 +1736,9 @@ PauseSond(audioParabensMapa);
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
   function sau_1() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var bilotoP = 49.4;
     var escorregador = false;
@@ -1846,7 +1903,8 @@ PauseSond(audioParabensMapa);
           $('#animacaoCelular').jsMovie('destroy');
           $('#animacaoBalanco').jsMovie('destroy');
 
-          var audio_parquinho = new Audio('sounds/desafios/saude desafio 2.wav') ;    
+          var audio_parquinho = new Audio('sounds/desafios/saude desafio 2.wav') ;
+          destroyAnimation('#AnimacaoRoboHelp')    
           congratsNextLevel(["full", "full", "full"], true, audio_parquinho)
         } else{
           $('#modalSaude4').modal('show')  
@@ -1859,6 +1917,8 @@ PauseSond(audioParabensMapa);
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
     setupLevel()
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacaoClickEscolaFora').jsMovie({
       sequence: 'click_000##.png',
@@ -1947,7 +2007,8 @@ PauseSond(audioParabensMapa);
 
     $("#btnSalvarEF" ).click(function() {
       $('#AnimacaoClickEscolaFora').jsMovie('destroy');
-      var audio_escolaFora = new Audio('sounds/desafios/educacao desafio 1.wav') ;    
+      var audio_escolaFora = new Audio('sounds/desafios/educacao desafio 1.wav') ;  
+      destroyAnimation('#AnimacaoRoboHelp')  
       congratsNextLevel(['full','empty','empty'], false, audio_escolaFora)
     })
 
@@ -2104,6 +2165,9 @@ PauseSond(audioParabensMapa);
 // Desafio edu_1 escola dentro------------------------------------------------------------------------------------------------------------------
   function edu_1() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickEscolaDentro').jsMovie({
       sequence: 'click_000##.png',
@@ -2444,7 +2508,8 @@ PauseSond(audioParabensMapa);
 
     $("#btnSalvarED" ).click(function() {
       $('#AnimacaoClickEscolaDentro').jsMovie('destroy');
-      var audio_escolaDentro = new Audio('sounds/desafios/educacao desafio 2.wav') ;    
+      var audio_escolaDentro = new Audio('sounds/desafios/educacao desafio 2.wav') ;  
+      destroyAnimation('#AnimacaoRoboHelp')  
       congratsNextLevel(['full','full','empty'], false, audio_escolaDentro)
     }) 
   }
@@ -2452,6 +2517,9 @@ PauseSond(audioParabensMapa);
 // Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
   function edu_2() {
     setupLevel()
+
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
     $('#AnimacaoClickEscolaSala').jsMovie({
       sequence: 'click_000##.png',
@@ -2544,7 +2612,8 @@ PauseSond(audioParabensMapa);
 
     $("#btnSalvarES" ).click(function() {
       $('#AnimacaoClickEscolaSala').jsMovie('destroy');
-      var audio_escolaSala = new Audio('sounds/desafios/educacao desafio 3.wav') ;    
+      var audio_escolaSala = new Audio('sounds/desafios/educacao desafio 3.wav') ;  
+      destroyAnimation('#AnimacaoRoboHelp')  
       congratsNextLevel(['full','full','full'],true, audio_escolaSala)
     })
 
@@ -2696,6 +2765,8 @@ PauseSond(audioParabensMapa);
   function eco_0() {
     setupLevel()
 
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacTecladoCasa').jsMovie({
       sequence: 'keyboard_000##.png',
@@ -2754,7 +2825,8 @@ PauseSond(audioParabensMapa);
 
 setTimeout(function () {               
       $('#AnimacTecladoCasa').jsMovie('destroy');
-     var audio_casa = new Audio('sounds/desafios/economia desafio 1.wav') ;    
+     var audio_casa = new Audio('sounds/desafios/economia desafio 1.wav') ;  
+     destroyAnimation('#AnimacaoRoboHelp')  
         congratsNextLevel(["full", "half", "empty"], false, audio_casa)           
   }, 300);
        
@@ -2930,6 +3002,8 @@ setTimeout(function () {
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
   function eco_1() {
     setupLevel()
+    A_RoboHelp_create('#AnimacaoRoboHelp');
+    A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var cont_bola_edu=1;
     var cont_bola_sau=1;
@@ -3220,7 +3294,8 @@ setTimeout(function () {
           $('#animacaoEduc').jsMovie('destroy');
             $('#animacaoSaude').jsMovie('destroy');
                $('#animacaoLazer').jsMovie('destroy');
-        var audio_monstrinhos = new Audio('sounds/desafios/economia desafio 2.wav') ;    
+        var audio_monstrinhos = new Audio('sounds/desafios/economia desafio 2.wav') ; 
+        destroyAnimation('#AnimacaoRoboHelp')   
         congratsNextLevel(["full", "full", "full"], true, audio_monstrinhos)
       } else{
       $('.div_monstrinhos').css('display', 'none');

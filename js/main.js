@@ -274,7 +274,7 @@ function playAudioButton(){
         playAudioButton();
         cutscene_name = "start"
         updateSectionAJAX("cutscene")
-        //updateSectionAJAX("feedback")
+       //updateSectionAJAX("congrats")
       })
 
     incrementAccess()
@@ -683,7 +683,7 @@ function playAudioButton(){
 
         $("button.toggle.repeat").click(function () { 
            if(sessionStorage.getItem('sound')=='on'){
-            
+            A_RoboCongrats_again('#AnimacaoRoboCongrats');
              audio_categoria.load();            
             audio_categoria.play(); 
           }
@@ -815,7 +815,7 @@ function playAudioButton(){
           updateSectionAJAX("comment")
         break
         case "start_quiz":
-         $('#AnimacaoRoboCommentMapa').jsMovie('destroy');
+        destroyAnimation('#AnimacaoRoboCommentMapa');
           updateSectionAJAX("quiz")
         break
         case "start_challenge":
@@ -872,9 +872,12 @@ function playAudioButton(){
 
   function showHelp() {
     $('#help').width("100%")
+
     $('#help #robot-help-mini').hide(300)
     $('#help .backdrop').fadeIn(300)
     $('#help .robot-help').show(300)
+    //fazer o if
+   
     $("#close-btn").click(function () { hideHelp() })
     // $(".backdrop").click(function () { hideHelp() })
   }
@@ -884,12 +887,19 @@ function playAudioButton(){
     $('#help .backdrop').fadeOut(300)
     $('#help #robot-help-mini').show(300)
     $('#help').width("0%")
-    $("#robot-help-mini img").click(function () { showHelp() })
+    $("#robot-help-mini img").click(function () {
+     showHelp() 
+    A_RoboHelp_again('#AnimacaoRoboHelp');
+
+   })
   }
 
 // Congragts starts ----------------------------------------------------------------
   function congrats() {
+     A_RoboCongrats_create('#AnimacaoRoboCongrats')
+      A_RoboCongrats_again('#AnimacaoRoboCongrats')
     createCongrats(congrats_texts[congrats_name])
+
   }
   function createCongrats(congrats) {
     if (congrats_name == "badge") {
@@ -932,6 +942,7 @@ function playAudioButton(){
 
     function congratsButtonClicked() {
       $("#go-congrats").click(function () { 
+        destroyAnimation('#AnimacaoRoboCongrats')
         switch (congrats_name) {
           case "badge":
             comment_name = "start_challenge"
@@ -1311,8 +1322,8 @@ function playAudioButton(){
     setTimeout(function () {           
         
     $("button.toggle.repeat" ).click(function() {
-      console.log('aaaaaaaaaa');
        if(sessionStorage.getItem('sound')=='on'){
+        A_RoboCongrats_again('#AnimacaoRoboCongrats')
       sound.load();
       sound.play();
     }

@@ -64,7 +64,7 @@ function A_RoboLaranja2_loop(id){
 function A_RoboInteiro_create(id){
     $(id).jsMovie({
         sequence: 'Robo_Fala_Completo_000##.png',
-        from: 0,
+        from: 6,
         to: 79,
         fps: 10,
         width:'71%',
@@ -72,21 +72,21 @@ function A_RoboInteiro_create(id){
         folder : "img/animation/robo/Robo_Fala_Completo/",
         playOnLoad:false      
       });
-    $(id).jsMovie("addClip","roboInteiro",5,40);
+    $(id).jsMovie("addClip","roboInteiro",1,74);
 }
 
 function A_RoboInteiro_play(id){
-   $(id).jsMovie('play',5,80,false,false);
-    $(id).jsMovie('play',65,80,true,false);
+   $(id).jsMovie('play',1,74,false,false);
+    $(id).jsMovie('play',59,74,true,false);
 }
 
 function A_RoboInteiro_again(id){
   $(id).jsMovie("playClip","roboInteiro",false);
-  $(id).jsMovie('play',65,80,true,false);
+  $(id).jsMovie('play',59,74,true,false);
 }
 
 function A_RoboInteiro_loop(id){
-  $(id).jsMovie('play',65,80,true,false);
+  $(id).jsMovie('play',59,74,true,false);
 }
 
 
@@ -151,6 +151,70 @@ function A_RoboFeedback_again(id){
 function A_RoboFeedback_loop(id){
   $(id).jsMovie('play',27,40,true,false);
 }
+
+//---------------------Robo HELPER
+function A_RoboHelp_create(id){
+  $(id).jsMovie({
+      sequence: 'Robo_Fala_1_Azul_000##.png',
+      from: 5,
+      to: 39,
+      fps: 10,
+      width:'46%',
+      height: '80%',
+      folder : "img/animation/robo/Robo_Fala_1_Azul/",
+      playOnLoad:false         
+    });
+   $(id).jsMovie("addClip","roboHelp",1,35);
+}
+
+function A_RoboHelp_play(id){
+  $(id).jsMovie('play',1,35,false,false);
+  $(id).jsMovie('play',22,35,true,false);
+}
+
+  
+
+function A_RoboHelp_again(id){
+  setTimeout(function () {               
+  $(id).jsMovie("playClip","roboHelp",false);
+  $(id).jsMovie('play',22,35,true,false);
+  }, 300);  
+ 
+}
+
+function A_RoboHelp_loop(id){
+  $(id).jsMovie('play',22,35,true,false);
+}
+
+//---------------------Robo Congrats
+function A_RoboCongrats_create(id){
+  $(id).jsMovie({
+      sequence: 'Robo_Fala_1_Azul_000##.png',
+      from: 5,
+      to: 39,
+      fps: 10,
+      width:'75%',
+      height: '63%',
+      folder : "img/animation/robo/Robo_Fala_1_Azul/",
+      playOnLoad:false         
+    });
+   $(id).jsMovie("addClip","roboHelp",1,35);
+}
+
+function A_RoboCongrats_play(id){
+  $(id).jsMovie('play',1,35,false,false);
+  $(id).jsMovie('play',22,35,true,false);
+}
+
+function A_RoboCongrats_again(id){          
+  $(id).jsMovie("playClip","roboHelp",false);
+  $(id).jsMovie('play',22,35,true,false); 
+}
+
+function A_RoboCongrats_loop(id){
+  $(id).jsMovie('play',22,35,true,false);
+}
+
 
 
 
