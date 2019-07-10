@@ -9,6 +9,7 @@
 // Mapa -------------------------------------------------------------------------------------------------------------
 
   function map() {
+    playAudioMouseOver();
     createInvokeHelp(helps_texts["map"])
 
 
@@ -72,7 +73,7 @@ PauseSond(audioParabensMapa);
     if(contagemPecaMapa == 7){
       comment_name = "start_quiz"
       destroyAnimation('#AnimacaoRoboHelp');
-      createComment(comments_texts[comment_name])  
+      createComment(comments_texts[comment_name]) 
       $("button.toggle.repeat").click(function() {
          if(sessionStorage.getItem('sound')=='on'){
           A_RoboInteiro_again('#AnimacaoRoboCommentMapa');
@@ -178,6 +179,7 @@ PauseSond(audioParabensMapa);
 
 // Desafio mei_0 Lixo -----------------------------------------------------------------
   function mei_0() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -329,7 +331,27 @@ PauseSond(audioParabensMapa);
 
 // Desafio mei_1 Plantar -----------------------------------------------------------------
   function mei_1() {
+    playAudioMouseOver();
     setupLevel()
+
+    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
+
+    function playAudioPlantar(){
+          if(sessionStorage.getItem('sound')=='on'){ 
+              var promise =audio_plantar.load();                  
+              var promise =audio_plantar.play();
+
+                if (promise !== undefined) {
+                  promise.then(_ => {
+                      // Autoplay started!
+                  }).catch(error => {
+                      // Autoplay was prevented.
+                      // Show a "Play" button so that user can start playback.
+                  });
+              } 
+            }
+      }
+
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -376,7 +398,7 @@ PauseSond(audioParabensMapa);
         $("#buraco1").removeClass('bc1');
         $("#buraco1").addClass('brcp1');
       } else if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {
-        
+         playAudioPlantar()        
         $("#buraco1").attr('src',"");
         $("#buraco1").css('display',"none");
         $('#cenouracesta1').css('display', 'block');
@@ -399,7 +421,8 @@ PauseSond(audioParabensMapa);
         $("#buraco2").css("top", "66%");
         $("#buraco2").removeClass('bc2');
         $("#buraco2").addClass('brcp2');
-      } else if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {  
+      } else if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") { 
+       playAudioPlantar() 
         $("#buraco2").attr('src',"");
         $("#buraco2").css('display',"none");
         $('#cenouracesta2').css('display', 'block');
@@ -423,6 +446,7 @@ PauseSond(audioParabensMapa);
         $("#buraco3").removeClass('bc3');
         $("#buraco3").addClass('brcp3');
       } else if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
+         playAudioPlantar()
         $("#buraco3").attr('src',"");
         $("#buraco3").css('display',"none");
         $('#tomatecesta1').css('display', 'block');
@@ -446,6 +470,7 @@ PauseSond(audioParabensMapa);
         $("#buraco4").removeClass('bc4');
         $("#buraco4").addClass('brcp4');
       } else if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
+         playAudioPlantar()
         $("#buraco4").attr('src',"");
         $("#buraco4").css('display',"none");
         $('#tomatecesta2').css('display', 'block');
@@ -469,6 +494,7 @@ PauseSond(audioParabensMapa);
         $("#buraco5").removeClass('bc5');
         $("#buraco5").addClass('brcp5');
       } else if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
+         playAudioPlantar()
         $("#buraco5").attr('src',"");
         $("#buraco5").css('display',"none");
         $('#alfacecesta1').css('display', 'block');
@@ -492,6 +518,7 @@ PauseSond(audioParabensMapa);
         $("#buraco6").removeClass('bc6');
         $("#buraco6").addClass('brcp6');
       } else if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
+         playAudioPlantar()
         $("#buraco6").attr('src',"");
         $("#buraco6").css('display',"none");
         $('#alfacecesta2').css('display', 'block');
@@ -503,7 +530,67 @@ PauseSond(audioParabensMapa);
 
 // Desafio mei_2 Cozinha  -----------------------------------------------------------------
   function mei_2() {
+    playAudioMouseOver();
     setupLevel()
+
+
+    var audio_canos = new Audio('sounds/feedback/sustentabilidade/Canos.wav');
+
+    function playAudioCanos(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_canos.load();                  
+            var promise =audio_canos.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
+
+
+    var audio_frutas = new Audio('sounds/feedback/sustentabilidade/Fruta na cesta.wav');
+
+    function playAudioFrutas(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_frutas.load();                  
+            var promise =audio_frutas.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
+
+
+    var audio_aguapia= new Audio('sounds/feedback/sustentabilidade/aguapia.mp3');
+
+    function playAudioAguaPia(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_aguapia.load();                  
+            var promise =audio_aguapia.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
+
+
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -593,7 +680,7 @@ PauseSond(audioParabensMapa);
   var contLegumesCesta=0;
 
    $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").click(function() {
-
+      playAudioFrutas()
 
     $('#AnimacaoClickLegumesCesta').css('display', 'none');
    var legumeclicado = "#"+ this.id+'C';
@@ -604,7 +691,7 @@ PauseSond(audioParabensMapa);
 
      if(contLegumesCesta==6){
               $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
-
+              playAudioAguaPia()
                           setTimeout(function () { 
                           $('#modalSust1').modal('show')              
                  //alert("Agora CLICA nos legumes para tirar da pia") 
@@ -616,6 +703,7 @@ PauseSond(audioParabensMapa);
 
 
                   $( ".legumesCestaClick").click(function() {
+                    playAudioFrutas()
                      $('#AnimacaoClickLegumesPia').css('display', 'none'); 
                      $(this).css('display', 'none');
                      var legumeaparecer= '#'+this.id +'B';
@@ -633,7 +721,14 @@ PauseSond(audioParabensMapa);
     var graus2 =0;
     var ultClickID = undefined;
 
+    var somCano = new Audio('sounds/feedback/sustentabilidade/Canos.wav');
+    PauseSond(somCano);
+
+
     $( ".pecasCozinha").click(function() {
+      playAudioCanos()
+
+      playSound(somCano);
 
       $('#AnimacaoClickCanos').css('display', 'none');
       if (this.id == ultClickID){   
@@ -708,6 +803,7 @@ PauseSond(audioParabensMapa);
 
 // Desafio gov_0 Campinho ------------------------------------------------------------------
   function gov_0() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -831,7 +927,26 @@ PauseSond(audioParabensMapa);
 
 // Desafio gov_1 ONG --------------------------------------------------------------------------------------
   function gov_1() {
+    playAudioMouseOver();
     setupLevel()
+
+    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
+
+    function playAudioPlantar(){
+          if(sessionStorage.getItem('sound')=='on'){ 
+              var promise =audio_plantar.load();                  
+              var promise =audio_plantar.play();
+
+                if (promise !== undefined) {
+                  promise.then(_ => {
+                      // Autoplay started!
+                  }).catch(error => {
+                      // Autoplay was prevented.
+                      // Show a "Play" button so that user can start playback.
+                  });
+              } 
+            }
+      }
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -850,6 +965,7 @@ PauseSond(audioParabensMapa);
 
     var contAlimentoRua =0;
     $( ".alimentosRua" ).click(function() {
+       playAudioPlantar()
       $('#AnimacaoClickONG').css('display', 'none');
      contAlimentoRua ++;
      var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
@@ -873,6 +989,7 @@ PauseSond(audioParabensMapa);
 
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -930,6 +1047,7 @@ PauseSond(audioParabensMapa);
 
 // Desafio gov_3 Prefeitura  --------------------------------------------------------------------------------------
   function gov_3() {
+    playAudioMouseOver();
     setupLevel()
 
 A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -971,7 +1089,45 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_0 Album 1 --------------------------------------------------------------------------------------
   function laz_0() {
+    playAudioMouseOver();
     setupLevel()
+
+    var audio_colarfigurinha = new Audio('sounds/feedback/lazer/Colar Figurinha.wav');
+
+    function playAudioColarFigurinha(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_colarfigurinha.load();                  
+            var promise =audio_colarfigurinha.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
+
+
+    var audio_passarpagina = new Audio('sounds/feedback/lazer/Virar pagina.wav');
+
+    function playAudioVirarPagina(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_passarpagina.load();                  
+            var promise =audio_passarpagina.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -1014,6 +1170,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A1fig3').css('display', 'none'); 
           contFigA1++;  
@@ -1027,6 +1184,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A1fig2').css('display', 'none'); 
           contFigA1++; 
@@ -1040,6 +1198,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A1fig1').css('display', 'none'); 
           contFigA1++; 
@@ -1053,6 +1212,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A1fig4').css('display', 'none'); 
           contFigA1++;  
@@ -1062,10 +1222,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
     $( "#A1nextPage" ).click(function() {
       $('#A1Pg1').css('display', 'none');
       $('#A1Pg2').css('display', 'block');
+      playAudioVirarPagina()
     })
     $( "#A2prevPage" ).click(function() {
       $('#A1Pg1').css('display', 'block');
       $('#A1Pg2').css('display', 'none');
+      playAudioVirarPagina()
     })
     $( "#A2nextPage" ).click(function() {
 
@@ -1109,6 +1271,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A2fig3').css('display', 'none'); 
           contFigA2++;  
@@ -1122,6 +1285,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A2fig4').css('display', 'none'); 
           contFigA2++; 
@@ -1135,6 +1299,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A2fig2').css('display', 'none'); 
           contFigA2++; 
@@ -1148,6 +1313,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           out: function( event, ui){
           },
           drop: function( event, ui ) {
+            playAudioColarFigurinha()
           $(this).css('visibility','visible'); 
           $('#A2fig1').css('display', 'none'); 
           contFigA2++;  
@@ -1158,6 +1324,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
   function laz_1() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -1211,6 +1378,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -1254,7 +1422,18 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
   function ino_0() {
+    playAudioMouseOver();
     setupLevel()
+
+
+   
+
+   
+
+  
+
+   
+
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -1331,6 +1510,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
               $("#imgBalde").css("display", "none");
               $("#imgBaldeOK").css("display", "block");
               $('#animacaoPingando').css("display", "none");
+               audio_aguapingando.load();
                 setTimeout(function () {               
          $('#AnimacaoArrastBebedouro').jsMovie('destroy');
           $('#AnimacaoArrastBebedouro2').jsMovie('destroy');
@@ -1348,10 +1528,29 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_1 Foguete ---------------------------------------------------------------------------------
   function ino_1() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
+
+    var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
+
+    function playAudioTrocaPeca(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_trocapeca.load();                  
+            var promise =audio_trocapeca.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
       
     var bico = 0;
     var meio = 0;
@@ -1386,12 +1585,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
     }
 
 
-    $( ".prev1").click(function() { A_off(); if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
-    $( ".next1").click(function() { A_off(); if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
-    $( ".prev2").click(function() { A_off(); if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
-    $( ".next2").click(function() { A_off(); if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
-    $( ".prev3").click(function() { A_off(); if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
-    $( ".next3").click(function() { A_off(); if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
+    $( ".prev1").click(function() {  playAudioTrocaPeca(); A_off(); if (bico==0){bico=3; mudaPeca();} else {bico--;mudaPeca();}});
+    $( ".next1").click(function() { playAudioTrocaPeca();  A_off(); if (bico==3){bico=0; mudaPeca();} else {bico++;mudaPeca();}});
+    $( ".prev2").click(function() { playAudioTrocaPeca();  A_off(); if (meio==0){meio=3; mudaPeca();} else {meio--;mudaPeca();}});
+    $( ".next2").click(function() { playAudioTrocaPeca();  A_off(); if (meio==3){meio=0; mudaPeca();} else {meio++;mudaPeca();}});
+    $( ".prev3").click(function() { playAudioTrocaPeca();  A_off(); if (rabo==0){rabo=3; mudaPeca();} else {rabo--;mudaPeca();}});
+    $( ".next3").click(function() { playAudioTrocaPeca();  A_off(); if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
     $( "#btn-lancar .action").click(function() {
       setTimeout(function () { 
@@ -1449,10 +1648,29 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_2 carrinho --------------------------------------------------------------------------------------
   function ino_2() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
+
+    var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
+
+    function playAudioTrocaPeca(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_trocapeca.load();                  
+            var promise =audio_trocapeca.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
 
      $('#AnimClickCarrinho').jsMovie({
       sequence: 'click_000##.png',
@@ -1469,6 +1687,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
     var liberarBotaoCarrinho= false;
     $( ".pecasforacarro").click(function() {
+      playAudioTrocaPeca()
 
       $('#AnimClickCarrinho').css('display', 'none');
      
@@ -1579,10 +1798,29 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_0 Prato ---------------------------------------------------------------------------------
   function sau_0() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
+
+      var audio_frutas = new Audio('sounds/feedback/sustentabilidade/Fruta na cesta.wav');
+
+    function playAudioFrutas(){
+        if(sessionStorage.getItem('sound')=='on'){ 
+            var promise =audio_frutas.load();                  
+            var promise =audio_frutas.play();
+
+              if (promise !== undefined) {
+                promise.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+    }
 
     $('#AnimacaoArrastarPrato').jsMovie({
       sequence: 'drag_000##.png',
@@ -1624,6 +1862,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
             out: function( event, ui){                      
             },
             drop: function(event,ui) { 
+              playAudioFrutas()
 
               if($(ui.draggable).hasClass('alimentosSaudaveisP') || $(ui.draggable).hasClass('alimentosNaoSaudaveisP')){
                     var alimentoNoPrato= '#'+$(ui.draggable).attr('id');
@@ -1653,6 +1892,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
             out: function( event, ui){          
             },
             drop: function(event,ui) {
+              playAudioFrutas()
             if (contAlimPrato==5) { 
               $('#modalSaude1').modal('show')  
               //alert("so 5 alimentos");
@@ -1735,6 +1975,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
   function sau_1() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -1916,6 +2157,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
+    playAudioMouseOver();
     setupLevel()
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -2164,6 +2406,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_1 escola dentro------------------------------------------------------------------------------------------------------------------
   function edu_1() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -2516,6 +2759,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
   function edu_2() {
+    playAudioMouseOver();
     setupLevel()
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -2763,7 +3007,17 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
   function eco_0() {
+    playAudioMouseOver();
     setupLevel()
+
+    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.mp3');
+    var moedaSaindo = new Audio('sounds/feedback/economia/Moeda Saindo.wav')
+
+    moedaEntrando.load();
+    moedaEntrando.play();
+
+    moedaSaindo.load();
+    moedaSaindo.play();
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -2919,6 +3173,8 @@ setTimeout(function () {
           $('#txt_maismoedas').text('+10 por vender um brinquedo antigo')
           $('#txt_maismoedas').css('color','#2BCB8D')
           qtd_moedas=qtd_moedas+10;
+          moedaEntrando.load();
+          moedaEntrando.play();
           $('#qtd_moeda').text(qtd_moedas);  
           $('#icon_bola2').css('display', 'block');
           $('#icon_dog').css('display', 'block');
@@ -2933,6 +3189,8 @@ setTimeout(function () {
           $('#txt_maismoedas').text('-10 por comprar dois brinquedos')
           $('#txt_maismoedas').css('color','#ea493a')
           qtd_moedas=qtd_moedas-10;
+           moedaSaindo.load();
+         moedaSaindo.play();
           $('#qtd_moeda').text(qtd_moedas);        
         }
 
@@ -2943,6 +3201,8 @@ setTimeout(function () {
           $('#txt_maismoedas').text('+10 por passear com o cão da vizinha')
           $('#txt_maismoedas').css('color','#2BCB8D')
           qtd_moedas=qtd_moedas+10;
+          moedaEntrando.load();
+         moedaEntrando.play();
           $('#qtd_moeda').text(qtd_moedas); 
           $('#icon_vo').css('display', 'block'); 
           CasaDog= true;
@@ -2956,6 +3216,8 @@ setTimeout(function () {
           $('#txt_maismoedas').text('+10 por ganhar moedas da avó')
           $('#txt_maismoedas').css('color','#2BCB8D')
           qtd_moedas=qtd_moedas+10;
+                    moedaEntrando.load();
+         moedaEntrando.play();
           $('#qtd_moeda').text(qtd_moedas); 
            $('#icon_vaso').css('display', 'block'); 
           $('#icon_pirulito').css('display', 'block');
@@ -2971,6 +3233,9 @@ setTimeout(function () {
           $('#txt_maismoedas').text('-10 por quebrar o vaso da mãe')
           $('#txt_maismoedas').css('color','#ea493a')
           qtd_moedas=qtd_moedas-10;
+           moedaSaindo.load();
+          moedaSaindo.play();
+
           $('#qtd_moeda').text(qtd_moedas);
         }
 
@@ -2981,6 +3246,9 @@ setTimeout(function () {
           $('#txt_maismoedas').text('-10 por gastar dinheiro com doces')
           $('#txt_maismoedas').css('color','#ea493a')
           qtd_moedas=qtd_moedas-10;
+           moedaSaindo.load();
+           moedaSaindo.play();
+
           $('#qtd_moeda').text(qtd_moedas);
         }
 
@@ -2991,6 +3259,8 @@ setTimeout(function () {
           $('#txt_maismoedas').text('+10 por vender biscoitos na rua')
           $('#txt_maismoedas').css('color','#2BCB8D')
           qtd_moedas=qtd_moedas+10;
+          moedaEntrando.load();
+         moedaEntrando.play();
           $('#qtd_moeda').text(qtd_moedas); 
           CasaBiscoito= true;
           verificarPegouCB(qtd_moedas);       
@@ -3001,9 +3271,14 @@ setTimeout(function () {
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
   function eco_1() {
+    playAudioMouseOver();
     setupLevel()
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
+
+    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.mp3');
+    var moedaSaindo = new Audio('sounds/feedback/economia/Moeda Saindo.wav')
+
 
     var cont_bola_edu=1;
     var cont_bola_sau=1;
@@ -3085,6 +3360,8 @@ setTimeout(function () {
             if(qntMoedasM==0){
 
             } else {
+
+               playSound(moedaEntrando)  
                 qntMoedasM = qntMoedasM-10;
                 $('#qtd_moedaM').text(qntMoedasM);
                 retirarAddMoeda();
@@ -3097,6 +3374,7 @@ setTimeout(function () {
                   $('#bolaEduc3').css('display', 'none');
                   $('#bolaEduc1').css('display', 'block');
                   cont_bola_edu=2;
+                   playSound(moedaSaindo)  
                  }, 1300);
                   
                   
@@ -3105,7 +3383,7 @@ setTimeout(function () {
                   $('#bolaEduc1').css('display', 'none');
                   $('#bolaEduc2').css('display', 'block');
                   cont_bola_edu=3 
-                  
+                   playSound(moedaSaindo)                    
                  }, 1300);
                  
                 } else if(cont_bola_edu==3){              
@@ -3113,6 +3391,7 @@ setTimeout(function () {
                   $('#bolaEduc2').css('display', 'none');
                   $('#bolaEduc3').css('display', 'block');
                    cont_bola_edu=1;
+                   playSound(moedaSaindo)  
                  }, 1300);
                 }
             }
@@ -3129,6 +3408,7 @@ setTimeout(function () {
                  if(qntMoedasM==0){
 
                 } else {
+                   playSound(moedaEntrando)  
                   qntMoedasM= qntMoedasM-10;
                   $('#qtd_moedaM').text(qntMoedasM);
                   retirarAddMoeda();
@@ -3139,6 +3419,7 @@ setTimeout(function () {
                     $('#bolaSau3').css('display', 'none');
                     $('#bolaSau1').css('display', 'block');
                     cont_bola_sau=2;
+                     playSound(moedaSaindo)   
                     }, 1300);
                     
                   } else if(cont_bola_sau==2){
@@ -3146,7 +3427,7 @@ setTimeout(function () {
                     $('#bolaSau1').css('display', 'none');
                     $('#bolaSau2').css('display', 'block');
                     cont_bola_sau=3 
-            
+                    playSound(moedaSaindo)  
                     }, 1300);
                     
                   } else if(cont_bola_sau==3){
@@ -3154,7 +3435,7 @@ setTimeout(function () {
                       $('#bolaSau2').css('display', 'none');
                     $('#bolaSau3').css('display', 'block');
                      cont_bola_sau=1;
-            
+                      playSound(moedaSaindo)            
                     }, 1300);
                     
                   }
@@ -3172,6 +3453,7 @@ setTimeout(function () {
            if(qntMoedasM==0){
 
           } else {
+            playSound(moedaEntrando)  
             qntMoedasM= qntMoedasM-10;
             $('#qtd_moedaM').text(qntMoedasM);
             retirarAddMoeda();
@@ -3181,7 +3463,8 @@ setTimeout(function () {
               setTimeout(function () {
               $('#bolaLaz3').css('display', 'none');
               $('#bolaLaz1').css('display', 'block');
-              cont_bola_laz=2;     
+              cont_bola_laz=2; 
+               playSound(moedaSaindo)      
               }, 1300);
               
             } else if(cont_bola_laz==2){
@@ -3189,13 +3472,15 @@ setTimeout(function () {
               $('#bolaLaz1').css('display', 'none');
               $('#bolaLaz2').css('display', 'block');
               cont_bola_laz=3    
+               playSound(moedaSaindo)  
               }, 1300);
               
             } else if(cont_bola_laz==3){
               setTimeout(function () {
               $('#bolaLaz2').css('display', 'none');
               $('#bolaLaz3').css('display', 'block');
-               cont_bola_laz=1;     
+               cont_bola_laz=1;  
+                playSound(moedaSaindo)     
               }, 1300);
               
             }

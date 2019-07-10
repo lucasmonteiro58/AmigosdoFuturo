@@ -28,13 +28,13 @@
 		<img class="carrofunciona" id="caixafeedback" src="img/desafios/inovacao/carrinho/cxafeedback.png">
 		<img class="carrofunciona" id="pistafuncionando" src="img/desafios/inovacao/carrinho/pista_placeholder.png">
 		<div class="carrofunciona" id="txtCarroFunciona">SEU<br>CARRO<br>FUNCIONA!</div>
-		<button class="carrofunciona ok" id="btnOKcarro"></button>
+		<button onclick="playAudioButton()" class="carrofunciona ok" id="btnOKcarro"></button>
 
 		<div class="carrofuncionaNAO" id="carrofuncionaNAO"></div>
 		<img class="carrofuncionaNAO" id="caixafeedbackNAO" src="img/desafios/inovacao/carrinho/cxafeedback.png">
 		<img class="carrofuncionaNAO" id="pistafuncionandoNAO" src="img/desafios/inovacao/carrinho/pista_placeholder.png">
 		<div class="carrofuncionaNAO"id="txtCarroFuncionaNAO">TENTE<br>OUTRAS<br>PEÇAS!</div>
-		<button class="carrofuncionaNAO exit" id="btnOKcarroNAO"></button>
+		<button onclick="playAudioButton()" class="carrofuncionaNAO exit" id="btnOKcarroNAO"></button>
 
 	<div class="sound-btn"><button class="toggle sound"></button></div>	
 	<div class="music-btn"><button class="toggle music"></button></div>	
@@ -47,11 +47,11 @@
 	<div id="infopeca">INFORMAÇÃO SOBRE A PEÇA</div>
 
 
-	<img class="pecasforacarro" id="sensorprox_carro" src="img/desafios/inovacao/carrinho/sensorprox_foracarro.png">	
-	<img class="pecasforacarro" id="roda_carro" src="img/desafios/inovacao/carrinho/rodas_foracarro.png">	
-	<img class="pecasforacarro" id="leds_carro" src="img/desafios/inovacao/carrinho/led_foracarro.png">
-	<img class="pecasforacarro" id="motor_carro" src="img/desafios/inovacao/carrinho/motor_foracarro.png">
-	<img class="pecasforacarro" id="placa_carro" src="img/desafios/inovacao/carrinho/placa_foracarro.png">	
+	<img class="pecasforacarro" onmouseover="playAudioMS()" id="sensorprox_carro" src="img/desafios/inovacao/carrinho/sensorprox_foracarro.png">	
+	<img class="pecasforacarro"onmouseover="playAudioMS()"  id="roda_carro" src="img/desafios/inovacao/carrinho/rodas_foracarro.png">	
+	<img class="pecasforacarro" onmouseover="playAudioMS()" id="leds_carro" src="img/desafios/inovacao/carrinho/led_foracarro.png">
+	<img class="pecasforacarro" onmouseover="playAudioMS()" id="motor_carro" src="img/desafios/inovacao/carrinho/motor_foracarro.png">
+	<img class="pecasforacarro" onmouseover="playAudioMS()" id="placa_carro" src="img/desafios/inovacao/carrinho/placa_foracarro.png">	
 
 	<div id="AnimClickCarrinho"></div>		
 
@@ -62,7 +62,7 @@
 	<img class="pecasnocarro" id="motor_carrodentro" src="img/desafios/inovacao/carrinho/motor_carro.png">
 	<img class="pecasnocarro" id="placa_carrodentro" src="img/desafios/inovacao/carrinho/placa_carro.png">
 	
-	<button class="toggle next" id="btn_next_carrinho"></button>
+	<button  onclick="playAudioButton()" class="toggle next" id="btn_next_carrinho"></button>
 	<button class="toggle info" id="btn_info_carrinho" data-toggle="popover" data-trigger="hover" data-placement="right" title="Saiba mais:" data-content="Em 2018, 50 equipes cearenses de várias escolas participaram da olimpíada nacional de robótica."></button>
 
 

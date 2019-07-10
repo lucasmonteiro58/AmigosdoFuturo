@@ -2,9 +2,9 @@
 	<div class="sound-btn"><button class="toggle sound"></button></div>	
 		<div class="music-btn"><button class="toggle music"></button></div>
 
-	<button class="addMoedaEdu addMoedaEdu1" id="btn_addMoedaEdu"></button>
-	<button class="addMoedaSau addMoedaSau1" id="btn_addMoedaSau"></button>
-	<button class="addMoedaLaz addMoedaLaz1" id="btn_addMoedaLaz"></button>
+	<button onmouseover="playAudioMS()" class="addMoedaEdu addMoedaEdu1" id="btn_addMoedaEdu"></button>
+	<button onmouseover="playAudioMS()" class="addMoedaSau addMoedaSau1" id="btn_addMoedaSau"></button>
+	<button onmouseover="playAudioMS()" class="addMoedaLaz addMoedaLaz1" id="btn_addMoedaLaz"></button>
 	<div id="animacaoEduc"></div>
 	<div id="animacaoSaude"></div>
 	<div id="animacaoLazer"></div>
@@ -34,7 +34,7 @@
 		<img id="img_monstrinho" src="img/desafios/economia/Monstrinhos/higiento_saude.png">
 		<div id="nome_monstrinho">HIGIENTO</div>
 		<div id="desc_monstrinho">Te deixa sempre limpo e longe de bichinhos.</div>
-		<button class="action blue" id="guardar_monstrinhos">GUARDAR</button>
+		<button onmouseover="playAudioMS()" onmouseover="plauAudioButton()" class="action blue" id="guardar_monstrinhos">GUARDAR</button>
 	</div>
 	
 	<!-- Robot help -->
@@ -51,7 +51,7 @@
 			</div>
 		</div>
 		<div id="robot-help-mini" style="display: none;">
-			<img src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
+			<img  onmouseover="playAudioMS()" src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
 		</div>
 	</div>
 		

@@ -1331,6 +1331,16 @@
     width: 100%;
 }
 
+   #AnimacaoRoboCertificate{
+  position: absolute; 
+  background-repeat: no-repeat;  
+  background-size: cover;
+  top: 11%;
+  left: 43%;  
+  transform: scale(1.45) ;
+
+  }
+
 #certificate-text {
   top: 69vw;
   width: 80%;

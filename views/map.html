@@ -1,7 +1,7 @@
 <section id="mapa">
 	<img id="backgroundmapa" src="img/cenarios/cenario_mapacpeca.png">
-	<div class="sound-btn"><button class="toggle sound"></button></div>	
-	<div class="music-btn"><button class="toggle music"></button></div>
+	<div class="sound-btn"><button class="toggle sound" onmouseover="playAudioMS()" ></button></div>	
+	<div class="music-btn"><button class="toggle music" onmouseover="playAudioMS()"></button></div>
 	<img  id="pecaMapa1" src="img/desafios/mapa/pc_cariri2.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Cariri" data-content="29 cidades<br>População: +1.000.000">
 	<img id="pecaMapa2" src="img/desafios/mapa/pc_sertao_central2.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão Central" data-content="13 cidades<br>População: +390.000">
 	<img id="pecaMapa3" src="img/desafios/mapa/pc_sertao_dos_crateus2.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão dos Crateús" data-content="13 cidades<br>População: +340.000">
@@ -19,13 +19,13 @@
 	<img id="pecaMapa14" src="img/desafios/mapa/pc_centro_sul.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Centro Sul" data-content="13 cidades<br>População: +390.000">
 
 
-	<img class="pecasnamesa" id="pecaMesa1" src="img/desafios/mapa/pc_cariri.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Cariri" data-content="29 cidades<br>População: +1.000.000">
-	<img class="pecasnamesa" id="pecaMesa2" src="img/desafios/mapa/pc_sertao_central.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão Central" data-content="13 cidades <br>População: +390.000">
-	<img class="pecasnamesa" id="pecaMesa3" src="img/desafios/mapa/pc_sertao_dos_crateus.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão dos Crateús" data-content="13 cidades<br>População: +340.000">
-	<img class="pecasnamesa" id="pecaMesa4" src="img/desafios/mapa/pc_serra_da_ibiapaba.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Serra da Ibiapaba" data-content="9 cidades<br>População: +350.000">
-	<img class="pecasnamesa" id="pecaMesa5" src="img/desafios/mapa/pc_litoral_oeste.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Litoral Oeste" data-content="12 cidades<br>População: +380.000">
-	<img class="pecasnamesa" id="pecaMesa6" src="img/desafios/mapa/pc_litoral_leste.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Litoral Leste" data-content="6 cidades<br>População: +200.000">
-	<img class="pecasnamesa" id="pecaMesa7" src="img/desafios/mapa/pc_macico_de_baturite.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Maciço de Baturité" data-content="13 cidades<br>População: +390.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()"  id="pecaMesa1" src="img/desafios/mapa/pc_cariri.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Cariri" data-content="29 cidades<br>População: +1.000.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()"  id="pecaMesa2" src="img/desafios/mapa/pc_sertao_central.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão Central" data-content="13 cidades <br>População: +390.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()"  id="pecaMesa3" src="img/desafios/mapa/pc_sertao_dos_crateus.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Sertão dos Crateús" data-content="13 cidades<br>População: +340.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()" id="pecaMesa4" src="img/desafios/mapa/pc_serra_da_ibiapaba.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Serra da Ibiapaba" data-content="9 cidades<br>População: +350.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()" id="pecaMesa5" src="img/desafios/mapa/pc_litoral_oeste.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Litoral Oeste" data-content="12 cidades<br>População: +380.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()" id="pecaMesa6" src="img/desafios/mapa/pc_litoral_leste.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Litoral Leste" data-content="6 cidades<br>População: +200.000">
+	<img class="pecasnamesa" onmouseover="playAudioMS()" id="pecaMesa7" src="img/desafios/mapa/pc_macico_de_baturite.png" data-toggle="popover" data-trigger="hover" data-placement="right" title="Maciço de Baturité" data-content="13 cidades<br>População: +390.000">
 
 	<div  id="AnimacaoArrastarMapa"></div>
 		
@@ -37,12 +37,12 @@
 					<li><h4></h4></li>
 					<li><p></p></li>	
 				</div>
-				<button id='repeat-btn' class='toggle repeat'></button>
-				<button id='close-btn' class='toggle exit'></button>
+				<button id='repeat-btn' onmouseover="playAudioMS()" onclick="playAudioButton()" class='toggle repeat'></button>
+				<button id='close-btn' onmouseover="playAudioMS()" onclick="playAudioButton()" class='toggle exit'></button>
 			</div>
 		</div>
 		<div id="robot-help-mini" style="display: none;">
-			<img src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
+			<img src="img/help/robot-mini-blue.png" alt="Ajuda" onmouseover="playAudioMS()" onclick="playAudioButton()" title="Precisa de ajuda?">
 		</div>
 	</div>
 
@@ -55,7 +55,7 @@
 			<div class="content-right">
 				<li><div id="text-comment"></div></li>
 				<li><div id="more">
-					<button id='go-comment' onclick="playAudioButton()" class='action blue'>Vamos lá!</button>
+					<button id='go-comment' onmouseover="playAudioMS()" onclick="playAudioButton()" class='action blue'>Vamos lá!</button>
 				</div></li>					
 			</div>
 			

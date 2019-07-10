@@ -4,10 +4,10 @@
 
 	<img id="imgBebedouro" src="img/desafios/inovacao/bebedouro/bebedouro.png">
 	<div id="animacaoPingando"></div>
-	<img id="imgVaso" src="img/desafios/inovacao/bebedouro/vasinho.png">
-	<img id="imgBalde" src="img/desafios/inovacao/bebedouro/regador.png">
+	<img onmouseover="playAudioMS()" id="imgVaso" src="img/desafios/inovacao/bebedouro/vasinho.png">
+	<img onmouseover="playAudioMS()" id="imgBalde" src="img/desafios/inovacao/bebedouro/regador.png">
 	<img id="imgBaldeOK" src="img/desafios/inovacao/bebedouro/regador.png">
-	<img id="imgGarrafao" src="img/desafios/inovacao/bebedouro/garrafao.png">
+	<img onmouseover="playAudioMS()" id="imgGarrafao" src="img/desafios/inovacao/bebedouro/garrafao.png">
 
 	<div id="AnimacaoArrastBebedouro"></div>
 	<div id="AnimacaoArrastBebedouro2"></div>
@@ -26,11 +26,11 @@
 					<li><p></p></li>	
 				</div>
 				<button id='repeat-btn' class='toggle repeat'></button>
-				<button id='close-btn' class='toggle exit'></button>
+				<button onclick="AudioAguaPingando()" id='close-btn' class='toggle exit'></button>
 			</div>
 		</div>
 		<div id="robot-help-mini" style="display: none;">
-			<img src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
+			<img  onmouseover="playAudioMS()" src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
 		</div>
 	</div>	
 	

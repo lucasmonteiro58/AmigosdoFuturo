@@ -24,13 +24,13 @@ $('.loader').hide();
 $('.pace').hide();
 };
 
-var audio_botaoClick = new Audio('sounds/feedback/Botão 01.wav');
 
-function playAudioButton(){
-    if(sessionStorage.getItem('sound')=='on'){                  
-        audio_botaoClick.play(); 
-      }
-}
+
+
+
+
+
+
 
 
 
@@ -42,7 +42,7 @@ function playAudioButton(){
   sessionStorage.setItem("sound", "on");
   sessionStorage.setItem("music", "off");
 
-  
+
 
     toggleSoundSetup()
     toggleMusicSetup()
@@ -177,11 +177,8 @@ function playAudioButton(){
 
 
     function PauseSond(som){
-    $(".sound").click(function () {
-        
-         
-       som.load();
-        
+    $(".sound").click(function () {           
+       som.load();      
      
     })
 
@@ -270,11 +267,13 @@ function playAudioButton(){
 
 // Menu  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
   function menu() {
+     playAudioMouseOver();
+
     $("#start-game").click(function () {
         playAudioButton();
         cutscene_name = "start"
-        updateSectionAJAX("cutscene")
-       //updateSectionAJAX("congrats")
+       updateSectionAJAX("cutscene")
+       //updateSectionAJAX("mei_1")
       })
 
     incrementAccess()
@@ -298,10 +297,12 @@ function playAudioButton(){
 
       $(".infoCE").click(function () {
         $("#info-menu").fadeIn(300)
+        playAudioButton()
       })
 
-        $("#fechar-info").click(function () {
+      $("#fechar-info").click(function () {
         $("#info-menu").fadeOut(300);
+        playAudioButton()
       })
 
     }
@@ -320,6 +321,8 @@ function playAudioButton(){
 
 
   function form() {
+    playAudioMouseOver();
+
     questions_array = questions_texts
 
     actual_section = "form"
@@ -396,7 +399,7 @@ function playAudioButton(){
       var optionsHTML = ""
       for (var o in question["options"]){
         optionsHTML += "<input id='"+question["name"]+o+"' type='radio' name='"+question["name"]+"' value='"+question["options"][o]+"' class='action orange'>"+
-        "<label for='"+question["name"]+o+"' class='action orange'>"+question["options"][o]+"</label></input>"
+        "<label for='"+question["name"]+o+"' class='action orange' onmouseover='playAudioMS()'>"+question["options"][o]+"</label></input>"
       }
       questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
       "<li><form>"+optionsHTML+"</form></li>"
@@ -412,7 +415,7 @@ function playAudioButton(){
 
       questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
       "<li><form><select name='"+question["name"]+"'>"+selectOptions+"</select></form></li>"+
-      "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
+      "<li><button id='questions-next' onmouseover='playAudioMS()' class='action orange'>"+question["button_text"]+"</button></li>"
 
       $("#question-content").html(questionHTML)
       configClick("select")
@@ -424,7 +427,7 @@ function playAudioButton(){
 
       questionHTML = "<li class='center-title'><h4 class='title'>"+question["title"]+"</h4></li>"+
       "<li><form><input type='"+question["type"]+"' name='"+question["name"]+"' placeholder='"+question["placeholder"]+"'></form></li>"+
-      "<li><button id='questions-next' class='action orange'>"+question["button_text"]+"</button></li>"
+      "<li><button id='questions-next' onmouseover='playAudioMS()' class='action orange'>"+question["button_text"]+"</button></li>"
       
       $("#question-content").html(questionHTML)
       configClick("input")
@@ -546,6 +549,7 @@ function playAudioButton(){
 
 // Quiz  ----------------------------------------------------------------
   function quiz() {
+    playAudioMouseOver();
     question_number = 0
     questions_array = quiz_texts
     actual_section = "quiz"
@@ -703,6 +707,7 @@ function playAudioButton(){
 
 // Comment  -------------------------------------------------------------
   function comment() {
+    playAudioMouseOver();
     if (comment_name == "about_region") {
 
       A_RoboInteiro_create('#AnimacaoRoboComment')
@@ -791,7 +796,7 @@ function playAudioButton(){
     //Set comment text
     var commentHTML = ""
     commentHTML = "<p>"+comment["text"]+"</p>"+
-                  "<button class='toggle repeat'></button>"
+                  "<button class='toggle repeat' onmouseover='playAudioMS()'></button>"
     $(".robot-comment #text-comment").html(commentHTML)
 
     //Set background color
@@ -833,7 +838,7 @@ function playAudioButton(){
     //Set comment text
     var commentHTML = ""
     commentHTML = "<p>"+comment["text"]+"<span class='green-text'>"+region["name"]+"</span>?</p>"+
-                  "<button class='toggle repeat'></button>"
+                  "<button class='toggle repeat' onmouseover='playAudioMS()'></button>"
     $(".robot-comment #text-comment").html(commentHTML)
 
     //Set background color
@@ -896,6 +901,7 @@ function playAudioButton(){
 
 // Congragts starts ----------------------------------------------------------------
   function congrats() {
+    playAudioMouseOver();
      A_RoboCongrats_create('#AnimacaoRoboCongrats')
       A_RoboCongrats_again('#AnimacaoRoboCongrats')
     createCongrats(congrats_texts[congrats_name])
@@ -967,6 +973,7 @@ function playAudioButton(){
 
 // Feedback ----------------------------------------------------------------
   function feedback() {
+    playAudioMouseOver();
 
     A_RoboFeedback_create('#AnimacaoRoboFeedback');
     A_RoboFeedback_play('#AnimacaoRoboFeedback');
@@ -1083,12 +1090,23 @@ function playAudioButton(){
 
 // Certificate  -----------------------------------------------------------------
   function certificate() {
+    playAudioMouseOver();
     setupFinishedBadges()
+
+    A_RoboCertificate_create('#AnimacaoRoboCertificate')
+    A_RoboCertificate_play('#AnimacaoRoboCertificate')
+
+
     activeAndShowDetails("#"+actual_badge["id"])
+
+  
+
 
     setupActionsCertificate()
 
+
     generateCertificateImg()
+
   }
 
   function generateCertificateImg() {
@@ -1213,6 +1231,7 @@ function playAudioButton(){
 
 // Video Cutscene  -----------------------------------------------------------------
   function cutscene() {
+    playAudioMouseOver();
     $("#cutscene video source").attr("src", cutscenes_infos[cutscene_name]["src"])
 
     $("#cutscene .action").click(function () {

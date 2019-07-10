@@ -1,4 +1,110 @@
+//----------------Audios
+var audio_botaoClick = new Audio('sounds/feedback/Botao 01.wav');
 
+function playAudioButton(){
+    if(sessionStorage.getItem('sound')=='on'){ 
+        var promise =audio_botaoClick.load();                  
+        var promise =audio_botaoClick.play();
+
+          if (promise !== undefined) {
+            promise.then(_ => {
+                // Autoplay started!
+            }).catch(error => {
+                // Autoplay was prevented.
+                // Show a "Play" button so that user can start playback.
+            });
+        } 
+      }
+}
+
+//------------
+
+var audio_mouseover = new Audio('sounds/feedback/Mouse Over Itens.wav');
+
+function AudioMouseOver(){
+  if(sessionStorage.getItem('sound')=='on'){ 
+        var promise2 =audio_mouseover.load();                  
+        var promise2 =audio_mouseover.play();
+
+          if (promise2 !== undefined) {
+            promise2.then(_ => {
+                // Autoplay started!
+            }).catch(error => {
+                // Autoplay was prevented.
+                // Show a "Play" button so that user can start playback.
+            });
+        } 
+      }
+ 
+}
+
+function playAudioMouseOver(){
+  $( "button, .button.toggle.repeat").mouseover(function() {
+    AudioMouseOver();   
+  });
+
+}
+
+function playAudioMS(){
+    AudioMouseOver();  
+}
+  
+playAudioMouseOver();
+//--------------------
+
+var audio_parabens = new Audio('sounds/feedback/sucesso.mp3');
+
+function playAudioParabens(){
+    if(sessionStorage.getItem('sound')=='on'){ 
+        var promise =audio_parabens.load();                  
+        var promise =audio_parabens.play();
+
+          if (promise !== undefined) {
+            promise.then(_ => {
+                // Autoplay started!
+            }).catch(error => {
+                // Autoplay was prevented.
+                // Show a "Play" button so that user can start playback.
+            });
+        } 
+      }
+}
+
+//--------------------
+
+ var audio_aguapingando = new Audio('sounds/feedback/inovacao/aguapingando.mp3');
+  audio_aguapingando.addEventListener('ended', function() {
+      this.currentTime = 0;
+      this.play();
+      }, false);
+
+  
+    function AudioAguaPingando(){
+      if(sessionStorage.getItem('sound')=='on'){                 
+            var promise2 =audio_aguapingando.play();
+
+              if (promise2 !== undefined) {
+                promise2.then(_ => {
+                    // Autoplay started!
+                }).catch(error => {
+                    // Autoplay was prevented.
+                    // Show a "Play" button so that user can start playback.
+                });
+            } 
+          }
+     
+    }
+
+
+
+
+
+function playSound(id){
+    if(sessionStorage.getItem('sound')=='on'){
+      id.load();
+      id.play();     
+   } 
+}
 
 //---------------------Robo Bolinha Laranja 1
 function A_RoboLaranja1_create(id){
@@ -214,6 +320,37 @@ function A_RoboCongrats_again(id){
 function A_RoboCongrats_loop(id){
   $(id).jsMovie('play',22,35,true,false);
 }
+
+
+//---------------------Robo Certificate
+function A_RoboCertificate_create(id){
+  $(id).jsMovie({
+      sequence: 'Robo_Fala_1_Azul_000##.png',
+      from: 5,
+      to: 39,
+      fps: 10,
+      width:'53%',
+      height: '58%',
+      folder : "img/animation/robo/Robo_Fala_1_Azul/",
+      playOnLoad:false         
+    });
+   $(id).jsMovie("addClip","roboCertificate",1,35);
+}
+
+function A_RoboCertificate_play(id){
+  $(id).jsMovie('play',1,35,false,false);
+  $(id).jsMovie('play',22,35,true,false);
+}
+
+function A_RoboCertificate_again(id){          
+  $(id).jsMovie("playClip","roboCertificate",false);
+  $(id).jsMovie('play',22,35,true,false); 
+}
+
+function A_RoboCertificate_loop(id){
+  $(id).jsMovie('play',22,35,true,false);
+}
+
 
 
 
