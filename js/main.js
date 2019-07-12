@@ -177,13 +177,11 @@ $('.pace').hide();
 
 
     function PauseSond(som){
-    $(".sound").click(function () {           
-       som.load();      
-     
-    })
+      $(".sound").click(function () {           
+         som.load();      
+      })
 
 
-   
      
     }
 
@@ -323,9 +321,16 @@ $('.pace').hide();
   function form() {
     playAudioMouseOver();
 
+    var pergunta0 = $('#pergunta0')
+    var pergunta1 = $('#pergunta1')
+    var pergunta2 = $('#pergunta2')
+    var pergunta3 = $('#pergunta3')
+
     questions_array = questions_texts
 
     actual_section = "form"
+    playSom(pergunta0);
+    //pergunta0.play();
     createQuestion(questions_array[question_number])
 
 
@@ -336,12 +341,25 @@ $('.pace').hide();
     A_RoboLaranja1_play('#AnimacaoRoboForm')
   }
 
+  function stopPerguntasform(){
+    var pergunta0 = $('#pergunta0')
+    var pergunta1 = $('#pergunta1')
+    var pergunta2 = $('#pergunta2')
+    var pergunta3 = $('#pergunta3')
+    
+    stopSom(pergunta0)
+    stopSom(pergunta1)
+    stopSom(pergunta2)
+    stopSom(pergunta3)
+  }
+
   function configPrevNext() {
     prevNextDisable()
     $("#prev").click(function () {
       prevNextDisable()
       previousQuestion()
       playAudioButton()
+
     })
     $("#next").click(function () {
       prevNextDisable()
@@ -350,6 +368,7 @@ $('.pace').hide();
     })
   }
   function nextQuestion() {
+     stopPerguntasform()
     if (questions_array[question_number]["type"] == "options") {
       if (!$("input:checked").val()) {
 
@@ -370,24 +389,58 @@ $('.pace').hide();
     goToQuestion(question_number)
   }
   function previousQuestion() {
+     stopPerguntasform()
     question_number = question_number-1
     goToQuestion(question_number)  
   }
   function goToQuestion(number) {
+    var pergunta0 = $('#pergunta0')
+    var pergunta1 = $('#pergunta1')
+    var pergunta2 = $('#pergunta2')
+    var pergunta3 = $('#pergunta3')
+
     if (number == questions_array.length-1) {
-      createQuestion(questions_array[number])
+      createQuestion(questions_array[number], number)
        if (actual_section=="form"){
          A_RoboLaranja1_again('#AnimacaoRoboForm')
+         switch(number){
+            case 0:
+              playSom(pergunta0)
+              break;
+            case 1:
+              playSom(pergunta1)
+              break;
+            case 2:
+              playSom(pergunta2)
+              break;
+            case 3:
+              playSom(pergunta3)
+              break;
+           } 
+              
        }     
     } else {
-      createQuestion(questions_array[number])
+      createQuestion(questions_array[number], number)
        if (actual_section=="form"){
           A_RoboLaranja1_again('#AnimacaoRoboForm')
+            switch(number){
+            case 0:
+              playSom(pergunta0)
+              break;
+            case 1:
+              playSom(pergunta1)
+              break;
+            case 2:
+              playSom(pergunta2)
+              break;
+            case 3:
+              playSom(pergunta3)
+              break;
+           }         
          }
-     
     }
   }
-  function createQuestion(question) {
+  function createQuestion(question, number) {
 
     if (actual_section=="quiz"){
       A_RoboQuiz_again("#animacaoRoboQuiz");
@@ -560,15 +613,12 @@ $('.pace').hide();
 
 
     createQuestion(questions_array[question_number])
-
-
     configPrevNext()
     emptyBadgeDetails()
 
     badgeDetailsToggle()
 
-     
-    
+        
 
   }
 

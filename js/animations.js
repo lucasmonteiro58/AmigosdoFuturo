@@ -1,4 +1,26 @@
 //----------------Audios
+function playSom(som){
+  $(".sound").click(function () {           
+     som[0].pause();
+      som[0].currentTime = 0;      
+  })
+
+  if(sessionStorage.getItem('sound')=='on'){ 
+    som[0].play();    
+  } 
+}
+
+function stopSom(som){
+  som[0].pause();
+  som[0].currentTime = 0;
+}
+
+function pauseSom(som){
+  som[0].pause();
+}
+
+
+
 var audio_botaoClick = new Audio('sounds/feedback/Botao 01.wav');
 
 function playAudioButton(){
