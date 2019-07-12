@@ -764,10 +764,10 @@ $('.pace').hide();
       A_RoboInteiro_play('#AnimacaoRoboComment')
 
 
-      
+      //audio sobre a regiao
       var region = searchForRegion()
       if (region) {
-        var audio_regiao = new Audio('sounds/regiao/'+region["id"]+'.wav');
+        var audio_regiao = new Audio('sounds/falas/regiao/'+region["id"]+'.wav');
         createCommentRegion(comments_texts[comment_name], region)
         playAudioButton()
          if(sessionStorage.getItem('sound')=='on'){
