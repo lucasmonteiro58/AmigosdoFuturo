@@ -262,8 +262,8 @@ function menu() {
   $("#start-game").click(function() {
     playAudioButton();
     cutscene_name = "start"
-    updateSectionAJAX("cutscene")
-    //updateSectionAJAX("map")
+  //  updateSectionAJAX("cutscene")
+    updateSectionAJAX("quiz")
   })
 
   incrementAccess()
@@ -345,6 +345,8 @@ function stopPerguntasform() {
   stopSom(pergunta3)
 }
 
+
+
 function configPrevNext() {
   prevNextDisable()
   $("#prev").click(function() {
@@ -394,6 +396,12 @@ function goToQuestion(number) {
   var pergunta2 = $('#pergunta2')
   var pergunta3 = $('#pergunta3')
 
+  if (actual_section == "quiz") {
+    var pergunta4 = $('#pergunta4')
+    var pergunta5 = $('#pergunta5')
+    var pergunta6 = $('#pergunta6')
+  }
+
   if (number == questions_array.length - 1) {
     createQuestion(questions_array[number], number)
     if (actual_section == "form") {
@@ -412,6 +420,33 @@ function goToQuestion(number) {
           playSom(pergunta3)
           break;
       }
+    }
+
+    if (actual_section == "quiz") {
+      stopPerguntasQuiz()
+      switch (number) {
+        case 0:
+          playSom(pergunta0)
+          break;
+        case 1:
+          playSom(pergunta1)
+          break;
+        case 2:
+          playSom(pergunta2)
+        break;
+        case 3:
+          playSom(pergunta3)
+        break;
+        case 4:
+          playSom(pergunta4)
+        break;
+        case 5:
+          playSom(pergunta5)
+        break;
+        case 6:
+          playSom(pergunta6)
+        break;
+        }
 
     }
   } else {
@@ -432,6 +467,33 @@ function goToQuestion(number) {
           playSom(pergunta3)
           break;
       }
+    }
+    if (actual_section == "quiz") {
+      stopPerguntasQuiz()
+      switch (number) {
+        case 0:
+          playSom(pergunta0)
+          break;
+        case 1:
+          playSom(pergunta1)
+          break;
+        case 2:
+          playSom(pergunta2)
+        break;
+        case 3:
+          playSom(pergunta3)
+        break;
+        case 4:
+          playSom(pergunta4)
+        break;
+        case 5:
+          playSom(pergunta5)
+        break;
+        case 6:
+          playSom(pergunta6)
+        break;
+        }
+
     }
   }
 }
@@ -613,10 +675,21 @@ function prevNextDisable() {
 // Quiz  ----------------------------------------------------------------
 function quiz() {
   playAudioMouseOver();
+  configMouseOverBadges();
+
+
   question_number = 0
   questions_array = quiz_texts
   actual_section = "quiz"
+  var pergunta0 = $('#pergunta0')
+  var pergunta1 = $('#pergunta1')
+  var pergunta2 = $('#pergunta2')
+  var pergunta3 = $('#pergunta3')
+  var pergunta4 = $('#pergunta4')
+  var pergunta5 = $('#pergunta5')
+  var pergunta6 = $('#pergunta6')
 
+  playSom(pergunta0)
 
   A_RoboQuiz_create('#animacaoRoboQuiz')
   A_RoboQuiz_play('#animacaoRoboQuiz')
@@ -625,11 +698,25 @@ function quiz() {
   createQuestion(questions_array[question_number])
   configPrevNext()
   emptyBadgeDetails()
-
   badgeDetailsToggle()
+}
 
+function stopPerguntasQuiz() {
+  var pergunta0 = $('#pergunta0')
+  var pergunta1 = $('#pergunta1')
+  var pergunta2 = $('#pergunta2')
+  var pergunta3 = $('#pergunta3')
+  var pergunta4 = $('#pergunta4')
+  var pergunta5 = $('#pergunta5')
+  var pergunta6 = $('#pergunta6')
 
-
+  stopSom(pergunta0)
+  stopSom(pergunta1)
+  stopSom(pergunta2)
+  stopSom(pergunta3)
+  stopSom(pergunta4)
+  stopSom(pergunta5)
+  stopSom(pergunta6)
 }
 
 function badgeDetailsToggle() {
@@ -732,20 +819,13 @@ function resultQuiz() {
 
 
   setTimeout(function() {
-    var audio_categoria = new Audio("sounds/desafios/" + actual_badge['id'] + ".wav");
+    var audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + ".wav");
     PauseSond(audio_categoria);
     playAudioButton();
 
-
-
-
-
     if (sessionStorage.getItem('sound') == 'on') {
-
       audio_categoria.play();
     }
-
-
 
     $("button.toggle.repeat").click(function() {
       if (sessionStorage.getItem('sound') == 'on') {
@@ -809,6 +889,8 @@ function comment() {
 
     createComment(comments_texts[comment_name])
 
+    playAudioStartDesafios()
+
 
 
     A_RoboInteiro_create('#AnimacaoRoboComment')
@@ -818,14 +900,14 @@ function comment() {
       playAudioButton()
       if (sessionStorage.getItem('sound') == 'on') {
         A_RoboInteiro_again('#AnimacaoRoboComment')
-        audio_regiao.load();
-        audio_regiao.play();
+        playAudioStartDesafios()
+
 
       }
     });
 
     $("button#go-comment.toggle.next").click(function() {
-      audio_regiao.load();
+      stopAudiosStartDesafios()
       playAudioButton()
     });
 
@@ -1046,6 +1128,7 @@ function congratsButtonClicked() {
 // Feedback ----------------------------------------------------------------
 function feedback() {
   playAudioMouseOver();
+
 
   A_RoboFeedback_create('#AnimacaoRoboFeedback');
   A_RoboFeedback_play('#AnimacaoRoboFeedback');

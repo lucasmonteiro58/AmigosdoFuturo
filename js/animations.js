@@ -1,4 +1,4 @@
-//----------------Audios
+//----------------Audios Geral Config
 function playSom(som) {
   $(".sound").click(function() {
     som[0].pause();
@@ -7,7 +7,12 @@ function playSom(som) {
 
   if (sessionStorage.getItem('sound') == 'on') {
     som[0].currentTime = 0;
-    som[0].play();
+    var promise = som[0].play();
+    if (promise !== undefined) {
+      promise.then(_ => {
+      }).catch(error => {
+      });
+    }
   }
 }
 
@@ -19,6 +24,8 @@ function stopSom(som) {
 function pauseSom(som) {
   som[0].pause();
 }
+//-------------------------------
+
 
 //configHep
 function helpConfig(som) {
@@ -37,7 +44,6 @@ function helpConfig(som) {
 }
 
 
-
 var audio_botaoClick = new Audio('sounds/feedback/Botao 01.wav');
 
 function playAudioButton() {
@@ -53,6 +59,89 @@ function playAudioButton() {
         // Show a "Play" button so that user can start playback.
       });
     }
+  }
+}
+
+
+//------------------------ audios do quiz
+function stopAllSongBadgeDetails() {
+  var edu = $("#S_edu");  var eco = $("#S_eco");  var gov = $("#S_gov");  var ino = $("#S_ino");  var laz = $("#S_laz");  var sau = $("#S_sau");  var mei = $("#S_mei")
+  stopSom(eco); stopSom(gov); stopSom(edu); stopSom(ino); stopSom(laz); stopSom(sau); stopSom(sau); stopSom(mei)
+}
+
+function configMouseOverBadges() {
+  $("#edu, #eco, #gov, #ino, #laz, #sau, #mei").mouseover(function() {
+    var img = this.id
+    var edu = $("#S_edu")
+    var eco = $("#S_eco")
+    var gov = $("#S_gov")
+    var ino = $("#S_ino")
+    var laz = $("#S_laz")
+    var sau = $("#S_sau")
+    var mei = $("#S_mei")
+    stopAllSongBadgeDetails()
+    stopPerguntasQuiz()
+    switch (img) {
+      case 'edu':
+        playSom(edu)
+        break;
+      case "eco":
+        playSom(eco)
+        break;
+      case "gov":
+        playSom(gov)
+        break;
+      case "ino":
+        playSom(ino)
+        break;
+      case "laz":
+        playSom(laz)
+        break;
+      case 'sau':
+        playSom(sau)
+        break;
+      case 'mei':
+        playSom(mei)
+        break;
+    }
+
+    $("#edu, #eco, #gov, #ino, #laz, #sau, #mei").mouseleave(function() {
+      stopAllSongBadgeDetails();
+    })
+
+  });
+}
+
+function stopAudiosStartDesafios() {
+    var edu = $("#A_edu");  var eco = $("#A_eco");  var gov = $("#A_gov");  var ino = $("#A_ino");  var laz = $("#A_laz");  var sau = $("#A_sau");  var mei = $("#A_mei")
+    stopSom(eco); stopSom(gov); stopSom(edu); stopSom(ino); stopSom(laz); stopSom(sau); stopSom(sau); stopSom(mei)
+}
+
+function playAudioStartDesafios() {
+  var edu = $("#A_edu");  var eco = $("#A_eco");  var gov = $("#A_gov");  var ino = $("#A_ino");  var laz = $("#A_laz");  var sau = $("#A_sau");  var mei = $("#A_mei")
+  stopAudiosStartDesafios()
+  switch (actual_badge.id) {
+    case 'edu':
+      playSom(edu)
+      break;
+    case "eco":
+      playSom(eco)
+      break;
+    case "gov":
+      playSom(gov)
+      break;
+    case "ino":
+      playSom(ino)
+      break;
+    case "laz":
+      playSom(laz)
+      break;
+    case 'sau':
+      playSom(sau)
+      break;
+    case 'mei':
+      playSom(mei)
+      break;
   }
 }
 

@@ -7,9 +7,7 @@
 
 // Mapa -------------------------------------------------------------------------------------------------------------
   function map() {
-  var help = $('#help_mapa')
-  helpConfig(help)
-
+  helpConfig($('#help_mapa'))
   playAudioMouseOver();
   createInvokeHelp(helps_texts["map"])
 
@@ -168,6 +166,7 @@
 
 // Desafio mei_0 Lixo -----------------------------------------------------------------
   function mei_0() {
+    helpConfig($('#help_mei0'))
     playAudioMouseOver();
     setupLevel()
 
@@ -320,6 +319,7 @@
 
 // Desafio mei_1 Plantar -----------------------------------------------------------------
   function mei_1() {
+    helpConfig($('#help_mei1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -519,8 +519,13 @@
 
 // Desafio mei_2 Cozinha  -----------------------------------------------------------------
   function mei_2() {
+    helpConfig($('#help_mei2'))
     playAudioMouseOver();
     setupLevel()
+
+    $('#modalSust2C').click(function () {
+      $('#modalSust2').modal('hide')
+    })
 
 
     var audio_canos = new Audio('sounds/feedback/sustentabilidade/Canos.wav');
@@ -792,6 +797,7 @@
 
 // Desafio gov_0 Campinho ------------------------------------------------------------------
   function gov_0() {
+    helpConfig($('#help_gov0'))
     playAudioMouseOver();
     setupLevel()
 
@@ -916,6 +922,7 @@
 
 // Desafio gov_1 ONG --------------------------------------------------------------------------------------
   function gov_1() {
+    helpConfig($('#help_gov1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -978,6 +985,7 @@
 
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
+    helpConfig($('#help_gov2'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1036,6 +1044,7 @@
 
 // Desafio gov_3 Prefeitura  --------------------------------------------------------------------------------------
   function gov_3() {
+    helpConfig($('#help_gov3'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1078,6 +1087,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_0 Album 1 --------------------------------------------------------------------------------------
   function laz_0() {
+    helpConfig($('#help_laz0'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1313,6 +1323,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
   function laz_1() {
+    helpConfig($('#help_laz1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1367,6 +1378,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
+    helpConfig($('#help_laz2'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1411,18 +1423,9 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
   function ino_0() {
+    helpConfig($('#help_ino0'))
     playAudioMouseOver();
     setupLevel()
-
-
-
-
-
-
-
-
-
-
 
     A_RoboHelp_create('#AnimacaoRoboHelp');
     A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -1517,6 +1520,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_1 Foguete ---------------------------------------------------------------------------------
   function ino_1() {
+    helpConfig($('#help_ino1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1637,6 +1641,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_2 carrinho --------------------------------------------------------------------------------------
   function ino_2() {
+    helpConfig($('#help_ino2'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1787,6 +1792,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_0 Prato ---------------------------------------------------------------------------------
   function sau_0() {
+    helpConfig($('#help_sau0'))
     playAudioMouseOver();
     setupLevel()
 
@@ -1964,6 +1970,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
   function sau_1() {
+    helpConfig($('#help_sau1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -2146,6 +2153,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
+    helpConfig($('#help_edu0'))
     playAudioMouseOver();
     setupLevel()
     A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -2395,6 +2403,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_1 escola dentro------------------------------------------------------------------------------------------------------------------
   function edu_1() {
+    helpConfig($('#help_edu1'))
     playAudioMouseOver();
     setupLevel()
 
@@ -2748,6 +2757,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
   function edu_2() {
+    helpConfig($('#help_edu2'))
     playAudioMouseOver();
     setupLevel()
 
@@ -2996,6 +3006,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
   function eco_0() {
+    helpConfig($('#help_eco0'))
     playAudioMouseOver();
     setupLevel()
 
@@ -3260,6 +3271,7 @@ setTimeout(function () {
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
   function eco_1() {
+    helpConfig($('#help_eco1'))
     playAudioMouseOver();
     setupLevel()
     A_RoboHelp_create('#AnimacaoRoboHelp');

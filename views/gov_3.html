@@ -1,12 +1,16 @@
 <section id="desafioPrefeitura">
-	<div class="sound-btn"><button class="toggle sound"></button></div>	
+	<audio id="help_gov3">
+		<source src="sounds/falas/desafios/gov/help3.wav">
+	</audio>
+
+	<div class="sound-btn"><button class="toggle sound"></button></div>
 	<div class="music-btn"><button class="toggle music"></button></div>
 		<div id="titulolei">Lei 10.000</div>
 		<div id="textolei">Todas as escolas devem ser mais divertidas.</div>
 		<button onclick="playAudioButton()"  class="leiSIM btnLei" id="leiSIM" ></button>
-		<button onclick="playAudioButton()"  class="leiNAO btnLei" id="leiNAO"></button>	
-		<div id="AnimacaoClickPrefeitura"></div>	
-	
+		<button onclick="playAudioButton()"  class="leiNAO btnLei" id="leiNAO"></button>
+		<div id="AnimacaoClickPrefeitura"></div>
+
 		<!-- Robot help -->
 		<div id="help" style="display: none;">
 			<div class="backdrop">
@@ -14,7 +18,7 @@
 					<div id="AnimacaoRoboHelp"></div>
 					<div class="content">
 						<li><h4></h4></li>
-						<li><p></p></li>	
+						<li><p></p></li>
 					</div>
 					<button id='repeat-btn' class='toggle repeat'></button>
 					<button id='close-btn' class='toggle exit'></button>
@@ -23,6 +27,6 @@
 			<div id="robot-help-mini" style="display: none;">
 				<img  onmouseover="playAudioMS()" src="img/help/robot-mini-blue.png" alt="Ajuda" title="Precisa de ajuda?">
 			</div>
-		</div>	
-	
+		</div>
+
 </section>
