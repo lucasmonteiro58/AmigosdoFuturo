@@ -194,15 +194,10 @@ function toggleMusicSetup() {
   // Toggle sound
 
 
-  var audio_backgrounMusic = new Audio("sounds/fundo/Josefina.mp3");
-  audio_backgrounMusic.volume = 0.1;
+  //var audio_backgrounMusic = new Audio("sounds/fundo/Josefina.mp3");
+  //audio_backgrounMusic.volume = 0.1;
 
-
-
-
-
-
-
+  var audio_bg = $('#audio_bg');
 
   $(".music").click(function() {
     $(this).toggleClass("music")
@@ -210,13 +205,11 @@ function toggleMusicSetup() {
 
     if ($(this).hasClass('muteMusic')) {
       sessionStorage.setItem("music", "off");
-      audio_backgrounMusic.pause();
-      audio_backgrounMusic.load();
+      stopSom(audio_bg)
     } else {
       sessionStorage.setItem("music", "on");
-      audio_backgrounMusic.play();
-
-
+      playSom(audio_bg)
+      audio_bg[0].volume = 0.06;
     }
 
   })
@@ -227,13 +220,11 @@ function toggleMusicSetup() {
 
     if ($(this).hasClass('muteMusic')) {
       sessionStorage.setItem("music", "off");
-      audio_backgrounMusic.pause();
-      audio_backgrounMusic.load();
+      stopSom(audio_bg)
     } else {
       sessionStorage.setItem("music", "on");
-      audio_backgrounMusic.play();
-
-
+      playSom(audio_bg)
+      audio_bg[0].volume = 0.06;
     }
 
   })
@@ -262,8 +253,8 @@ function menu() {
   $("#start-game").click(function() {
     playAudioButton();
     cutscene_name = "start"
-  //  updateSectionAJAX("cutscene")
-    updateSectionAJAX("quiz")
+    updateSectionAJAX("cutscene")
+    //updateSectionAJAX("quiz")
   })
 
   incrementAccess()
@@ -1129,6 +1120,11 @@ function congratsButtonClicked() {
 function feedback() {
   playAudioMouseOver();
 
+  var audio_feedback = $('#fala_feedback');
+
+  playSom(audio_feedback);
+
+
 
   A_RoboFeedback_create('#AnimacaoRoboFeedback');
   A_RoboFeedback_play('#AnimacaoRoboFeedback');
@@ -1137,6 +1133,7 @@ function feedback() {
     playAudioButton()
     if (sessionStorage.getItem('sound') == 'on') {
       A_RoboFeedback_again('#AnimacaoRoboFeedback')
+      playSom(audio_feedback);
       // audio_regiao.load();
       // audio_regiao.play();
 
@@ -1245,8 +1242,12 @@ function sendAllDataToServer() {
 
 // Certificate  -----------------------------------------------------------------
 function certificate() {
-  playAudioMouseOver();
+  playAudioMouseOver()
   setupFinishedBadges()
+
+  var audio_certificate = $('#fala_certificate')
+
+  playSom(audio_certificate);
 
   A_RoboCertificate_create('#AnimacaoRoboCertificate')
   A_RoboCertificate_play('#AnimacaoRoboCertificate')
@@ -1255,7 +1256,16 @@ function certificate() {
   activeAndShowDetails("#" + actual_badge["id"])
 
 
+  $("button.toggle.repeat").click(function() {
+    playAudioButton()
+    if (sessionStorage.getItem('sound') == 'on') {
+      A_RoboFeedback_again('#AnimacaoRoboCertificate')
+      playSom(audio_certificate);
+      // audio_regiao.load();
+      // audio_regiao.play();
 
+    }
+  });
 
   setupActionsCertificate()
 
