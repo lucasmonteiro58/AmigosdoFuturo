@@ -516,11 +516,13 @@ function createQuestion(question, number) {
     }
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form><select name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
+      "<li><form><select class='select_city' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
       "<li><button id='questions-next' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
 
     $("#question-content").html(questionHTML)
     configClick("select")
+
+    //$('.select_city').select2();
 
   } else {
     if (question["name"] == "age") {
