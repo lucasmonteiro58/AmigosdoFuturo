@@ -321,7 +321,7 @@ function form() {
   configPrevNext()
 
   A_RoboLaranja1_create('#AnimacaoRoboForm')
-  A_RoboLaranja1_play('#AnimacaoRoboForm')
+  A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
 }
 
 function stopPerguntasform() {
@@ -396,19 +396,22 @@ function goToQuestion(number) {
   if (number == questions_array.length - 1) {
     createQuestion(questions_array[number], number)
     if (actual_section == "form") {
-      A_RoboLaranja1_again('#AnimacaoRoboForm')
       switch (number) {
         case 0:
           playSom(pergunta0)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 6)
           break;
         case 1:
           playSom(pergunta1)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 2.6)
           break;
         case 2:
           playSom(pergunta2)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 4.4)
           break;
         case 3:
           playSom(pergunta3)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 3)
           break;
       }
     }
@@ -443,19 +446,22 @@ function goToQuestion(number) {
   } else {
     createQuestion(questions_array[number], number)
     if (actual_section == "form") {
-      A_RoboLaranja1_again('#AnimacaoRoboForm')
       switch (number) {
         case 0:
           playSom(pergunta0)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 6)
           break;
         case 1:
           playSom(pergunta1)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 2.6)
           break;
         case 2:
           playSom(pergunta2)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 4.4)
           break;
         case 3:
           playSom(pergunta3)
+          A_RoboLaranja1_again('#AnimacaoRoboForm', 3)
           break;
       }
     }
@@ -814,7 +820,7 @@ function resultQuiz() {
   setTimeout(function() {
     var audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + ".wav");
     PauseSond(audio_categoria);
-    playAudioButton();
+
 
     if (sessionStorage.getItem('sound') == 'on') {
       audio_categoria.play();
@@ -846,7 +852,7 @@ function comment() {
   if (comment_name == "about_region") {
 
     A_RoboInteiro_create('#AnimacaoRoboComment')
-    A_RoboInteiro_play('#AnimacaoRoboComment')
+    A_RoboInteiro_play('#AnimacaoRoboComment', 4)
 
 
     //audio sobre a regiao
@@ -866,7 +872,7 @@ function comment() {
         if (sessionStorage.getItem('sound') == 'on') {
           audio_regiao.load();
           audio_regiao.play();
-          A_RoboInteiro_again('#AnimacaoRoboComment')
+          A_RoboInteiro_again('#AnimacaoRoboComment', 4)
         }
       });
 
@@ -887,12 +893,12 @@ function comment() {
 
 
     A_RoboInteiro_create('#AnimacaoRoboComment')
-    A_RoboInteiro_play('#AnimacaoRoboComment')
+    A_RoboInteiro_play('#AnimacaoRoboComment', 6)
 
     $("button.toggle.repeat").click(function() {
       playAudioButton()
       if (sessionStorage.getItem('sound') == 'on') {
-        A_RoboInteiro_again('#AnimacaoRoboComment')
+        A_RoboInteiro_again('#AnimacaoRoboComment', 0)
         playAudioStartDesafios()
 
 

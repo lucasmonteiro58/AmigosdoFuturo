@@ -1,19 +1,24 @@
 //----------------Audios Geral Config
 function playSom(som) {
+  console.log(som[0].duration)
   $(".sound").click(function() {
     som[0].pause();
     som[0].currentTime = 0;
   })
 
   if (sessionStorage.getItem('sound') == 'on') {
+
+
     som[0].currentTime = 0;
     var promise = som[0].play();
+
     if (promise !== undefined) {
       promise.then(_ => {
       }).catch(error => {
       });
     }
   }
+
 }
 
 function stopSom(som) {
@@ -180,24 +185,6 @@ function playAudioMS() {
 playAudioMouseOver();
 //--------------------
 
-var audio_parabens = new Audio('sounds/feedback/sucesso.mp3');
-
-function playAudioParabens() {
-  if (sessionStorage.getItem('sound') == 'on') {
-    var promise = audio_parabens.load();
-    var promise = audio_parabens.play();
-
-    if (promise !== undefined) {
-      promise.then(_ => {
-        // Autoplay started!
-      }).catch(error => {
-        // Autoplay was prevented.
-        // Show a "Play" button so that user can start playback.
-      });
-    }
-  }
-}
-
 //--------------------
 
 var audio_aguapingando = new Audio('sounds/feedback/inovacao/aguapingando.mp3');
@@ -247,16 +234,43 @@ function A_RoboLaranja1_create(id) {
     playOnLoad: false
   });
   $(id).jsMovie("addClip", "roboLaranja1", 5, 40);
+  $(id).jsMovie("addClip", "loop", 10, 22);
+  $(id).jsMovie("addClip", "parou", 27, 40);// parar
 }
 
-function A_RoboLaranja1_play(id) {
-  $(id).jsMovie('play', 5, 40, false, false);
-  $(id).jsMovie('play', 27, 40, true, false);
+function A_RoboLaranja1_play(id, time) {
+
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parou", true);
+  })
+
+  if (sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie('play', 5, 40, false, false); //primeira vez
+    $(id).jsMovie('play', 10, 22, true, false); // loop_falando
+      setTimeout(function(){
+        $(id).jsMovie('play', 27, 40, true, false); //final
+      }, t);
+    } else {
+      A_RoboLaranja1_loop(id)
+    }
 }
 
-function A_RoboLaranja1_again(id) {
-  $(id).jsMovie("playClip", "roboLaranja1", false);
-  $(id).jsMovie('play', 27, 40, true, false);
+function A_RoboLaranja1_again(id, time) {
+
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parou", true);
+  })
+
+  if (sessionStorage.getItem('sound') == 'on') {
+    t = time *1000
+    $(id).jsMovie("playClip", "loop", true);
+    setTimeout(function(){
+      $(id).jsMovie('play', 27, 40, true, false); //final
+    }, t);
+  } else{
+    A_RoboLaranja1_loop(id)
+  }
 }
 
 function A_RoboLaranja1_loop(id) {
@@ -307,16 +321,44 @@ function A_RoboInteiro_create(id) {
     playOnLoad: false
   });
   $(id).jsMovie("addClip", "roboInteiro", 1, 74);
+  $(id).jsMovie("addClip", "loop", 28, 52);
+  $(id).jsMovie("addClip", "parou", 59, 74);// parar
 }
 
-function A_RoboInteiro_play(id) {
-  $(id).jsMovie('play', 1, 74, false, false);
-  $(id).jsMovie('play', 59, 74, true, false);
+function A_RoboInteiro_play(id, time) {
+
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parou", true);
+  })
+
+  if (sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie('play', 1, 74, false, false); //primeira vez
+    $(id).jsMovie('play', 28, 52, true, false); // loop_falando
+      setTimeout(function(){
+        $(id).jsMovie('play', 59, 74, true, false); //final
+      }, t);
+    } else {
+      A_RoboInteiro_loop(id)
+    }
 }
 
-function A_RoboInteiro_again(id) {
-  $(id).jsMovie("playClip", "roboInteiro", false);
-  $(id).jsMovie('play', 59, 74, true, false);
+function A_RoboInteiro_again(id, time) {
+
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parou", true);
+  })
+
+  if (sessionStorage.getItem('sound') == 'on') {
+    t = time *1000
+    $(id).jsMovie("playClip", "loop", true);
+    setTimeout(function(){
+      $(id).jsMovie('play', 59, 74, true, false); //final
+    }, t);
+  } else{
+    A_RoboInteiro_loop(id)
+  }
+
 }
 
 function A_RoboInteiro_loop(id) {
