@@ -33,18 +33,22 @@ function pauseSom(som) {
 
 
 //configHep
-function helpConfig(som) {
+function helpConfig(som, animation, time) {
   playSom(som)
+  A_RoboHelp_create(animation)
+  A_RoboHelp_play(animation, time)
   $('#close-btn').click(function() {
     stopSom(som)
   })
   $('#robot-help-mini').click(function() {
     stopSom(som)
     playSom(som)
+    A_RoboHelp_again(animation, time)
   })
   $('#repeat-btn').click(function() {
     stopSom(som)
     playSom(som)
+    A_RoboHelp_again(animation, time)
   })
 }
 
@@ -66,6 +70,11 @@ function playAudioButton() {
     }
   }
 }
+
+//------------------- Audios Botão HELPER
+  $('#buraco1, #repeat-btn, #close-btn').click(function(){
+    playAudioButton();
+  })
 
 
 //------------------------ audios do quiz
@@ -440,23 +449,47 @@ function A_RoboHelp_create(id) {
     folder: "img/animation/robo/Robo_Fala_1_Azul/",
     playOnLoad: false
   });
-  $(id).jsMovie("addClip", "roboHelp", 1, 35);
+//  $(id).jsMovie("addClip", "roboHelp", 5, 40);
+  $(id).jsMovie("addClip", "loop", 10, 22);//loop
+  $(id).jsMovie("addClip", "parou", 27, 40);// parar
 }
 
-function A_RoboHelp_play(id) {
-  $(id).jsMovie('play', 1, 35, false, false);
-  $(id).jsMovie('play', 22, 35, true, false);
+function A_RoboHelp_play(id, time) {
+
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parou", true);
+  })
+
+  if (sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie('play', 5, 40, false, false); //primeira vez
+    $(id).jsMovie('play', 10, 22, true, false); // loop_falando
+      setTimeout(function(){
+        $(id).jsMovie('play', 27, 40, true, false); //final
+      }, t);
+    } else {
+      A_RoboHelp_loop(id)
+    }
 }
 
 
 
-function A_RoboHelp_again(id) {
-  setTimeout(function() {
-    $(id).jsMovie("playClip", "roboHelp", false);
-    $(id).jsMovie('play', 22, 35, true, false);
-  }, 300);
+function A_RoboHelp_again(id, time) {
+  $(".sound").click(function() {
+   $(id).jsMovie("playClip", "parou", true);
+ })
 
-}
+ if (sessionStorage.getItem('sound') == 'on') {
+     t = time *1000
+     $(id).jsMovie("playClip", "loop", true);
+     setTimeout(function(){
+       $(id).jsMovie('play', 27, 40, true, false); //final
+     }, t);
+   } else{
+     A_RoboHelp_loop(id)
+   }
+ }
+
 
 function A_RoboHelp_loop(id) {
   $(id).jsMovie('play', 22, 35, true, false);

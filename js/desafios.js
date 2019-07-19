@@ -7,7 +7,8 @@
 
 // Mapa -------------------------------------------------------------------------------------------------------------
   function map() {
-  helpConfig($('#help_mapa'))
+  //configura #som e #animacao # e tempodo helper
+  helpConfig($('#help_mapa'), '#AnimacaoRoboHelp', 7)
   playAudioMouseOver();
   createInvokeHelp(helps_texts["map"])
 
@@ -15,8 +16,8 @@
     html: true
   })
 
-  A_RoboHelp_create('#AnimacaoRoboHelp');
-  A_RoboHelp_play('#AnimacaoRoboHelp')
+  ////A_RoboHelp_create('#AnimacaoRoboHelp');
+  ////A_RoboHelp_play('#AnimacaoRoboHelp')
 
 
   $('#AnimacaoArrastarMapa').jsMovie({
@@ -166,12 +167,12 @@
 
 // Desafio mei_0 Lixo -----------------------------------------------------------------
   function mei_0() {
-    helpConfig($('#help_mei0'))
+    helpConfig($('#help_mei0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacaoArrastarLixos').jsMovie({
       sequence: 'drag_000##.png',
@@ -319,7 +320,7 @@
 
 // Desafio mei_1 Plantar -----------------------------------------------------------------
   function mei_1() {
-    helpConfig($('#help_mei1'))
+    helpConfig($('#help_mei1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
@@ -342,8 +343,8 @@
       }
 
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var verificaLegumes = 0;
 
@@ -519,7 +520,7 @@
 
 // Desafio mei_2 Cozinha  -----------------------------------------------------------------
   function mei_2() {
-    helpConfig($('#help_mei2'))
+    helpConfig($('#help_mei2'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
@@ -586,8 +587,8 @@
 
 
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     $('#AnimacaoClickCanos').jsMovie({
       sequence: 'click_000##.png',
@@ -797,12 +798,12 @@
 
 // Desafio gov_0 Campinho ------------------------------------------------------------------
   function gov_0() {
-    helpConfig($('#help_gov0'))
+    helpConfig($('#help_gov0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
 
  $('#AnimacaoArrastarCamp').jsMovie({
@@ -922,7 +923,7 @@
 
 // Desafio gov_1 ONG --------------------------------------------------------------------------------------
   function gov_1() {
-    helpConfig($('#help_gov1'))
+    helpConfig($('#help_gov1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
@@ -944,8 +945,8 @@
             }
       }
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickONG').jsMovie({
       sequence: 'click_000##.png',
@@ -985,12 +986,12 @@
 
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
   function gov_2() {
-    helpConfig($('#help_gov2'))
+    helpConfig($('#help_gov2'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickRadio').jsMovie({
       sequence: 'click_000##.png',
@@ -1044,12 +1045,12 @@
 
 // Desafio gov_3 Prefeitura  --------------------------------------------------------------------------------------
   function gov_3() {
-    helpConfig($('#help_gov3'))
+    helpConfig($('#help_gov3'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+//A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
       $('#AnimacaoClickPrefeitura').jsMovie({
       sequence: 'click_000##.png',
       from: 0,
@@ -1087,7 +1088,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_0 Album 1 --------------------------------------------------------------------------------------
   function laz_0() {
-    helpConfig($('#help_laz0'))
+    helpConfig($('#help_laz0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
@@ -1128,8 +1129,8 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
           }
     }
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoArrastarAlbum1').jsMovie({
       sequence: 'drag_000##.png',
@@ -1323,12 +1324,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_1 Album 2 ------------------------------------------------------------------------------------------
   function laz_1() {
-    helpConfig($('#help_laz1'))
+    helpConfig($('#help_laz1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickAlbum2').jsMovie({
       sequence: 'click_000##.png',
@@ -1378,12 +1379,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio laz_2 7 erros------------------------------------------------------------------------------------------------------------------
   function laz_2() {
-    helpConfig($('#help_laz2'))
+    helpConfig($('#help_laz2'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
   $('#AnimacaoClick7erros').jsMovie({
       sequence: 'click_000##.png',
@@ -1423,12 +1424,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_0 bebedouro ---------------------------------------------------------------------------------
   function ino_0() {
-    helpConfig($('#help_ino0'))
+    helpConfig($('#help_ino0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacaoArrastBebedouro').jsMovie({
       sequence: 'drag_000##.png',
@@ -1520,12 +1521,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_1 Foguete ---------------------------------------------------------------------------------
   function ino_1() {
-    helpConfig($('#help_ino1'))
+    helpConfig($('#help_ino1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
 
@@ -1641,12 +1642,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio ino_2 carrinho --------------------------------------------------------------------------------------
   function ino_2() {
-    helpConfig($('#help_ino2'))
+    helpConfig($('#help_ino2'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
 
@@ -1792,12 +1793,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_0 Prato ---------------------------------------------------------------------------------
   function sau_0() {
-    helpConfig($('#help_sau0'))
+    helpConfig($('#help_sau0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       var audio_frutas = new Audio('sounds/feedback/sustentabilidade/Fruta na cesta.wav');
 
@@ -1970,12 +1971,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio sau_1 Parquinho -----------------------------------------------------------------------------------
   function sau_1() {
-    helpConfig($('#help_sau1'))
+    helpConfig($('#help_sau1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var bilotoP = 49.4;
     var escorregador = false;
@@ -2153,11 +2154,11 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_0 Escola Fora --------------------------------------------------------------------------------------
   function edu_0 () {
-    helpConfig($('#help_edu0'))
+    helpConfig($('#help_edu0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacaoClickEscolaFora').jsMovie({
       sequence: 'click_000##.png',
@@ -2403,12 +2404,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_1 escola dentro------------------------------------------------------------------------------------------------------------------
   function edu_1() {
-    helpConfig($('#help_edu1'))
+    helpConfig($('#help_edu1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickEscolaDentro').jsMovie({
       sequence: 'click_000##.png',
@@ -2757,12 +2758,12 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio edu_2 Escola Sala -------------------------------------------------------------------------------------------------------------------
   function edu_2() {
-    helpConfig($('#help_edu2'))
+    helpConfig($('#help_edu2'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     $('#AnimacaoClickEscolaSala').jsMovie({
       sequence: 'click_000##.png',
@@ -3006,7 +3007,7 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
 
 // Desafio eco_0 Casa -----------------------------------------------------------------------------------------------------------------
   function eco_0() {
-    helpConfig($('#help_eco0'))
+    helpConfig($('#help_eco0'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
 
@@ -3019,8 +3020,8 @@ A_RoboHelp_create('#AnimacaoRoboHelp');
     moedaSaindo.load();
     moedaSaindo.play();
 
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
      $('#AnimacTecladoCasa').jsMovie({
       sequence: 'keyboard_000##.png',
@@ -3271,11 +3272,11 @@ setTimeout(function () {
 
 // Desafio eco_1 Monstrinhos ----------------------------------------------------------------------------------------------------------
   function eco_1() {
-    helpConfig($('#help_eco1'))
+    helpConfig($('#help_eco1'), '#AnimacaoRoboHelp', 7)
     playAudioMouseOver();
     setupLevel()
-    A_RoboHelp_create('#AnimacaoRoboHelp');
-    A_RoboHelp_play('#AnimacaoRoboHelp');
+    //A_RoboHelp_create('#AnimacaoRoboHelp');
+    //A_RoboHelp_play('#AnimacaoRoboHelp');
 
     var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.mp3');
     var moedaSaindo = new Audio('sounds/feedback/economia/Moeda Saindo.wav')

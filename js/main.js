@@ -343,13 +343,11 @@ function configPrevNext() {
   $("#prev").click(function() {
     prevNextDisable()
     previousQuestion()
-    playAudioButton()
 
   })
   $("#next").click(function() {
     prevNextDisable()
     nextQuestion()
-    playAudioButton()
   })
 }
 
@@ -523,7 +521,7 @@ function createQuestion(question, number) {
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><select class='select_city' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
-      "<li><button id='questions-next' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
+      "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
 
     $("#question-content").html(questionHTML)
     configClick("select")
@@ -537,7 +535,7 @@ function createQuestion(question, number) {
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><input type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
-      "<li><button id='questions-next' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
+      "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
 
     $("#question-content").html(questionHTML)
     configClick("input")
@@ -860,7 +858,7 @@ function comment() {
     if (region) {
       var audio_regiao = new Audio('sounds/falas/regiao/' + region["id"] + '.wav');
       createCommentRegion(comments_texts[comment_name], region)
-      playAudioButton()
+
       if (sessionStorage.getItem('sound') == 'on') {
         audio_regiao.play();
       }
@@ -877,8 +875,9 @@ function comment() {
       });
 
       $("button#go-comment.toggle.next").click(function() {
+        playAudioButton();
         audio_regiao.load();
-        playAudioButton()
+
       });
 
       //tocar musica
@@ -906,8 +905,9 @@ function comment() {
     });
 
     $("button#go-comment.toggle.next").click(function() {
-      stopAudiosStartDesafios()
       playAudioButton()
+      stopAudiosStartDesafios()
+
     });
 
 
@@ -1044,7 +1044,7 @@ function hideHelp() {
   $('#help').width("0%")
   $("#robot-help-mini img").click(function() {
     showHelp()
-    A_RoboHelp_again('#AnimacaoRoboHelp');
+  //  A_RoboHelp_again('#AnimacaoRoboHelp');
 
   })
 }
