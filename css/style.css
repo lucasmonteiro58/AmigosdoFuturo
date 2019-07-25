@@ -19,47 +19,6 @@
   text-align: center;
 }
 
-.pace {
-  -webkit-pointer-events: none;
-  pointer-events: none;
-
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-.pace.pace-inactive .pace-progress {
-  display: none;
-}
-
-.pace .pace-progress {
-  position: fixed;
-  z-index: 99999;
-  top: 42%;
-  left: 54%;
-  height: 5rem;
-  width: 5rem;
-
-  -webkit-transform: translate3d(0, 0, 0) !important;
-  -ms-transform: translate3d(0, 0, 0) !important;
-  transform: translate3d(0, 0, 0) !important;
-}
-
-.pace .pace-progress:after {
-  display: block;
-  position: absolute;
-  top: 0;
-  right: .5rem;
-  content: attr(data-progress-text);
-  font-family: bungee;
-  font-weight: 100;
-  font-size: 6rem;
-  line-height: 1;
-  text-align: right;
-  color: #4573B8;
-}
-
-
 @media screen and (min-width: 768px) {
   .modal:before {
     display: inline-block;
@@ -84,11 +43,27 @@
     height: 100%;
     z-index: 9998;
     background-color: #EFEFEF;
-
 }
 
+#img-loader{
+  position: absolute;
+  top:0vh;
+  left:0%;
+  width: 100%;
+}
 
-
+#text-loader{
+  position: absolute;
+  font-family: bungee;
+  font-weight: 100;
+  font-size: 6rem;
+  width: 20%;
+  text-align: center;
+  line-height: 1;
+  color: #4573B8;
+  top: 270px;
+  left: 42%;
+}
 
 
   @font-face {

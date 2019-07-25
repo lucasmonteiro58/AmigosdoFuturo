@@ -9,23 +9,6 @@ if ($("#menu").length) {
   menu()
 }
 
-paceOptions = {
-  // Disable the 'elements' source
-  elements: false,
-
-  // Only show the progress on regular and ajax-y page navigation,
-  // not every request
-  restartOnRequestAfter: false
-}
-
-
-window.onload = function() {
-  $('.loader').hide();
-  $('.pace').hide();
-};
-
-
-
 // General  ---------------------------------------------------------------------
 $(document).ready(function() {
 
