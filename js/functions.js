@@ -472,8 +472,6 @@ function A_RoboHelp_play(id, time) {
     }
 }
 
-
-
 function A_RoboHelp_again(id, time) {
   $(".sound").click(function() {
    $(id).jsMovie("playClip", "parou", true);

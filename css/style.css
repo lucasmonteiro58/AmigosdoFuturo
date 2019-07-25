@@ -693,14 +693,33 @@
       visibility:hidden;
   }
 
+  .img-animation{
+    width: 30%;
+  }
+
+
+
   #AnimacaoRoboForm{
   position: absolute;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: contain;
   top: 25%;
   left: 36%;
   transform: scale(2.1) ;
+    /* position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: url(../img/animation/robo_laranja1.png);
+    background-size: cover;
+    min-width: 300px;
+    min-height: 324px;
+    top: 25%;
+    left: 36%;
+    transform: scale(1.8); */
+
 }
+
+
 
 /*Quiz Section ----------------------------------------------------------*/
   #quiz {
@@ -5601,6 +5620,17 @@ visibility: hidden;
 
 }
 
+#animacaoCampo{
+  position: absolute;
+  bottom: 17%;
+  left: 76.4%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: scale(3.85);
+  display: none;
+
+}
+
 #animacaoEscorregador{
   position: absolute;
   bottom: -0.65%;
@@ -5660,6 +5690,14 @@ visibility: hidden;
   top: 32%;
   left: 32%;
   width: 37%;
+}
+
+#campinho_futebol_none{
+  position: absolute;
+  top: 32%;
+  left: 32%;
+  width: 37%;
+  display: none;
 }
 
 #balanco{

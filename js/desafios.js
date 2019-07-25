@@ -1999,22 +1999,22 @@
 
 
     $('#animacaoGangorra').jsMovie({
-    sequence: 'Gangorra_2_000##.png',
+    sequence: 'Gangorra_000##.png',
     from: 1,
-    to: 71,
-    fps: 15,
+    to: 47,
+    fps: 10,
     width:'45%',
     height: '53.5%',
-    folder : "img/animation/FaseLazer/Gangorra2/",
+    folder : "img/animation/FaseLazer/Gangorra/",
     playOnLoad:false
 
     });
 
     $('#animacaoEscorregador').jsMovie({
-    sequence: 'Toboga_000##.png',
+    sequence: 'Escorrega_000##.png',
     from: 0,
-    to: 23,
-    fps: 15,
+    to: 15,
+    fps: 10,
     width:'30%',
     height: '53.5%',
     folder : "img/animation/FaseLazer/Toboga/",
@@ -2026,8 +2026,8 @@
     $('#animacaoCelular').jsMovie({
     sequence: 'Celular_000##.png',
     from: 0,
-    to: 71,
-    fps: 12,
+    to: 39,
+    fps: 10,
     width:'43%',
     height: '60%',
     folder : "img/animation/FaseLazer/Celular/",
@@ -2036,16 +2036,30 @@
     });
 
     $('#animacaoBalanco').jsMovie({
-    sequence: 'Balanco_2_000##.png',
+    sequence: 'Balanco_000##.png',
     from: 1,
-    to: 83,
-    fps: 12,
+    to: 55,
+    fps: 10,
     width:'43%',
     height: '64%',
-    folder : "img/animation/FaseLazer/Balanco2/",
+    folder : "img/animation/FaseLazer/Balanco/",
     playOnLoad:false
 
     });
+
+
+    $('#animacaoCampo').jsMovie({
+    sequence: 'Bola_000##.png',
+    from: 0,
+    to: 21,
+    fps: 10,
+    width:'30%',
+    height: '23%',
+    folder : "img/animation/FaseLazer/Bola/",
+    playOnLoad:false
+
+    });
+
 
 
 
@@ -2055,14 +2069,14 @@
       if (escorregador){
       } else{
         $("#animacaoEscorregador").css('display','block');
-        $('#animacaoEscorregador').jsMovie('play',1,24,false,false);
+        $('#animacaoEscorregador').jsMovie('play',1,16,false,false);
           setTimeout(function () {
                $("#animacaoEscorregador").css('display','none');
         }, 1900);
         bilotoP= bilotoP+4.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
-         },1500)
+        },1300)
         escorregador=true;
       }})
 
@@ -2070,10 +2084,19 @@
       $('#AnimacaoClickParquinho').css('display', 'none');
       if (campinho){
       } else{
+        $('#campinho_futebol').css('display', 'none');
+        $('#campinho_futebol_none').css('display', 'block');
+        $("#animacaoCampo").css('display','block');
+        $('#animacaoCampo').jsMovie('play',1,22,false,false);
+          setTimeout(function () {
+               $("#animacaoCampo").css('display','none');
+               $('#campinho_futebol').css('display', 'block');
+               $('#campinho_futebol_none').css('display', 'none');
+        }, 2500);
         bilotoP= bilotoP+5.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
-         })
+        }, 1300)
         campinho=true;
       }})
 
@@ -2083,7 +2106,7 @@
       } else{
         $('#balanco').css('display','none');
         $("#animacaoBalanco").css('display','block');
-        $('#animacaoBalanco').jsMovie('play',1,83,false,true);
+        $('#animacaoBalanco').jsMovie('play',1,54,false,true);
           setTimeout(function () {
                $("#animacaoBalanco").css('display','none');
                $('#balanco').css('display','block');
@@ -2091,7 +2114,7 @@
         bilotoP= bilotoP+2.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
-         }, 2000)
+        }, 1500)
         balanco=true;
       }})
 
@@ -2101,11 +2124,11 @@
       } else{
         $('#gangorra').css('display', 'none');
          $("#animacaoGangorra").css('display','block');
-          $('#animacaoGangorra').jsMovie('play',1,71,false,true);
+          $('#animacaoGangorra').jsMovie('play',1,47,false,true);
           setTimeout(function () {
                $('#gangorra').css('display', 'block');
                $("#animacaoGangorra").css('display','none');
-        }, 6300);
+        }, 5300);
         bilotoP= bilotoP+3.55;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
@@ -2120,12 +2143,12 @@
         $('#tablet').css('display','none');
         $('#tablet1').css('display','block');
         $("#animacaoCelular").css('display','block');
-        $('#animacaoCelular').jsMovie('play',1,72,false,false);
+        $('#animacaoCelular').jsMovie('play',1,38,false,false);
           setTimeout(function () {
                $("#animacaoCelular").css('display','none');
                $('#tablet').css('display','block');
               $('#tablet1').css('display','none');
-        }, 4500);
+        }, 3500);
         bilotoP= bilotoP+0;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
@@ -2140,6 +2163,7 @@
           $('#animacaoEscorregador').jsMovie('destroy');
           $('#animacaoCelular').jsMovie('destroy');
           $('#animacaoBalanco').jsMovie('destroy');
+          $('#animacaoCampo').jsMovie('destroy');
 
           var audio_parquinho = new Audio('sounds/desafios/saude desafio 2.wav') ;
           destroyAnimation('#AnimacaoRoboHelp')

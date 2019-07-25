@@ -322,7 +322,19 @@ function form() {
 
   A_RoboLaranja1_create('#AnimacaoRoboForm')
   A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
-}
+
+//   $("#AnimacaoRoboForm").animateSprite({
+//     fps: 10,
+//     columns: 1,
+//     animations: {
+//       falaando: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
+//     },
+//     loop: true
+//   });
+//
+//    $("#AnimacaoRoboForm").animateSprite('play', 'falando')
+//
+ }
 
 function stopPerguntasform() {
   var pergunta0 = $('#pergunta0')
@@ -1269,8 +1281,7 @@ function certificate() {
     if (sessionStorage.getItem('sound') == 'on') {
       A_RoboFeedback_again('#AnimacaoRoboCertificate')
       playSom(audio_certificate);
-      // audio_regiao.load();
-      // audio_regiao.play();
+      A_RoboCertificate_again('#AnimacaoRoboCertificate')
 
     }
   });
