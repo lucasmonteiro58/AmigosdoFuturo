@@ -237,7 +237,7 @@ function menu() {
     playAudioButton();
     cutscene_name = "start"
     updateSectionAJAX("cutscene")
-    //updateSectionAJAX("quiz")
+    //updateSectionAJAX("certificate")
   })
 
   incrementAccess()
@@ -295,29 +295,16 @@ function form() {
   questions_array = questions_texts
 
   actual_section = "form"
+
   playSom(pergunta0);
-  //pergunta0.play();
+
   createQuestion(questions_array[question_number])
-
-
-
   configPrevNext()
 
-  A_RoboLaranja1_create('#AnimacaoRoboForm')
-  A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
-
-//   $("#AnimacaoRoboForm").animateSprite({
-//     fps: 10,
-//     columns: 1,
-//     animations: {
-//       falaando: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29],
-//     },
-//     loop: true
-//   });
-//
-//    $("#AnimacaoRoboForm").animateSprite('play', 'falando')
-//
- }
+  robozinLaranja_create('#AnimacaoRoboForm', '75%', '65%') // id width height
+  robozinLaranja_again('#AnimacaoRoboForm', 6)
+  //A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
+}
 
 function stopPerguntasform() {
   var pergunta0 = $('#pergunta0')
@@ -392,19 +379,19 @@ function goToQuestion(number) {
       switch (number) {
         case 0:
           playSom(pergunta0)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 6)
+          robozinLaranja_again('#AnimacaoRoboForm', 6)
           break;
         case 1:
           playSom(pergunta1)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 2.6)
+          robozinLaranja_again('#AnimacaoRoboForm', 2.6)
           break;
         case 2:
           playSom(pergunta2)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 4.4)
+          robozinLaranja_again('#AnimacaoRoboForm', 4.4)
           break;
         case 3:
           playSom(pergunta3)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 3)
+          robozinLaranja_again('#AnimacaoRoboForm', 3)
           break;
       }
     }
@@ -442,19 +429,19 @@ function goToQuestion(number) {
       switch (number) {
         case 0:
           playSom(pergunta0)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 6)
+          robozinLaranja_again('#AnimacaoRoboForm', 6)
           break;
         case 1:
           playSom(pergunta1)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 2.6)
+          robozinLaranja_again('#AnimacaoRoboForm', 2.6)
           break;
         case 2:
           playSom(pergunta2)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 4.4)
+          robozinLaranja_again('#AnimacaoRoboForm', 4.4)
           break;
         case 3:
           playSom(pergunta3)
-          A_RoboLaranja1_again('#AnimacaoRoboForm', 3)
+          robozinLaranja_again('#AnimacaoRoboForm', 3)
           break;
       }
     }
@@ -491,7 +478,7 @@ function goToQuestion(number) {
 function createQuestion(question, number) {
 
   if (actual_section == "quiz") {
-    A_RoboQuiz_again("#animacaoRoboQuiz");
+    robozinLaranja_again("#animacaoRoboQuiz", 5);
   }
 
   //Form reusable div
@@ -683,8 +670,8 @@ function quiz() {
 
   playSom(pergunta0)
 
-  A_RoboQuiz_create('#animacaoRoboQuiz')
-  A_RoboQuiz_play('#animacaoRoboQuiz')
+  robozinLaranja_create('#animacaoRoboQuiz', '57%', '65%') //id width height
+  robozinLaranja_play('#animacaoRoboQuiz', 5)
 
 
   createQuestion(questions_array[question_number])
@@ -821,7 +808,7 @@ function resultQuiz() {
 
     $("button.toggle.repeat").click(function() {
       if (sessionStorage.getItem('sound') == 'on') {
-        A_RoboCongrats_again('#AnimacaoRoboCongrats');
+        robozinAzul_again('#AnimacaoRoboCongrats');
         audio_categoria.load();
         audio_categoria.play();
       }
@@ -1047,8 +1034,8 @@ function hideHelp() {
 // Congragts starts ----------------------------------------------------------------
 function congrats() {
   playAudioMouseOver();
-  A_RoboCongrats_create('#AnimacaoRoboCongrats')
-  A_RoboCongrats_again('#AnimacaoRoboCongrats')
+  robozinAzul_create('#AnimacaoRoboCongrats', '75%', '63%');
+  robozinAzul_play('#AnimacaoRoboCongrats', 5)
   createCongrats(congrats_texts[congrats_name])
 
 }
@@ -1127,15 +1114,13 @@ function feedback() {
 
   playSom(audio_feedback);
 
-
-
-  A_RoboFeedback_create('#AnimacaoRoboFeedback');
-  A_RoboFeedback_play('#AnimacaoRoboFeedback');
+  robozinLaranja_create('#AnimacaoRoboFeedback', '75%', '70%');
+  robozinLaranja_play('#AnimacaoRoboFeedback', 2.7);
 
   $("button.toggle.repeat").click(function() {
     playAudioButton()
     if (sessionStorage.getItem('sound') == 'on') {
-      A_RoboFeedback_again('#AnimacaoRoboFeedback')
+      robozinLaranja_again('#AnimacaoRoboFeedback', 2.7)
       playSom(audio_feedback);
       // audio_regiao.load();
       // audio_regiao.play();
@@ -1252,8 +1237,8 @@ function certificate() {
 
   playSom(audio_certificate);
 
-  A_RoboCertificate_create('#AnimacaoRoboCertificate')
-  A_RoboCertificate_play('#AnimacaoRoboCertificate')
+  robozinAzul_create('#AnimacaoRoboCertificate', '53%', '58%')
+  robozinAzul_play('#AnimacaoRoboCertificate', 5)
 
 
   activeAndShowDetails("#" + actual_badge["id"])
@@ -1262,9 +1247,8 @@ function certificate() {
   $("button.toggle.repeat").click(function() {
     playAudioButton()
     if (sessionStorage.getItem('sound') == 'on') {
-      A_RoboFeedback_again('#AnimacaoRoboCertificate')
       playSom(audio_certificate);
-      A_RoboCertificate_again('#AnimacaoRoboCertificate')
+      robozinAzul_again('#AnimacaoRoboCertificate', 5)
 
     }
   });
@@ -1516,7 +1500,7 @@ function congratsNextLevel(stars, ended, sound) {
 
     $("button.toggle.repeat").click(function() {
       if (sessionStorage.getItem('sound') == 'on') {
-        A_RoboCongrats_again('#AnimacaoRoboCongrats')
+        robozinAzul_again('#AnimacaoRoboCongrats')
         sound.load();
         sound.play();
       }

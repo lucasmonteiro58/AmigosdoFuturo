@@ -8,7 +8,7 @@
 // Mapa -------------------------------------------------------------------------------------------------------------
   function map() {
   //configura #som e #animacao # e tempodo helper
-  helpConfig($('#help_mapa'), '#AnimacaoRoboHelp', 7)
+  helpConfig($('#help_mapa'), '#AnimacaoRoboHelp', 8)
   playAudioMouseOver();
   createInvokeHelp(helps_texts["map"])
 

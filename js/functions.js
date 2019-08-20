@@ -35,20 +35,20 @@ function pauseSom(som) {
 //configHep
 function helpConfig(som, animation, time) {
   playSom(som)
-  A_RoboHelp_create(animation)
-  A_RoboHelp_play(animation, time)
+  robozinAzul_create(animation, '46%', '80%')
+  robozinAzul_play(animation, time)
   $('#close-btn').click(function() {
     stopSom(som)
   })
   $('#robot-help-mini').click(function() {
     stopSom(som)
     playSom(som)
-    A_RoboHelp_again(animation, time)
+    robozinAzul_again(animation, time)
   })
   $('#repeat-btn').click(function() {
     stopSom(som)
     playSom(som)
-    A_RoboHelp_again(animation, time)
+    robozinAzul_again(animation, time)
   })
 }
 
@@ -219,10 +219,6 @@ function AudioAguaPingando() {
 
 }
 
-
-
-
-
 function playSound(id) {
   if (sessionStorage.getItem('sound') == 'on') {
     id.load();
@@ -230,90 +226,100 @@ function playSound(id) {
   }
 }
 
-//---------------------Robo Bolinha Laranja 1
-function A_RoboLaranja1_create(id) {
+//-----Robo Bolinha Laranja Animacao
+function robozinLaranja_create(id, width, height){
   $(id).jsMovie({
-    sequence: 'Robo_Fala_1_000##.png',
+    sequence: 'Circulo_Loop_Laranja_000##.png',
     from: 0,
-    to: 39,
+    to: 46,
     fps: 10,
-    width: '75%',
-    height: '65%',
-    folder: "img/animation/robo/Robo_Fala_1/",
+    width: width, //'75%',
+    height: height, //'65%',
+    folder: "img/animation/robozin/laranja/",
     playOnLoad: false
   });
-  $(id).jsMovie("addClip", "roboLaranja1", 5, 40);
-  $(id).jsMovie("addClip", "loop", 10, 22);
-  $(id).jsMovie("addClip", "parou", 27, 40);// parar
+  $(id).jsMovie("addClip", "falando", 7, 22) //17 frames
+  $(id).jsMovie("addClip", "falando_to_parado", 23, 26) //2 frames
+  $(id).jsMovie("addClip", "parado", 27, 44) //17 frames
+  $(id).jsMovie("addClip", "parado_to_falando", 46, 47) //2 frames
 }
 
-function A_RoboLaranja1_play(id, time) {
-
+function robozinLaranja_play(id, time) {
   $(".sound").click(function() {
-    $(id).jsMovie("playClip", "parou", true);
+    $(id).jsMovie("playClip", "parado", true);
   })
-
-  if (sessionStorage.getItem('sound') == 'on') {
+  if(sessionStorage.getItem('sound') == 'on') {
     t = time*1000
-    $(id).jsMovie('play', 5, 40, false, false); //primeira vez
-    $(id).jsMovie('play', 10, 22, true, false); // loop_falando
-      setTimeout(function(){
-        $(id).jsMovie('play', 27, 40, true, false); //final
+    $(id).jsMovie('play', 7, 22, true, false); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 44, true, false); //loop_parado
       }, t);
     } else {
-      A_RoboLaranja1_loop(id)
+      $(id).jsMovie('play', 27, 44, true, false); //loop_parado
     }
 }
 
-function A_RoboLaranja1_again(id, time) {
-
+function robozinLaranja_again(id, time) {
   $(".sound").click(function() {
-    $(id).jsMovie("playClip", "parou", true);
+    $(id).jsMovie("playClip", "parado", true);
   })
-
-  if (sessionStorage.getItem('sound') == 'on') {
-    t = time *1000
-    $(id).jsMovie("playClip", "loop", true);
-    setTimeout(function(){
-      $(id).jsMovie('play', 27, 40, true, false); //final
-    }, t);
-  } else{
-    A_RoboLaranja1_loop(id)
-  }
+  if(sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie("playClip", "falando", true); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+      }, t);
+    } else {
+      $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+    }
 }
 
-function A_RoboLaranja1_loop(id) {
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-//-------------------Robo Bolinha Laranja 2
-
-function A_RoboLaranja2_create(id) {
+//-----Robo Bolinha Azul Animacao
+function robozinAzul_create(id, width, height){
   $(id).jsMovie({
-    sequence: 'Fala_Robo_2_000##.png',
+    sequence: 'Circulo_Loop_Azul_000##.png',
     from: 0,
-    to: 39,
+    to: 45,
     fps: 10,
-    width: '78%',
-    height: '65%',
-    folder: "img/animation/robo/Fala_Robo_2/",
+    width: width, //'75%',
+    height: height, //'65%',
+    folder: "img/animation/robozin/azul/",
     playOnLoad: false
   });
-  $(id).jsMovie("addClip", "roboLaranja2", 5, 40);
+  $(id).jsMovie("addClip", "falando", 7, 22) //17 frames
+  $(id).jsMovie("addClip", "falando_to_parado", 23, 26) //2 frames
+  $(id).jsMovie("addClip", "parado", 27, 44) //17 frames
+  $(id).jsMovie("addClip", "parado_to_falando", 45, 46) //2 frames
 }
 
-function A_RoboLaranja2_play(id) {
-  $(id).jsMovie('play', 5, 40, false, false);
-  $(id).jsMovie('play', 27, 40, true, false);
+function robozinAzul_play(id, time) {
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parado", true);
+  })
+  if(sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie('play', 7, 22, true, false); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+      }, t);
+    } else {
+      $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+    }
 }
 
-function A_RoboLaranja2_again(id) {
-  $(id).jsMovie("playClip", "roboLaranja2", false);
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-function A_RoboLaranja2_loop(id) {
-  $(id).jsMovie('play', 27, 40, true, false);
+function robozinAzul_again(id, time) {
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parado", true);
+  })
+  if(sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie("playClip", "falando", true); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+      }, t);
+    } else {
+      $(id).jsMovie('play', 27, 44, true, false); //loop_parado
+    }
 }
 
 //------------------------------------ Robo Inteiro
@@ -374,192 +380,7 @@ function A_RoboInteiro_loop(id) {
   $(id).jsMovie('play', 59, 74, true, false);
 }
 
-
-
-//-------------------Robo Quiz
-
-function A_RoboQuiz_create(id) {
-  $(id).jsMovie({
-    sequence: 'Fala_Robo_2_000##.png',
-    from: 0,
-    to: 39,
-    fps: 10,
-    width: '52%',
-    height: '58%',
-    folder: "img/animation/robo/Fala_Robo_2/",
-    playOnLoad: false
-  });
-  $(id).jsMovie("addClip", "roboQuiz", 5, 40);
-}
-
-function A_RoboQuiz_play(id) {
-  $(id).jsMovie('play', 5, 40, false, false);
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-function A_RoboQuiz_again(id) {
-  $(id).jsMovie("playClip", "roboQuiz", false);
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-function A_RoboQuiz_loop(id) {
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-
-//-------------------Robo Feedback
-
-function A_RoboFeedback_create(id) {
-  $(id).jsMovie({
-    sequence: 'Fala_Robo_2_000##.png',
-    from: 0,
-    to: 39,
-    fps: 10,
-    width: '78%',
-    height: '69%',
-    folder: "img/animation/robo/Fala_Robo_2/",
-    playOnLoad: false
-  });
-  $(id).jsMovie("addClip", "Feedback", 5, 40);
-}
-
-function A_RoboFeedback_play(id) {
-  $(id).jsMovie('play', 5, 40, false, false);
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-function A_RoboFeedback_again(id) {
-  $(id).jsMovie("playClip", "Feedback", false);
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-function A_RoboFeedback_loop(id) {
-  $(id).jsMovie('play', 27, 40, true, false);
-}
-
-//---------------------Robo HELPER
-function A_RoboHelp_create(id) {
-  $(id).jsMovie({
-    sequence: 'Robo_Fala_1_Azul_000##.png',
-    from: 5,
-    to: 39,
-    fps: 10,
-    width: '46%',
-    height: '80%',
-    folder: "img/animation/robo/Robo_Fala_1_Azul/",
-    playOnLoad: false
-  });
-//  $(id).jsMovie("addClip", "roboHelp", 5, 40);
-  $(id).jsMovie("addClip", "loop", 10, 22);//loop
-  $(id).jsMovie("addClip", "parou", 27, 40);// parar
-}
-
-function A_RoboHelp_play(id, time) {
-
-  $(".sound").click(function() {
-    $(id).jsMovie("playClip", "parou", true);
-  })
-
-  if (sessionStorage.getItem('sound') == 'on') {
-    t = time*1000
-    $(id).jsMovie('play', 5, 40, false, false); //primeira vez
-    $(id).jsMovie('play', 10, 22, true, false); // loop_falando
-      setTimeout(function(){
-        $(id).jsMovie('play', 27, 40, true, false); //final
-      }, t);
-    } else {
-      A_RoboHelp_loop(id)
-    }
-}
-
-function A_RoboHelp_again(id, time) {
-  $(".sound").click(function() {
-   $(id).jsMovie("playClip", "parou", true);
- })
-
- if (sessionStorage.getItem('sound') == 'on') {
-     t = time *1000
-     $(id).jsMovie("playClip", "loop", true);
-     setTimeout(function(){
-       $(id).jsMovie('play', 27, 40, true, false); //final
-     }, t);
-   } else{
-     A_RoboHelp_loop(id)
-   }
- }
-
-
-function A_RoboHelp_loop(id) {
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-//---------------------Robo Congrats
-function A_RoboCongrats_create(id) {
-  $(id).jsMovie({
-    sequence: 'Robo_Fala_1_Azul_000##.png',
-    from: 5,
-    to: 39,
-    fps: 10,
-    width: '75%',
-    height: '63%',
-    folder: "img/animation/robo/Robo_Fala_1_Azul/",
-    playOnLoad: false
-  });
-  $(id).jsMovie("addClip", "roboHelp", 1, 35);
-}
-
-function A_RoboCongrats_play(id) {
-  $(id).jsMovie('play', 1, 35, false, false);
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-function A_RoboCongrats_again(id) {
-  $(id).jsMovie("playClip", "roboHelp", false);
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-function A_RoboCongrats_loop(id) {
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-
-//---------------------Robo Certificate
-function A_RoboCertificate_create(id) {
-  $(id).jsMovie({
-    sequence: 'Robo_Fala_1_Azul_000##.png',
-    from: 5,
-    to: 39,
-    fps: 10,
-    width: '53%',
-    height: '58%',
-    folder: "img/animation/robo/Robo_Fala_1_Azul/",
-    playOnLoad: false
-  });
-  $(id).jsMovie("addClip", "roboCertificate", 1, 35);
-}
-
-function A_RoboCertificate_play(id) {
-  $(id).jsMovie('play', 1, 35, false, false);
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-function A_RoboCertificate_again(id) {
-  $(id).jsMovie("playClip", "roboCertificate", false);
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-function A_RoboCertificate_loop(id) {
-  $(id).jsMovie('play', 22, 35, true, false);
-}
-
-
-
-
-
-
-
-
-
+//----------------------------
 function destroyAnimation(id) {
   $(id).jsMovie("destroy");
 }
