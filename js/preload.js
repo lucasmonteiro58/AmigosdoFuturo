@@ -69,7 +69,7 @@ var images_load = [
   'img/buttons/toggle-sound.png',
   'img/buttons/toggle-sound-active.png',
   'img/buttons/toggle-sound-hover.png',
-
+  
   'img/buttons/ed/bt_cantina_add.png',
   'img/buttons/ed/bt_cantina_check.png',
   'img/buttons/ed/bt_cantina_menos.png',
@@ -91,7 +91,7 @@ var images_load = [
   'img/buttons/ed/bt_teatro_add.png',
   'img/buttons/ed/bt_teatro_check.png',
   'img/buttons/ed/bt_teatro_menos.png',
-
+  
   'img/buttons/ef/bt_acessib_add.png',
   'img/buttons/ef/bt_acessib_check.png',
   'img/buttons/ef/bt_acessib_menos.png',
@@ -113,7 +113,7 @@ var images_load = [
   'img/buttons/ef/bt_pintar_add.png',
   'img/buttons/ef/bt_pintar_check.png',
   'img/buttons/ef/bt_pintar_menos.png',
-
+  
   'img/buttons/es/bt_carteira_add.png',
   'img/buttons/es/bt_carteira_check.png',
   'img/buttons/es/bt_carteira_menos.png',
@@ -135,115 +135,22 @@ var images_load = [
   'img/buttons/es/bt_quadro_add.png',
   'img/buttons/es/bt_quadro_check.png',
   'img/buttons/es/bt_quadro_menos.png',
-
-  //Animations--------------------
-  //---Robo------------------------,
-  //-------------------------------------------------------------,
-
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00000.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00001.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00002.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00003.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00004.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00005.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00006.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00007.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00008.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00009.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00010.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00011.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00012.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00013.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00014.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00015.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00016.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00017.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00018.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00019.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00020.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00021.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00022.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00023.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00024.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00025.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00026.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00027.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00028.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00029.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00030.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00031.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00032.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00033.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00034.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00035.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00036.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00037.png', 'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00038.png',
-  'img/animation/robo/Robo_Fala_1/Robo_Fala_1_00039.png',
-
-
-  //-------------------------------------------------------------,
-
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00000.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00001.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00002.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00003.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00004.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00005.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00006.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00007.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00008.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00009.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00010.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00011.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00012.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00013.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00014.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00015.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00016.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00017.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00018.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00019.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00020.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00021.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00022.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00023.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00024.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00025.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00026.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00027.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00028.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00029.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00030.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00031.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00032.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00033.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00034.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00035.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00036.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00037.png', 'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00038.png',
-  'img/animation/robo/Fala_Robo_2/Fala_Robo_2_00039.png',
-
-
-  //-------------------------------------------------------------,
-
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00000.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00001.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00002.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00003.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00004.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00005.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00006.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00007.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00008.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00009.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00010.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00011.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00012.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00013.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00014.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00015.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00016.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00017.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00018.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00019.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00020.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00021.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00022.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00023.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00024.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00025.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00026.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00027.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00028.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00029.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00030.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00031.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00032.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00033.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00034.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00035.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00036.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00037.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00038.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00039.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00040.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00041.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00042.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00043.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00044.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00045.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00046.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00047.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00048.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00049.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00050.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00051.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00052.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00053.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00054.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00055.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00056.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00057.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00058.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00059.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00060.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00061.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00062.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00063.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00064.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00065.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00066.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00067.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00068.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00069.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00070.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00071.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00072.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00073.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00074.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00075.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00076.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00077.png',
-  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00078.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00079.png',
-
-
-  //-------------------------------------------------------------,
-
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00000.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00001.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00002.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00003.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00004.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00005.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00006.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00007.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00008.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00009.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00010.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00011.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00012.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00013.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00014.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00015.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00016.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00017.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00018.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00019.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00020.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00021.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00022.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00023.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00024.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00025.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00026.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00027.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00028.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00029.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00030.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00031.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00032.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00033.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00034.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00035.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00036.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00037.png', 'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00038.png',
-  'img/animation/robo/Robo_Fala_1_Azul/Robo_Fala_1_Azul_00039.png',
-
-
-
-
+  
+  
   //---Animacao Circulo Contador-------------------------,
   'img/animation/contador/contador_00000.png', 'img/animation/contador/contador_00001.png', 'img/animation/contador/contador_00002.png', 'img/animation/contador/contador_00003.png',
   'img/animation/contador/contador_00004.png', 'img/animation/contador/contador_00005.png', 'img/animation/contador/contador_00006.png', 'img/animation/contador/contador_00007.png',
   'img/animation/contador/contador_00008.png', 'img/animation/contador/contador_00009.png', 'img/animation/contador/contador_00010.png',
-
-  //---Animacao Circulo Boneco inteiro-------------------------,
-
+  
+  'img/animation/robozin/laranja/Circulo_Loop_Laranja_00000.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00001.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00002.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00003.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00004.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00005.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00006.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00007.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00008.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00009.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00010.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00011.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00012.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00013.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00014.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00015.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00016.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00017.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00018.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00019.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00020.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00021.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00022.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00023.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00024.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00025.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00026.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00027.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00028.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00029.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00030.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00031.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00032.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00033.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00034.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00035.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00036.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00037.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00038.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00039.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00040.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00041.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00042.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00043.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00044.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00045.png', 'img/animation/robozin/laranja/Circulo_Loop_Laranja_00046.png',
+  'img/animation/robozin/azul/Circulo_Loop_Azul_00000.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00001.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00002.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00003.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00004.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00005.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00006.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00007.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00008.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00009.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00010.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00011.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00012.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00013.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00014.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00015.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00016.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00017.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00018.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00019.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00020.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00021.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00022.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00023.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00024.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00025.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00026.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00027.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00028.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00029.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00030.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00031.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00032.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00033.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00034.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00035.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00036.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00037.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00038.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00039.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00040.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00041.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00042.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00043.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00044.png', 'img/animation/robozin/azul/Circulo_Loop_Azul_00045.png',
+  'img/animation/robozin/inteiro/Fala_Loop_00000.png', 'img/animation/robozin/inteiro/Fala_Loop_00001.png', 'img/animation/robozin/inteiro/Fala_Loop_00002.png', 'img/animation/robozin/inteiro/Fala_Loop_00003.png', 'img/animation/robozin/inteiro/Fala_Loop_00004.png', 'img/animation/robozin/inteiro/Fala_Loop_00005.png', 'img/animation/robozin/inteiro/Fala_Loop_00006.png', 'img/animation/robozin/inteiro/Fala_Loop_00007.png', 'img/animation/robozin/inteiro/Fala_Loop_00008.png', 'img/animation/robozin/inteiro/Fala_Loop_00009.png', 'img/animation/robozin/inteiro/Fala_Loop_00010.png', 'img/animation/robozin/inteiro/Fala_Loop_00011.png', 'img/animation/robozin/inteiro/Fala_Loop_00012.png', 'img/animation/robozin/inteiro/Fala_Loop_00013.png', 'img/animation/robozin/inteiro/Fala_Loop_00014.png', 'img/animation/robozin/inteiro/Fala_Loop_00015.png', 'img/animation/robozin/inteiro/Fala_Loop_00016.png', 'img/animation/robozin/inteiro/Fala_Loop_00017.png', 'img/animation/robozin/inteiro/Fala_Loop_00018.png', 'img/animation/robozin/inteiro/Fala_Loop_00019.png', 'img/animation/robozin/inteiro/Fala_Loop_00020.png', 'img/animation/robozin/inteiro/Fala_Loop_00021.png', 'img/animation/robozin/inteiro/Fala_Loop_00022.png', 'img/animation/robozin/inteiro/Fala_Loop_00023.png', 'img/animation/robozin/inteiro/Fala_Loop_00024.png', 'img/animation/robozin/inteiro/Fala_Loop_00025.png', 'img/animation/robozin/inteiro/Fala_Loop_00026.png', 'img/animation/robozin/inteiro/Fala_Loop_00027.png', 'img/animation/robozin/inteiro/Fala_Loop_00028.png', 'img/animation/robozin/inteiro/Fala_Loop_00029.png', 'img/animation/robozin/inteiro/Fala_Loop_00030.png', 'img/animation/robozin/inteiro/Fala_Loop_00031.png', 'img/animation/robozin/inteiro/Fala_Loop_00032.png', 'img/animation/robozin/inteiro/Fala_Loop_00033.png', 'img/animation/robozin/inteiro/Fala_Loop_00034.png', 'img/animation/robozin/inteiro/Fala_Loop_00035.png', 'img/animation/robozin/inteiro/Fala_Loop_00036.png', 'img/animation/robozin/inteiro/Fala_Loop_00037.png', 'img/animation/robozin/inteiro/Fala_Loop_00038.png', 'img/animation/robozin/inteiro/Fala_Loop_00039.png', 'img/animation/robozin/inteiro/Fala_Loop_00040.png', 'img/animation/robozin/inteiro/Fala_Loop_00041.png', 'img/animation/robozin/inteiro/Fala_Loop_00042.png', 'img/animation/robozin/inteiro/Fala_Loop_00043.png', 'img/animation/robozin/inteiro/Fala_Loop_00044.png', 'img/animation/robozin/inteiro/Fala_Loop_00045.png',
+  'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00000.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00001.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00002.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00003.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00004.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00005.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00006.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00007.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00008.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00009.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00010.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00011.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00012.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00013.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00014.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00015.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00016.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00017.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00018.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00019.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00020.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00021.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00022.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00023.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00024.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00025.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00026.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00027.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00028.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00029.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00030.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00031.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00032.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00033.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00034.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00035.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00036.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00037.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00038.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00039.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00040.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00041.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00042.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00043.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00044.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00045.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00046.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00047.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00048.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00049.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00050.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00051.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00052.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00053.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00054.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00055.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00056.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00057.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00058.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00059.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00060.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00061.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00062.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00063.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00064.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00065.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00066.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00067.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00068.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00069.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00070.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00071.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00072.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00073.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00074.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00075.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00076.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00077.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00078.png', 'img/animation/robo/Robo_Fala_Completo/Robo_Fala_Completo_00079.png',
   //-------------------------------------------------------------,
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/cursor/drag/drag_00000.png', 'img/animation/cursor/drag/drag_00001.png', 'img/animation/cursor/drag/drag_00002.png', 'img/animation/cursor/drag/drag_00003.png',
   'img/animation/cursor/drag/drag_00004.png', 'img/animation/cursor/drag/drag_00005.png', 'img/animation/cursor/drag/drag_00006.png', 'img/animation/cursor/drag/drag_00007.png',
   'img/animation/cursor/drag/drag_00008.png', 'img/animation/cursor/drag/drag_00009.png', 'img/animation/cursor/drag/drag_00010.png', 'img/animation/cursor/drag/drag_00011.png',
@@ -252,23 +159,23 @@ var images_load = [
   'img/animation/cursor/drag/drag_00020.png', 'img/animation/cursor/drag/drag_00021.png', 'img/animation/cursor/drag/drag_00022.png', 'img/animation/cursor/drag/drag_00023.png',
   'img/animation/cursor/drag/drag_00024.png', 'img/animation/cursor/drag/drag_00025.png', 'img/animation/cursor/drag/drag_00026.png', 'img/animation/cursor/drag/drag_00027.png',
   'img/animation/cursor/drag/drag_00028.png', 'img/animation/cursor/drag/drag_00029.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/cursor/click/click_00000.png', 'img/animation/cursor/click/click_00001.png', 'img/animation/cursor/click/click_00002.png', 'img/animation/cursor/click/click_00003.png',
   'img/animation/cursor/click/click_00004.png', 'img/animation/cursor/click/click_00005.png', 'img/animation/cursor/click/click_00006.png', 'img/animation/cursor/click/click_00007.png',
   'img/animation/cursor/click/click_00008.png', 'img/animation/cursor/click/click_00009.png', 'img/animation/cursor/click/click_00010.png', 'img/animation/cursor/click/click_00011.png',
   'img/animation/cursor/click/click_00012.png', 'img/animation/cursor/click/click_00013.png', 'img/animation/cursor/click/click_00014.png', 'img/animation/cursor/click/click_00015.png',
   'img/animation/cursor/click/click_00016.png', 'img/animation/cursor/click/click_00017.png', 'img/animation/cursor/click/click_00018.png', 'img/animation/cursor/click/click_00019.png',
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/antenaradio/antenaradio_00000.png', 'img/animation/antenaradio/antenaradio_00001.png', 'img/animation/antenaradio/antenaradio_00002.png', 'img/animation/antenaradio/antenaradio_00003.png',
   'img/animation/antenaradio/antenaradio_00004.png', 'img/animation/antenaradio/antenaradio_00005.png', 'img/animation/antenaradio/antenaradio_00006.png', 'img/animation/antenaradio/antenaradio_00007.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/FaseLazer/Gangorra/Gangorra_00001.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00002.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00003.png',
   'img/animation/FaseLazer/Gangorra/Gangorra_00004.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00005.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00006.png',
   'img/animation/FaseLazer/Gangorra/Gangorra_00007.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00008.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00009.png',
@@ -286,15 +193,15 @@ var images_load = [
   'img/animation/FaseLazer/Gangorra/Gangorra_00043.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00044.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00045.png',
   'img/animation/FaseLazer/Gangorra/Gangorra_00046.png', 'img/animation/FaseLazer/Gangorra/Gangorra_00047.png',
   //-------------------------------------------------------------,
-
+  
   'img/animation/FaseLazer/Toboga/Escorrega_00000.png', 'img/animation/FaseLazer/Toboga/Escorrega_00001.png', 'img/animation/FaseLazer/Toboga/Escorrega_00002.png',
   'img/animation/FaseLazer/Toboga/Escorrega_00003.png', 'img/animation/FaseLazer/Toboga/Escorrega_00004.png', 'img/animation/FaseLazer/Toboga/Escorrega_00005.png', 'img/animation/FaseLazer/Toboga/Escorrega_00006.png',
   'img/animation/FaseLazer/Toboga/Escorrega_00007.png', 'img/animation/FaseLazer/Toboga/Escorrega_00008.png', 'img/animation/FaseLazer/Toboga/Escorrega_00009.png', 'img/animation/FaseLazer/Toboga/Escorrega_00010.png',
   'img/animation/FaseLazer/Toboga/Escorrega_00011.png', 'img/animation/FaseLazer/Toboga/Escorrega_00012.png', 'img/animation/FaseLazer/Toboga/Escorrega_00013.png', 'img/animation/FaseLazer/Toboga/Escorrega_00014.png',
   'img/animation/FaseLazer/Toboga/Escorrega_00015.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/FaseLazer/Celular/Celular_00000.png', 'img/animation/FaseLazer/Celular/Celular_00001.png', 'img/animation/FaseLazer/Celular/Celular_00002.png', 'img/animation/FaseLazer/Celular/Celular_00003.png',
   'img/animation/FaseLazer/Celular/Celular_00004.png', 'img/animation/FaseLazer/Celular/Celular_00005.png', 'img/animation/FaseLazer/Celular/Celular_00006.png', 'img/animation/FaseLazer/Celular/Celular_00007.png',
   'img/animation/FaseLazer/Celular/Celular_00008.png', 'img/animation/FaseLazer/Celular/Celular_00009.png', 'img/animation/FaseLazer/Celular/Celular_00010.png', 'img/animation/FaseLazer/Celular/Celular_00011.png',
@@ -305,9 +212,9 @@ var images_load = [
   'img/animation/FaseLazer/Celular/Celular_00028.png', 'img/animation/FaseLazer/Celular/Celular_00029.png', 'img/animation/FaseLazer/Celular/Celular_00030.png', 'img/animation/FaseLazer/Celular/Celular_00031.png',
   'img/animation/FaseLazer/Celular/Celular_00032.png', 'img/animation/FaseLazer/Celular/Celular_00033.png', 'img/animation/FaseLazer/Celular/Celular_00034.png', 'img/animation/FaseLazer/Celular/Celular_00035.png',
   'img/animation/FaseLazer/Celular/Celular_00036.png', 'img/animation/FaseLazer/Celular/Celular_00037.png', 'img/animation/FaseLazer/Celular/Celular_00038.png', 'img/animation/FaseLazer/Celular/Celular_00039.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/FaseLazer/Balanco/Balanco_00001.png', 'img/animation/FaseLazer/Balanco/Balanco_00002.png', 'img/animation/FaseLazer/Balanco/Balanco_00003.png', 'img/animation/FaseLazer/Balanco/Balanco_00004.png',
   'img/animation/FaseLazer/Balanco/Balanco_00005.png', 'img/animation/FaseLazer/Balanco/Balanco_00006.png', 'img/animation/FaseLazer/Balanco/Balanco_00007.png', 'img/animation/FaseLazer/Balanco/Balanco_00008.png',
   'img/animation/FaseLazer/Balanco/Balanco_00009.png', 'img/animation/FaseLazer/Balanco/Balanco_00010.png', 'img/animation/FaseLazer/Balanco/Balanco_00011.png', 'img/animation/FaseLazer/Balanco/Balanco_00012.png',
@@ -323,9 +230,9 @@ var images_load = [
   'img/animation/FaseLazer/Balanco/Balanco_00049.png', 'img/animation/FaseLazer/Balanco/Balanco_00050.png', 'img/animation/FaseLazer/Balanco/Balanco_00051.png', 'img/animation/FaseLazer/Balanco/Balanco_00052.png',
   'img/animation/FaseLazer/Balanco/Balanco_00053.png', 'img/animation/FaseLazer/Balanco/Balanco_00054.png', 'img/animation/FaseLazer/Balanco/Balanco_00055.png',
   //-------------------------------------------------------------,
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/FaseLazer/Bola/Bola_00000.png', 'img/animation/FaseLazer/Bola/Bola_00001.png', 'img/animation/FaseLazer/Bola/Bola_00002.png', 'img/animation/FaseLazer/Bola/Bola_00003.png',
   'img/animation/FaseLazer/Bola/Bola_00004.png', 'img/animation/FaseLazer/Bola/Bola_00005.png', 'img/animation/FaseLazer/Bola/Bola_00006.png', 'img/animation/FaseLazer/Bola/Bola_00007.png',
   'img/animation/FaseLazer/Bola/Bola_00008.png', 'img/animation/FaseLazer/Bola/Bola_00009.png', 'img/animation/FaseLazer/Bola/Bola_00010.png', 'img/animation/FaseLazer/Bola/Bola_00011.png',
@@ -336,9 +243,9 @@ var images_load = [
   'img/animation/bebedouro/bebedouro_00001.png', 'img/animation/bebedouro/bebedouro_00002.png', 'img/animation/bebedouro/bebedouro_00003.png', 'img/animation/bebedouro/bebedouro_00004.png',
   'img/animation/bebedouro/bebedouro_00005.png', 'img/animation/bebedouro/bebedouro_00006.png', 'img/animation/bebedouro/bebedouro_00007.png', 'img/animation/bebedouro/bebedouro_00008.png',
   'img/animation/bebedouro/bebedouro_00009.png', 'img/animation/bebedouro/bebedouro_00010.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/foguete/Lancamento075.png', 'img/animation/foguete/Lancamento076.png', 'img/animation/foguete/Lancamento077.png', 'img/animation/foguete/Lancamento078.png',
   'img/animation/foguete/Lancamento079.png', 'img/animation/foguete/Lancamento080.png', 'img/animation/foguete/Lancamento081.png', 'img/animation/foguete/Lancamento082.png',
   'img/animation/foguete/Lancamento083.png', 'img/animation/foguete/Lancamento084.png', 'img/animation/foguete/Lancamento085.png', 'img/animation/foguete/Lancamento086.png',
@@ -375,25 +282,25 @@ var images_load = [
   'img/animation/foguete/Lancamento207.png', 'img/animation/foguete/Lancamento208.png', 'img/animation/foguete/Lancamento209.png', 'img/animation/foguete/Lancamento210.png',
   'img/animation/foguete/Lancamento211.png', 'img/animation/foguete/Lancamento212.png', 'img/animation/foguete/Lancamento213.png', 'img/animation/foguete/Lancamento214.png',
   'img/animation/foguete/Lancamento215.png', 'img/animation/foguete/Lancamento216.png', 'img/animation/foguete/Lancamento217.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/torneira/torneira_00001.png', 'img/animation/torneira/torneira_00002.png', 'img/animation/torneira/torneira_00003.png', 'img/animation/torneira/torneira_00004.png',
   'img/animation/torneira/torneira_00005.png', 'img/animation/torneira/torneira_00006.png', 'img/animation/torneira/torneira_00007.png', 'img/animation/torneira/torneira_00008.png',
   'img/animation/torneira/torneira_00009.png',
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/canos/canos_00001.png', 'img/animation/canos/canos_00002.png', 'img/animation/canos/canos_00003.png', 'img/animation/canos/canos_00004.png', 'img/animation/canos/canos_00005.png',
   'img/animation/canos/canos_00006.png', 'img/animation/canos/canos_00007.png', 'img/animation/canos/canos_00008.png', 'img/animation/canos/canos_00009.png', 'img/animation/canos/canos_00010.png',
   'img/animation/canos/canos_00011.png', 'img/animation/canos/canos_00012.png', 'img/animation/canos/canos_00013.png', 'img/animation/canos/canos_00014.png', 'img/animation/canos/canos_00015.png',
   'img/animation/canos/canos_00016.png', 'img/animation/canos/canos_00017.png', 'img/animation/canos/canos_00018.png', 'img/animation/canos/canos_00019.png', 'img/animation/canos/canos_00020.png',
   'img/animation/canos/canos_00021.png', 'img/animation/canos/canos_00022.png', 'img/animation/canos/canos_00023.png', 'img/animation/canos/canos_00024.png', 'img/animation/canos/canos_00025.png',
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/cursor/keyboard/keyboard_00000.png', 'img/animation/cursor/keyboard/keyboard_00001.png', 'img/animation/cursor/keyboard/keyboard_00002.png', 'img/animation/cursor/keyboard/keyboard_00003.png',
   'img/animation/cursor/keyboard/keyboard_00004.png', 'img/animation/cursor/keyboard/keyboard_00005.png', 'img/animation/cursor/keyboard/keyboard_00006.png', 'img/animation/cursor/keyboard/keyboard_00007.png',
   'img/animation/cursor/keyboard/keyboard_00008.png', 'img/animation/cursor/keyboard/keyboard_00009.png', 'img/animation/cursor/keyboard/keyboard_00010.png', 'img/animation/cursor/keyboard/keyboard_00011.png',
@@ -404,25 +311,25 @@ var images_load = [
   'img/animation/cursor/keyboard/keyboard_00028.png', 'img/animation/cursor/keyboard/keyboard_00029.png', 'img/animation/cursor/keyboard/keyboard_00030.png', 'img/animation/cursor/keyboard/keyboard_00031.png',
   'img/animation/cursor/keyboard/keyboard_00032.png', 'img/animation/cursor/keyboard/keyboard_00033.png', 'img/animation/cursor/keyboard/keyboard_00034.png', 'img/animation/cursor/keyboard/keyboard_00035.png',
   'img/animation/cursor/keyboard/keyboard_00036.png', 'img/animation/cursor/keyboard/keyboard_00037.png', 'img/animation/cursor/keyboard/keyboard_00038.png', 'img/animation/cursor/keyboard/keyboard_00039.png',
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/maquinaeduc/maquinaeduc_00000.png', 'img/animation/maquinaeduc/maquinaeduc_00001.png', 'img/animation/maquinaeduc/maquinaeduc_00002.png', 'img/animation/maquinaeduc/maquinaeduc_00003.png',
   'img/animation/maquinaeduc/maquinaeduc_00004.png', 'img/animation/maquinaeduc/maquinaeduc_00005.png', 'img/animation/maquinaeduc/maquinaeduc_00006.png', 'img/animation/maquinaeduc/maquinaeduc_00007.png',
   'img/animation/maquinaeduc/maquinaeduc_00008.png', 'img/animation/maquinaeduc/maquinaeduc_00009.png', 'img/animation/maquinaeduc/maquinaeduc_00010.png', 'img/animation/maquinaeduc/maquinaeduc_00011.png',
   'img/animation/maquinaeduc/maquinaeduc_00012.png', 'img/animation/maquinaeduc/maquinaeduc_00013.png', 'img/animation/maquinaeduc/maquinaeduc_00014.png',
-
-
+  
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/maquinasaude/maquinasaude_00000.png', 'img/animation/maquinasaude/maquinasaude_00001.png', 'img/animation/maquinasaude/maquinasaude_00002.png',
   'img/animation/maquinasaude/maquinasaude_00003.png', 'img/animation/maquinasaude/maquinasaude_00004.png', 'img/animation/maquinasaude/maquinasaude_00005.png', 'img/animation/maquinasaude/maquinasaude_00006.png',
   'img/animation/maquinasaude/maquinasaude_00007.png', 'img/animation/maquinasaude/maquinasaude_00008.png', 'img/animation/maquinasaude/maquinasaude_00009.png', 'img/animation/maquinasaude/maquinasaude_00010.png',
   'img/animation/maquinasaude/maquinasaude_00011.png', 'img/animation/maquinasaude/maquinasaude_00012.png', 'img/animation/maquinasaude/maquinasaude_00013.png', 'img/animation/maquinasaude/maquinasaude_00014.png',
-
+  
   //-------------------------------------------------------------,
-
+  
   'img/animation/maquinalazer/maquinalazer_00000.png', 'img/animation/maquinalazer/maquinalazer_00001.png', 'img/animation/maquinalazer/maquinalazer_00002.png',
   'img/animation/maquinalazer/maquinalazer_00003.png', 'img/animation/maquinalazer/maquinalazer_00004.png', 'img/animation/maquinalazer/maquinalazer_00005.png', 'img/animation/maquinalazer/maquinalazer_00006.png',
   'img/animation/maquinalazer/maquinalazer_00007.png', 'img/animation/maquinalazer/maquinalazer_00008.png', 'img/animation/maquinalazer/maquinalazer_00009.png', 'img/animation/maquinalazer/maquinalazer_00010.png',
@@ -430,6 +337,89 @@ var images_load = [
 
 ]
 
+var fase_start = [
+  'img/menu/start-hover.png',
+  'img/menu/start-active.png',
+  'img/menu/start-hover.png',
+  'img/buttons/btinfo_mouseover.png',
+  'img/buttons/action-active-blue.png',
+  'img/buttons/action-active-orange.png',
+  'img/buttons/action-active-white.png',
+  'img/buttons/action-blue.png',
+  'img/buttons/action-hover-blue.png',
+  'img/buttons/action-hover-orange.png',
+  'img/buttons/action-hover-white.png',
+  'img/buttons/action-orange.png',
+  'img/buttons/action-white.png',
+  'img/buttons/btmusic_ativo.png',
+  'img/buttons/btmusic_mouseover.png',
+  'img/buttons/btmusic_press.png',
+  'img/buttons/btmusicoff_ativo.png',
+  'img/buttons/btmusicoff_mouseover.png',
+  'img/buttons/btmusicoff_press.png',
+  'img/buttons/btrepetirinativo_.png',
+  'img/buttons/btrepetirinativo_mouseover.png',
+  'img/buttons/btrepetirinativo_press.png',
+  'img/buttons/op-no.png',
+  'img/buttons/op-no-active.png',
+  'img/buttons/op-no-hover.png',
+  'img/buttons/op-yes.png',
+  'img/buttons/op-yes-active.png',
+  'img/buttons/op-yes-hover.png',
+  'img/buttons/toggle-arrow.png',
+  'img/buttons/toggle-arrow-active.png',
+  'img/buttons/toggle-arrow-active-p.png',
+  'img/buttons/toggle-arrow-hover.png',
+  'img/buttons/toggle-arrow-hover-p.png',
+  'img/buttons/toggle-arrow-p.png',
+  'img/buttons/toggle-close.png',
+  'img/buttons/toggle-close-active.png',
+  'img/buttons/toggle-close-hover.png',
+  'img/buttons/toggle-download.png',
+  'img/buttons/toggle-download-active.png',
+  'img/buttons/toggle-download-hover.png',
+  'img/buttons/toggle-home.png',
+  'img/buttons/toggle-home-active.png',
+  'img/buttons/toggle-home-hover.png',
+  'img/buttons/toggle-info.png',
+  'img/buttons/toggle-info-active.png',
+  'img/buttons/toggle-info-hover.png',
+  'img/buttons/toggle-mute.png',
+  'img/buttons/toggle-mute-active.png',
+  'img/buttons/toggle-mute-hover.png',
+  'img/buttons/toggle-next.png',
+  'img/buttons/toggle-next-active.png',
+  'img/buttons/toggle-next-hover.png',
+  'img/buttons/toggle-ok.png',
+  'img/buttons/toggle-ok-active.png',
+  'img/buttons/toggle-ok-hover.png',
+  'img/buttons/toggle-pause.png',
+  'img/buttons/toggle-pause-active.png',
+  'img/buttons/toggle-pause-hover.png',
+  'img/buttons/toggle-play.png',
+  'img/buttons/toggle-play-active.png',
+  'img/buttons/toggle-play-hover.png',
+  'img/buttons/toggle-print.png',
+  'img/buttons/toggle-print-active.png',
+  'img/buttons/toggle-print-hover.png',
+  'img/buttons/toggle-repeat.png',
+  'img/buttons/toggle-repeat-active.png',
+  'img/buttons/toggle-repeat-hover.png',
+  'img/buttons/toggle-sound.png',
+  'img/buttons/toggle-sound-active.png',
+  'img/buttons/toggle-sound-hover.png',
+    //---Animacao Circulo Contador--------
+  'img/animation/contador/contador_00000.png', 'img/animation/contador/contador_00001.png', 'img/animation/contador/contador_00002.png', 'img/animation/contador/contador_00003.png',
+  'img/animation/contador/contador_00004.png', 'img/animation/contador/contador_00005.png', 'img/animation/contador/contador_00006.png', 'img/animation/contador/contador_00007.png',
+  'img/animation/contador/contador_00008.png', 'img/animation/contador/contador_00009.png', 'img/animation/contador/contador_00010.png',
+    //-- Demais Imagens -----
+  'img/menu/logo.png',
+  'img/menu/logoceara2050.png',
+  'sounds/fundo/Josefina.mp3',
+  'img/Pointers/pointerverde.png',
+  'img/menu/bg.png',
+  'sounds/feedback/Botao 01.wav'
+]
 
 var queue = new createjs.LoadQueue(false);
 
@@ -444,7 +434,7 @@ queue.on('progress', event => {
   }
 })
 
-
+//$('.loader').hide();
 queue.on('fileload', handleFileComplete);
 
 for (var i = 0; i < images_load.length; i++) {
@@ -454,3 +444,12 @@ for (var i = 0; i < images_load.length; i++) {
 function handleFileComplete(event) {
   //  console.log('aaaaa');
 }
+
+function preLoadNext(vetor) {
+  var queuex = new createjs.LoadQueue(false);
+  for (var i = 0; i < vetor.length; i++) {
+    queuex.loadFile(vetor[i]);
+  }
+}
+
+preLoadNext(images_load)

@@ -47,7 +47,8 @@
     }
   });
 
-  A_RoboInteiro_create('#AnimacaoRoboCommentMapa');
+  robozinInteiro_create('#AnimacaoRoboCommentMapa', '76%', '65%');
+
 
   var contagemPecaMapa = 0;
 
@@ -62,7 +63,7 @@
       createComment(comments_texts[comment_name])
       $("button.toggle.repeat").click(function() {
         if (sessionStorage.getItem('sound') == 'on') {
-          A_RoboInteiro_again('#AnimacaoRoboCommentMapa');
+          robozinInteiro_again('#AnimacaoRoboCommentMapa', 5)
           playSom(audioParabensMapa);
         }
       });
@@ -76,12 +77,9 @@
       }
 
       $(".robot-comment").fadeIn(300);
-
-      // $('#AnimacaoRoboCommentMapa').jsMovie('play',1,56,false, false);
-
-      A_RoboInteiro_play('#AnimacaoRoboCommentMapa');
+      robozinInteiro_play('#AnimacaoRoboCommentMapa', 5)
       $("#AnimacaoArrastarMapa").jsMovie("destroy");
-      //$("#AnimacaoArrastarMapa").jsMovie("throwError",1);
+
 
     }
   }

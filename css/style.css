@@ -888,8 +888,8 @@
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  top: 32%;
-  left: 42%;
+  top: 25%;
+  left: 30%;
   transform: scale(2.2) ;
 }
   .red-gradient {
@@ -1543,8 +1543,8 @@
   position: absolute;
   background-repeat: no-repeat;
   background-size: cover;
-  top: 32%;
-  left: 42%;
+  top: 25%;
+  left: 30%;
   transform: scale(2.2) ;
 }
 

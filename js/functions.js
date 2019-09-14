@@ -322,7 +322,56 @@ function robozinAzul_again(id, time) {
     }
 }
 
-//------------------------------------ Robo Inteiro
+//----- Robo Inteiro
+
+function robozinInteiro_create(id, width, height){
+  $(id).jsMovie({
+    sequence: 'Fala_Loop_000##.png',
+    from: 0,
+    to: 45,
+    fps: 10,
+    width: width, //'75%',
+    height: height, //'65%',
+    folder: "img/animation/robozin/inteiro/",
+    playOnLoad: false
+  });
+  $(id).jsMovie("addClip", "falando", 7, 22) //17 frames
+  $(id).jsMovie("addClip", "falando_to_parado", 23, 26) //2 frames
+  $(id).jsMovie("addClip", "parado", 27, 44) //17 frames
+  $(id).jsMovie("addClip", "parado_to_falando", 45, 46) //2 frames
+}
+
+function robozinInteiro_play(id, time) {
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parado", true);
+  })
+  if(sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie('play', 7, 22, true, false); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 43, true, false); //loop_parado
+      }, t);
+    } else {
+      $(id).jsMovie('play', 27, 43, true, false); //loop_parado
+    }
+}
+
+function robozinInteiro_again(id, time) {
+  $(".sound").click(function() {
+    $(id).jsMovie("playClip", "parado", true);
+  })
+  if(sessionStorage.getItem('sound') == 'on') {
+    t = time*1000
+    $(id).jsMovie("playClip", "falando", true); // loop_falando
+      setTimeout(function(){ //depois de x segundos
+        $(id).jsMovie('play', 27, 43, true, false); //loop_parado
+      }, t);
+    } else {
+      $(id).jsMovie('play', 27, 43, true, false); //loop_parado
+    }
+}
+
+//-----
 
 function A_RoboInteiro_create(id) {
   $(id).jsMovie({

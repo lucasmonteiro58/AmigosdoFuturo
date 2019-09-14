@@ -237,7 +237,7 @@ function menu() {
     playAudioButton();
     cutscene_name = "start"
     updateSectionAJAX("cutscene")
-    //updateSectionAJAX("certificate")
+    //updateSectionAJAX("map")
   })
 
   incrementAccess()
@@ -831,9 +831,8 @@ function comment() {
   playAudioMouseOver();
   if (comment_name == "about_region") {
 
-    A_RoboInteiro_create('#AnimacaoRoboComment')
-    A_RoboInteiro_play('#AnimacaoRoboComment', 4)
-
+    robozinInteiro_create('#AnimacaoRoboComment', '76%', '65%')
+    robozinInteiro_play('#AnimacaoRoboComment', 6)
 
     //audio sobre a regiao
     var region = searchForRegion()
@@ -852,7 +851,7 @@ function comment() {
         if (sessionStorage.getItem('sound') == 'on') {
           audio_regiao.load();
           audio_regiao.play();
-          A_RoboInteiro_again('#AnimacaoRoboComment', 4)
+          robozinInteiro_again('#AnimacaoRoboComment', 6)
         }
       });
 
@@ -871,18 +870,14 @@ function comment() {
 
     playAudioStartDesafios()
 
-
-
-    A_RoboInteiro_create('#AnimacaoRoboComment')
-    A_RoboInteiro_play('#AnimacaoRoboComment', 6)
+    robozinInteiro_create('#AnimacaoRoboComment', '76%', '65%')
+    robozinInteiro_play('#AnimacaoRoboComment', 6)
 
     $("button.toggle.repeat").click(function() {
       playAudioButton()
       if (sessionStorage.getItem('sound') == 'on') {
-        A_RoboInteiro_again('#AnimacaoRoboComment', 0)
+        robozinInteiro_again('#AnimacaoRoboComment', 6)
         playAudioStartDesafios()
-
-
       }
     });
 
