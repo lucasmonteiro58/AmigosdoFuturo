@@ -564,8 +564,9 @@
                     $(self).data("realFps",1/(((new Date()).getTime()-$(self).data("realFpsTimeStamp"))/1000));
                     verboseOut.apply($(self),[$(self).data("realFps").toFixed(2)+"fps"]);
                 }else{
-                    //comentadoaqui
+                                 
                     $(self).data("realFps",$(self).data("settings").fps);
+                    
                 }
                 $(self).data("realFpsTimeStamp",(new Date()).getTime());
 

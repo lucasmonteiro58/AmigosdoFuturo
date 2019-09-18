@@ -11,7 +11,9 @@
 		header('location: ../../index.php');
 	}
 	else {
-		header('location: ../../404.html');
+		header('location: ../../index.php');
+		
+		
 	}
 
 ?>

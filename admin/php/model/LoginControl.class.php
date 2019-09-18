@@ -7,8 +7,8 @@ class LoginControl {
 
 	public function __construct(){
 		session_start();
-		if(isset($_SESSION["user_logged"])){
-			$this->logged = $_SESSION["user_logged"];
+		if($_SESSION['user_logged']){
+			$this->logged = $_SESSION['user_logged'];
 		}else{
 			$this->logged = false;
 		}

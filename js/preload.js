@@ -421,35 +421,37 @@ var fase_start = [
   'sounds/feedback/Botao 01.wav'
 ]
 
-var queue = new createjs.LoadQueue(false);
+// var queue = new createjs.LoadQueue(false);
 
-queue.on('progress', event => {
-  console.log(event);
-  let progress = Math.floor(event.progress * 100);
-  $('#text-loader').text(progress+'%');
-  console.log(progress);
-  if (progress == 100) {
-    console.log('complete')
-    $('.loader').hide();
-  }
-})
+// queue.on('progress', event => {
+//   console.log(event);
+//   let progress = Math.floor(event.progress * 100);
+//   $('#text-loader').text(progress+'%');
+//   console.log(progress);
+//   if (progress == 100) {
+//     console.log('complete')
+//     $('.loader').hide();
+//   }
+// })
 
-//$('.loader').hide();
-queue.on('fileload', handleFileComplete);
 
-for (var i = 0; i < images_load.length; i++) {
-  queue.loadFile(images_load[i]);
-}
+// queue.on('fileload', handleFileComplete);
 
-function handleFileComplete(event) {
-  //  console.log('aaaaa');
-}
+// for (var i = 0; i < images_load.length; i++) {
+//   queue.loadFile(images_load[i]);
+// }
 
-function preLoadNext(vetor) {
-  var queuex = new createjs.LoadQueue(false);
-  for (var i = 0; i < vetor.length; i++) {
-    queuex.loadFile(vetor[i]);
-  }
-}
+// function handleFileComplete(event) {
+//   //  console.log('aaaaa');
+// }
 
-preLoadNext(images_load)
+// function preLoadNext(vetor) {
+//   var queuex = new createjs.LoadQueue(false);
+//   for (var i = 0; i < vetor.length; i++) {
+//     queuex.loadFile(vetor[i]);
+//   }
+// }
+
+// preLoadNext(images_load)
+
+$('.loader').hide();

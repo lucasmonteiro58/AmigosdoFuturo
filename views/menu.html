@@ -1,31 +1,56 @@
 <section id="menu"> 
-  <div class="ceara2050-btn"><a href="http://www.ceara2050.ce.gov.br/" target="_blank"><img src="img/menu/logoceara2050.png"></a></div>
-  <div class="sound-btn"><button class="toggle sound"></button></div>
-  <div class="music-btn"><button class="toggle music"></button></div>
-  <ul class="centered menu-content">
-	<li><img src="img/menu/logo.png" class="menu-img" alt="Amigos do futuro logo" title="Amigos do Futuro"></li>
+<div class="sound-btn" title="Ligar/Desligar os sons"><button class="toggle sound"></button></div>
+<div class="music-btn" title="Ligar/Desligar a música de fundo"><button class="toggle music"></button></div>
+<div class="infoCE-btn"><button class="infoCE"></button></div>
 
-	<li><button id="start-game" class="play-btn start"></button></li>
+<!--<div class="ceara2050-btn"><a href="http://www.ceara2050.ce.gov.br/" target="_blank"></a></div>-->
 
-	<li><div id="counter">000000</div></li>
-	<li><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua.</p></li>
-	</ul>
-</section>
+<div id="counter2"></div>
+<ul class="centered menu-content">
+  <li><img src="img/menu/logo.png" class="menu-img" alt="Amigos do futuro logo" title="Amigos do Futuro"></li>
+
+  <li><button id="start-game" class="play-btn start"></button></li>
 
 
-<!-- Fullscreen Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Iniciar modo tela cheia?</h4>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-        <button id="openFullscreen" type="button" class="btn btn-primary">sim</button>
-      </div>
+  <li>
+    <div id="counter">000000</div>
+  </li>
+
+
+  <li>
+    <p>Aqui é a quantidade de Amigos do Futuro que já passaram por aqui.</p>
+  </li>
+</ul>
+
+
+<div id="info-menu" class="robot-comment other-badges dark-gradient" style="display: none">
+  <div class="content centered">
+    <button id="fechar-info" class="toggle exit"></button>
+    <h1 class="title-info">Créditos</h1>
+    <a href="http://www.ceara2050.ce.gov.br/" target="_blank"><img class="img-ceara2050"
+        src="img/menu/logoceara2050.png"></a>
+    <img class="img-amigos" src="img/menu/logo.png">
+    <ul class="ceara2050-info">
+      <li>Nome - Cargo</li>
+      <li>Nome - Cargo</li>
+      <li>Nome - Cargo</li>
+      <li>Nome - Cargo</li>
+    </ul>
+    <ul class="amigos-info">
+      <li>Débora - Programação</li>
+      <li>Lucas - Programação</li>
+      <li>Gabriel -Ilustração/Animação</li>
+      <li>Raissa - Design de Interface/Animação</li>
+      <li>Samuel - Ilustração/Animação</li>
+      <li>Vitória - Gestão de Projetos/Conteúdo</li>
+    </ul>
+
+
+
+    <div class="single-badge centeredX" id="single-badge-details">
+
     </div>
+
   </div>
+</div>
 </div>

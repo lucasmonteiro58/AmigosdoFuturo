@@ -7,8 +7,6 @@ function playSom(som) {
   })
 
   if (sessionStorage.getItem('sound') == 'on') {
-
-
     som[0].currentTime = 0;
     var promise = som[0].play();
 
@@ -432,4 +430,109 @@ function A_RoboInteiro_loop(id) {
 //----------------------------
 function destroyAnimation(id) {
   $(id).jsMovie("destroy");
+}
+
+function backStage(){
+  var actSection = $('section').attr('id');
+  var oldSection
+
+  switch (actSection) {
+    case 'cutscene':
+      updateSectionAJAX('menu')
+      break;
+    case 'form':
+      destroyAnimation('#AnimacaoRoboForm')
+      updateSectionAJAX('cutscene')     
+      break;
+    case 'comment':
+      if (comment_name == "about_region") {
+        updateSectionAJAX('form');
+      } else {
+        updateSectionAJAX('congrats')
+      }
+      break;
+    case 'mapa':
+      comment_name = "about_region"
+      destroyAnimation('#AnimacaoRoboForm')
+      updateSectionAJAX("comment")
+    case 'quiz':
+      updateSectionAJAX("map")
+      break;
+    case 'congrats':
+     if ( actual_section == 'quiz') {
+        updateSectionAJAX("quiz")
+      }
+      break;
+    case 'desafiolixos': // sustentabilidade
+      updateSectionAJAX('comment')
+      break;
+    case 'desafioplantar':
+      setTimeout(function () {
+        $('#animacaoClickPlantar').jsMovie('destroy');
+        var audio_plantar = new Audio('sounds/desafios/sustentabilidade desafio 2.wav');
+        destroyAnimation('#AnimacaoRoboHelp')
+        congratsNextLevel(["full", "empty", "empty"], false, audio_plantar)
+      }, 300);
+      break;
+    case 'desafiocozinha':
+      oldSection = 'desafioplantar'
+      break;
+    case 'desafiocampinho': // governo
+      updateSectionAJAX('comment')
+      break;
+    case 'feedback':
+      oldSection = 'desafiocozinha'
+      break;
+    case 'certificate':
+      oldSection = 'feedback'
+      break;
+    case 'desafioalbum1': // lazer
+      updateSectionAJAX('comment')
+      break;
+    case 'desafioalbum2':
+      oldSection = 'feedback'
+      break;
+    case 'desafio7erros':
+      oldSection = 'feedback'
+      break;  
+    case 'desafioprato': // saude
+      updateSectionAJAX('comment')
+      break;
+    case 'desafioparquinho':
+      oldSection = 'feedback'
+      break;
+    case 'desafioescolafora': // educacao
+      updateSectionAJAX('comment')
+      break;
+    case 'desafioescoladentro':
+      oldSection = 'feedback'
+      break;
+    case 'desafioescolasala':
+      oldSection = 'feedback'
+      break;
+    case 'desafiocasa': // economia
+      updateSectionAJAX('comment')
+      break;
+    case 'desafiomonstrinhos':
+      oldSection = 'feedback'
+      break;
+    case 'desafiobebedouro': // inovacao
+      updateSectionAJAX('comment')
+      break;
+    case 'desafiofoguete':
+      oldSection = 'feedback'
+      break;
+    case 'desafiocarrinho':
+      oldSection = 'feedback'
+      break;
+    case 'feedback': //-----------------
+      oldSection = 'feedback'
+      break;
+    case 'certificate': //-----------------
+      oldSection = 'feedback'
+      break;      
+    default:
+      break;
+  }
+
 }

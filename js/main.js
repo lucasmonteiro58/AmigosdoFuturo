@@ -12,18 +12,11 @@ if ($("#menu").length) {
 // General  ---------------------------------------------------------------------
 $(document).ready(function() {
 
-
-
   sessionStorage.setItem("sound", "on");
   sessionStorage.setItem("music", "off");
 
-
-
   toggleSoundSetup()
   toggleMusicSetup()
-
-
-
 
   //fecharmodalquiz
   $("#modalQuestClose").click(function() {
@@ -236,8 +229,8 @@ function menu() {
   $("#start-game").click(function() {
     playAudioButton();
     cutscene_name = "start"
-    updateSectionAJAX("cutscene")
-    //updateSectionAJAX("map")
+    //updateSectionAJAX("cutscene")
+    updateSectionAJAX("quiz")
   })
 
   incrementAccess()
@@ -278,6 +271,7 @@ function menu() {
     }
     $('#counter').text(output)
   }
+  playContador();
 }
 
 // Form  -----------------------------------------------------------------
@@ -588,14 +582,9 @@ function submitButtonClick() {
     resultQuiz()
   } else {
     saveInputInStorage()
-
-    //Next section
-    //comment_name = "start_game"
     comment_name = "about_region"
     destroyAnimation('#AnimacaoRoboForm')
     updateSectionAJAX("comment")
-
-
     letraMaiuscula();
 
   }
@@ -1477,14 +1466,9 @@ function congratsNextLevel(stars, ended, sound) {
   congrats_name = actual_badge["id"] + "_" + actual_level
   level_stars = stars
   if (sessionStorage.getItem('sound') == 'on') {
-
-
     sound.play();
     PauseSond(sound);
   }
-
-
-
 
   if (ended) {
     actual_badge["finished"] = true //ended badge
@@ -1516,15 +1500,21 @@ function congratsNextLevel(stars, ended, sound) {
 
 //Contador
 
-$('#counter2').jsMovie({
-  sequence: 'contador_000##.png',
-  from: 0,
-  to: 10,
-  fps: 8,
-  width: '60%',
-  height: '47%',
-  folder: "img/animation/contador/",
-  playOnLoad: false
-});
+function playContador(){
+  $('#counter2').jsMovie({
+    sequence: 'contador_000##.png',
+    from: 0,
+    to: 10,
+    fps: 8,
+    width: '60%',
+    height: '47%',
+    folder: "img/animation/contador/",
+    playOnLoad: false
+  });
 
-$('#counter2').jsMovie('play', 1, 10, false, true);
+  $('#counter2').jsMovie('play', 1, 10, false, true);
+}
+
+
+
+

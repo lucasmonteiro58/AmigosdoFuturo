@@ -481,7 +481,7 @@
     //display: none;
   }
 
-  .infoCE-btn{
+  .infoCE-btn, .back-btn{
     position: absolute;
     top: 2.6%;
     left: 0.3%;
