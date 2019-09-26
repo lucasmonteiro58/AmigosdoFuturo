@@ -432,10 +432,20 @@ function destroyAnimation(id) {
   $(id).jsMovie("destroy");
 }
 
+function deleteQuiz() {
+  sessionStorage.removeItem('mei');
+  sessionStorage.removeItem('laz');
+  sessionStorage.removeItem('ino');
+  sessionStorage.removeItem('edu');
+  sessionStorage.removeItem('eco');
+  sessionStorage.removeItem('sau');
+  sessionStorage.removeItem('gov');
+  sessionStorage.removeItem('badge');
+}
+
 function backStage(){
   var actSection = $('section').attr('id');
-  var oldSection
-
+ 
   switch (actSection) {
     case 'cutscene':
       updateSectionAJAX('menu')
@@ -444,92 +454,140 @@ function backStage(){
       destroyAnimation('#AnimacaoRoboForm')
       updateSectionAJAX('cutscene')     
       break;
-    case 'comment':
-      if (comment_name == "about_region") {
-        updateSectionAJAX('form');
-      } else {
-        updateSectionAJAX('congrats')
-      }
-      break;
     case 'mapa':
       comment_name = "about_region"
-      destroyAnimation('#AnimacaoRoboForm')
-      updateSectionAJAX("comment")
+      destroyAnimation('#AnimacaoRoboHelp')
+      destroyAnimation('#AnimacaoArrastarMapa')
+      updateSectionAJAX("form")
+      break;
     case 'quiz':
+      destroyAnimation('#animacaoRoboQuiz')
       updateSectionAJAX("map")
       break;
-    case 'congrats':
-     if ( actual_section == 'quiz') {
-        updateSectionAJAX("quiz")
-      }
-      break;
     case 'desafiolixos': // sustentabilidade
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacaoRoboHelp')
+      destroyAnimation('#AnimacaoArrastarLixos')
+      deleteQuiz()
+      updateSectionAJAX('quiz')
       break;
     case 'desafioplantar':
-      setTimeout(function () {
-        $('#animacaoClickPlantar').jsMovie('destroy');
-        var audio_plantar = new Audio('sounds/desafios/sustentabilidade desafio 2.wav');
-        destroyAnimation('#AnimacaoRoboHelp')
-        congratsNextLevel(["full", "empty", "empty"], false, audio_plantar)
-      }, 300);
+      destroyAnimation('#animacaoClickPlantar')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('mei_0')     
       break;
     case 'desafiocozinha':
-      oldSection = 'desafioplantar'
+      destroyAnimation('#animacaoTorneiraPia')
+      destroyAnimation('#AnimacaoClickCanos')
+      destroyAnimation('#AnimacaoClickLegumesCesta')
+      destroyAnimation('#AnimacaoClickLegumesPia')
+      destroyAnimation('#animacaocanos')      
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('mei_1')
       break;
     case 'desafiocampinho': // governo
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacaoArrastarCamp')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('quiz')
       break;
-    case 'feedback':
-      oldSection = 'desafiocozinha'
+    case 'desafioONG':
+      destroyAnimation('#AnimacaoClickONG')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('gov_0')
       break;
-    case 'certificate':
-      oldSection = 'feedback'
+    case 'desafioRadio':
+      destroyAnimation('#AnimacaoClickRadio')
+      destroyAnimation('#antenaRadio')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('gov_1')
+      break;
+    case 'desafioPrefeitura':
+      destroyAnimation('#AnimacaoClickPrefeitura')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('gov_2')
       break;
     case 'desafioalbum1': // lazer
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacaoRoboHelp')
+      destroyAnimation('#AnimacaoArrastarAlbum1')
+      updateSectionAJAX('quiz')
       break;
     case 'desafioalbum2':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoClickAlbum2')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('laz_0')
       break;
     case 'desafio7erros':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoClick7erros')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('laz_1')
       break;  
     case 'desafioprato': // saude
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacaoArrastarPrato')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('quiz')
       break;
     case 'desafioparquinho':
-      oldSection = 'feedback'
+      destroyAnimation('#animacaoGangorra')
+      destroyAnimation('#animacaoEscorregador')
+      destroyAnimation('#animacaoCelular')
+      destroyAnimation('#animacaoBalanco')
+      destroyAnimation('#animacaoCampo')
+      destroyAnimation('#AnimacaoClickParquinho')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('sau_0')
       break;
     case 'desafioescolafora': // educacao
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacaoClickEscolaFora')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('quiz')
       break;
     case 'desafioescoladentro':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoClickEscolaDentro')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('edu_0')
       break;
     case 'desafioescolasala':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoClickEscolaSala')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('edu_1')
       break;
     case 'desafiocasa': // economia
-      updateSectionAJAX('comment')
+      destroyAnimation('#AnimacTecladoCasa')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('quiz')
       break;
     case 'desafiomonstrinhos':
-      oldSection = 'feedback'
+      destroyAnimation('#animacaoEduc')
+      destroyAnimation('#animacaoSaude')
+      destroyAnimation('#animacaoLazer')
+      destroyAnimation('#AnimacaoClickMonstrinhos')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('eco_0')
       break;
     case 'desafiobebedouro': // inovacao
-      updateSectionAJAX('comment')
+      destroyAnimation('#animacaoPingando')
+      destroyAnimation('#AnimacaoArrastBebedouro')
+      destroyAnimation('#AnimacaoArrastBebedouro2')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('quiz')
       break;
     case 'desafiofoguete':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoFoguete')
+      destroyAnimation('#AnimacaoClickFoguete')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('ino_0')
       break;
     case 'desafiocarrinho':
-      oldSection = 'feedback'
+      destroyAnimation('#AnimClickCarrinho')
+      destroyAnimation('#AnimacaoRoboHelp')
+      updateSectionAJAX('ino_1')
       break;
     case 'feedback': //-----------------
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoRoboFeedback')
+      updateSectionAJAX('comment')
       break;
     case 'certificate': //-----------------
-      oldSection = 'feedback'
+      destroyAnimation('#AnimacaoRoboCertificate')
+      updateSectionAJAX('feedback')
       break;      
     default:
       break;

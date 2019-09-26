@@ -229,8 +229,8 @@ function menu() {
   $("#start-game").click(function() {
     playAudioButton();
     cutscene_name = "start"
-    //updateSectionAJAX("cutscene")
-    updateSectionAJAX("quiz")
+    updateSectionAJAX("cutscene")
+    //updateSectionAJAX("quiz")
   })
 
   incrementAccess()

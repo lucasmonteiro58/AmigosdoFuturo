@@ -481,7 +481,7 @@
     //display: none;
   }
 
-  .infoCE-btn, .back-btn{
+  .infoCE-btn{
     position: absolute;
     top: 2.6%;
     left: 0.3%;
@@ -489,6 +489,25 @@
     transform: scale(1.26);
     //display: none;
   }
+
+  .back-btn{
+    position: absolute;
+    top: 2.6%;
+    right: 10%;
+    z-index: 999;
+    transform: scale(1.26);
+    //display: none;
+  }
+
+  .back-btn-cut{
+    position: absolute;
+    top: 2.6%;
+    right: 5%;
+    z-index: 999;
+    transform: scale(1.26);
+    //display: none;
+  }
+
 
 
   .sound-btnX {
