@@ -11,7 +11,9 @@ if ($("#menu").length) {
 
 // General  ---------------------------------------------------------------------
 $(document).ready(function() {
-
+ 
+   
+ 
   sessionStorage.setItem("sound", "on");
   sessionStorage.setItem("music", "off");
 
@@ -227,6 +229,7 @@ function menu() {
   playAudioMouseOver();
 
   $("#start-game").click(function() {
+    //openFullscreen()
     playAudioButton();
     cutscene_name = "start"
     updateSectionAJAX("cutscene")
@@ -286,6 +289,8 @@ function form() {
   var pergunta2 = $('#pergunta2')
   var pergunta3 = $('#pergunta3')
 
+
+  
   questions_array = questions_texts
 
   actual_section = "form"
@@ -294,6 +299,8 @@ function form() {
 
   createQuestion(questions_array[question_number])
   configPrevNext()
+
+ 
 
   robozinLaranja_create('#AnimacaoRoboForm', '75%', '65%') // id width height
   robozinLaranja_again('#AnimacaoRoboForm', 6)
@@ -502,7 +509,10 @@ function createQuestion(question, number) {
     $("#question-content").html(questionHTML)
     configClick("select")
 
-    //$('.select_city').select2();
+    // $('.select_city').select2({
+    //   placeholder: "Escolha o nome da sua cidade",
+    //   dropdownParent: $('.form-question')
+    // });
 
   } else {
     if (question["name"] == "age") {
@@ -512,6 +522,7 @@ function createQuestion(question, number) {
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><input type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
       "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
+      
 
     $("#question-content").html(questionHTML)
     configClick("input")
