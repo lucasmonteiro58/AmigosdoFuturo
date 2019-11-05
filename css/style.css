@@ -144,6 +144,9 @@
 
   .modal-title {
     font-family: exo-medium;
+    text-align: center;
+    margin-top: 21px;
+    font-size: 22px;
   }
   /*Buttons ----------------------------------------------------------*/
   button, input[type="button"], input[type="radio"] {
@@ -903,7 +906,8 @@
 
   #question-content .center-title h4{
     display: table-cell;
-    vertical-align: middle;
+    /* vertical-align: middle; */
+    padding-top: 6%;
     text-align: center;
   }
 
@@ -5039,32 +5043,38 @@ button.btnLuz2:hover{background-image: url(../img/buttons/es/bt_lampada_menos.pn
 
 #contador-erros{
   position: absolute;
-  top: 0%;
+  bottom: 0%;
+  transform: scaleY(-1);
   left: 41%;
   width: 25%;
 }
 
 #txtContador0{
   position: absolute;
-  top: -1%;
   left: 45%;
   font-family: bungee;
   font-size: 5vw;
   color: #918274;
+  top: 85.62%;
+ 
 }
 
 #txtContadorDE{
   position: absolute;
-   top: -1%;
+ top: 85.62%;
   left: 50%;
   font-family: bungee;
   font-size: 5vw;
   color: #C9C2BB;
 }
 
+.none-stars{
+  display: none !important;
+}
+
 #txtContador7{
   position: absolute;
-   top: -1%;
+   top: 85.62%;
   left: 59%;
   font-family: bungee;
   font-size: 5vw;
@@ -6265,3 +6275,10 @@ visibility: hidden;
   .all_bolinhas:hover{
     transform: scale(1.2);
   }
+
+
+.repeat-form{
+  position: absolute;
+  top: 120px;
+  right: 30px;
+}

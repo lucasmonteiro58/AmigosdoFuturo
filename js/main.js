@@ -232,7 +232,8 @@ function menu() {
     //openFullscreen()
     playAudioButton();
     cutscene_name = "start"
-    updateSectionAJAX("cutscene")
+    destroyAnimation('#counter2')
+    updateSectionAJAX("cutscene")    
     //updateSectionAJAX("quiz")
   })
 
@@ -278,11 +279,16 @@ function menu() {
 }
 
 // Form  -----------------------------------------------------------------
-
+var audio_form = undefined
+function repeat_form(){
+  audio_form = $('#pergunta0')
+  playSom(audio_form)
+}
 
 
 function form() {
   playAudioMouseOver();
+
 
   var pergunta0 = $('#pergunta0')
   var pergunta1 = $('#pergunta1')
@@ -300,11 +306,15 @@ function form() {
   createQuestion(questions_array[question_number])
   configPrevNext()
 
- 
+
 
   robozinLaranja_create('#AnimacaoRoboForm', '75%', '65%') // id width height
   robozinLaranja_again('#AnimacaoRoboForm', 6)
   //A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
+
+ 
+
+  
 }
 
 function stopPerguntasform() {
@@ -322,11 +332,11 @@ function stopPerguntasform() {
 
 
 function configPrevNext() {
+  var cont = 0;
   prevNextDisable()
   $("#prev").click(function() {
     prevNextDisable()
     previousQuestion()
-
   })
   $("#next").click(function() {
     prevNextDisable()
@@ -380,18 +390,22 @@ function goToQuestion(number) {
       switch (number) {
         case 0:
           playSom(pergunta0)
+          audio_form = $('#pergunta0')
           robozinLaranja_again('#AnimacaoRoboForm', 6)
           break;
         case 1:
           playSom(pergunta1)
+          audio_form = $('#pergunta1')
           robozinLaranja_again('#AnimacaoRoboForm', 2.6)
           break;
         case 2:
           playSom(pergunta2)
+          audio_form = $('#pergunta2')
           robozinLaranja_again('#AnimacaoRoboForm', 4.4)
           break;
         case 3:
           playSom(pergunta3)
+          audio_form = $('#pergunta3')
           robozinLaranja_again('#AnimacaoRoboForm', 3)
           break;
       }
@@ -487,11 +501,11 @@ function createQuestion(question, number) {
   if (question["type"] == "options") {
     var optionsHTML = ""
     for (var o in question["options"]) {
-      optionsHTML += "<input id='" + question["name"] + o + "' type='radio' name='" + question["name"] + "' value='" + question["options"][o] + "' class='action orange'>" +
+      optionsHTML += "<input autofocus id='" + question["name"] + o + "' type='radio' name='" + question["name"] + "' value='" + question["options"][o] + "' class='action orange'>" +
         "<label for='" + question["name"] + o + "' class='action orange' onmouseover='playAudioMS()'>" + question["options"][o] + "</label></input>"
     }
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form>" + optionsHTML + "</form></li>"
+      "<li><form>" + optionsHTML + "</form></li> <button class='toggle repeat repeat-form' onclick='repeat_form()' onmouseover='playAudioMS()'></button>"
 
     $("#question-content").html(questionHTML)
     configClickOptions()
@@ -504,7 +518,7 @@ function createQuestion(question, number) {
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><select class='select_city' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
-      "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
+      "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li> <button class='toggle repeat repeat-form'  onmouseover='playAudioMS()'></button>"
 
     $("#question-content").html(questionHTML)
     configClick("select")
@@ -520,8 +534,8 @@ function createQuestion(question, number) {
     }
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form><input type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
-      "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
+      "<li><form ><input class='name-input' type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "' auto-focus></form></li>" +
+      "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li> <button class='toggle repeat repeat-form'  onmouseover='playAudioMS()'></button>"
       
 
     $("#question-content").html(questionHTML)
@@ -542,6 +556,8 @@ function createQuestion(question, number) {
     prevNextDisable()
     $(selector).val(getFromStorage(question["name"]))
   }
+
+ 
 }
 
 function actionButtonClicked(selector) {
@@ -1230,6 +1246,11 @@ function certificate() {
 
   var audio_certificate = $('#fala_certificate')
 
+  $("#other-badges-btn").click(function () {
+      stopSom(audio_certificate)
+  })
+
+
   playSom(audio_certificate);
 
   robozinAzul_create('#AnimacaoRoboCertificate', '53%', '58%')
@@ -1386,6 +1407,11 @@ function cutscene() {
     updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
   })
 
+  var video_cut = document.getElementById("cutscene_video");
+  video_cut.onended = function () {
+    updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
+  };
+
 
   $(".toggle.sound").click(function() {
     var cutscene_video = document.getElementById("cutscene_video");
@@ -1473,7 +1499,7 @@ function setupLevel() {
 }
 
 
-function congratsNextLevel(stars, ended, sound) {
+function congratsNextLevel(stars, ended, sound) { 
   congrats_name = actual_badge["id"] + "_" + actual_level
   level_stars = stars
   if (sessionStorage.getItem('sound') == 'on') {
@@ -1487,7 +1513,7 @@ function congratsNextLevel(stars, ended, sound) {
   updateSectionAJAX("congrats")
 
   setTimeout(function() {
-
+     $('#stars').removeClass('none-stars')
     $("button.toggle.repeat").click(function() {
       if (sessionStorage.getItem('sound') == 'on') {
         robozinAzul_again('#AnimacaoRoboCongrats')
