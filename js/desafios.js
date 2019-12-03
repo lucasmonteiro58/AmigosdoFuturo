@@ -1109,24 +1109,8 @@
     }
 
 
-    var audio_passarpagina = new Audio('sounds/feedback/lazer/Virar pagina.wav');
-
-    function playAudioVirarPagina(){
-        if(sessionStorage.getItem('sound')=='on'){
-            var promise =audio_passarpagina.load();
-            var promise =audio_passarpagina.play();
-
-              if (promise !== undefined) {
-                promise.then(_ => {
-                    // Autoplay started!
-                }).catch(error => {
-                    // Autoplay was prevented.
-                    // Show a "Play" button so that user can start playback.
-                });
-            }
-          }
-    }
-
+   
+    
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
@@ -1220,12 +1204,12 @@
     $( "#A1nextPage" ).click(function() {
       $('#A1Pg1').css('display', 'none');
       $('#A1Pg2').css('display', 'block');
-      playAudioVirarPagina()
+      
     })
     $( "#A2prevPage" ).click(function() {
       $('#A1Pg1').css('display', 'block');
       $('#A1Pg2').css('display', 'none');
-      playAudioVirarPagina()
+      
     })
     $( "#A2nextPage" ).click(function() {
 
@@ -3401,7 +3385,11 @@ setTimeout(function () {
                    playSound(moedaSaindo)
                  }, 1300);
 
+                  setTimeout(function () {
+                    $("#bolaEduc1")[0].click();
+                  }, 1500);
 
+      
                 } else if(cont_bola_edu==2){
                    setTimeout(function () {
                   $('#bolaEduc1').css('display', 'none');
@@ -3410,6 +3398,11 @@ setTimeout(function () {
                    playSound(moedaSaindo)
                  }, 1300);
 
+                  setTimeout(function () {
+                    $("#bolaEduc2")[0].click();
+                  }, 1500);
+
+
                 } else if(cont_bola_edu==3){
                    setTimeout(function () {
                   $('#bolaEduc2').css('display', 'none');
@@ -3417,6 +3410,11 @@ setTimeout(function () {
                    cont_bola_edu=1;
                    playSound(moedaSaindo)
                  }, 1300);
+
+                  setTimeout(function () {
+                    $("#bolaEduc3")[0].click();
+                  }, 1500);
+
                 }
             }
           }
@@ -3446,6 +3444,11 @@ setTimeout(function () {
                      playSound(moedaSaindo)
                     }, 1300);
 
+                     setTimeout(function () {
+                       $("#bolaSau1")[0].click();
+                     }, 1500);
+
+
                   } else if(cont_bola_sau==2){
                     setTimeout(function () {
                     $('#bolaSau1').css('display', 'none');
@@ -3454,6 +3457,11 @@ setTimeout(function () {
                     playSound(moedaSaindo)
                     }, 1300);
 
+                    setTimeout(function () {
+                      $("#bolaSau2")[0].click();
+                    }, 1500);
+
+
                   } else if(cont_bola_sau==3){
                     setTimeout(function () {
                       $('#bolaSau2').css('display', 'none');
@@ -3461,6 +3469,11 @@ setTimeout(function () {
                      cont_bola_sau=1;
                       playSound(moedaSaindo)
                     }, 1300);
+
+                    setTimeout(function () {
+                      $("#bolaSau3")[0].click();
+                    }, 1500);
+
 
                   }
                 }
@@ -3491,6 +3504,10 @@ setTimeout(function () {
                playSound(moedaSaindo)
               }, 1300);
 
+              setTimeout(function () {
+                $("#bolaLaz1")[0].click();
+              }, 1500);
+
             } else if(cont_bola_laz==2){
               setTimeout(function () {
               $('#bolaLaz1').css('display', 'none');
@@ -3499,6 +3516,10 @@ setTimeout(function () {
                playSound(moedaSaindo)
               }, 1300);
 
+              setTimeout(function () {
+                $("#bolaLaz2")[0].click();
+              }, 1500);
+
             } else if(cont_bola_laz==3){
               setTimeout(function () {
               $('#bolaLaz2').css('display', 'none');
@@ -3506,6 +3527,10 @@ setTimeout(function () {
                cont_bola_laz=1;
                 playSound(moedaSaindo)
               }, 1300);
+
+              setTimeout(function () {
+                $("#bolaLaz3")[0].click();
+              }, 1500);
 
             }
           }
