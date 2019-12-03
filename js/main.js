@@ -487,7 +487,7 @@ function createQuestion(question, number) {
   if (question["type"] == "options") {
     var optionsHTML = ""
     for (var o in question["options"]) {
-      optionsHTML += "<input id='" + question["name"] + o + "' type='radio' name='" + question["name"] + "' value='" + question["options"][o] + "' class='action orange'>" +
+      optionsHTML += "<input autofocus id='" + question["name"] + o + "' type='radio' name='" + question["name"] + "' value='" + question["options"][o] + "' class='action orange'>" +
         "<label for='" + question["name"] + o + "' class='action orange' onmouseover='playAudioMS()'>" + question["options"][o] + "</label></input>"
     }
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
@@ -520,12 +520,13 @@ function createQuestion(question, number) {
     }
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form><input type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
+      "<li><form><input id='nome-input' min='0' autofocus type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
       "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
       
 
     $("#question-content").html(questionHTML)
     configClick("input")
+    document.getElementById('nome-input').focus()
   }
 
   function configClickOptions() {
@@ -597,7 +598,7 @@ function submitButtonClick() {
     destroyAnimation('#AnimacaoRoboForm')
     updateSectionAJAX("comment")
     letraMaiuscula();
-
+    
   }
 }
 

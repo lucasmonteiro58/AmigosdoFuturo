@@ -1912,16 +1912,16 @@
 
     function AndarBilotoAdd(alimento){
       if(alimento=="#P-alfaceOK" || alimento=="#P-bananaOK" || alimento=="#P-carneOK" ){
-        bilotoLeft = bilotoLeft+3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft+3.2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-arrozOK"){
-        bilotoLeft = bilotoLeft+2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft+2.8; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
-        bilotoLeft = bilotoLeft+3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft+3.8; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if (alimento=="#P-bombomOK" || alimento=="#P-pirulitoOK" ) {
-         bilotoLeft = bilotoLeft-2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+         bilotoLeft = bilotoLeft-2.2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
     }
