@@ -58,6 +58,10 @@ $(document).ready(function() {
     $('#modalEscola1').modal('hide')
   })
 
+  $("#modalEscola2C").click(function () {
+    $('#modalEscola2').modal('hide')
+  })
+
 
 
 
@@ -534,13 +538,8 @@ function createQuestion(question, number) {
     }
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-<<<<<<< HEAD
       "<li><form><input id='nome-input' min='0' autofocus type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
       "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
-=======
-      "<li><form ><input class='name-input' type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "' auto-focus></form></li>" +
-      "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li> <button class='toggle repeat repeat-form'  onmouseover='playAudioMS()'></button>"
->>>>>>> aa7b66a427069588c66749aa6291de51129945d6
       
 
     $("#question-content").html(questionHTML)

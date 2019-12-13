@@ -600,14 +600,14 @@
     });
 
  $('#AnimacaoClickLegumesCesta').jsMovie({
-      sequence: 'click_000##.png',
+      sequence: 'drag_000##.png',
       from: 0,
-      to: 19,
+      to: 29,
       fps: 10,
-      width:'45%',
+      width: '67%',
       height: '60%',
-      folder : "img/animation/cursor/click/",
-      playOnLoad:true
+      folder: "img/animation/cursor/drag/",
+      playOnLoad: true
     });
 
 
@@ -672,41 +672,98 @@
 
   var contLegumesCesta=0;
 
-   $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").click(function() {
-      playAudioFrutas()
+  //  $( "#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").click(function() {
+  //     playAudioFrutas()
 
-    $('#AnimacaoClickLegumesCesta').css('display', 'none');
-   var legumeclicado = "#"+ this.id+'C';
+  //   $('#AnimacaoClickLegumesCesta').css('display', 'none');
+  //  var legumeclicado = "#"+ this.id+'C';
 
-   $(this).css('display', 'none');
-   $(legumeclicado).css('display', 'block');
-   contLegumesCesta++;
+  //  $(this).css('display', 'none');
+  //  $(legumeclicado).css('display', 'block');
+  //  contLegumesCesta++;
 
-     if(contLegumesCesta==6){
-              $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
-              playAudioAguaPia()
-                          setTimeout(function () {
-                          $('#modalSust1').modal('show')
-                 //alert("Agora CLICA nos legumes para tirar da pia")
-                 $('#AnimacaoClickLegumesPia').css('display', 'block');
+  //    if(contLegumesCesta==6){
+  //             $('#animacaoTorneiraPia').jsMovie('play',1,10,false, true);
+  //             playAudioAguaPia()
+  //                         setTimeout(function () {
+  //                         $('#modalSust1').modal('show')
+  //                //alert("Agora CLICA nos legumes para tirar da pia")
+  //                $('#AnimacaoClickLegumesPia').css('display', 'block');
+  //         }, 1600);
+
+
+  //                 $(".legumesAgua").addClass("legumesCestaClick");
+
+
+  //                 $( ".legumesCestaClick").click(function() {
+  //                   playAudioFrutas()
+  //                    $('#AnimacaoClickLegumesPia').css('display', 'none');
+  //                    $(this).css('display', 'none');
+  //                    var legumeaparecer= '#'+this.id +'B';
+  //                   // alert(this.id +"B");
+  //                    $(legumeaparecer).css('display', 'block');
+  //                    verificaLegumesCesta++;
+  //                    verificaLegumesCestaOK()
+  //                 });
+  //    }
+  //  })
+
+    $("#C_cenouracesta1, #C_cenouracesta2, #C_alfacecesta1, #C_alfacecesta2, #C_tomatecesta1, #C_tomatecesta2").draggable({
+      revert: true,
+      revertDuration: 600,
+      cursor: "grabbing",
+      containment: '#moverlegumes',
+      //snap: true,
+      scroll: false,
+      drag: function (event, ui) {
+        $('#AnimacaoClickLegumesCesta').css('display', 'none');
+      }
+    });
+
+
+    var qntLegumesPia = 0;
+
+    $("#droplegumes").droppable({
+
+
+      drop: function (event, ui) {
+        var draggableId = ui.draggable.attr("id");
+        draggableId = '"#' + draggableId + '"';
+        // $(this).css('z-index', '1000'); 
+        // $(ui.draggable).css(' z-index','1'); 
+        playAudioFrutas()
+
+        if (draggableId == '"#C_tomatecesta2"' || draggableId == '"#C_tomatecesta1"') {
+          $(ui.draggable).css('top', '42%');
+        }
+
+        if (draggableId == '"#C_alfacecesta2"' || draggableId == '"#C_alfacecesta1"') {
+          $(ui.draggable).css('top', '40%');
+        }
+
+        if (draggableId == '"#C_cenouracesta2"' || draggableId == '"#C_cenouracesta1"') {
+          $(ui.draggable).css('top', '35%');
+        }
+
+        qntLegumesPia++;
+
+        if (qntLegumesPia == 6) {
+          $('#animacaoTorneiraPia').jsMovie('play', 1, 10, false, true);
+          playAudioAguaPia()
+          setTimeout(function () {
+            verificaLegumesCesta = 6 
+            verificaCanos = true
+            verificaLegumesCestaOK()
+
           }, 1600);
 
+        }
 
-                  $(".legumesAgua").addClass("legumesCestaClick");
+        $(draggableId).draggable("disable");
 
 
-                  $( ".legumesCestaClick").click(function() {
-                    playAudioFrutas()
-                     $('#AnimacaoClickLegumesPia').css('display', 'none');
-                     $(this).css('display', 'none');
-                     var legumeaparecer= '#'+this.id +'B';
-                    // alert(this.id +"B");
-                     $(legumeaparecer).css('display', 'block');
-                     verificaLegumesCesta++;
-                     verificaLegumesCestaOK()
-                  });
-     }
-   })
+      }
+    });
 
 
 
@@ -779,7 +836,7 @@
         verificaCanos = true;
         setTimeout(function () {
 
-          $('#modalSust2').modal('show')
+          // $('#modalSust2').modal('show')
         // alert("Clica nos legumes");
           $('#animacaocanos').jsMovie('play',1,25,false, false);
   }, 300);
@@ -947,39 +1004,59 @@
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickONG').jsMovie({
-      sequence: 'click_000##.png',
-      from: 0,
-      to: 19,
-      fps: 10,
-      width:'45%',
-      height: '60%',
-      folder : "img/animation/cursor/click/",
-      playOnLoad:true
+        sequence: 'drag_000##.png',
+        from: 0,
+        to: 29,
+        fps: 10,
+        width: '67%',
+        height: '60%',
+        folder: "img/animation/cursor/drag/",
+        playOnLoad: true
     });
 
 
     var contAlimentoRua =0;
-    $( ".alimentosRua" ).click(function() {
-       playAudioPlantar()
-      $('#AnimacaoClickONG').css('display', 'none');
-     contAlimentoRua ++;
-     var idAlimentoRua = "#" + $(this).attr('id') + "cesta";
-     //alert(idAlimentoRua);
 
-     $(idAlimentoRua).css('display','block');
-     $(this).css('display','none');
-
-     if (contAlimentoRua==4){
-      setTimeout(function () {
-      $('#AnimacaoClickONG').jsMovie('destroy');
-         var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav') ;
-         destroyAnimation('#AnimacaoRoboHelp')
-      congratsNextLevel(["full", "half","empty"], false, audio_ong)
-  }, 400);
-
-     }
-
+    $(".alimentosRua").draggable({
+      revert: true,
+      revertDuration: 600,
+      cursor: "grabbing",
+      containment: 'body',
+      //snap: true,
+      scroll: false,
+      drag: function (event, ui) {
+        $('#AnimacaoClickONG').css('display', 'none');
+      }
     });
+
+
+    $("#dropAlimentoONG").droppable({
+
+
+      drop: function (event, ui) {
+        playAudioPlantar()
+        contAlimentoRua++;
+
+        var idAlimentoRua = "#" + ui.draggable[0].id + "cesta";
+        var esseAlimento = '#' + ui.draggable[0].id
+        //alert(idAlimentoRua);
+
+        $(idAlimentoRua).css('display', 'block');
+        $(esseAlimento).css('display', 'none');
+       
+        if (contAlimentoRua == 4) {
+          setTimeout(function () {
+            $('#AnimacaoClickONG').jsMovie('destroy');
+            var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav');
+            destroyAnimation('#AnimacaoRoboHelp')
+            congratsNextLevel(["full", "half", "empty"], false, audio_ong)
+          }, 400);
+
+        }
+
+      }
+    })
+
   }
 
 // Desafio gov_2 Radio --------------------------------------------------------------------------------------
@@ -988,18 +1065,37 @@
     playAudioMouseOver();
     setupLevel()
 
+    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
+
+    function playAudioPlantar() {
+      if (sessionStorage.getItem('sound') == 'on') {
+        var promise = audio_plantar.load();
+        var promise = audio_plantar.play();
+
+        if (promise !== undefined) {
+          promise.then(_ => {
+            // Autoplay started!
+          }).catch(error => {
+            // Autoplay was prevented.
+            // Show a "Play" button so that user can start playback.
+          });
+        }
+      }
+    }
+    
+
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
       $('#AnimacaoClickRadio').jsMovie({
-      sequence: 'click_000##.png',
-      from: 0,
-      to: 19,
-      fps: 10,
-      width:'45%',
-      height: '60%',
-      folder : "img/animation/cursor/click/",
-      playOnLoad:true
+        sequence: 'drag_000##.png',
+        from: 0,
+        to: 29,
+        fps: 10,
+        width: '67%',
+        height: '60%',
+        folder: "img/animation/cursor/drag/",
+        playOnLoad: true
     });
 
 
@@ -1017,28 +1113,72 @@
 
 
     var contJornalRua =0;
-    $( ".jornalRua" ).click(function() {
-       $('#AnimacaoClickRadio').css('display', 'none');
-     contJornalRua ++;
-     var idJornalRua = "#" + $(this).attr('id') + "cesta";
 
-
-     $(idJornalRua).css('display','block');
-     $(this).css('display','none');
-      $('#antenaRadio').jsMovie('play',1,8,false, true);
-
-     if (contJornalRua==4){
-      //alert("Você conseguiu");
-      setTimeout(function () {
-       $("#antenaRadio").jsMovie("destroy");
-        $('#AnimacaoClickRadio').jsMovie('destroy');
-       var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav') ;
-       destroyAnimation('#AnimacaoRoboHelp')
-      congratsNextLevel(["full", "full", "empty"], false, audio_radio)
-  }, 300);
-
-     }
+    $(".jornalRua").draggable({
+      revert: true,
+      revertDuration: 600,
+      cursor: "grabbing",
+      containment: 'body',
+      //snap: true,
+      scroll: false,
+      drag: function (event, ui) {
+        $('#AnimacaoClickRadio').css('display', 'none');
+      }
     });
+
+
+    $("#dropRadio").droppable({
+
+
+      drop: function (event, ui) {
+        playAudioPlantar()
+        contJornalRua++;
+
+        var idJornalRua = "#" + ui.draggable[0].id + "cesta";
+        var esseJornal = '#' + ui.draggable[0].id
+        //alert(idAlimentoRua);
+
+        $(idJornalRua).css('display', 'block');
+        $(esseJornal).css('display', 'none');
+        $('#antenaRadio').jsMovie('play', 1, 8, false, true);
+
+        if (contJornalRua == 4) {
+          //alert("Você conseguiu");
+          setTimeout(function () {
+            $("#antenaRadio").jsMovie("destroy");
+            $('#AnimacaoClickRadio').jsMovie('destroy');
+            var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav');
+            destroyAnimation('#AnimacaoRoboHelp')
+            congratsNextLevel(["full", "full", "empty"], false, audio_radio)
+          }, 300);
+
+        }
+
+      }
+    })
+
+  //   $( ".jornalRua" ).click(function() {
+  //      $('#AnimacaoClickRadio').css('display', 'none');
+  //    contJornalRua ++;
+  //    var idJornalRua = "#" + $(this).attr('id') + "cesta";
+
+
+  //    $(idJornalRua).css('display','block');
+  //    $(this).css('display','none');
+  //     $('#antenaRadio').jsMovie('play',1,8,false, true);
+
+  //    if (contJornalRua==4){
+  //     //alert("Você conseguiu");
+  //     setTimeout(function () {
+  //      $("#antenaRadio").jsMovie("destroy");
+  //       $('#AnimacaoClickRadio').jsMovie('destroy');
+  //      var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav') ;
+  //      destroyAnimation('#AnimacaoRoboHelp')
+  //     congratsNextLevel(["full", "full", "empty"], false, audio_radio)
+  // }, 300);
+
+  //    }
+  //   });
   }
 
 // Desafio gov_3 Prefeitura  --------------------------------------------------------------------------------------
@@ -1896,16 +2036,16 @@
 
     function AndarBilotoAdd(alimento){
       if(alimento=="#P-alfaceOK" || alimento=="#P-bananaOK" || alimento=="#P-carneOK" ){
-        bilotoLeft = bilotoLeft+3.2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-arrozOK"){
-        bilotoLeft = bilotoLeft+2.8; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
-        bilotoLeft = bilotoLeft+3.8; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if (alimento=="#P-bombomOK" || alimento=="#P-pirulitoOK" ) {
-         bilotoLeft = bilotoLeft-2.2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
     }
@@ -1913,16 +2053,16 @@
 
     function AndarBilotoRemove(alimento){
       if(alimento=="#P-alface" || alimento=="#P-banana" || alimento=="#P-carne" ){
-        bilotoLeft = bilotoLeft-3.1; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-arroz"){
-        bilotoLeft = bilotoLeft-2.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-feijao" || alimento=="#P-cenoura"){
-        bilotoLeft = bilotoLeft-3.6; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if (alimento=="#P-bombom" || alimento=="#P-pirulito" ) {
-         bilotoLeft = bilotoLeft+2; $( "#biloto" ).animate({left: bilotoLeft+"%"})
+        bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
     }
@@ -2054,12 +2194,14 @@
         $('#animacaoEscorregador').jsMovie('play',1,16,false,false);
           setTimeout(function () {
                $("#animacaoEscorregador").css('display','none');
+            $("#escorregador").css('opacity', 0.5)
         }, 1900);
-        bilotoP= bilotoP+4.55;
+        bilotoP= bilotoP+4.8;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
         },1300)
         escorregador=true;
+       
       }})
 
      $( ".campinho").click(function() {
@@ -2074,12 +2216,14 @@
                $("#animacaoCampo").css('display','none');
                $('#campinho_futebol').css('display', 'block');
                $('#campinho_futebol_none').css('display', 'none');
+                $("#campinho_futebol").css('opacity', '0.5')
         }, 2500);
-        bilotoP= bilotoP+5.55;
+        bilotoP= bilotoP+5.8;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
         }, 1300)
         campinho=true;
+        
       }})
 
      $( "#balanco").click(function() {
@@ -2092,12 +2236,14 @@
           setTimeout(function () {
                $("#animacaoBalanco").css('display','none');
                $('#balanco').css('display','block');
+               $("#balanco").css('opacity', '0.5')
         }, 4500);
-        bilotoP= bilotoP+2.55;
+        bilotoP= bilotoP+2.8;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
         }, 1500)
         balanco=true;
+        
       }})
 
       $( "#gangorra").click(function() {
@@ -2109,9 +2255,10 @@
           $('#animacaoGangorra').jsMovie('play',1,47,false,true);
           setTimeout(function () {
                $('#gangorra').css('display', 'block');
+              $("#gangorra").css('opacity', 0.5)
                $("#animacaoGangorra").css('display','none');
         }, 5300);
-        bilotoP= bilotoP+3.55;
+        bilotoP= bilotoP+3.8;
         $( "#bilotoP" ).animate({
           left: bilotoP+"%"
          }, 3500)
@@ -2129,6 +2276,7 @@
           setTimeout(function () {
                $("#animacaoCelular").css('display','none');
                $('#tablet').css('display','block');
+              $("#tablet").css('opacity', '0.5')
               $('#tablet1').css('display','none');
         }, 3500);
         bilotoP= bilotoP+0;
@@ -2139,7 +2287,7 @@
       }})
 
        $( "#btn-enviar-parquinho").click(function() {
-        if (bilotoP==65.6) {
+        if (bilotoP==66.6) {
          $('#AnimacaoClickParquinho').jsMovie('destroy');
           $('#animacaoGangorra').jsMovie('destroy');
           $('#animacaoEscorregador').jsMovie('destroy');
@@ -2260,7 +2408,7 @@
 
     $( "#icon_acessibilidade1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#rampaacessibilidade').css('display', 'block');
@@ -2280,7 +2428,7 @@
     })
     $( "#icon_pintar1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#escolafora_pintada').css('display', 'block');
@@ -2300,7 +2448,7 @@
     })
     $( "#icon_arborizar1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2324,7 +2472,7 @@
 
     $( "#icon_onibus1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#onibusescolar').css('display', 'block');
@@ -2345,7 +2493,7 @@
     })
     $( "#icon_horta1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#hortaescola').css('display', 'block');
@@ -2366,7 +2514,7 @@
 
     $( "#icon_parquinho1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#parquinhoescola').css('display', 'block');
@@ -2387,7 +2535,7 @@
 
     $( "#icon_lixo1" ).click(function() {
       if (contCoisasEscolaF==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#lixeirasseletivas').css('display', 'block');
@@ -2532,6 +2680,7 @@
         todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
         idImgSala="#imgBiblioteca";
         posicaoSalas(idImgSala);
@@ -2555,6 +2704,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
       idImgSala="#imgTeatro";
       posicaoSalas(idImgSala);
@@ -2578,6 +2728,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
       idImgSala="#imgCantina";
       posicaoSalas(idImgSala);
@@ -2602,6 +2753,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
       idImgSala="#imgMusica";
       posicaoSalas(idImgSala);
@@ -2625,6 +2777,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
       idImgSala="#imgInformatica";
       posicaoSalas(idImgSala);
@@ -2648,6 +2801,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
       idImgSala="#imgQuimica";
       posicaoSalas(idImgSala);
@@ -2671,6 +2825,7 @@
       todosOcupados();
       if (todasSalasOcupadas){
           FaseDentroOK();
+        $('#modalEscola2').modal('show')
       } else{
        idImgSala="#imgDanca";
       $(this).css('display', 'none');
@@ -2869,6 +3024,7 @@
 
     $( "#icon_cadeiras1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2889,6 +3045,7 @@
     })
     $( "#icon_livros1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2909,6 +3066,7 @@
     })
     $( "#icon_lapis1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2929,7 +3087,7 @@
     })
     $( "#icon_quadro1" ).click(function() {
       if (contCoisasEscolaS==5){
-
+        $('#modalEscola2').modal('show')
       } else{
         $(this).css('display', 'none');
         $('#SalaQuadro').css('display', 'block');
@@ -2949,6 +3107,7 @@
     })
     $( "#icon_globo1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2970,6 +3129,7 @@
     })
     $( "#icon_lixeira1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
@@ -2991,6 +3151,7 @@
     })
     $( "#icon_luz1" ).click(function() {
       if (contCoisasEscolaS==5){
+        $('#modalEscola2').modal('show')
 
       } else{
         $(this).css('display', 'none');
