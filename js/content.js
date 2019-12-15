@@ -163,7 +163,7 @@ var badges_texts = {
     "finished": false,
     "levels": 3,
     "title": "Amigo da Educação",
-    "description": "Está sempre lendo livros, revistas e quadrinhos. Também adora ensinar os amigos."
+    "description": "É muito curioso e está sempre lendo livros, revistas e histórias em quadrinho. Também adora ensinar os amigos."
   },
   "ino": {
     "id": "ino",
@@ -367,7 +367,7 @@ var helps_texts = {
   },
   "gov_2": {
     "title": "Olá ouvintes!",
-    "text": "Participe da rádio. Junte as notícias para o programa."
+    "text": "Participe da rádio. Junte as notícias para o programa e deixe todo mundo informado."
   },
   "gov_3": {
     "title": "Lei é lei!",
@@ -387,7 +387,7 @@ var helps_texts = {
   },
   "ino_0": {
     "title": "Fique atento!",
-    "text": "Observe a cena e veja como o problema pode ser resolvido."
+    "text": "Observe a cena e tente resolver o problema."
   },
   "ino_1": {
     "title": "Indo para o espaço!",
@@ -395,7 +395,7 @@ var helps_texts = {
   },
   "ino_2": {
     "title": "Seguindo o caminho!",
-    "text": "Adicione peças ao robô para que ele consiga andar sozinho pelo caminho corretamente."
+    "text": "Adicione peças ao carrinho para que ele consiga andar."
   },
   "sau_0": {
     "title": "Comer, comer…",
@@ -440,7 +440,7 @@ var congrats_texts = {
     "text": "Muito bem! Antes de cozinhar, vamos lavar o que você colheu."
   },
   "mei_2": {
-    "text": "Parabéns! Agora as pessoas do seu bairro podem gastar menos comprando comida e se alimentar melhor"
+    "text": "Parabéns! Agora as pessoas do seu bairro podem colher alimentos de graça nesse terreno."
   },
   "gov_0": {
     "text": "Parabéns! Você conseguiu organizar a brincadeira."
@@ -482,10 +482,10 @@ var congrats_texts = {
     "text": "Por fora sua escola está incrível!"
   },
   "edu_1": {
-    "text": "Incrível! Eu queria estudar numa escola dessas!"
+    "text": "Agora sim está tudo certo para os alunos aprenderem melhor. Parabéns."
   },
   "edu_2": {
-    "text": "Agora sim está tudo certo para os alunos aprenderem melhor. Parabéns."
+    "text": "Incrível! Eu queria estudar numa escola dessas!"
   },
   "eco_0": {
     "text": "Parabéns! Você juntou seu próprio dinheiro!"

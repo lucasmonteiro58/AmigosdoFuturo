@@ -1584,7 +1584,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   top: 37%;
-  left: 10%;
+  left: 20%;
   transform: scale(0.4) ;
 }
 
@@ -1720,7 +1720,7 @@
 
 #pecaMesa1{
   position: absolute;
-  top: 12%;
+  top: 25%;
   left: 2%;
   width: 17%;
 
@@ -1728,7 +1728,7 @@
 
 #pecaMesa2{
   position: absolute;
-  top: 20%;
+  top: 33%;
   left: 20%;
   width: 13%;
 
@@ -1736,35 +1736,35 @@
 
 #pecaMesa3{
   position: absolute;
-  top: 28%;
+  top: 41%;
   left: 3%;
   width: 11.2%;
 }
 
 #pecaMesa4{
   position: absolute;
-  top: 34%;
+  top: 47%;
   left: 15%;
   width: 7.6%;
 }
 
 #pecaMesa5{
   position: absolute;
-  top: 29%;
+  top: 42%;
   left: 32%;
   width: 9%;
 }
 
 #pecaMesa6{
   position: absolute;
-  top: 47%;
+  top: 60%;
   left: 25%;
   width: 10.4%;
 }
 
 #pecaMesa7{
   position: absolute;
-  top: 57%;
+  top: 70%;
   left: 17%;
   width: 6.6%;
 }
@@ -2972,8 +2972,8 @@
 
 #P-banana{
   position: absolute;
-  top: 80%;
-  right: 45%;
+  top: 35%;
+  right: 40%;
   width: 11%;
 }
 
@@ -2998,6 +2998,44 @@
   width: 14%;
 }
 
+#P-batata{
+ position: absolute;
+    top: 75%;
+    right: 38%;
+    width: 14%;
+    transform: scale(0.7);
+}
+
+#P-laranja{
+  position: absolute;
+    top: 55%;
+    right: -1%;
+    width: 14%;
+    transform: scale(0.5);
+}
+
+#P-ovo{
+  position: absolute;
+    top: 37%;
+    right: 20%;
+    width: 14%;
+    transform: scale(0.6);
+}
+
+#P-queijo{
+  position: absolute;
+    top: 39%;
+    right: 84%;
+    width: 14%;
+}
+
+#P-jujuba{
+  position: absolute;
+    top: 69%;
+    right: 61%;
+    width: 14%;
+}
+
 #P-bombom{
   position: absolute;
   top: 38%;
@@ -3018,6 +3056,46 @@
   top: 44%;
   left: 45%;
   width: 10%;
+}
+
+
+#P-batataOK{
+      position: absolute;
+    top: 62%;
+    left: 40%;
+    width: 10%;
+}
+
+
+#P-laranjaOK{
+      position: absolute;
+    top: 56%;
+    left: 36%;
+    width: 6%;
+}
+
+
+#P-ovoOK{
+ position: absolute;
+    top: 60%;
+    left: 55%;
+    width: 10%;
+}
+
+
+#P-queijoOK{
+       position: absolute;
+    top: 64%;
+    left: 50%;
+    width: 5%
+}
+
+
+#P-jujubaOK{
+      position: absolute;
+    top: 63%;
+    left: 45%;
+    width: 10%
 }
 
 #P-arrozOK{
@@ -3088,21 +3166,21 @@ display: none;
 
 #barraSaudavel{
   position: absolute;
-  top: 6%;
+  top: 90%;
   left: 32.2%;
   width: 36%;
 }
 
 #nomeSaudavel{
   position: absolute;
-  top: 6%;
+  top: 90%;
   left: 69%;
   width: 12.2%;
 }
 
 #nomeNaoSaudavel{
   position: absolute;
-  top: 6%;
+  top: 90%;
   right: 69%;
   width: 12.2%;
 }
@@ -3115,7 +3193,7 @@ display: none;
 
 #biloto{
   position: absolute;
-  top: 5.3%;
+  top: 89.3%;
   //left: 32.2%;
   left: 49.4%;
   width: 1.5%;
@@ -5638,7 +5716,7 @@ visibility: hidden;
 
 #animacaoGangorra{
   position: absolute;
-  bottom: -23.8%;
+  bottom: -13.8%;
   left: 46.1%;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5693,7 +5771,7 @@ visibility: hidden;
 
 #bilotoP{
   position: absolute;
-  top: 5.3%;
+  top: 89.3%;
   //left: 32.2%;
   left: 49.4%;
   width: 1.5%;
@@ -5747,7 +5825,7 @@ visibility: hidden;
 #gangorra{
   position: absolute;
   left: 33%;
-  top: 55%;
+  top: 47%;
   width: 32%;
 }
 
@@ -5793,7 +5871,7 @@ visibility: hidden;
 
 #plantacasa{
   position: absolute;
-  top: 13%;
+  top: 4%;
   left: 19%;
   width: 69%;
 
@@ -5803,7 +5881,7 @@ visibility: hidden;
 
 #icon_bola2{
   position: absolute;
-  top: 84%;
+  top: 74%;
   left: 75%;
   width: 5%;
   animation-name: example2;
@@ -5813,14 +5891,14 @@ visibility: hidden;
 }
 
 @keyframes example2 {
-  0%   {top:84%;}
-  50%  {top:85%;}
-  100% {top:84%;}
+  0%   {top:74%;}
+  50%  {top:75%;}
+  100% {top:74%;}
 }
 
 #icon_dog{
   position: absolute;
-  top: 55%;
+  top: 45%;
   left: 77%;
   width: 5%;
    animation-name: example3;
@@ -5830,14 +5908,14 @@ visibility: hidden;
 }
 
 @keyframes example3 {
-  0%   {top:55%;}
-  50%  {top:56%;}
-  100% {top:55%;}
+  0%   {top:45%;}
+  50%  {top:46%;}
+  100% {top:45%;}
 }
 
 #icon_vo{
   position: absolute;
-  top: 36%;
+  top: 26%;
   left: 60%;
   width: 5%;
    animation-name: example4;
@@ -5847,14 +5925,14 @@ visibility: hidden;
 }
 
 @keyframes example4 {
-  0%   {top:36%;}
-  50%  {top:37%;}
-  100% {top:36%;}
+  0%   {top:26%;}
+  50%  {top:27%;}
+  100% {top:26%;}
 }
 
 #icon_vaso{
   position: absolute;
-  top: 23%;
+  top: 13%;
   left: 68%;
   width: 5%;
    animation-name: example5;
@@ -5864,14 +5942,14 @@ visibility: hidden;
 }
 
 @keyframes example5 {
-  0%   {top:23%;}
-  50%  {top:24%;}
-  100% {top:23%;}
+  0%   {top:13%;}
+  50%  {top:14%;}
+  100% {top:13%;}
 }
 
 #icon_pirulito{
   position: absolute;
-  top: 31%;
+  top: 21%;
   left: 41%;
   width: 5%;
    animation-name: example6;
@@ -5881,14 +5959,14 @@ visibility: hidden;
 }
 
 @keyframes example6 {
-  0%   {top:31%;}
-  50%  {top:32%;}
-  100% {top:31%;}
+  0%   {top:21%;}
+  50%  {top:22%;}
+  100% {top:21%;}
 }
 
 #icon_biscoito{
   position: absolute;
-  top: 68%;
+  top: 58%;
   left: 34%;
   width: 5%;
   animation-name: example7;
@@ -5898,9 +5976,9 @@ visibility: hidden;
 }
 
 @keyframes example7 {
-  0%   {top:68%;}
-  50%  {top:69%;}
-  100% {top:68%;}
+  0%   {top:58%;}
+  50%  {top:59%;}
+  100% {top:58%;}
 }
 
 #icon_pers_move{
@@ -5912,22 +5990,22 @@ visibility: hidden;
 
 #totalmoedas{
   position: absolute;
-  top: 2%;
-  left: 1%;
+  top: 90%;
+  left: 33%;
   width: 12%;
 }
 
 #ic_moeda{
   position: absolute;
-  top: 3.2%;
-  left: 2.1%;
+  top: 91.2%;
+  left: 34.1%;
   width: 3.4%;
 }
 
 #qtd_moeda{
   position: absolute;
-  left: 5%;
-  top: 2%;
+  left: 37%;
+  top: 90%;
   font-family: norwester;
   font-size: 3.1vw;
   width: 5%;
@@ -5938,8 +6016,8 @@ visibility: hidden;
 
 #imgtexto_maismoedas{
    position: absolute;
-  top: 2%;
-  left: 8%;
+  top: 90%;
+  left: 40%;
   width: 58%;
   display: none;
 
@@ -5947,8 +6025,8 @@ visibility: hidden;
 
 #txt_maismoedas{
   position: absolute;
-  left: 14%;
-  top: 2%;
+  left: 46%;
+  top: 90%;
   font-family: front;
   font-size: 3.1vw;
   width: 50%;
@@ -5973,7 +6051,7 @@ visibility: hidden;
   left: 0%;
   width: 100%;
 //background-color: red;
-  height: 16%;
+  height: 8%;
 }
 
 #divplantacasa3{
@@ -5991,7 +6069,7 @@ visibility: hidden;
   right: 0%;
   width: 100%;
 //background-color: red;
-  height: 4%;
+  height: 13%;
 }
 
 

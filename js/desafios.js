@@ -53,36 +53,46 @@
   var contagemPecaMapa = 0;
 
   var audioParabensMapa = $('#parabens_mapa')
+  var parabens = new Audio('sounds/feedback/mapa/Sucesso.mp3');
+  
 
 
 
   function verificaPecaMapa() {
     if (contagemPecaMapa == 7) {
-      comment_name = "start_quiz"
-      destroyAnimation('#AnimacaoRoboHelp');
-      createComment(comments_texts[comment_name])
-      $("button.toggle.repeat").click(function() {
+      playSound(parabens)
+      setTimeout(function () {
+        comment_name = "start_quiz"
+        destroyAnimation('#AnimacaoRoboHelp');
+        createComment(comments_texts[comment_name])
+        $("button.toggle.repeat").click(function () {
+          if (sessionStorage.getItem('sound') == 'on') {
+            robozinInteiro_again('#AnimacaoRoboCommentMapa', 5)
+            playSom(audioParabensMapa);
+          }
+        });
+
+        $("button#go-comment.action.blue").click(function () {
+          stopSom(audioParabensMapa);
+        });
+
+        
         if (sessionStorage.getItem('sound') == 'on') {
-          robozinInteiro_again('#AnimacaoRoboCommentMapa', 5)
           playSom(audioParabensMapa);
         }
-      });
 
-      $("button#go-comment.action.blue").click(function() {
-        stopSom(audioParabensMapa);
-      });
+        $(".robot-comment").fadeIn(300);
+        robozinInteiro_play('#AnimacaoRoboCommentMapa', 5)
+        $("#AnimacaoArrastarMapa").jsMovie("destroy");
 
-      if (sessionStorage.getItem('sound') == 'on') {
-        playSom(audioParabensMapa);
-      }
 
-      $(".robot-comment").fadeIn(300);
-      robozinInteiro_play('#AnimacaoRoboCommentMapa', 5)
-      $("#AnimacaoArrastarMapa").jsMovie("destroy");
-
+      }, 1000);
+      
 
     }
   }
+
+    var somdrop = new Audio('sounds/feedback/mapa/drag.wav');
 
   $("#pecaMapa1").droppable({
     accept: "#pecaMesa1",
@@ -91,6 +101,7 @@
     drop: function(event, ui) {
       $("#pecaMesa1").css("display", "none");
       $("#pecaMapa1").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -102,6 +113,7 @@
     drop: function(event, ui) {
       $("#pecaMesa2").css("display", "none");
       $("#pecaMapa2").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -113,6 +125,7 @@
     drop: function(event, ui) {
       $("#pecaMesa3").css("display", "none");
       $("#pecaMapa3").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -124,6 +137,7 @@
     drop: function(event, ui) {
       $("#pecaMesa4").css("display", "none");
       $("#pecaMapa4").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -135,6 +149,7 @@
     drop: function(event, ui) {
       $("#pecaMesa5").css("display", "none");
       $("#pecaMapa5").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa()
     }
@@ -146,6 +161,7 @@
     drop: function(event, ui) {
       $("#pecaMesa6").css("display", "none");
       $("#pecaMapa6").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -157,6 +173,7 @@
     drop: function(event, ui) {
       $("#pecaMesa7").css("display", "none");
       $("#pecaMapa7").css("visibility", "visible");
+      playSound(somdrop)
       contagemPecaMapa++;
       verificaPecaMapa();
     }
@@ -203,7 +220,7 @@
 
         setTimeout(function () {
          $('#AnimacaoArrastarLixos').jsMovie("destroy");
-         var audio_lixo = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+          var audio_lixo = new Audio('sounds/falas/desafios/mei/parabens1.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false, audio_lixo)
 
@@ -223,6 +240,7 @@
             $("#lixometal").css("visibility", "visible");
           },
           drop: function( event, ui ) {
+            playAudioButton()
             $("#lixometalaberto").css("display", "none");
             $("#lixometal").css("visibility", "visible");
             var draggableId = ui.draggable.attr("id");
@@ -244,6 +262,7 @@
             $("#lixopapel").css("visibility", "visible")
           },
           drop: function( event, ui ) {
+            playAudioButton()
             $("#lixopapelaberto").css("display", "none");
             $("#lixopapel").css("visibility", "visible");
             var draggableId = ui.draggable.attr("id");
@@ -264,6 +283,7 @@
              $("#lixoplastico").css("visibility", "visible");
           },
           drop: function( event, ui ) {
+            playAudioButton()
             $("#lixoplasticoaberto").css("display", "none");
             $("#lixoplastico").css("visibility", "visible");
             var draggableId = ui.draggable.attr("id");
@@ -285,6 +305,7 @@
             $("#lixovidro").css("visibility", "visible");
           },
           drop: function( event, ui ) {
+            playAudioButton()
              $("#lixovidroaberto").css("display", "none");
              $("#lixovidro").css("visibility", "visible");
             var draggableId = ui.draggable.attr("id");
@@ -305,6 +326,7 @@
              $("#lixoorganico").css("visibility", "visible");
           },
           drop: function( event, ui ) {
+            playAudioButton()
              $("#lixoorganicoaberto").css("display", "none");
              $("#lixoorganico").css("visibility", "visible");
             var draggableId = ui.draggable.attr("id");
@@ -322,25 +344,7 @@
     playAudioMouseOver();
     setupLevel()
 
-    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
-
-    function playAudioPlantar(){
-          if(sessionStorage.getItem('sound')=='on'){
-              var promise =audio_plantar.load();
-              var promise =audio_plantar.play();
-
-                if (promise !== undefined) {
-                  promise.then(_ => {
-                      // Autoplay started!
-                  }).catch(error => {
-                      // Autoplay was prevented.
-                      // Show a "Play" button so that user can start playback.
-                  });
-              }
-            }
-      }
-
-
+   
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
@@ -362,7 +366,7 @@
 
         setTimeout(function () {
          $('#animacaoClickPlantar').jsMovie('destroy');
-        var audio_plantar = new Audio('sounds/desafios/sustentabilidade desafio 2.wav') ;
+          var audio_plantar = new Audio('sounds/falas/desafios/mei/parabens2.wav') ;
         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false, audio_plantar)
       }, 300);
@@ -371,6 +375,7 @@
     }
 
     $('#buraco1').click(function(){
+      playAudioButton()
       $('#animacaoClickPlantar').css('display', 'none');
       if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
         $("#buraco1").attr('src', "");
@@ -386,7 +391,7 @@
         $("#buraco1").removeClass('bc1');
         $("#buraco1").addClass('brcp1');
       } else if ($('#buraco1').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {
-         playAudioPlantar()
+         
         $("#buraco1").attr('src',"");
         $("#buraco1").css('display',"none");
         $('#cenouracesta1').css('display', 'block');
@@ -395,6 +400,7 @@
       }
     });
     $('#buraco2').click(function(){
+      playAudioButton()
        $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco2").attr('src', "");
@@ -410,7 +416,7 @@
         $("#buraco2").removeClass('bc2');
         $("#buraco2").addClass('brcp2');
       } else if ($('#buraco2').attr('src')== "img/desafios/sustentabilidade/cenoura2.png") {
-       playAudioPlantar()
+       
         $("#buraco2").attr('src',"");
         $("#buraco2").css('display',"none");
         $('#cenouracesta2').css('display', 'block');
@@ -419,6 +425,7 @@
       }
     });
     $('#buraco3').click(function(){
+      playAudioButton()
        $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco3").attr('src', "");
@@ -434,7 +441,7 @@
         $("#buraco3").removeClass('bc3');
         $("#buraco3").addClass('brcp3');
       } else if ($('#buraco3').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
-         playAudioPlantar()
+         
         $("#buraco3").attr('src',"");
         $("#buraco3").css('display',"none");
         $('#tomatecesta1').css('display', 'block');
@@ -443,6 +450,7 @@
       }
     });
     $('#buraco4').click(function(){
+      playAudioButton()
        $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco4").attr('src', "");
@@ -458,7 +466,7 @@
         $("#buraco4").removeClass('bc4');
         $("#buraco4").addClass('brcp4');
       } else if ($('#buraco4').attr('src')== "img/desafios/sustentabilidade/tomate2.png") {
-         playAudioPlantar()
+         
         $("#buraco4").attr('src',"");
         $("#buraco4").css('display',"none");
         $('#tomatecesta2').css('display', 'block');
@@ -467,6 +475,7 @@
       }
     });
     $('#buraco5').click(function(){
+      playAudioButton()
        $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco5").attr('src', "");
@@ -482,7 +491,7 @@
         $("#buraco5").removeClass('bc5');
         $("#buraco5").addClass('brcp5');
       } else if ($('#buraco5').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
-         playAudioPlantar()
+         
         $("#buraco5").attr('src',"");
         $("#buraco5").css('display',"none");
         $('#alfacecesta1').css('display', 'block');
@@ -491,6 +500,7 @@
       }
     });
     $('#buraco6').click(function(){
+      playAudioButton()
        $('#animacaoClickPlantar').css('display', 'none');
         if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/buraco.png"){
           $("#buraco6").attr('src', "");
@@ -506,7 +516,7 @@
         $("#buraco6").removeClass('bc6');
         $("#buraco6").addClass('brcp6');
       } else if ($('#buraco6').attr('src')== "img/desafios/sustentabilidade/alface2.png") {
-         playAudioPlantar()
+         
         $("#buraco6").attr('src',"");
         $("#buraco6").css('display',"none");
         $('#alfacecesta2').css('display', 'block');
@@ -546,7 +556,7 @@
     }
 
 
-    var audio_frutas = new Audio('sounds/feedback/sustentabilidade/Fruta na cesta.wav');
+    var audio_frutas = new Audio('sounds/feedback/Botao 01.wav');
 
     function playAudioFrutas(){
         if(sessionStorage.getItem('sound')=='on'){
@@ -662,7 +672,7 @@
              $('#AnimacaoClickLegumesCesta').jsMovie('destroy');
               $('#AnimacaoClickLegumesPia').jsMovie('destroy');
               $('#animacaoTorneiraPia').jsMovie('destroy');
-            var audio_cozinha = new Audio('sounds/desafios/sustentabilidade desafio 3.wav') ;
+          var audio_cozinha = new Audio('sounds/falas/desafios/mei/parabens3.wav') ;
             destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "full"], true, audio_cozinha)
         }, 300);
@@ -929,7 +939,7 @@
              if(QntVermelho==3 && QntAmarelo===3){
                setTimeout(function () {
                       $('#AnimacaoArrastarCamp').jsMovie('destroy');
-                      var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                 var audio_campinho = new Audio('sounds/falas/desafios/gov/parabens1.wav') ;
                       destroyAnimation('#AnimacaoRoboHelp')
                       congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
@@ -960,7 +970,7 @@
              if(QntVermelho==3 && QntAmarelo===3){
                setTimeout(function () {
                       $('#AnimacaoArrastarCamp').jsMovie('destroy');
-                      var audio_campinho = new Audio('sounds/desafios/governo desafio 1.wav') ;
+                 var audio_campinho = new Audio('sounds/falas/desafios/gov/parabens1.wav') ;
                       destroyAnimation('#AnimacaoRoboHelp')
                       congratsNextLevel(["full","empty","empty"], false, audio_campinho)
                   }, 300);
@@ -982,23 +992,7 @@
     playAudioMouseOver();
     setupLevel()
 
-    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
 
-    function playAudioPlantar(){
-          if(sessionStorage.getItem('sound')=='on'){
-              var promise =audio_plantar.load();
-              var promise =audio_plantar.play();
-
-                if (promise !== undefined) {
-                  promise.then(_ => {
-                      // Autoplay started!
-                  }).catch(error => {
-                      // Autoplay was prevented.
-                      // Show a "Play" button so that user can start playback.
-                  });
-              }
-            }
-      }
 
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
@@ -1034,7 +1028,8 @@
 
 
       drop: function (event, ui) {
-        playAudioPlantar()
+        playAudioButton()
+        
         contAlimentoRua++;
 
         var idAlimentoRua = "#" + ui.draggable[0].id + "cesta";
@@ -1047,7 +1042,7 @@
         if (contAlimentoRua == 4) {
           setTimeout(function () {
             $('#AnimacaoClickONG').jsMovie('destroy');
-            var audio_ong = new Audio('sounds/desafios/governo desafio 2.wav');
+            var audio_ong = new Audio('sounds/falas/desafios/gov/parabens2.wav');
             destroyAnimation('#AnimacaoRoboHelp')
             congratsNextLevel(["full", "half", "empty"], false, audio_ong)
           }, 400);
@@ -1065,23 +1060,7 @@
     playAudioMouseOver();
     setupLevel()
 
-    var audio_plantar = new Audio('sounds/feedback/sustentabilidade/Colheita.wav');
 
-    function playAudioPlantar() {
-      if (sessionStorage.getItem('sound') == 'on') {
-        var promise = audio_plantar.load();
-        var promise = audio_plantar.play();
-
-        if (promise !== undefined) {
-          promise.then(_ => {
-            // Autoplay started!
-          }).catch(error => {
-            // Autoplay was prevented.
-            // Show a "Play" button so that user can start playback.
-          });
-        }
-      }
-    }
     
 
     //A_RoboHelp_create('#AnimacaoRoboHelp');
@@ -1131,7 +1110,7 @@
 
 
       drop: function (event, ui) {
-        playAudioPlantar()
+        
         contJornalRua++;
 
         var idJornalRua = "#" + ui.draggable[0].id + "cesta";
@@ -1147,7 +1126,7 @@
           setTimeout(function () {
             $("#antenaRadio").jsMovie("destroy");
             $('#AnimacaoClickRadio').jsMovie('destroy');
-            var audio_radio = new Audio('sounds/desafios/governo desafio 3.wav');
+            var audio_radio = new Audio('sounds/falas/desafios/gov/parabens3.wav');
             destroyAnimation('#AnimacaoRoboHelp')
             congratsNextLevel(["full", "full", "empty"], false, audio_radio)
           }, 300);
@@ -1215,7 +1194,7 @@
       } else{
         setTimeout(function () {
         $('#AnimacaoClickPrefeitura').jsMovie('destroy');
-         var audio_prefeitura = new Audio('sounds/desafios/governo desafio 4.wav') ;
+          var audio_prefeitura = new Audio('sounds/falas/desafios/gov/parabens4.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full","full","full"], true, audio_prefeitura);
   }, 200);
@@ -1356,7 +1335,7 @@
 
        setTimeout(function () {
          $('#AnimacaoArrastarAlbum1').jsMovie('destroy');
-         var audio_ambum1 = new Audio('sounds/desafios/lazer desafio 1.wav') ;
+         var audio_ambum1 = new Audio('sounds/falas/desafios/laz/parabens1.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false, audio_ambum1)
 
@@ -1489,7 +1468,7 @@
     $( "#btnAlbum2" ).click(function() {
        setTimeout(function () {
          $('#AnimacaoClickAlbum2').jsMovie('destroy');
-         var audio_album2 = new Audio('sounds/desafios/sustentabilidade desafio 1.wav') ;
+         var audio_album2 = new Audio('sounds/falas/desafios/laz/parabens1.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_album2)
 
@@ -1534,7 +1513,7 @@
       if(contErros==7){
       setTimeout(function () {
         $('#AnimacaoClick7erros').jsMovie('destroy');
-         var audio_7erros = new Audio('sounds/desafios/lazer desafio 2.wav') ;
+        var audio_7erros = new Audio('sounds/falas/desafios/laz/parabens3.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "full"], false,  audio_7erros)
 
@@ -1630,7 +1609,7 @@
          $('#AnimacaoArrastBebedouro').jsMovie('destroy');
           $('#AnimacaoArrastBebedouro2').jsMovie('destroy');
           $('#animacaoPingando').jsMovie('destroy');
-         var audio_bebedouro = new Audio('sounds/desafios/inovação desafio 1.wav') ;
+                  var audio_bebedouro = new Audio('sounds/falas/desafios/ino/parabens1.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false,  audio_bebedouro)
 
@@ -1650,7 +1629,7 @@
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
-    var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
+    var audio_trocapeca = new Audio('sounds/feedback/Botao 01.wav');
 
     function playAudioTrocaPeca(){
         if(sessionStorage.getItem('sound')=='on'){
@@ -1709,13 +1688,14 @@
     $( ".next3").click(function() { playAudioTrocaPeca();  A_off(); if (rabo==3){rabo=0; mudaPeca();} else {rabo++;mudaPeca();}});
 
     $( "#btn-lancar .action").click(function() {
+      playAudioButton()
       setTimeout(function () {
        $('#AnimacaoClickFoguete').jsMovie('destroy');
        $('#AnimacaoFoguete').css('display', 'block');
        $('#AnimacaoFoguete').jsMovie('play',1,218,false,false);
                 setTimeout(function () {
            $('#AnimacaoFoguete').jsMovie('destroy');
-         var audio_foguete = new Audio('sounds/desafios/Inovação desafio 2.wav') ;
+                  var audio_foguete = new Audio('sounds/falas/desafios/ino/parabens2.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_foguete)
 
@@ -1771,7 +1751,7 @@
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
-    var audio_trocapeca = new Audio('sounds/feedback/inovacao/Troca de Peca.wav');
+    var audio_trocapeca = new Audio('sounds/feedback/Botao 01.wav');
 
     function playAudioTrocaPeca(){
         if(sessionStorage.getItem('sound')=='on'){
@@ -1840,7 +1820,7 @@
     $( "#btnOKcarro" ).click(function() {
       setTimeout(function () {
       $('#AnimClickCarrinho').jsMovie('destroy');
-       var audio_carro = new Audio('sounds/desafios/Inovação desafio 3.wav') ;
+        var audio_carro = new Audio('sounds/falas/desafios/ino/parabens3.wav') ;
        destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(['full','full','full'], true, audio_carro)
   }, 100);
@@ -1922,7 +1902,7 @@
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
-      var audio_frutas = new Audio('sounds/feedback/sustentabilidade/Fruta na cesta.wav');
+      var audio_frutas = new Audio('sounds/feedback/Botao 01.wav');
 
     function playAudioFrutas(){
         if(sessionStorage.getItem('sound')=='on'){
@@ -1957,6 +1937,7 @@
     var contAlimPrato=0;
     var NS_b = false;
     var NS_p = false;
+    var NS_j = false;
 
     $( ".alimentosSaudaveis , .alimentosNaoSaudaveis, .alimentosSaudaveisP , .alimentosNaoSaudaveisP ").draggable({
           revert: true,
@@ -1995,6 +1976,10 @@
                        if   ($(ui.draggable).hasClass('NSPpirulito')){
                         NS_p=false;
                        }
+                        if ($(ui.draggable).hasClass('NSPjujuba')) {
+                          NS_j = false;
+                        }
+                       
 
 
               } else{
@@ -2028,6 +2013,9 @@
                        if   ($(ui.draggable).hasClass('NSpirulito')){
                         NS_p=true;
                        }
+                if ($(ui.draggable).hasClass('NSjujuba')) {
+                  NS_j = true;
+                }
 
               }
             }
@@ -2035,7 +2023,7 @@
           });
 
     function AndarBilotoAdd(alimento){
-      if(alimento=="#P-alfaceOK" || alimento=="#P-bananaOK" || alimento=="#P-carneOK" ){
+      if (alimento == "#P-alfaceOK" || alimento == "#P-bananaOK" || alimento == "#P-carneOK" || alimento == "#P-batataOK" || alimento == "#P-laranjaOK" || alimento == "#P-queijoOK" || alimento == "#P-ovoOK"){
         bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-arrozOK"){
@@ -2044,7 +2032,7 @@
       if(alimento=="#P-feijaoOK" || alimento=="#P-cenouraOK"){
         bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
-      if (alimento=="#P-bombomOK" || alimento=="#P-pirulitoOK" ) {
+      if (alimento == "#P-bombomOK" || alimento == "#P-pirulitoOK" || alimento == "#P-jujubaOK") {
         bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
@@ -2052,7 +2040,7 @@
 
 
     function AndarBilotoRemove(alimento){
-      if(alimento=="#P-alface" || alimento=="#P-banana" || alimento=="#P-carne" ){
+      if (alimento == "#P-alface" || alimento == "#P-banana" || alimento == "#P-carne" || alimento == "#P-batata" || alimento == "#P-laranja" || alimento == "#P-queijo" || alimento == "#P-ovo"){
         bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
       if(alimento=="#P-arroz"){
@@ -2061,7 +2049,7 @@
       if(alimento=="#P-feijao" || alimento=="#P-cenoura"){
         bilotoLeft = bilotoLeft - 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
-      if (alimento=="#P-bombom" || alimento=="#P-pirulito" ) {
+      if (alimento == "#P-bombom" || alimento == "#P-pirulito" || alimento == "#P-jujuba" ) {
         bilotoLeft = bilotoLeft + 3.44; $( "#biloto" ).animate({left: bilotoLeft+"%"})
       }
 
@@ -2075,12 +2063,12 @@
                     //alert("Seu prato não está saúdavel ainda")
                   }
 
-                  if (NS_b || NS_b){
+                  if (NS_b || NS_b || NS_j){
                     $('#modalSaude5').modal('show')
                    // alert("tem animento não sauável no seu prato");
                   } else{
                      $('#AnimacaoArrastarPrato').jsMovie('destroy');
-                  var audio_prato = new Audio('sounds/desafios/saude desafio 1.wav') ;
+                    var audio_prato = new Audio('sounds/falas/desafios/sau/parabens1.wav') ;
                   destroyAnimation('#AnimacaoRoboHelp')
                     congratsNextLevel(['full', 'half', 'empty'], false, audio_prato)
                   }
@@ -2295,7 +2283,7 @@
           $('#animacaoBalanco').jsMovie('destroy');
           $('#animacaoCampo').jsMovie('destroy');
 
-          var audio_parquinho = new Audio('sounds/desafios/saude desafio 2.wav') ;
+          var audio_parquinho = new Audio('sounds/falas/desafios/sau/parabens2.wav') ;
           destroyAnimation('#AnimacaoRoboHelp')
           congratsNextLevel(["full", "full", "full"], true, audio_parquinho)
         } else{
@@ -2401,7 +2389,7 @@
 
     $("#btnSalvarEF" ).click(function() {
       $('#AnimacaoClickEscolaFora').jsMovie('destroy');
-      var audio_escolaFora = new Audio('sounds/desafios/educacao desafio 1.wav') ;
+      var audio_escolaFora = new Audio('sounds/falas/desafios/edu/parabens1.wav') ;
       destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(['full','empty','empty'], false, audio_escolaFora)
     })
@@ -2911,7 +2899,7 @@
 
     $("#btnSalvarED" ).click(function() {
       $('#AnimacaoClickEscolaDentro').jsMovie('destroy');
-      var audio_escolaDentro = new Audio('sounds/desafios/educacao desafio 2.wav') ;
+      var audio_escolaDentro = new Audio('sounds/falas/desafios/edu/parabens2.wav') ;
       destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(['full','full','empty'], false, audio_escolaDentro)
     })
@@ -3017,7 +3005,7 @@
 
     $("#btnSalvarES" ).click(function() {
       $('#AnimacaoClickEscolaSala').jsMovie('destroy');
-      var audio_escolaSala = new Audio('sounds/desafios/educacao desafio 3.wav') ;
+      var audio_escolaSala = new Audio('sounds/falas/desafios/edu/parabens3.wav') ;
       destroyAnimation('#AnimacaoRoboHelp')
       congratsNextLevel(['full','full','full'],true, audio_escolaSala)
     })
@@ -3178,7 +3166,7 @@
     playAudioMouseOver();
     setupLevel()
 
-    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.mp3');
+    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.wav');
     var moedaSaindo = new Audio('sounds/feedback/economia/Moeda Saindo.wav')
 
     moedaEntrando.load();
@@ -3247,7 +3235,7 @@
 
 setTimeout(function () {
       $('#AnimacTecladoCasa').jsMovie('destroy');
-     var audio_casa = new Audio('sounds/desafios/economia desafio 1.wav') ;
+  var audio_casa = new Audio('sounds/falas/desafios/eco/parabens1.wav') ;
      destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "half", "empty"], false, audio_casa)
   }, 300);
@@ -3445,8 +3433,8 @@ setTimeout(function () {
     //A_RoboHelp_create('#AnimacaoRoboHelp');
     //A_RoboHelp_play('#AnimacaoRoboHelp');
 
-    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.mp3');
-    var moedaSaindo = new Audio('sounds/feedback/economia/Moeda Saindo.wav')
+    var moedaEntrando = new Audio('sounds/feedback/economia/Moeda Entrando.wav');
+    var moedaSaindo = new Audio('sounds/feedback/economia/mos.wav')
 
 
     var cont_bola_edu=1;
@@ -3782,6 +3770,7 @@ setTimeout(function () {
       $('.div_monstrinhos').css('display', 'block');
     })
     $("#guardar_monstrinhos").click(function() {
+      playAudioButton()
       semMonstrinho=true;
       if(qntMoedasM==0){
         $('.div_monstrinhos').css('display', 'none');
@@ -3789,7 +3778,7 @@ setTimeout(function () {
           $('#animacaoEduc').jsMovie('destroy');
             $('#animacaoSaude').jsMovie('destroy');
                $('#animacaoLazer').jsMovie('destroy');
-        var audio_monstrinhos = new Audio('sounds/desafios/economia desafio 2.wav') ;
+        var audio_monstrinhos = new Audio('sounds/falas/desafios/eco/parabens2.wav') ;
         destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "full"], true, audio_monstrinhos)
       } else{

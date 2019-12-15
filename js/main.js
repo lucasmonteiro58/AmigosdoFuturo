@@ -365,9 +365,11 @@ function nextQuestion() {
       //alert("Preencha todos os campos para continuar.")
       return false
     }
+      
   }
   question_number = question_number + 1
   goToQuestion(question_number)
+  console.log($("input").val())
 }
 
 function previousQuestion() {
@@ -633,7 +635,11 @@ function saveInputInStorage(selector) {
   if (questions_array[question_number]["type"] == "options") {
     var value = $("input[name='" + inputName + "']:checked").val()
   } else if (questions_array[question_number]["type"] == "select") {
+   
     var value = $("select").val()
+    if ($("select").val() == undefined) {
+      var value = "Fortaleza"
+    }
   } else {
     var value = $("input").val()
   }
@@ -840,7 +846,7 @@ function resultQuiz() {
       audio_categoria.load();
     })
 
-  }, 300);
+  }, 1300);
 
 
 
@@ -855,6 +861,9 @@ function comment() {
     robozinInteiro_create('#AnimacaoRoboComment', '76%', '65%')
     robozinInteiro_play('#AnimacaoRoboComment', 6)
 
+    
+
+
     //audio sobre a regiao
     var region = searchForRegion()
     if (region) {
@@ -866,6 +875,10 @@ function comment() {
       }
 
       PauseSond(audio_regiao);
+
+      $("#go-comment").mouseover(function () {
+        playAudioMouseOver()
+      });
 
       $("button.toggle.repeat").click(function() {
         playAudioButton()
@@ -1050,8 +1063,12 @@ function hideHelp() {
 // Congragts starts ----------------------------------------------------------------
 function congrats() {
   playAudioMouseOver();
+  var parabens = $('#parabensSom')
+  playSom(parabens)
   robozinAzul_create('#AnimacaoRoboCongrats', '75%', '63%');
-  robozinAzul_play('#AnimacaoRoboCongrats', 5)
+  setTimeout(function () {
+    robozinAzul_play('#AnimacaoRoboCongrats', 5) 
+  }, 1000); 
   createCongrats(congrats_texts[congrats_name])
 
 }
@@ -1508,8 +1525,11 @@ function congratsNextLevel(stars, ended, sound) {
   congrats_name = actual_badge["id"] + "_" + actual_level
   level_stars = stars
   if (sessionStorage.getItem('sound') == 'on') {
-    sound.play();
-    PauseSond(sound);
+    setTimeout(function () {
+      sound.play();
+      PauseSond(sound);
+    }, 1500);
+    
   }
 
   if (ended) {
