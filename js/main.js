@@ -529,10 +529,10 @@ function createQuestion(question, number) {
     $("#question-content").html(questionHTML)
     configClick("select")
 
-    // $('.select_city').select2({
-    //   placeholder: "Escolha o nome da sua cidade",
-    //   dropdownParent: $('.form-question')
-    // });
+    $('.select_city').select2({
+      placeholder: "Escolha o nome da sua cidade",
+      dropdownParent: $('.form-question')
+    });
 
   } else {
     if (question["name"] == "age") {
