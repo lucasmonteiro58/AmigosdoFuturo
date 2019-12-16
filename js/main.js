@@ -511,7 +511,7 @@ function createQuestion(question, number) {
         "<label for='" + question["name"] + o + "' class='action orange' onmouseover='playAudioMS()'>" + question["options"][o] + "</label></input>"
     }
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form>" + optionsHTML + "</form></li> <button class='toggle repeat repeat-form' onclick='repeat_form()' onmouseover='playAudioMS()'></button>"
+      "<li><form>" + optionsHTML + "</form></li>"
 
     $("#question-content").html(questionHTML)
     configClickOptions()
@@ -524,7 +524,7 @@ function createQuestion(question, number) {
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><select class='select_city' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
-      "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li> <button class='toggle repeat repeat-form'  onmouseover='playAudioMS()'></button>"
+      "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + ""
 
     $("#question-content").html(questionHTML)
     configClick("select")
