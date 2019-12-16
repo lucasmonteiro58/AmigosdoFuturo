@@ -233,7 +233,7 @@ function menu() {
   playAudioMouseOver();
 
   $("#start-game").click(function() {
-    //openFullscreen()
+    openFullscreen()
     playAudioButton();
     cutscene_name = "start"
     destroyAnimation('#counter2')
