@@ -523,16 +523,22 @@ function createQuestion(question, number) {
     }
 
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
-      "<li><form><select class='select_city' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
+      "<li><form><select class='select_city flexselect' name='" + question["name"] + "'>" + selectOptions + "</select></form></li>" +
       "<li><button id='questions-next' onclick='playAudioButton()' onclick='repeat_form()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + ""
 
     $("#question-content").html(questionHTML)
     configClick("select")
 
-    $('.select_city').select2({
-      placeholder: "Escolha o nome da sua cidade",
-      dropdownParent: $('.form-question')
-    });
+    // $('.select_city').select2({
+    //   placeholder: "Escolha o nome da sua cidade",
+    //   dropdownParent: $('.form-question')
+    // });
+
+    // $(".select_city").autocomplete({
+    //   source: available_cities
+    // });
+
+    $("select.flexselect").flexselect();
 
   } else {
     if (question["name"] == "age") {
@@ -949,7 +955,7 @@ function createComment(comment) {
   }
   //Set comment text
   var commentHTML = ""
-  commentHTML = "<p>" + comment["text"] + "</p>" +
+  commentHTML = "<p id='id-text-coment' >" + comment["text"] + "</p>" +
     "<button class='toggle repeat' onmouseover='playAudioMS()'></button>"
   $(".robot-comment #text-comment").html(commentHTML)
 
@@ -992,7 +998,7 @@ function commentButtonClicked() {
 function createCommentRegion(comment, region) {
   //Set comment text
   var commentHTML = ""
-  commentHTML = "<p>" + comment["text"] + "<span class='green-text'>" + region["name"] + "</span>?</p>" +
+  commentHTML = "<p id='id-text-coment'>" + comment["text"] + "<span class='green-text'>" + region["name"] + "</span>?</p>" +
     "<button class='toggle repeat' onmouseover='playAudioMS()'></button>"
   $(".robot-comment #text-comment").html(commentHTML)
 
@@ -1073,15 +1079,14 @@ function congrats() {
 
 }
 
+
 function createCongrats(congrats) {
   if (congrats_name == "badge") {
     congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
     $(".robot-congrats #text-comment p").addClass("badge-text-format")
 
-
-
-
   }
+
 
   $(".robot-congrats #text-comment p").html(congrats["text"])
 
@@ -1112,6 +1117,9 @@ function createCongrats(congrats) {
 
   // Action for button clicked
   congratsButtonClicked()
+
+ 
+
 }
 
 function congratsButtonClicked() {

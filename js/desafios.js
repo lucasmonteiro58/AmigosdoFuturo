@@ -65,6 +65,9 @@
         comment_name = "start_quiz"
         destroyAnimation('#AnimacaoRoboHelp');
         createComment(comments_texts[comment_name])
+         if (sessionStorage.getItem('gender') == 'Menina') {
+           $('#id-text-coment').text('Bom trabalho! Agora, precisamos saber que tipo de Amiga do Futuro você é. Responda as perguntas')
+         }
         $("button.toggle.repeat").click(function () {
           if (sessionStorage.getItem('sound') == 'on') {
             robozinInteiro_again('#AnimacaoRoboCommentMapa', 5)

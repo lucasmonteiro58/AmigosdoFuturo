@@ -124,6 +124,7 @@ function configMouseOverBadges() {
   });
 }
 
+
 function stopAudiosStartDesafios() {
     var edu = $("#A_edu");  var eco = $("#A_eco");  var gov = $("#A_gov");  var ino = $("#A_ino");  var laz = $("#A_laz");  var sau = $("#A_sau");  var mei = $("#A_mei")
     stopSom(eco); stopSom(gov); stopSom(edu); stopSom(ino); stopSom(laz); stopSom(sau); stopSom(sau); stopSom(mei)

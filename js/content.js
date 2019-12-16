@@ -464,7 +464,8 @@ var congrats_texts = {
     "text": "Bom trabalho. Isso sim é ser um grande amigo do lazer."
   },
   "ino_0": {
-    "text": "Parabéns! Um inventor precisa ser um ótimo observador."
+    "text": "Parabéns! Um inventor precisa ser um ótimo observador.",
+    "textM": "Parabéns! Uma inventora precisa ser uma ótima observadora"
   },
   "ino_1": {
     "text": "Maravilhoso! É preciso muita criatividade para fazer um foguete."
