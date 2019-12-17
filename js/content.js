@@ -227,7 +227,7 @@ var comments_texts = {
   },
   "start_challenge": {
     "color": "blue",
-    "text": "Agora, me ajude a resolver alguns desafios como um verdadeiro #badge_title#."
+    "text": "Agora, me ajude a resolver alguns desafios #badge_title#."
   },
   "about_region": {
     "color": "green",
@@ -379,7 +379,7 @@ var helps_texts = {
   },
   "laz_1": {
     "title": "Me conta!",
-    "text": "O que tem na sua cidade? Marque as imagens abaixo."
+    "text": "O que tem na sua cidade? Marque as imagens na tela."
   },
   "laz_2": {
     "title": "7 erros.",
@@ -430,7 +430,7 @@ var helps_texts = {
 // Congrats ----------------------------
 var congrats_texts = {
   "badge": {
-    "text": "Você é um #badge_title#. Parabéns!"
+    "text": "Você é #badge_title#. Parabéns!"
   },
   "mei_0": {
     "text": "Parabéns! Você deixou o terreno limpo e ajudou na <a>reciclagem</a> do lixo.",

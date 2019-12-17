@@ -51,8 +51,14 @@
 
 
   var contagemPecaMapa = 0;
+  var audioParabensMapa = "";
 
-  var audioParabensMapa = $('#parabens_mapa')
+  if (sessionStorage.getItem('gender') == 'Menina') {
+    audioParabensMapa = $('#parabens_mapa_menina')
+  } else {
+    audioParabensMapa = $('#parabens_mapa_menino')
+  }
+
   var parabens = new Audio('sounds/feedback/mapa/Sucesso.mp3');
   
 
@@ -1471,7 +1477,7 @@
     $( "#btnAlbum2" ).click(function() {
        setTimeout(function () {
          $('#AnimacaoClickAlbum2').jsMovie('destroy');
-         var audio_album2 = new Audio('sounds/falas/desafios/laz/parabens1.wav') ;
+         var audio_album2 = new Audio('sounds/falas/desafios/laz/parabens2.wav') ;
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_album2)
 
@@ -1612,7 +1618,12 @@
          $('#AnimacaoArrastBebedouro').jsMovie('destroy');
           $('#AnimacaoArrastBebedouro2').jsMovie('destroy');
           $('#animacaoPingando').jsMovie('destroy');
-                  var audio_bebedouro = new Audio('sounds/falas/desafios/ino/parabens1.wav') ;
+          var audio_bebedouro = ''
+           if (sessionStorage.getItem('gender') == 'Menina') {
+              audio_bebedouro = new Audio('sounds/falas/desafios/ino/parabens1M.wav');
+           } else {
+             audio_bebedouro = new Audio('sounds/falas/desafios/ino/parabens1.wav');
+           }                  
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "empty", "empty"], false,  audio_bebedouro)
 

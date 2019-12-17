@@ -233,7 +233,7 @@ function menu() {
   playAudioMouseOver();
 
   $("#start-game").click(function() {
-    openFullscreen()
+    //openFullscreen()
     playAudioButton();
     cutscene_name = "start"
     destroyAnimation('#counter2')
@@ -831,7 +831,13 @@ function resultQuiz() {
 
 
   setTimeout(function() {
-    var audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + ".wav");
+    var audio_categoria = '';
+     if (sessionStorage.getItem('gender') == 'Menina') {
+       audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + "1.wav");
+     } else {
+       audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + ".wav");
+     }
+    
     PauseSond(audio_categoria);
 
 
@@ -951,7 +957,30 @@ function createComment(comment) {
   }
 
   if (comment_name == "start_challenge") {
-    comment["text"] = comment["text"].replace("#badge_title#", actual_badge["title"]);
+    console.log(actual_badge["title"])
+    switch (actual_badge["id"]) {
+      case 'mei':
+        comment["text"] = comment["text"].replace("#badge_title#", "da Sustentabilidade");
+        break;
+      case 'ino':
+         comment["text"] = comment["text"].replace("#badge_title#", "da Inovação");
+         break;
+      case 'edu':
+        comment["text"] = comment["text"].replace("#badge_title#", "da Educação");
+        break;
+      case 'laz':
+        comment["text"] = comment["text"].replace("#badge_title#", "do Lazer");
+        break;
+      case 'sau':
+        comment["text"] = comment["text"].replace("#badge_title#", "da Saúde");
+        break;
+      case 'eco':
+        comment["text"] = comment["text"].replace("#badge_title#", "da Economia");
+        break;
+      case 'gov':
+        comment["text"] = comment["text"].replace("#badge_title#", "do Governo");
+        break;
+    }
   }
   //Set comment text
   var commentHTML = ""
@@ -1082,7 +1111,34 @@ function congrats() {
 
 function createCongrats(congrats) {
   if (congrats_name == "badge") {
-    congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
+     if (sessionStorage.getItem('gender') == 'Menina') {
+       switch (actual_badge["id"]) {
+         case 'mei':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga da Sustentabilidade");
+           break;
+         case 'ino':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga da Inovação");
+           break;
+         case 'edu':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga da Educação");
+           break;
+         case 'laz':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga do Lazer");
+           break;
+         case 'sau':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga da Saúde");
+           break;
+         case 'eco':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga da Economia");
+           break;
+         case 'gov':
+           congrats["text"] = congrats["text"].replace("#badge_title#", "uma amiga do Governo");
+           break;
+       }
+     } else {
+       congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
+     }
+   
     $(".robot-congrats #text-comment p").addClass("badge-text-format")
 
   }
@@ -1117,6 +1173,16 @@ function createCongrats(congrats) {
 
   // Action for button clicked
   congratsButtonClicked()
+
+   if (sessionStorage.getItem('gender') == 'Menina') {
+    if ($('#text-comment-p').text() == 'Bom trabalho. Isso sim é ser um grande amigo do lazer.') {
+      $('#text-comment-p').text('Bom trabalho. Isso sim é ser uma grande amiga do lazer.')
+    }
+     if ($('#text-comment-p').text() == 'Parabéns! Um inventor precisa ser um ótimo observador.') {
+       $('#text-comment-p').text('Parabéns! Uma inventora precisa ser uma ótima observadora.')
+     }
+   }
+  
 
  
 
