@@ -27,8 +27,8 @@ var cutscenes_infos = {
     "jump": "form"
   },
   "end": {
-    "src": "video/video.mp4",
-    "jump": "menu"
+    "src": "video/video2.mp4",
+    "jump": "certificate"
   }
 }
 

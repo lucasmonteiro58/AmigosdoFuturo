@@ -1713,7 +1713,7 @@
          destroyAnimation('#AnimacaoRoboHelp')
         congratsNextLevel(["full", "full", "empty"], false,  audio_foguete)
 
-        }, 9000);
+        }, 7000);
 
   }, 100);
 

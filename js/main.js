@@ -233,7 +233,7 @@ function menu() {
   playAudioMouseOver();
 
   $("#start-game").click(function() {
-    //openFullscreen()
+    openFullscreen()
     playAudioButton();
     cutscene_name = "start"
     destroyAnimation('#counter2')
@@ -1262,7 +1262,8 @@ function feedback() {
     saveInStorage("feedback", $("textarea").val())
     sendAllDataToServer()
     $('#AnimacaoRoboFeedback').jsMovie('destroy');
-    updateSectionAJAX("certificate")
+    cutscene_name = "end"
+    updateSectionAJAX("cutscene2")
   })
 }
 
@@ -1540,11 +1541,56 @@ function cutscene() {
   //videoEnded()
 }
 
+function cutscene2() {
+  playAudioMouseOver();
+  $("#cutscene video source").attr("src", cutscenes_infos[cutscene_name]["src"])
+
+  $("#cutscene .action").click(function () {
+    updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
+  })
+
+  var video_cut = document.getElementById("cutscene_video");
+  video_cut.onended = function () {
+    updateSectionAJAX(cutscenes_infos[cutscene_name]["jump"])
+  };
+
+
+  $(".toggle.sound").click(function () {
+    var cutscene_video = document.getElementById("cutscene_video");
+
+
+    if ($(this).hasClass('sound')) {
+      cutscene_video.muted = true;
+
+
+    } else {
+      cutscene_video.muted = false;
+    }
+
+  });
+
+
+
+  // Play and pause actions
+  $("#cutscene .play").click(function () {
+    play()
+    playAudioButton()
+    $("#cutscene .play").fadeOut(300)
+  })
+  $("#cutscene .pause").click(function () {
+    pause()
+    playAudioButton()
+    $("#cutscene .play").fadeIn(100)
+  })
+
+  //videoEnded()
+}
+
 function videoEnded() {
   var cutscene_video = document.getElementById("cutscene_video");
   cutscene_video.onended = function() {
     // FIX Go to correct question
-    setTimeout(updateSectionAJAX("form"), 3000);
+    setTimeout(updateSectionAJAX("certificate"), 3000);
   };
 }
 
