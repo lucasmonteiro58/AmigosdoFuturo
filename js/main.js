@@ -233,7 +233,7 @@ function menu() {
   playAudioMouseOver();
 
   $("#start-game").click(function() {
-    openFullscreen()
+    // openFullscreen()
     playAudioButton();
     cutscene_name = "start"
     destroyAnimation('#counter2')
@@ -242,10 +242,10 @@ function menu() {
      //updateSectionAJAX("cutscene")
     //  updateSectionAJAX("ino_0")
     //  updateSectionAJAX("comment")
-    actual_badge = badges_texts["ino"]
+    actual_badge = badges_texts["eco"]
     actual_level = 0
     level_stars = ["empty", "empty", "empty"] //empty, half, full
-    updateSectionAJAX("ino_0")
+    updateSectionAJAX("eco_0")
 
   })
 
