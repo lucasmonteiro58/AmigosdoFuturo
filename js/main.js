@@ -237,8 +237,16 @@ function menu() {
     playAudioButton();
     cutscene_name = "start"
     destroyAnimation('#counter2')
-    updateSectionAJAX("cutscene")    
-    //updateSectionAJAX("quiz")
+
+
+     //updateSectionAJAX("cutscene")
+    //  updateSectionAJAX("ino_0")
+    //  updateSectionAJAX("comment")
+    actual_badge = badges_texts["ino"]
+    actual_level = 0
+    level_stars = ["empty", "empty", "empty"] //empty, half, full
+    updateSectionAJAX("ino_0")
+
   })
 
   incrementAccess()
@@ -1631,6 +1639,7 @@ function updateSectionAJAX(name) {
     toggleSoundSetup()
     toggleMusicSetup()
   });
+  console.log(name)
 }
 
 function setupLevel() {

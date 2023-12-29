@@ -423,11 +423,13 @@ var fase_start = [
 
 var queue = new createjs.LoadQueue(false);
 
-queue.on('progress', event => {
+queue.on('progress', event => { 
   console.log(event);
   let progress = Math.floor(event.progress * 100);
   $('#text-loader').text(progress+'%');
   console.log(progress);
+  $('.loader').hide();
+
   if (progress == 100) {
     console.log('complete')
     $('.loader').hide();
