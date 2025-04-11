@@ -242,10 +242,10 @@ function menu() {
      //updateSectionAJAX("cutscene")
     //  updateSectionAJAX("ino_0")
     //  updateSectionAJAX("comment")
-    actual_badge = badges_texts["eco"]
+    actual_badge = badges_texts["edu"]
     actual_level = 0
     level_stars = ["empty", "empty", "empty"] //empty, half, full
-    updateSectionAJAX("eco_0")
+    updateSectionAJAX("edu_0")
 
   })
 
