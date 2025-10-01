@@ -11,9 +11,9 @@ if ($("#menu").length) {
 
 // General  ---------------------------------------------------------------------
 $(document).ready(function() {
- 
-   
- 
+
+
+
   sessionStorage.setItem("sound", "on");
   sessionStorage.setItem("music", "off");
 
@@ -242,10 +242,10 @@ function menu() {
      //updateSectionAJAX("cutscene")
     //  updateSectionAJAX("ino_0")
     //  updateSectionAJAX("comment")
-    actual_badge = badges_texts["edu"]
+    actual_badge = badges_texts["gov"]
     actual_level = 0
     level_stars = ["empty", "empty", "empty"] //empty, half, full
-    updateSectionAJAX("edu_0")
+    updateSectionAJAX("gov_1")
 
   })
 
@@ -308,7 +308,7 @@ function form() {
   var pergunta3 = $('#pergunta3')
 
 
-  
+
   questions_array = questions_texts
 
   actual_section = "form"
@@ -324,9 +324,9 @@ function form() {
   robozinLaranja_again('#AnimacaoRoboForm', 6)
   //A_RoboLaranja1_play('#AnimacaoRoboForm', 6)
 
- 
 
-  
+
+
 }
 
 function stopPerguntasform() {
@@ -373,7 +373,7 @@ function nextQuestion() {
       //alert("Preencha todos os campos para continuar.")
       return false
     }
-      
+
   }
   question_number = question_number + 1
   goToQuestion(question_number)
@@ -556,7 +556,7 @@ function createQuestion(question, number) {
     questionHTML = "<li class='center-title'><h4 class='title'>" + question["title"] + "</h4></li>" +
       "<li><form><input id='nome-input' min='0' autofocus type='" + question["type"] + "' name='" + question["name"] + "' placeholder='" + question["placeholder"] + "'></form></li>" +
       "<li><button id='questions-next' onclick='playAudioButton()' onmouseover='playAudioMS()' class='action orange'>" + question["button_text"] + "</button></li>"
-      
+
 
     $("#question-content").html(questionHTML)
     configClick("input")
@@ -578,7 +578,7 @@ function createQuestion(question, number) {
     $(selector).val(getFromStorage(question["name"]))
   }
 
- 
+
 }
 
 function actionButtonClicked(selector) {
@@ -634,7 +634,7 @@ function submitButtonClick() {
     destroyAnimation('#AnimacaoRoboForm')
     updateSectionAJAX("comment")
     letraMaiuscula();
-    
+
   }
 }
 
@@ -649,7 +649,7 @@ function saveInputInStorage(selector) {
   if (questions_array[question_number]["type"] == "options") {
     var value = $("input[name='" + inputName + "']:checked").val()
   } else if (questions_array[question_number]["type"] == "select") {
-   
+
     var value = $("select").val()
     if ($("select").val() == undefined) {
       var value = "Fortaleza"
@@ -845,7 +845,7 @@ function resultQuiz() {
      } else {
        audio_categoria = new Audio("sounds/falas/amigos/" + actual_badge['id'] + ".wav");
      }
-    
+
     PauseSond(audio_categoria);
 
 
@@ -881,7 +881,7 @@ function comment() {
     robozinInteiro_create('#AnimacaoRoboComment', '76%', '65%')
     robozinInteiro_play('#AnimacaoRoboComment', 6)
 
-    
+
 
 
     //audio sobre a regiao
@@ -1110,8 +1110,8 @@ function congrats() {
   playSom(parabens)
   robozinAzul_create('#AnimacaoRoboCongrats', '75%', '63%');
   setTimeout(function () {
-    robozinAzul_play('#AnimacaoRoboCongrats', 5) 
-  }, 1000); 
+    robozinAzul_play('#AnimacaoRoboCongrats', 5)
+  }, 1000);
   createCongrats(congrats_texts[congrats_name])
 
 }
@@ -1146,7 +1146,7 @@ function createCongrats(congrats) {
      } else {
        congrats["text"] = congrats["text"].replace("#badge_title#", actual_badge["title"]);
      }
-   
+
     $(".robot-congrats #text-comment p").addClass("badge-text-format")
 
   }
@@ -1190,9 +1190,9 @@ function createCongrats(congrats) {
        $('#text-comment-p').text('Parabéns! Uma inventora precisa ser uma ótima observadora.')
      }
    }
-  
 
- 
+
+
 
 }
 
@@ -1650,7 +1650,7 @@ function setupLevel() {
 }
 
 
-function congratsNextLevel(stars, ended, sound) { 
+function congratsNextLevel(stars, ended, sound) {
   congrats_name = actual_badge["id"] + "_" + actual_level
   level_stars = stars
   if (sessionStorage.getItem('sound') == 'on') {
@@ -1658,7 +1658,7 @@ function congratsNextLevel(stars, ended, sound) {
       sound.play();
       PauseSond(sound);
     }, 1500);
-    
+
   }
 
   if (ended) {
