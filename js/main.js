@@ -242,10 +242,10 @@ function menu() {
      //updateSectionAJAX("cutscene")
     //  updateSectionAJAX("ino_0")
     //  updateSectionAJAX("comment")
-    actual_badge = badges_texts["gov"]
+    actual_badge = badges_texts["ino"]
     actual_level = 0
     level_stars = ["empty", "empty", "empty"] //empty, half, full
-    updateSectionAJAX("gov_1")
+    updateSectionAJAX("ino_0")
 
   })
 
